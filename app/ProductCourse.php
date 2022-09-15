@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductCourse extends Model
 {
-    public function products()
+    public function product()
     {
-        return $this->belongsToMany("App\Product");
+        return $this->hasOne("App\Product");
     }
 }
