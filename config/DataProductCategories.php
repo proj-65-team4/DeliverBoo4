@@ -1,3 +1,3 @@
 <?php 
 
-$data = [];
+$data = ["vegano" , "vegetariano" , "senza glutine"];
