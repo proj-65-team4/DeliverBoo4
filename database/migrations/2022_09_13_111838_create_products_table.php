@@ -21,14 +21,14 @@ class CreateProductsTable extends Migration
 
             $table->string("name", 50);
             $table->text("description");
-            $table->float("price", 6, 2);
+            $table->decimal("price", 6, 2);
             $table->boolean("visible")->default(1);
             $table->boolean("available")->default(1);
 
             $table->unsignedBigInteger("product_course_id");
             $table->foreign("product_course_id")->references("id")->on("product_courses");
 
-            $table->text("img_thumb")->nullable();
+            $table->text("image")->nullable();
             $table->timestamps();
         });
     }
