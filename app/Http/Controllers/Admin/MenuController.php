@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Product;
+use App\ProductCategory;
+use App\ProductCourse;
 use Illuminate\Http\Request;
 
 class MenuController extends Controller
@@ -57,7 +60,11 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        //
+      $product = Product::FindOrFail($id);
+      $productCourses = ProductCourse::all();
+      $productCategories = ProductCategory::all();
+
+      return view('admin.products.edit', compact("product", "productCourses", "productCategories"));
     }
 
     /**
@@ -69,7 +76,19 @@ class MenuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $product = Product::findOrFail($id);
+
+      $validateData = $request->validate([
+        'name' => 'required|min:3|max:50',
+        'description' => 'required',
+        'price' => 'required',
+        'visible' => 'required',
+        'available' => 'required',
+      ]);
+      
+      $product->update($validateData);
+
+      return redirect()->route('admin.products.show', $product->id);
     }
 
     /**
