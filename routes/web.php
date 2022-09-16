@@ -27,7 +27,7 @@ Route::middleware("auth")
 ->name("admin.")
 ->prefix("admin")
 ->group(function () {
-    Route::resource("prodotti", "MenuController");
+    Route::resource("products", "MenuController");
 });
 
 
