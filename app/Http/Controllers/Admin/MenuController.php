@@ -83,6 +83,6 @@ class MenuController extends Controller
     {
         $product = Product::findOrFail($id);
         $product->delete();
-        return redirect()->route("admin.menu.index");
+        return redirect()->route("admin.products.index");
     }
 }
