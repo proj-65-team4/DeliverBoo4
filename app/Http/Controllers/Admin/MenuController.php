@@ -15,8 +15,11 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $products = Product::orderBy("name", "asc")->get();
+
+        return view("admin.menu.index", compact("products"));
+        
+        }
 
     /**
      * Show the form for creating a new resource.
