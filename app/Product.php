@@ -6,15 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    public function orders () {
+    protected $fillable = ['name', 'description', 'price', 'visible', 'available'];
+
+    public function orders () 
+    {
         return $this->belongsToMany("App\Order");
     }
 
-    public function product_categories () {
+    public function product_categories () 
+    {
         return $this->belongsToMany("App\ProductCategory");
     }
 
-    public function product_courses () {
+    public function product_courses () 
+    {
         return $this->belongsToMany("App\ProductCourse");
     }
 
