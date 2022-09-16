@@ -1,3 +1,3 @@
 <?php 
 
-$data = ["vegano" , "vegetariano" , "senza glutine"];
+return ["vegano" , "vegetariano" , "senza glutine" , "piccante" , "kosher" , "senza lattosio" , "crudo" , "senza noci"  ];

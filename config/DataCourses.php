@@ -1,6 +1,6 @@
 <?php
 
-$data = [
+return  [
   'antipasti',
   'primi piatti',
   'secondi piatti', 
