@@ -17,8 +17,11 @@ class MenuController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $products = Product::orderBy("name", "asc")->get();
+
+        return view("admin.products.index", compact("products"));
+
+        }
 
     /**
      * Show the form for creating a new resource.
@@ -99,6 +102,8 @@ class MenuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::findOrFail($id);
+        $product->delete();
+        return redirect()->route("admin.products.index");
     }
 }
