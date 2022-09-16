@@ -1,5 +1,5 @@
 <?php
-$data = [
+return [
     [
         "name" => "Italiano",
         "image" => "https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
