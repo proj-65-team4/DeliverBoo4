@@ -122,4 +122,20 @@ $data =
         "available"=>true,
         "image"=>"https://www.hokkaidosushi.it/wp-content/uploads/2019/10/IMG_9660.jpg",
     ],
+    [
+        "name" => "Chicken curry",
+        "description" => "Pollo in salsa curry e spezie",
+        "price"=>8.00,
+        "visible"=>true,
+        "available"=>true,
+        "image"=>"https://craveitall.com/wp-content/uploads/2020/06/Easy-Chicken-Curry-RECIPE-5.jpg",
+    ],
+    [
+        "name" => "Risotto alla milanese",
+        "description" => "Riso carnaroli, zafferano",
+        "price"=>15.00,
+        "visible"=>true,
+        "available"=>true,
+        "image"=>"https://italiasquisita.net/files/chunks/54c9f3cefb5ab971770060c3/photo-max_54c9f847fb5ab96dc2000696.jpg",
+    ],
 ];
