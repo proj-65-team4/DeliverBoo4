@@ -17,8 +17,8 @@ class MenuController extends Controller
     {
         $products = Product::orderBy("name", "asc")->get();
 
-        return view("admin.menu.index", compact("products"));
-        
+        return view("admin.products.index", compact("products"));
+
         }
 
     /**
