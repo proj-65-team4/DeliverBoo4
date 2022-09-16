@@ -86,8 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-<<<<<<< HEAD
-=======
 /***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf ***!
@@ -25049,17 +25047,11 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
->>>>>>> abba6d1e242c7f3a6ac66831a3b7149428d1b0bd
 /***/ "./resources/js/frontend.js":
 /*!**********************************!*\
   !*** ./resources/js/frontend.js ***!
   \**********************************/
 /*! no exports provided */
-<<<<<<< HEAD
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\utente\\Desktop\\Boolean\\DeliverBoo4\\resources\\js\\frontend.js'");
-=======
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -25102,7 +25094,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 
 var routes = [];
->>>>>>> abba6d1e242c7f3a6ac66831a3b7149428d1b0bd
 
 /***/ }),
 
