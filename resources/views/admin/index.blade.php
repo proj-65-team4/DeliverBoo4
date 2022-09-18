@@ -1,5 +1,6 @@
 @extends('layouts.backend.app')
 
+<<<<<<< HEAD
 @section('content')
 {{-- <div class="container">
     <div class="row justify-content-center">
@@ -158,4 +159,16 @@
     </div>
 
 </div>
+=======
+
+@section('page_title', "Dashboard Admin")
+    
+
+@section('page_content')
+    <div class="container">
+        <div class="text-center">
+            <h1>Benvenuti nella dashboard</h1>
+        </div>
+    </div>
+>>>>>>> 44ed8e7a0413bbb8d7d6337cb4f312f4fe555900
 @endsection

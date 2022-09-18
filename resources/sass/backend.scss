@@ -1,0 +1,17 @@
+@import "app";
+
+.main-container {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+
+    .sidebar{
+        padding: 2rem;
+        background-color: gray;
+        width: 200px;
+    }
+
+    main{
+        flex-grow: 1;
+    }
+}

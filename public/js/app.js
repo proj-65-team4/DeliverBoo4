@@ -40141,6 +40141,17 @@ throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\
 
 /***/ }),
 
+/***/ "./resources/sass/backend.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/backend.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
 /*!*******************************************************************************************!*\
   !*** multi ./resources/js/app.js ./resources/sass/backend.scss ./resources/sass/app.scss ***!

@@ -30,7 +30,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+      return view("admin.products.create");
     }
 
     /**
@@ -41,7 +41,7 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
