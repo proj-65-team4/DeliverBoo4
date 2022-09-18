@@ -1,8 +1,8 @@
-@extends('layouts.backend.app')
+@extends('layouts.app')
 
 @section('Completa user')
 
-@section('page_content')
+@section('content')
     <div class="container">
         <h2>Completa i dati del tuo ristorante</h2>
         <form action="{{ route('admin.restaurant.store', $user->id) }}" method="post">
