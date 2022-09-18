@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Restaurant extends Model
 {
+    protected $fillable= ["restaurant_name","address","city", "VAT", "image","slug"];
+
     public function categories(){
         return $this->belongsToMany("App\Category");
     }

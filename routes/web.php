@@ -27,7 +27,15 @@ Route::middleware("auth")
 ->name("admin.")
 ->prefix("admin")
 ->group(function () {
+Route::get("/dashboard", "DashboardController@index")->name("dashboard");
+
     Route::resource("products", "MenuController");
+ /*    Route::resource("restaurant", "RestaurantController"); */
+    Route::get("/restaurant/create/{id}", "RestaurantController@create")->name("restaurant.create");
+    Route::post("/restaurant/{id}", "RestaurantController@store")->name("restaurant.store");
+
+
+
 });
 
 
