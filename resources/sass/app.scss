@@ -1,5 +1,6 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
@@ -7,5 +8,9 @@
 // Variables
 @import 'variables';
 
+//Backend Layout
+@import 'layout/backend';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
