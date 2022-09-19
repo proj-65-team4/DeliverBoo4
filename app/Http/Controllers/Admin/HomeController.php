@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Restaurant;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,8 +23,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index($id)
     {
-        return view('admin.index');
+        $restaurant = Restaurant::findOrFail($id);
+
+        return view('admin.index', compact($restaurant));
     }
 }

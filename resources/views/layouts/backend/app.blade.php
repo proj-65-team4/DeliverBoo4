@@ -23,7 +23,7 @@
             <img src="" width="60px" height="60px" alt="">
             {{-- BISOGNA CRARE IL MENU A TENDINA CHE AL CLICK VISUALIZZA I DETTAGLI DEL RISTORANTE--}}
             <div class="title">
-                <h4 class="ps-2">Nome Ristorante</h4>
+                <h4 class="ps-2">{{ Auth::user()->restaurant->restaurant_name }}</h4>
             </div>
         </div>
 
@@ -70,7 +70,7 @@
                     @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                                {{ Auth::user()->name . " " . Auth::user()->surname}}
                             </a>
     
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
