@@ -97,9 +97,21 @@ class MenuController extends Controller
         'name' => 'required|min:3|max:50',
         'description' => 'required',
         'price' => 'required',
-        'visible' => 'required',
-        'available' => 'required',
+        'visible',
+        'available',
       ]);
+
+      if(isset($_POST["visible"])){
+        $product["visible"] = 1;
+      }else{
+          $product->visible = 0;
+      }
+
+      if(isset($_POST["available"])){
+        $product["available"] = 1;
+      }else{
+          $product->available = 0;
+      }
       
       $product->update($validateData);
 
