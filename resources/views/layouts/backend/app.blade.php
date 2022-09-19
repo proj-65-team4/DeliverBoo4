@@ -20,7 +20,10 @@
 
         {{-- BLOCCO DEL RISTORATORE CHE HA GIà REGISTRATO I DATI DEL RISTORANTE --}}
         <div class="user-wrapper">
-            <img src="" width="60px" height="60px" alt="">
+            <img src="{{!$user->restaurant->image ?? asset("img/placeholder-restaurant")}}" width="60px" height="60px" alt="">
+            {{-- @php
+                dd(!Auth::user()->restaurant->image ? asset("img/placeholder-restaurant") : Auth::user()->restaurant->image)
+            @endphp --}}
             {{-- BISOGNA CRARE IL MENU A TENDINA CHE AL CLICK VISUALIZZA I DETTAGLI DEL RISTORANTE--}}
             <div class="title">
                 <h4 class="ps-2">{{ Auth::user()->restaurant->restaurant_name }}</h4>
@@ -38,7 +41,7 @@
                         <span>Products</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.products.create') }}"><span class="las la-hamburger"></span>
+                    <a href="{{ route('admin.products.create') }}"><span class="las la-plus"></span>
                         <span>Add Products</span></a>
                 </li>
                 <li>
