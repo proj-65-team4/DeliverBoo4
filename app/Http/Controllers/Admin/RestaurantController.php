@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Restaurant;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -59,11 +60,11 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
-        $user = User::findOrFail($id);
+        $user=Auth::user();
         $categories = Category::all();
-        return view("admin.restaurant.create", compact("user", "categories"));
+        return view("admin.restaurant.create", compact("user","categories"));
     }
 
     /**
@@ -72,9 +73,9 @@ class RestaurantController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {   
-        $user = User::findOrFail($id);
+        $user = Auth::user();
 
         $data = $request->all();
         
@@ -98,7 +99,7 @@ class RestaurantController extends Controller
         
         
         $user->restaurant = new Restaurant();
-        $user->restaurant->user_id=$id;
+        $user->restaurant->user_id=$user->id;
         if($pathImg){
             $user->restaurant->image = $pathImg;
         }
