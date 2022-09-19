@@ -25,7 +25,7 @@
                                 alt=""></td> --}}
 
                         <td><button type="button" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$product->id}}">
-                                <img class="" style="height: 80px"
+                                <img class="" style="height: 80px" data-bs-toggle="tooltip"
                                     src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
                                     alt="">
                             </button></td>

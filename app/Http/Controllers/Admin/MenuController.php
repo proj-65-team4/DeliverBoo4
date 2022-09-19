@@ -32,7 +32,8 @@ class MenuController extends Controller
     public function create()
     {
       $courses= ProductCourse::all();
-      return view("admin.products.create", compact("courses"));
+      $categories= ProductCategory::all();
+      return view("admin.products.create", compact("courses","categories"));
     }
 
     /**
