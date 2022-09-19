@@ -20,10 +20,8 @@
 
         {{-- BLOCCO DEL RISTORATORE CHE HA GIà REGISTRATO I DATI DEL RISTORANTE --}}
         <div class="user-wrapper">
-            <img src="" width="60px" height="60px" alt="">
-            {{-- @php
-                dd(!Auth::user()->restaurant->image ? asset("img/placeholder-restaurant") : Auth::user()->restaurant->image)
-            @endphp --}}
+            <img src="{{Auth::user()->restaurant->pathImg = null ?? asset("img/placeholder-restaurant.png")}}" width="60px" height="60px" alt="">
+        
             {{-- BISOGNA CRARE IL MENU A TENDINA CHE AL CLICK VISUALIZZA I DETTAGLI DEL RISTORANTE--}}
             <div class="title">
                 <h4 class="ps-2">{{ Auth::user()->restaurant->restaurant_name }}</h4>
@@ -100,9 +98,9 @@
             {{-- BLOCCO DEL RISTORANTE DA VISUALIZZARE IN MOBILE --}}
 
             <div class="user-wrapper-mobile">
-                <img src="" width="55px" height="55px" alt="">
+                <img src="{{Auth::user()->restaurant->pathImg = null ?? asset("img/placeholder-restaurant.png")}}" width="55px" height="55px" alt="">
                 <div>
-                    <h4>Nome Ristorante</h4>
+                    <h4>{{ Auth::user()->restaurant->restaurant_name }}</h4>
                 </div>
             </div>
         </header>
