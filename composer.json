@@ -35,8 +35,13 @@
         }
     },
     "autoload": {
+        "exclude-from-classmap":[
+            "vendor\\laravel\\ui\\auth-backend\\RegistersUsers.php",
+            "vendor\\laravel\\ui\\auth-backend\\RedirectsUsers.php"
+        ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Illuminate\\": "overrides"
         },
         "classmap": [
             "database/seeds",
