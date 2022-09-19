@@ -7,6 +7,7 @@ use App\Product;
 use App\ProductCategory;
 use App\ProductCourse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
 {
@@ -41,7 +42,15 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->all();
+
+        $newProduct = new Product();
         
+        $newProduct->fill($data);
+        $newProduct->user_id = Auth::user()->id;
+        $newProduct->save();
+
+        return redirect()->route("admin.products.show" , $newProduct->id);
     }
 
     /**
