@@ -35,12 +35,12 @@
 
         <div class="check-input d-flex gap-5">
           <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" value="" role="switch" id="ProductVisible" {{ $product->visible === 1 ? 'checked' : '' }} >
+            <input class="form-check-input" type="checkbox" name="visible" role="switch" id="ProductVisible" {{ $product->visible === 1 ? 'checked' : '' }} >
             <label class="form-check-label" for="ProductVisible">Prodotto Visibile</label>
           </div>
     
           <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" name="available" role="switch" id="ProductAvailable" {{ $product->available === 1 ? 'checked' : '' }}>
+            <input class="form-check-input" type="checkbox" name="available" role="switch" id="ProductAvailable" {{ old("active") == 1 || $product["available"] == 1 ? 'checked' : '' }}>
             <label class="form-check-label" for="ProductAvailable">Prodotto Disponibile</label>
           </div>
         </div>
