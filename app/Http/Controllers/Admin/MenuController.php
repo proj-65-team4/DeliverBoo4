@@ -44,14 +44,36 @@ class MenuController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $user = Auth::user();
 
-        $newProduct = new Product();
+        $user->product = new Product();
         
-        $newProduct->fill($data);
-        $newProduct->user_id = Auth::user()->id;
-        $newProduct->save();
+        $validateData = $request->validate([
+          'name' => 'required|min:3|max:50',
+          'description' => 'required',
+          'price' => 'required',
+          'visible',
+          'available',
+        ]);
+  
+        if(isset($_POST["visible"])){
+          $user->product["visible"] = 1;
+        }else{
+          $user->product->visible = 0;
+        }
+  
+        if(isset($_POST["available"])){
+          $user->product["available"] = 1;
+        }else{
+          $user->product->available = 0;
+        }
 
-        return redirect()->route("admin.products.show" , $newProduct->id);
+
+        $user->product->fill($validateData);
+        $user->product->user_id = $user->id;
+        $user->product->save();
+
+        return redirect()->route("admin.products.show" , $user->product->id);
     }
 
     /**
