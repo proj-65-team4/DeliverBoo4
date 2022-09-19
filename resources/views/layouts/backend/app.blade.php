@@ -31,15 +31,15 @@
         <div class="sidebar-menu">
             <ul class="list-unstyled">
                 <li>
-                    <a href="{{ route('admin.dashboard') }}" class="active"><span class="las la-window-maximize"></span>
+                    <a href="{{ route('admin.dashboard') }}" class="{{ Request::route()->getName() === 'admin.dashboard' ? 'active' : '' }}"><span class="las la-window-maximize"></span>
                         <span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.products.index') }}"><span class="las la-hamburger"></span>
+                    <a href="{{ route('admin.products.index') }}" class="{{ Request::route()->getName() === 'admin.products.index' ? 'active' : '' }}"><span class="las la-hamburger"></span>
                         <span>Products</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.products.create') }}"><span class="las la-plus"></span>
+                    <a href="{{ route('admin.products.create') }}" class="{{ Request::route()->getName() === 'admin.products.create' ? 'active' : '' }}"><span class="las la-plus"></span>
                         <span>Add Products</span></a>
                 </li>
                 <li>

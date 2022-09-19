@@ -20,6 +20,8 @@ class MenuController extends Controller
     {
         $products = Product::orderBy("name", "asc")->get();
 
+        $products->load('product_courses');
+
         return view("admin.products.index", compact("products"));
 
         }
@@ -32,7 +34,8 @@ class MenuController extends Controller
     public function create()
     {
       $courses= ProductCourse::all();
-      return view("admin.products.create", compact("courses"));
+      $categories= ProductCategory::all();
+      return view("admin.products.create", compact("courses","categories"));
     }
 
     /**
@@ -52,6 +55,7 @@ class MenuController extends Controller
           'name' => 'required|min:3|max:50',
           'description' => 'required',
           'price' => 'required',
+          'product_course_id'=> 'required',
           'visible',
           'available',
         ]);
