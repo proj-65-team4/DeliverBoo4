@@ -24,7 +24,7 @@
                                 src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
                                 alt=""></td> --}}
 
-                        <td><button type="button" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$product->id}}">
+                        <td class="text-center"><button type="button" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$product->id}}">
                                 <img class="" style="height: 80px"
                                     src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
                                     alt="">
@@ -52,7 +52,7 @@
                         <td>€ {{ $product->price }}</td>
 
                         <td>{{ $product->product_course_id ? $product->product_course_id->name : 'non inserita' }}</td>
-                        <td>{{ $product->product_category_id ? $product->product_category_id->name : 'non inserita' }}</td>
+                        {{-- <td>{{ $product->product_category_id ? $product->product_category_id->name : 'non inserita' }}</td> --}}
 
                         <td><i class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></td>
                         <td><i class="fa-solid {{ $product->available === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></td>
@@ -60,18 +60,14 @@
                         {{-- Button SHOW --}}
                         <td>
                             <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-warning">
-                                <svg class="bi" width="16" height="16">
-                                    <use xlink:href="/bootstrap-icons.svg#eye-fill"></use>
-                                </svg>
+                                <i class="fa-solid fa-eye fa-lg"></i>
                             </a>
                         </td>
 
                         {{-- Button EDIT --}}
                         <td>
                             <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-info">
-                                <svg class="bi" width="16" height="16">
-                                    <use xlink:href="/bootstrap-icons.svg#pencil-square"></use>
-                                </svg>
+                                <i class="fa-regular fa-pen-to-square fa-lg"></i>
                             </a>
                         </td>
 
@@ -81,7 +77,7 @@
                                 class="d-inline-block">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can fa-lg"></i></button>
                             </form>
                         </td>
                     </tr>

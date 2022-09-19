@@ -20,6 +20,8 @@ class MenuController extends Controller
     {
         $products = Product::orderBy("name", "asc")->get();
 
+        $products->load('product_courses');
+
         return view("admin.products.index", compact("products"));
 
         }
