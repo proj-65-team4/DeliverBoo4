@@ -43,8 +43,8 @@
                 </div>
                 
                 <div class="mb-3">
-                    <label for="courses">Portata del piatto</label>
-                    <select class="form-select" name="courses" id="courses" required>
+                    <label for="product_course_id">Portata del piatto</label>
+                    <select class="form-select" name="product_course_id" id="product_course_id" required>
                         <option value="">Seleziona piatto</option>
                         @foreach ($courses as $course)
 

@@ -53,6 +53,7 @@ class MenuController extends Controller
           'name' => 'required|min:3|max:50',
           'description' => 'required',
           'price' => 'required',
+          'product_course_id'=> 'required',
           'visible',
           'available',
         ]);
