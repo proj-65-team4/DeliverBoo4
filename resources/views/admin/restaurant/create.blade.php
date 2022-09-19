@@ -5,12 +5,12 @@
 @section('content')
     <div class="container">
         <h2>Completa i dati del tuo ristorante</h2>
-        <form action="{{ route('admin.restaurant.store', $user->id) }}" method="post">
+        <form action="{{ route('admin.restaurant.store', $user->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method("POST")
             <div class="mb-3">
                 <label for="city">Inserisci città</label>
-                <input type="text" name="city" id="city" placeholder="Inserisci città">
+                <input type="text" name="city" value="Napoli" id="city" disabled>
             </div>
             <div class="mb-3">
                 <label for="address">Inserisci indirizzo</label>
