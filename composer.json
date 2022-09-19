@@ -39,9 +39,9 @@
             "vendor\\laravel\\ui\\auth-backend\\RegistersUsers.php",
             "vendor\\laravel\\ui\\auth-backend\\RedirectsUsers.php"
         ],
+        "files": ["app/overrides/RedirectsUsers.php","app/overrides/RegistersUsers.php"],
         "psr-4": {
-            "App\\": "app/",
-            "Illuminate\\": "overrides"
+            "App\\": "app/"
         },
         "classmap": [
             "database/seeds",
