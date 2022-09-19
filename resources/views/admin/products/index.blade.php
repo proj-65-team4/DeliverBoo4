@@ -42,6 +42,15 @@
                           </a>
 
 
+                        {{-- Buttone DELETE  --}}
+
+                        <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" class="d-inline-block">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger"><i
+                                    class="fa-solid fa-trash-can"></i></button>
+                        </form>
+
                     </div>
                 </div>
             @endforeach
