@@ -23,7 +23,7 @@
             <img src="" width="60px" height="60px" alt="">
             {{-- BISOGNA CRARE IL MENU A TENDINA CHE AL CLICK VISUALIZZA I DETTAGLI DEL RISTORANTE--}}
             <div class="title">
-                <h4 class="ps-2">{{ Auth::user()->restaurant->restaurant_name }}</h4>
+                <h4 class="ps-2">{{ Auth::user()->restaurant->restaurant_name ? Auth::user()->restaurant->restaurant_name : 'Nome Ristorante' }}</h4>
             </div>
         </div>
 

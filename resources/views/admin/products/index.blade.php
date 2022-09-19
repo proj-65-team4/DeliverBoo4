@@ -3,57 +3,90 @@
 @section('content')
     <div class="container-fluid">
         <h1 class="pb-4 pt-1">Prodotti inseriti</h1>
-        <div class="row justify-content-center">
-            @foreach ($products as $product)
-                <div class="col-sm-12 py-4">
 
-                    {{-- TITLE --}}
-                    <h3 class="py-3 fw-bold">{{ $product->name }}</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Immagine</th>
+                    <th>Nome prodotto</th>
+                    <th>Prezzo</th>
+                    <th>Portata</th>
+                    <th>Categoria</th>
+                    <th>Visibile</th>
+                    <th>Disponibile</th>
+                </tr>
+            </thead>
 
-                    {{-- Image --}}
-                    <div class="backend-img m-auto">
-                        <img class="index-img" src="{{ $product->image ? $product->image : asset("img/food-placeholder.jpeg") }}" alt="">
-                    </div>
+            <tbody>
+                @foreach ($products as $product)
+                    <tr>
+                        {{-- <td><img class="img-thumbnail" style="height: 80px"
+                                src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
+                                alt=""></td> --}}
 
-                    {{-- Info base --}}
-                    <div>
-                        <div>Prezzo: € {{ $product->price }}</div>
-                        <div>Portata: {{ $product->product_course_id ? $product->product_course_id->name : 'non inserita' }}
+                        <td><button type="button" class="img-thumbnail" data-bs-toggle="modal" data-bs-target="#exampleModal-{{$product->id}}">
+                                <img class="" style="height: 80px"
+                                    src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
+                                    alt="">
+                            </button></td>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal-{{$product->id}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img class="" style="height: 300px"
+                                    src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
+                                    alt="">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>Categoria:
-                            {{ $product->product_course_id ? $product->product_course_id->name : 'non inserita' }}</div>
-                        <div>Visibile: <i class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></div>
-                        <div>Disponibile: <i class="fa-solid {{ $product->available === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></div>
+
+                        <td>{{ $product->name }}</td>
+                        <td>€ {{ $product->price }}</td>
+
+                        <td>{{ $product->product_course_id ? $product->product_course_id->name : 'non inserita' }}</td>
+                        <td>{{ $product->product_category_id ? $product->product_category_id->name : 'non inserita' }}</td>
+
+                        <td><i class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></td>
+                        <td><i class="fa-solid {{ $product->available === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></td>
 
                         {{-- Button SHOW --}}
-
-                        <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-warning">
-                            <svg class="bi" width="16" height="16">
-                                <use xlink:href="/bootstrap-icons.svg#eye-fill"></use>
-                            </svg>
-                        </a>
+                        <td>
+                            <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-warning">
+                                <svg class="bi" width="16" height="16">
+                                    <use xlink:href="/bootstrap-icons.svg#eye-fill"></use>
+                                </svg>
+                            </a>
+                        </td>
 
                         {{-- Button EDIT --}}
+                        <td>
+                            <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-info">
+                                <svg class="bi" width="16" height="16">
+                                    <use xlink:href="/bootstrap-icons.svg#pencil-square"></use>
+                                </svg>
+                            </a>
+                        </td>
 
-                        <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-info">
-                            <svg class="bi" width="16" height="16">
-                              <use xlink:href="/bootstrap-icons.svg#pencil-square"></use>
-                            </svg>
-                          </a>
-
-
-                        {{-- Buttone DELETE  --}}
-
-                        <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" class="d-inline-block">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger"><i
-                                    class="fa-solid fa-trash-can"></i></button>
-                        </form>
-
-                    </div>
-                </div>
-            @endforeach
-        </div>
+                        {{-- Button DELETE --}}
+                        <td>
+                            <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST"
+                                class="d-inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
 @endsection
