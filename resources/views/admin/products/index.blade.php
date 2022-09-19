@@ -12,7 +12,7 @@
 
                     {{-- Image --}}
                     <div class="backend-img m-auto">
-                        <img class="index-img" src="{{ $product->image }}" alt="">
+                        <img class="index-img" src="{{ $product->image ? $product->image : asset("img/food-placeholder.jpeg") }}" alt="">
                     </div>
 
                     {{-- Info base --}}
@@ -22,8 +22,8 @@
                         </div>
                         <div>Categoria:
                             {{ $product->product_course_id ? $product->product_course_id->name : 'non inserita' }}</div>
-                        <div>Visibile: {{ $product->visible === 1 ? 'SI' : 'NO' }}</div>
-                        <div>Disponibile: {{ $product->available === 1 ? 'SI' : 'NO' }}</div>
+                        <div>Visibile: <i class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></div>
+                        <div>Disponibile: <i class="fa-solid {{ $product->available === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></div>
 
                         {{-- Button SHOW --}}
 
