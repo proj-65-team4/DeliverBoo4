@@ -20,7 +20,8 @@
 
         {{-- BLOCCO DEL RISTORATORE CHE HA GIà REGISTRATO I DATI DEL RISTORANTE --}}
         <div class="user-wrapper">
-            <img src="" width="60px" height="60px" alt="">
+            <img src="{{Auth::user()->restaurant->pathImg = null ?? asset("img/placeholder-restaurant.png")}}" width="60px" height="60px" alt="">
+        
             {{-- BISOGNA CRARE IL MENU A TENDINA CHE AL CLICK VISUALIZZA I DETTAGLI DEL RISTORANTE--}}
             <div class="title">
                 <h4 class="ps-2">{{ Auth::user()->restaurant->restaurant_name ? Auth::user()->restaurant->restaurant_name : 'Nome Ristorante' }}</h4>
@@ -30,7 +31,7 @@
         <div class="sidebar-menu">
             <ul class="list-unstyled">
                 <li>
-                    <a href="{{ route('admin') }}" class="active"><span class="las la-window-maximize"></span>
+                    <a href="{{ route('admin.dashboard') }}" class="active"><span class="las la-window-maximize"></span>
                         <span>Dashboard</span></a>
                 </li>
                 <li>
@@ -38,7 +39,7 @@
                         <span>Products</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('admin.products.create') }}"><span class="las la-hamburger"></span>
+                    <a href="{{ route('admin.products.create') }}"><span class="las la-plus"></span>
                         <span>Add Products</span></a>
                 </li>
                 <li>
@@ -97,9 +98,9 @@
             {{-- BLOCCO DEL RISTORANTE DA VISUALIZZARE IN MOBILE --}}
 
             <div class="user-wrapper-mobile">
-                <img src="" width="55px" height="55px" alt="">
+                <img src="{{Auth::user()->restaurant->pathImg = null ?? asset("img/placeholder-restaurant.png")}}" width="55px" height="55px" alt="">
                 <div>
-                    <h4>Nome Ristorante</h4>
+                    <h4>{{ Auth::user()->restaurant->restaurant_name }}</h4>
                 </div>
             </div>
         </header>
