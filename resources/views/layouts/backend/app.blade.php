@@ -29,11 +29,15 @@
         <div class="sidebar-menu">
             <ul class="list-unstyled">
                 <li>
-                    <a href="" class="active"><span class="las la-window-maximize"></span>
+                    <a href="{{ route('admin') }}" class="active"><span class="las la-window-maximize"></span>
                         <span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a href=""><span class="las la-hamburger"></span>
+                    <a href="{{ route('admin.products.index') }}"><span class="las la-hamburger"></span>
+                        <span>Products</span></a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.products.create') }}"><span class="las la-hamburger"></span>
                         <span>Add Products</span></a>
                 </li>
                 <li>
