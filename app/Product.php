@@ -20,7 +20,7 @@ class Product extends Model
 
     public function product_courses () 
     {
-        return $this->belongsToMany("App\ProductCourse");
+        return $this->belongsTo("App\ProductCourse");
     }
 
 
