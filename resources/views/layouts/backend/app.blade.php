@@ -20,7 +20,7 @@
 
         {{-- BLOCCO DEL RISTORATORE CHE HA GIà REGISTRATO I DATI DEL RISTORANTE --}}
         <div class="user-wrapper">
-            <img src="{{!$user->restaurant->image ?? asset("img/placeholder-restaurant")}}" width="60px" height="60px" alt="">
+            <img src="" width="60px" height="60px" alt="">
             {{-- @php
                 dd(!Auth::user()->restaurant->image ? asset("img/placeholder-restaurant") : Auth::user()->restaurant->image)
             @endphp --}}
