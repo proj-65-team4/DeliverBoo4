@@ -75,33 +75,33 @@
                             {{-- CICLARE PER VISUALIZZARE I DATI DEI PIATTI --}}
                             <tr>
                                 <td>Prodotto 1</td>
-                                <td><span class="status status-false"></span>not available</td>
-                                <td><span class="status status-false"></span>not visible</td>
+                                <td><span class="status status-false"></span><span class="text-status">not available</span></td>
+                                <td><span class="status status-false"></span><span class="text-status">not visible</span></td>
                             </tr>
                             <tr>
                                 <td>Prodotto 2</td>
-                                <td><span class="status status-true"></span>available</td>
-                                <td><span class="status status-true"></span>visible</td>
+                                <td><span class="status status-true"></span><span class="text-status">available</span></td>
+                                <td><span class="status status-true"></span><span class="text-status">visible</span></td>
                             </tr>
                             <tr>
                                 <td>Prodotto 3</td>
-                                <td><span class="status status-false"></span>not available</td>
-                                <td><span class="status status-false"></span>not visible</td>
+                                <td><span class="status status-false"></span><span class="text-status">not available</span></td>
+                                <td><span class="status status-false"></span><span class="text-status">not visible</span></td>
                             </tr>
                             <tr>
                                 <td>Prodotto 4</td>
-                                <td><span class="status status-false"></span>not available</td>
-                                <td><span class="status status-false"></span>not visible</td>
+                                <td><span class="status status-false"></span><span class="text-status">not available</span></td>
+                                <td><span class="status status-false"></span><span class="text-status">not visible</span></td>
                             </tr>
                             <tr>
                                 <td>Prodotto 5</td>
-                                <td><span class="status status-true"></span>available</td>
-                                <td><span class="status status-true"></span>visible</td>
+                                <td><span class="status status-true"></span><span class="text-status">available</span></td>
+                                <td><span class="status status-true"></span><span class="text-status">visible</span></td>
                             </tr>
                             <tr>
                                 <td>Prodotto 6</td>
-                                <td><span class="status status-true"></span>available</td>
-                                <td><span class="status status-false"></span>not visible</td>
+                                <td><span class="status status-true"></span><span class="text-status">available</span></td>
+                                <td><span class="status status-false"></span><span class="text-status">not visible</span></td>
                             </tr>
                         </tbody>
                     </table>
