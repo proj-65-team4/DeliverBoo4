@@ -79,7 +79,7 @@
                                 <td><span class="status status-false"></span><span class="text-status">not visible</span></td>
                             </tr>
                             <tr>
-                                <td>Prodotto 2</td>
+                                <td>Prodotto 12</td>
                                 <td><span class="status status-true"></span><span class="text-status">available</span></td>
                                 <td><span class="status status-true"></span><span class="text-status">visible</span></td>
                             </tr>

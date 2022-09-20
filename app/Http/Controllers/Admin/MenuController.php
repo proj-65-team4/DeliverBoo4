@@ -12,147 +12,158 @@ use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        // $products = Product::orderBy("name", "asc")->get();
-        $user = Auth::user();
-        $products = Product::orderBy("name", "asc")->where('user_id',$user->id)->get();;
+  /**
+   * Display a listing of the resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function index()
+  {
+    // $products = Product::orderBy("name", "asc")->get();
+    $user = Auth::user();
+    $products = Product::orderBy("name", "asc")->where('user_id', $user->id)->get();
 
-        return view("admin.products.index", compact("products"));
 
-        }
+    return view("admin.products.index", compact("products"));
+  }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-      $courses= ProductCourse::all();
-      $categories= ProductCategory::all();
-      return view("admin.products.create", compact("courses","categories"));
+  /**
+   * Show the form for creating a new resource.
+   *
+   * @return \Illuminate\Http\Response
+   */
+  public function create()
+  {
+    $courses = ProductCourse::all();
+    $categories = ProductCategory::all();
+    return view("admin.products.create", compact("courses", "categories"));
+  }
+
+  /**
+   * Store a newly created resource in storage.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+  public function store(StoreProductRequest $request)
+  {
+    $data = $request->all();
+    $user = Auth::user();
+
+    $courses = ProductCourse::findOrFail($request->product_course_id);
+
+    $user->product = new Product();
+
+    $validateData = $request->validated();
+
+    if (isset($_POST["visible"])) {
+      $user->product["visible"] = 1;
+    } else {
+      $user->product->visible = 0;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreProductRequest $request)
-    {
-        $data = $request->all();
-        $user = Auth::user();
-        
-        $courses = ProductCourse::findOrFail($request->product_course_id);
-        
-        $user->product = new Product();
-        
-        $validateData = $request->validated();
-  
-        if(isset($_POST["visible"])){
-          $user->product["visible"] = 1;
-        }else{
-          $user->product->visible = 0;
-        }
-  
-        if(isset($_POST["available"])){
-          $user->product["available"] = 1;
-        }else{
-          $user->product->available = 0;
-        }
-
-        $user->product->fill($validateData);
-        $user->product->user_id = $user->id;
-        /* $user->product->save(); */
-        $courses->products()->save($user->product);
-
-        return redirect()->route("admin.products.show" , $user->product->id);
+    if (isset($_POST["available"])) {
+      $user->product["available"] = 1;
+    } else {
+      $user->product->available = 0;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-      $product = Product::findOrFail($id);
-
-      return view("admin.products.show", compact("product"));
+    $user->product->fill($validateData);
+    $user->product->user_id = $user->id;
+    /* $user->product->save(); */
+    $courses->products()->save($user->product);
+    if (key_exists("categories", $data)) {
+      $user->product->product_categories()->attach($data["categories"]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-      $product = Product::FindOrFail($id);
-      $productCourses = ProductCourse::all();
-      $productCategories = ProductCategory::all();
 
-      return view('admin.products.edit', compact("product", "productCourses", "productCategories"));
+
+
+    return redirect()->route("admin.products.show", $user->product->id);
+  }
+
+  /**
+   * Display the specified resource.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function show($id)
+  {
+    $product = Product::findOrFail($id);
+
+    return view("admin.products.show", compact("product"));
+  }
+
+  /**
+   * Show the form for editing the specified resource.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function edit($id)
+  {
+    $product = Product::FindOrFail($id);
+    $productCourses = ProductCourse::all();
+    $productCategories = ProductCategory::all();
+
+    return view('admin.products.edit', compact("product", "productCourses", "productCategories"));
+  }
+
+  /**
+   * Update the specified resource in storage.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function update(StoreProductRequest $request, $id)
+  {
+
+    $product = Product::findOrFail($id);
+
+    $validateData = $request->validated();
+
+    if (isset($_POST["visible"])) {
+      $product["visible"] = 1;
+    } else {
+      $product->visible = 0;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(StoreProductRequest $request, $id)
-    {
-      $product = Product::findOrFail($id);
-
-      $validateData = $request->validated();
-
-      if(isset($_POST["visible"])){
-        $product["visible"] = 1;
-      }else{
-          $product->visible = 0;
-      }
-
-      if(isset($_POST["available"])){
-        $product["available"] = 1;
-      }else{
-          $product->available = 0;
-      }
-      
-      if($product->product_course_id !== $request->product_course_id){
-        $product->product_course_id = $request->product_course_id;
-      }
-
-      if($product['image'] !== $request->image){
-        $product['image'] = $request->image;
-      }
-
-
-      $product->update($validateData);
-
-      return redirect()->route('admin.products.show', $product->id);
+    if (isset($_POST["available"])) {
+      $product["available"] = 1;
+    } else {
+      $product->available = 0;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        $product = Product::findOrFail($id);
-        $product->delete();
-        return redirect()->route("admin.products.index");
+    if ($product->product_course_id !== $request->product_course_id) {
+      $product->product_course_id = $request->product_course_id;
     }
+
+    if ($product['image'] !== $request->image) {
+      $product['image'] = $request->image;
+    }
+    if (key_exists("categories", $validateData)) {
+      $product->product_categories()->sync($validateData["categories"]);
+    } else {
+      $product->product_categories()->sync([]);
+    }
+
+    $product->update($validateData);
+
+    return redirect()->route('admin.products.show', $product->id);
+  }
+
+  /**
+   * Remove the specified resource from storage.
+   *
+   * @param  int  $id
+   * @return \Illuminate\Http\Response
+   */
+  public function destroy($id)
+  {
+    $product = Product::findOrFail($id);
+    $product->delete();
+    return redirect()->route("admin.products.index");
+  }
 }
