@@ -91,9 +91,18 @@
                 </tbody>
             </table>
         @else
-            <h2>Nessun prodotto esistente</h2>
-            <a href="{{ route('admin.products.create') }}" class="{{ Request::route()->getName() === 'admin.products.create' ? 'active' : '' }}"><span class="las la-plus"></span>
-                <span>Add Products</span></a>
+            <h2 class="text-center">Nessun prodotto esistente</h2>
+                <p class="text-center pt-3">
+                    <button class="btn btn-primary rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        <i class="fa-solid fa-plus text-light fa-lg"></i>
+                    </button>
+                  </p>
+                  <div class="collapse text-center" id="collapseExample">
+                    <a href="{{ route('admin.products.create') }}" class="{{ Request::route()->getName() === 'admin.products.create' ? 'active' : '' }} btn btn-primary rounded-pill px-3">
+                        <span class="text-light">Aggiungi prodotto</span>
+                    </a>
+                  </div>
+                
         @endif
     </div>
 @endsection
