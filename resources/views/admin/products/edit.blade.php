@@ -18,6 +18,17 @@
             {{ $errors->first('name') }}
           </div>
         </div>
+
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}" id="ImageProduct" placeholder="Immagine Prodotto" 
+          name="image" value="{{ old('image') ?? $product->image }}">
+          <label for="ImageProduct">Immagine prodotto</label>
+          <div class="invalid-feedback">
+            {{ $errors->first('image') }}
+          </div>
+        </div>
+
     
         <div class="form-floating mb-3">
           <input type="text" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" id="ProductDescription" placeholder="Descrizione Prodotto" 

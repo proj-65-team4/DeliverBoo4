@@ -147,6 +147,11 @@ class MenuController extends Controller
         $product->product_course_id = $request->product_course_id;
       }
 
+      if($product['image'] !== $request->image){
+        $product['image'] = $request->image;
+      }
+
+
       $product->update($validateData);
 
       return redirect()->route('admin.products.show', $product->id);
