@@ -8,7 +8,7 @@
                 <div class="col-sm-12 py-4">
                     {{-- Image --}}
                     <div class="backend-img m-auto">
-                        <img class="index-img" src="{{ $product->image }}" alt="">
+                        <img class="index-img" src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}" alt="">
                     </div>
 
                     {{-- Info base --}}
