@@ -15,11 +15,13 @@
             <div class="form-container p-5">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="NameProduct"
-                        placeholder="Nome Prodotto" value="{{ old("name") }}" name="name" >
+                      placeholder="Nome Prodotto" value="{{ old("name") }}" name="name" >
                     <label for="NameProduct">Nome prodotto</label>
-                    <div class="invalid-feedback">
-                        {{ $errors->first('name') }}
+                    @error('name')
+                    <div class="invalid-feedback alert alert-danger p-2"> 
+                      {{$message}} 
                     </div>
+                  @enderror
                 </div>
 
 
@@ -35,23 +37,27 @@
 
                 
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
-                        id="ProductDescription" placeholder="Descrizione Prodotto" name="description"
-                        value="{{ old('description')}}">
-                    <label for="ProductDescription">Descrizione Prodotto</label>
-                    <div class="invalid-feedback">
-                        {{ $errors->first('description') }}
+                  <input type="text" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
+                    id="ProductDescription" placeholder="Descrizione Prodotto" name="description"
+                    value="{{ old('description')}}">
+                  <label for="ProductDescription">Descrizione Prodotto</label>
+                  @error('description')
+                    <div class="invalid-feedback alert alert-danger p-2"> 
+                      {{$message}} 
                     </div>
+                  @enderror
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}"
-                        id="ProductPrice" placeholder="Prezzo del Prodotto" name="price"
-                        value="{{ old('price') }}" step=".01">
-                    <label for="floatingInput">Prezzo del Prodotto</label>
-                    <div class="invalid-feedback">
-                        {{ $errors->first('price') }}
+                  <input type="number" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}"
+                    id="ProductPrice" placeholder="Prezzo del Prodotto" name="price"
+                    value="{{ old('price') }}" step=".01">
+                  <label for="floatingInput">Prezzo del Prodotto</label>
+                  @error('price')
+                    <div class="invalid-feedback alert alert-danger p-2"> 
+                      {{$message}} 
                     </div>
+                  @enderror
                 </div>
                 
                 <div class="mb-3">
