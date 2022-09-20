@@ -22,6 +22,18 @@
                     </div>
                 </div>
 
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="ImageProduct"
+                            placeholder="Immagine Prodotto" value="{{ old("image") }}" name="image" >
+                        <label for="ImageProduct">Immagine prodotto</label>
+                        <div class="invalid-feedback">
+                            {{ $errors->first('image') }}
+                        </div>
+                    </div>
+
+
+                
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}"
                         id="ProductDescription" placeholder="Descrizione Prodotto" name="description"

@@ -61,7 +61,9 @@ class MenuController extends Controller
           'visible',
           'available',
         ]);
-  
+
+        $user->product['image'] = $request->image;
+        
         if(isset($_POST["visible"])){
           $user->product["visible"] = 1;
         }else{
