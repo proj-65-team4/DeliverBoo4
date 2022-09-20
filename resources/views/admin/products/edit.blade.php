@@ -36,6 +36,27 @@
             {{ $errors->first('price') }}
           </div>
         </div>
+        @dump($product->course)
+        <div class="select-container d-flex gap-5">
+
+          <div class="course-select flex-grow-1">
+            <label for="coursesInput" class="form-label">Seleziona tipo di piatto</label>
+            <select class="form-select mb-3" aria-label="Default select example" multiple name="course[]" id="coursesInput">
+              @foreach ($productCourses as $course)
+                <option value="{{$course->id}}">{{$course->name}}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="category-select flex-grow-1">
+            <label for="categoryInput" class="form-label">Seleziona tipo di piatto</label>
+            <select class="form-select mb-3" aria-label="Default select example" multiple name="available[]" id="categoryInput">
+              @foreach ($productCategories as $categories)
+                <option value="{{$categories->name}}">{{$categories->name}}</option>
+              @endforeach
+            </select>
+          </div>
+        </div>
 
         <div class="form-floating mb-3">
           <select name="product_course_id" class="form-select" id="">
