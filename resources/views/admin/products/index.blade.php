@@ -2,24 +2,23 @@
 
 @section('content')
     <div class="container-fluid">
-        <h1 class="pb-4 pt-1">Prodotti inseriti</h1>
-        {{-- @php
-            dd($products);
-        @endphp --}}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Immagine</th>
-                    <th>Nome prodotto</th>
-                    <th>Prezzo</th>
-                    <th>Portata</th>
-                    <th>Visibile</th>
-                    <th>Disponibile</th>
-                </tr>
-            </thead>
 
-            <tbody>
-                @if ($products)
+        @if (count($products))
+            <h1 class="pb-4 pt-1">Prodotti inseriti</h1>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Immagine</th>
+                        <th>Nome prodotto</th>
+                        <th>Prezzo</th>
+                        <th>Portata</th>
+                        <th>Visibile</th>
+                        <th>Disponibile</th>
+                    </tr>
+                </thead>
+
+                <tbody>
                     @foreach ($products as $product)
                         <tr>
                             {{-- <td><img class="img-thumbnail" style="height: 80px"
@@ -88,16 +87,13 @@
                             </td>
                         </tr>
                     @endforeach
-                    @else
-                        <h2>Nessun prodotto esistente</h2>
-                        
 
-                @endif
-               
-                    
-                    
-            
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        @else
+            <h2>Nessun prodotto esistente</h2>
+            <a href="{{ route('admin.products.create') }}" class="{{ Request::route()->getName() === 'admin.products.create' ? 'active' : '' }}"><span class="las la-plus"></span>
+                <span>Add Products</span></a>
+        @endif
     </div>
 @endsection
