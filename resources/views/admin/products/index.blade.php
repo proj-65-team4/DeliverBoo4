@@ -13,6 +13,7 @@
                         <th>Nome prodotto</th>
                         <th>Prezzo</th>
                         <th>Portata</th>
+                        <th>Categoria</th>
                         <th>Visibile</th>
                         <th>Disponibile</th>
                     </tr>
@@ -21,10 +22,7 @@
                 <tbody>
                     @foreach ($products as $product)
                         <tr>
-                            {{-- <td><img class="img-thumbnail" style="height: 80px"
-                                src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
-                                alt=""></td> --}}
-
+                            {{-- Immagine --}}
                             <td class="text-center"><button type="button" class="img-thumbnail" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal-{{ $product->id }}">
                                     <img class="" style="height: 80px"
@@ -49,15 +47,18 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- @php
-                            dd($product);
-                        @endphp --}}
 
+                            {{-- Nome/Prezzo --}}
                             <td>{{ $product->name }}</td>
                             <td>€ {{ $product->price }}</td>
 
+                            {{-- Portata --}}
                             <td>{{ $product->product_course_id ? $product->product_course->name : 'non inserita' }}</td>
+                            {{-- Categoria --}}
+                            <td>{{ $product->product_categories ? $product->product_categories->name : 'non inserita' }}</td>
 
+
+                            {{-- Visible/Available --}}
                             <td><i class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></td>
                             <td><i class="fa-solid {{ $product->available === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></td>
 
@@ -92,17 +93,18 @@
             </table>
         @else
             <h2 class="text-center">Nessun prodotto esistente</h2>
-                <p class="text-center pt-3">
-                    <button class="btn btn-primary rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="fa-solid fa-plus text-light fa-lg"></i>
-                    </button>
-                  </p>
-                  <div class="collapse text-center" id="collapseExample">
-                    <a href="{{ route('admin.products.create') }}" class="{{ Request::route()->getName() === 'admin.products.create' ? 'active' : '' }} btn btn-primary rounded-pill px-3">
-                        <span class="text-light">Aggiungi prodotto</span>
-                    </a>
-                  </div>
-                
+            <p class="text-center pt-3">
+                <button class="btn btn-primary rounded-pill" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <i class="fa-solid fa-plus text-light fa-lg"></i>
+                </button>
+            </p>
+            <div class="collapse text-center" id="collapseExample">
+                <a href="{{ route('admin.products.create') }}"
+                    class="{{ Request::route()->getName() === 'admin.products.create' ? 'active' : '' }} btn btn-primary rounded-pill px-3">
+                    <span class="text-light">Aggiungi prodotto</span>
+                </a>
+            </div>
         @endif
     </div>
 @endsection

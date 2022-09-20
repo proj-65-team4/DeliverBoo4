@@ -21,7 +21,8 @@ class MenuController extends Controller
     {
         // $products = Product::orderBy("name", "asc")->get();
         $user = Auth::user();
-        $products = Product::orderBy("name", "asc")->where('user_id',$user->id)->get();;
+        $products = Product::orderBy("name", "asc")->where('user_id',$user->id)->get();
+        $products->load('product_categories');
 
         return view("admin.products.index", compact("products"));
 
