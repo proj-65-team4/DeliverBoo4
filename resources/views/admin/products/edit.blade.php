@@ -14,9 +14,11 @@
           <input type="text" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" id="NameProduct" placeholder="Nome Prodotto" 
           name="name" value="{{ old('name') ?? $product->name }}">
           <label for="NameProduct">Nome prodotto</label>
-          <div class="invalid-feedback">
-            {{ $errors->first('name') }}
-          </div>
+          @error('name')
+            <div class="invalid-feedback alert alert-danger p-2"> 
+              {{$message}} 
+            </div>
+          @enderror
         </div>
 
 
@@ -34,18 +36,22 @@
           <input type="text" class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" id="ProductDescription" placeholder="Descrizione Prodotto" 
           name="description" value="{{ old('description') ?? $product->description }}">
           <label for="ProductDescription">Descrizione Prodotto</label>
-          <div class="invalid-feedback">
-            {{ $errors->first('description') }}
-          </div>
+          @error('description')
+            <div class="invalid-feedback alert alert-danger p-2"> 
+              {{$message}} 
+            </div>
+          @enderror
         </div>
     
         <div class="form-floating mb-3">
           <input type="number" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}" id="ProductPrice" placeholder="Prezzo del Prodotto" 
           name="price" value="{{ old('price') ?? $product->price }}" step=".01">
           <label for="floatingInput">Prezzo del Prodotto</label>
-          <div class="invalid-feedback">
-            {{ $errors->first('price') }}
-          </div>
+          @error('price')
+            <div class="invalid-feedback alert alert-danger p-2">
+              {{$message}} 
+            </div>
+          @enderror
         </div>
 
 

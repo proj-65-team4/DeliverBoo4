@@ -21,25 +21,23 @@ class StoreProductRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
-        return 
-        [
-          'name' => 'required|min:3|max:50',
-          'description' => 'required',
-          'price' => 'required',
-          'visible',
-          'available',
-        ];
+    public function rules() {
+      return [
+        'name' => 'required|min:3|max:50',
+        'description' => 'required',
+        'price' => 'required',
+        'visible',
+        'available',
+      ];
     }
 
-    public function message() {
-      [
-        'name.required' => 'Inserire il Nome.',
-        'name.min' => 'Il Nome deve avere più di 3 caratteri.',
-        'name.max' => 'il Nome può avere massimo 50 caratteri.',
-        'description' => 'Inserire la descrizione.',
-        'price' => 'Inserire il Prezzo.',
+    public function messages() {
+      return [
+        'name.required' => 'Inserire il Nome',
+        'name.min' => 'Il Nome deve avere più di 3 caratteri',
+        'name.max' => 'il Nome può avere massimo 50 caratteri',
+        'description' => 'Inserire la descrizione',
+        'price' => 'Inserire il Prezzo',
       ];
     }
 }
