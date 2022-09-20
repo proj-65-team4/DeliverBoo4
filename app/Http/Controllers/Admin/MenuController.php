@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProductRequest;
 use App\Product;
 use App\ProductCategory;
 use App\ProductCourse;
@@ -20,7 +21,8 @@ class MenuController extends Controller
     {
         // $products = Product::orderBy("name", "asc")->get();
         $user = Auth::user();
-        $products = Product::orderBy("name", "asc")->where('user_id',$user->id)->get();;
+        $products = Product::orderBy("name", "asc")->where('user_id',$user->id)->get();
+        $products->load('product_categories');
 
         return view("admin.products.index", compact("products"));
 
@@ -44,7 +46,7 @@ class MenuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
         $data = $request->all();
         $user = Auth::user();
@@ -53,17 +55,8 @@ class MenuController extends Controller
         
         $user->product = new Product();
         
-        $validateData = $request->validate([
-          'name' => 'required|min:3|max:50',
-          'description' => 'required',
-          'price' => 'required',
-          /* 'product_course_id'=> 'required', */
-          'visible',
-          'available',
-        ]);
-
-        $user->product['image'] = $request->image;
-        
+        $validateData = $request->validated();
+  
         if(isset($_POST["visible"])){
           $user->product["visible"] = 1;
         }else{
@@ -80,6 +73,12 @@ class MenuController extends Controller
         $user->product->user_id = $user->id;
         /* $user->product->save(); */
         $courses->products()->save($user->product);
+        if (key_exists("categories", $data)) {
+          $user->product->product_categories()->attach($data["categories"]);
+      }
+
+      
+
 
         return redirect()->route("admin.products.show" , $user->product->id);
     }
@@ -119,17 +118,11 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProductRequest $request, $id)
     {
       $product = Product::findOrFail($id);
 
-      $validateData = $request->validate([
-        'name' => 'required|min:3|max:50',
-        'description' => 'required',
-        'price' => 'required',
-        'visible',
-        'available',
-      ]);
+      $validateData = $request->validated();
 
       if(isset($_POST["visible"])){
         $product["visible"] = 1;
