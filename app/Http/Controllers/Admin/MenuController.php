@@ -72,6 +72,12 @@ class MenuController extends Controller
         $user->product->user_id = $user->id;
         /* $user->product->save(); */
         $courses->products()->save($user->product);
+        if (key_exists("categories", $data)) {
+          $user->product->product_categories()->attach($data["categories"]);
+      }
+
+      
+
 
         return redirect()->route("admin.products.show" , $user->product->id);
     }
