@@ -55,9 +55,12 @@
                             {{-- Portata --}}
                             <td>{{ $product->product_course_id ? $product->product_course->name : 'non inserita' }}</td>
                             {{-- Categoria --}}
-                            <td>{{ $product->product_categories ? $product->product_categories->name : 'non inserita' }}</td>
+                            
+                            <td>
+                                
+                                {{ $product->product_categories ? $product->product_categories->implode("name",",") : "non esiste" }}
 
-
+                            </td>
                             {{-- Visible/Available --}}
                             <td><i class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></td>
                             <td><i class="fa-solid {{ $product->available === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></td>
