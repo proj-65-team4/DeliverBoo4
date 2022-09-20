@@ -10,7 +10,7 @@
             @method("POST")
             <div class="mb-3">
                 <label for="city">Inserisci città</label>
-                <input type="text" name="city" value="" id="city">
+                <input type="text" name="city" value="" id="city" value="Napoli" disabled>
             </div>
             <div class="mb-3">
                 <label for="address">Inserisci indirizzo</label>
