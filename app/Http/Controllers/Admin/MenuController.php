@@ -87,6 +87,8 @@ class MenuController extends Controller
     $user->product->user_id = $user->id;
     /* $user->product->save(); */
     $courses->products()->save($user->product);
+
+
     if (key_exists("categories", $data)) {
       $user->product->product_categories()->attach($data["categories"]);
     }
@@ -134,7 +136,7 @@ class MenuController extends Controller
    */
   public function update(StoreProductRequest $request, $id)
   {
-
+    $data= $request->all();
     $product = Product::findOrFail($id);
 
     $validateData = $request->validated();
@@ -158,8 +160,9 @@ class MenuController extends Controller
     if ($product['image'] !== $request->image) {
       $product['image'] = $request->image;
     }
-    if (key_exists("categories", $validateData)) {
-      $product->product_categories()->sync($validateData["categories"]);
+
+    if (key_exists("categories", $data)) {
+      $product->product_categories()->sync($data["categories"]);
     } else {
       $product->product_categories()->sync([]);
     }

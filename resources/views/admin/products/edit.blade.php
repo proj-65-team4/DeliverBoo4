@@ -57,12 +57,11 @@
 
 
         <div class="select-container row mb-3">
-
           <div class="col-6 category-select flex-grow-1">
             <label for="categoryInput" class="form-label">Categoria del piatto</label>
-            <select class="form-select" aria-label="Default select example" multiple name="available[]" id="categoryInput">
-              @foreach ($productCategories as $categories)
-                <option value="{{$categories->name}}">{{$categories->name}}</option>
+            <select class="form-select"  aria-label="Default select example" multiple name="categories[]" id="categoryInput">
+              @foreach ($productCategories as $category)
+                <option value="{{$category->id}}" {{ $product->product_categories->contains("id", $category->id)   ? 'selected' : ''}}>{{$category->name}}</option>
               @endforeach
             </select>
           </div>
