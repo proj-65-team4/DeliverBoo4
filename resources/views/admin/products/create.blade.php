@@ -60,28 +60,32 @@
                   @enderror
                 </div>
                 
-                <div class="mb-3">
-                    <label for="product_course_id">Portata del piatto</label>
-                    <select class="form-select" name="product_course_id" id="product_course_id" required>
-                        <option value="">Seleziona piatto</option>
-                        @foreach ($courses as $course)
+                <div class="select-container row mb-3">
 
-                        <option value="{{ $course->id }}">{{-- {{ $course->id }} -  --}}{{ $course->name }}</option>
-                            
-                        @endforeach
-                    </select>
+                <div class="col-6 category-select flex-grow-1">
+                  <label for="categories" class="form-label">Categoria del piatto</label>
+                  <select class="form-select" name="categories[]" id="categories" multiple >
+                      <option value="">Seleziona categoria</option>
+                      @foreach ($categories as $category)
+                      <option value="{{ $category->id }}">{{-- {{ $category->id }} -  --}}
+                        {{ $category->name }}
+                      </option>
+                      @endforeach
+                  </select>
                 </div>
 
-                <div class="mb-3">
-                    <label for="categories">Categoria del piatto</label>
-                    <select class="form-select" name="categories[]" id="categories" multiple >
-                        <option value="">Seleziona categoria</option>
-                        @foreach ($categories as $category)
+                  <div class="col-6 course-select flex-grow-1">
+                      <label for="product_course_id" class="form-label">Portata del piatto</label>
+                      <select class="form-select" name="product_course_id" id="product_course_id" required>
+                          <option value="">Seleziona piatto</option>
+                          @foreach ($courses as $course)
+                          <option value="{{ $course->id }}">{{-- {{ $course->id }} -  --}}
+                            {{ $course->name }}
+                          </option>
+                          @endforeach
+                      </select>
+                  </div>
 
-                        <option value="{{ $category->id }}">{{-- {{ $category->id }} -  --}}{{ $category->name }}</option>
-                            
-                        @endforeach
-                    </select>
                 </div>
 
                 <div class="check-input d-flex gap-5">

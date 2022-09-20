@@ -1,10 +1,11 @@
 @extends('layouts.backend.app')
+@section('page_title', 'Modifica il prodotto')
 
 @section('content')
   <div class="container-fluid">
     <div class="d-flex align-items-center gap-3">
             <a href="{{ route("admin.products.index") }}"><i class="fa-solid fa-arrow-left"></i></a>
-            <h1 mb-0>Inserisci nuovo piatto</h1>
+            <h1 mb-0>Modifica il Piatto</h1>
         </div>
     <form action="{{route('admin.products.update', $product->id)}}" method="POST">
       @csrf
@@ -55,29 +56,26 @@
         </div>
 
 
-        <div class="select-container d-flex gap-5">
+        <div class="select-container row mb-3">
 
-          <div class="course-select flex-grow-1">
-            <label for="coursesInput" class="form-label">Seleziona tipo di piatto</label>
-            <div class="form-floating">
-              <select name="product_course_id" class="form-select" id="">
-                @foreach ($productCourses as $productCourse)
-                    <option value="{{$productCourse->id}}" {{ $product->product_course_id == $productCourse->id ? 'selected' : ''}}>{{$productCourse->name}}</option>
-                @endforeach
-              </select>
-            </div>
-          </div>
-
-
-
-          <div class="category-select flex-grow-1">
-            <label for="categoryInput" class="form-label">Seleziona tipo di piatto</label>
+          <div class="col-6 category-select flex-grow-1">
+            <label for="categoryInput" class="form-label">Categoria del piatto</label>
             <select class="form-select" aria-label="Default select example" multiple name="available[]" id="categoryInput">
               @foreach ($productCategories as $categories)
                 <option value="{{$categories->name}}">{{$categories->name}}</option>
               @endforeach
             </select>
           </div>
+
+          <div class="col-6 course-select flex-grow-1 align-items-stretch">
+            <label for="coursesInput" class="form-label">Portata del piatto</label>
+              <select name="product_course_id" class="form-select" id="">
+                @foreach ($productCourses as $productCourse)
+                    <option value="{{$productCourse->id}}" {{ $product->product_course_id == $productCourse->id ? 'selected' : ''}}>{{$productCourse->name}}</option>
+                @endforeach
+              </select>
+          </div>
+
         </div>
 
         <div class="check-input d-flex gap-5">
