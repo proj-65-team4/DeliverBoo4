@@ -3,10 +3,10 @@
 @section('content')
     <div class="container-fluid">
 
-        @if (count($products))
+        
         <div class="d-flex justify-content-between">
             <div>
-                <h1 class="pb-4 pt-1">Prodotti inseriti</h1>
+                <h1 class="pb-4 pt-1">Prodotti Menu</h1>
             </div>
             
             <div class="pe-4">
@@ -31,6 +31,7 @@
                 </form>
             </div>
         </div>
+        @if (count($products))
             <table class="table">
                 <thead>
                     <tr>
