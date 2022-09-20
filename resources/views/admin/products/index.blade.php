@@ -3,7 +3,9 @@
 @section('content')
     <div class="container-fluid">
         <h1 class="pb-4 pt-1">Prodotti inseriti</h1>
-
+        {{-- @php
+            dd($products);
+        @endphp --}}
         <table class="table">
             <thead>
                 <tr>
@@ -11,7 +13,6 @@
                     <th>Nome prodotto</th>
                     <th>Prezzo</th>
                     <th>Portata</th>
-                    <th>Categoria</th>
                     <th>Visibile</th>
                     <th>Disponibile</th>
                 </tr>
@@ -47,12 +48,14 @@
                                 </div>
                             </div>
                         </div>
-
+                        {{-- @php
+                            dd($product);
+                        @endphp --}}
+                        
                         <td>{{ $product->name }}</td>
                         <td>€ {{ $product->price }}</td>
 
-                        <td>{{ $product->product_course_id ? $product->product_course_id->name : 'non inserita' }}</td>
-                        {{-- <td>{{ $product->product_category_id ? $product->product_category_id->name : 'non inserita' }}</td> --}}
+                        <td>{{ $product->product_course_id ? $product->product_course->name : 'non inserita' }}</td>
 
                         <td><i class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></td>
                         <td><i class="fa-solid {{ $product->available === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i></td>

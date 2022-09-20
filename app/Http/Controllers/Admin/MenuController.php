@@ -20,8 +20,6 @@ class MenuController extends Controller
     {
         $products = Product::orderBy("name", "asc")->get();
 
-        $products->load('product_courses');
-
         return view("admin.products.index", compact("products"));
 
         }
@@ -48,14 +46,16 @@ class MenuController extends Controller
     {
         $data = $request->all();
         $user = Auth::user();
-
+        
+        $courses = ProductCourse::findOrFail($request->product_course_id);
+        
         $user->product = new Product();
         
         $validateData = $request->validate([
           'name' => 'required|min:3|max:50',
           'description' => 'required',
           'price' => 'required',
-          'product_course_id'=> 'required',
+          /* 'product_course_id'=> 'required', */
           'visible',
           'available',
         ]);
@@ -72,10 +72,10 @@ class MenuController extends Controller
           $user->product->available = 0;
         }
 
-
         $user->product->fill($validateData);
         $user->product->user_id = $user->id;
-        $user->product->save();
+        /* $user->product->save(); */
+        $courses->products()->save($user->product);
 
         return redirect()->route("admin.products.show" , $user->product->id);
     }
@@ -139,6 +139,10 @@ class MenuController extends Controller
           $product->available = 0;
       }
       
+      if($product->product_course_id !== $request->product_course_id){
+        $product->product_course_id = $request->product_course_id;
+      }
+
       $product->update($validateData);
 
       return redirect()->route('admin.products.show', $product->id);

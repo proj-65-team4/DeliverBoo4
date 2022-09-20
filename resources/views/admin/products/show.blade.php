@@ -15,9 +15,9 @@
                     <div>
                         <div>Descrizione {{ $product->description }}</div>
                         <div>Prezzo: € {{ $product->price }}</div>
-                        <div>Portata: {{ $product->product_course_id ? $product->product_course_id: 'non inserita' }}
+                        <div>Portata: {{ $product->product_course_id ? $product->product_course->name : 'non inserita' }}
                         </div>
-                        <div>Categoria:{{ $product->product_course_id ? $product->product_course_id : 'non inserita' }}</div>
+                        <div>Categoria:{{-- {{ $product->product_category_id ? $product->product_category_id : 'non inserita' }} --}}</div>
                         <div>Visibile: {{ $product->visible === 1 ? 'SI' : 'NO' }}</div>
                         <div>Disponibile: {{ $product->available === 1 ? 'SI' : 'NO' }}</div>
 

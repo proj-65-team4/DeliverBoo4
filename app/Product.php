@@ -18,7 +18,7 @@ class Product extends Model
         return $this->belongsToMany("App\ProductCategory");
     }
 
-    public function product_courses () 
+    public function product_course () 
     {
         return $this->belongsTo("App\ProductCourse");
     }

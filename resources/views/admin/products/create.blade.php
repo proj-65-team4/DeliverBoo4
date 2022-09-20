@@ -48,19 +48,19 @@
                         <option value="">Seleziona piatto</option>
                         @foreach ($courses as $course)
 
-                        <option value="{{ $course->id }}">{{ $course->id }} - {{ $course->name }}</option>
+                        <option value="{{ $course->id }}">{{-- {{ $course->id }} -  --}}{{ $course->name }}</option>
                             
                         @endforeach
                     </select>
                 </div>
 
                 <div class="mb-3">
-                    <label for="categories">Categiria del piatto</label>
+                    <label for="categories">Categoria del piatto</label>
                     <select class="form-select" name="categories[]" id="categories" multiple >
                         <option value="">Seleziona categoria</option>
                         @foreach ($categories as $category)
 
-                        <option value="{{ $category->id }}">{{ $category->id }} - {{ $category->name }}</option>
+                        <option value="{{ $category->id }}">{{-- {{ $category->id }} -  --}}{{ $category->name }}</option>
                             
                         @endforeach
                     </select>

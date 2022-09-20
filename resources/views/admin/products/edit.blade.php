@@ -37,6 +37,14 @@
           </div>
         </div>
 
+        <div class="form-floating mb-3">
+          <select name="product_course_id" class="form-select" id="">
+            @foreach ($productCourses as $productCourse)
+                <option value="{{$productCourse->id}}" {{ $product->product_course_id == $productCourse->id ? 'selected' : ''}}>{{$productCourse->name}}</option>
+            @endforeach
+          </select>
+        </div>
+
         <div class="check-input d-flex gap-5">
           <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" name="visible" role="switch" id="ProductVisible" {{ $product->visible === 1 ? 'checked' : '' }} >
