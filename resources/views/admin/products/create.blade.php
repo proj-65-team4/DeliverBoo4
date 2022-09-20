@@ -35,7 +35,7 @@
                 <div class="form-floating mb-3">
                     <input type="number" class="form-control {{ $errors->has('price') ? 'is-invalid' : '' }}"
                         id="ProductPrice" placeholder="Prezzo del Prodotto" name="price"
-                        value="{{ old('price') }}">
+                        value="{{ old('price') }}" step=".01">
                     <label for="floatingInput">Prezzo del Prodotto</label>
                     <div class="invalid-feedback">
                         {{ $errors->first('price') }}
