@@ -9,6 +9,8 @@ use App\ProductCategory;
 use App\ProductCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Stmt\Foreach_;
+use Symfony\Component\Console\Input\Input;
 
 class MenuController extends Controller
 {
@@ -17,14 +19,27 @@ class MenuController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function index(Request $request)
   {
-    // $products = Product::orderBy("name", "asc")->get();
     $user = Auth::user();
-    $products = Product::orderBy("name", "asc")->where('user_id', $user->id)->get();
+    
+    $query = $request->query();
+    $queryValue = null;
 
+    if(key_exists("product_course", $query)){
+      $products = Product::orderBy("name", "asc")->where('user_id', $user->id)->where('product_course_id', $query['product_course'])->get();
+      $queryValue = $query['product_course'];
 
-    return view("admin.products.index", compact("products"));
+    } else {
+      $products = Product::orderBy("name", "asc")->where('user_id', $user->id)->get();
+    }
+
+    $courses = ProductCourse::all();
+
+    
+
+    /* dd($queryValue); */
+    return view("admin.products.index", compact("products", "courses", "queryValue"));
   }
 
   /**

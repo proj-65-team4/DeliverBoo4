@@ -10,21 +10,22 @@
             </div>
             
             <div class="pe-4">
-                <form style="padding-top: 0.5rem;" class="ms-3 d-flex" action="{{url('admin/products')}}" method="GET">
+                <form style="padding-top: 0.5rem;" class="ms-3 d-flex" action="{{route('admin.products.index')}}" method="get">
+                    {{-- @dd($query->product_course) --}}
                     <select name="product_course" id="product_course_id" class="form-select" aria-label=".form-select example">
-                        <option value="" selected></option>
-                        <option value="antipasti">antipasti</option>
-                        <option value="primi piatti">primi piatti</option>
-                        <option value="secondi piatti">secondi piatti</option>
-                        <option value="dolci">dolci</option>
-                        <option value="contorni">contorni</option>
-                        <option value="hamburger">hamburger</option>
-                        <option value="pizze">pizze</option>
-                        <option value="kebab">kebab</option>
-                        <option value="sushi">suchi</option>
-                        <option value="fritti">fritti</option>
-                        <option value="pokè">pokè</option>
-                        <option value="courses">courses</option>
+                        <option value="" selected>tutti</option>
+                        
+                        @foreach ($courses as $course)
+                        
+                        @if ($queryValue)
+                            <option value="{{$course->id}}" {{$course->id == $queryValue ? "selected" : ''}}>{{$course->name}}</option>
+                        @else
+                            <option value="{{$course->id}}">{{$course->name}}</option>
+                        
+                        @endif
+                            
+                        @endforeach
+                        
                     </select>
                     <button type="submit" class="btn btn-light">Filtra</button>
                 </form>
