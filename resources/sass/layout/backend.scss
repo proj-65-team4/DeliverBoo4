@@ -478,6 +478,18 @@ tr td:last-child {
     #nav-toggle:checked ~ .main-content{
         margin-left: 0rem !important;
     }
+
+    .user-wrapper-mobile h4 {
+        display: none;
+    }
+
+    #dashboard {
+        display: none;
+    }
+
+    .text-status{
+        display: none;
+    }
 }
 
 .backend-img{

@@ -56,7 +56,7 @@
                 <label for="nav-toggle">
                     <span class="las la-bars"></span>
                 </label>
-                Dashboard
+                <span id="dashboard">Dashboard</span>
                 <ul class="navbar-nav ml-auto ps-2">
                     <!-- Authentication Links -->
                     @guest
