@@ -20,8 +20,8 @@ class MenuController extends Controller
     public function index()
     {
         // $products = Product::orderBy("name", "asc")->get();
-         $user = Auth::user();
-         $products = Product::orderBy("name", "asc")->where('user_id',$user->id)->get();;
+        $user = Auth::user();
+        $products = Product::orderBy("name", "asc")->where('user_id',$user->id)->get();;
 
         return view("admin.products.index", compact("products"));
 
@@ -132,6 +132,11 @@ class MenuController extends Controller
       if($product->product_course_id !== $request->product_course_id){
         $product->product_course_id = $request->product_course_id;
       }
+
+      if($product['image'] !== $request->image){
+        $product['image'] = $request->image;
+      }
+
 
       $product->update($validateData);
 
