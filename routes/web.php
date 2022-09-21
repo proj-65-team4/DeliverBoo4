@@ -35,6 +35,8 @@ Route::get("/dashboard", "DashboardController@index")->name("dashboard");
     Route::post("/restaurant/{id}", "RestaurantController@store")->name("restaurant.store");
 
     Route::get("/orders", "OrderController@index")->name("orders.index");
+
+    Route::get("/orders/statistic", "OrderController@statistic")->name("orders.statistic");
 });
 
 
