@@ -90,7 +90,7 @@
         {{-- BLOCCO DEL RISTORATORE CHE HA GIà REGISTRATO I DATI DEL RISTORANTE --}}
         <div class="user-wrapper">
             @if(!Auth::user()->restaurant)
-            <img src="{{asset('placeholder-restaurant.png')}}" width="60px" height="60px" alt="">
+            <img src="{{asset('img/placeholder-restaurant.png')}}" width="60px" height="60px" alt="">
             @else
             <img src="{{Auth::user()->restaurant->pathImg ? Auth::user()->restaurant->pathImg  : asset('img/placeholder-restaurant.png')}}" width="60px" height="60px" alt="">
             @endif
