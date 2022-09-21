@@ -2,26 +2,15 @@
 
 @section('content')
 
-<style lang="scss">
-    .show-btn {
-        background-color: #3DA5D9
-    }
-    .edit-btn {
-        background-color: #FFCA3A
-    }
-    .delete-btn {
-        background-color: #FF595E
-    }
-</style>
     <div class="container-fluid">
-        <div class="d-flex justify-content-between">
-            <div class="d-flex align-items-center gap-3  mb-4">
-                <a href="{{ route("admin.products.index") }}"><i class="fa-solid fa-arrow-left"></i></a>
-                <h1 class="mt-1 fw-bold">Prodotti Menu</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-3">
+                <a href="{{ route('admin.products.index') }}"><i class="fa-solid fa-arrow-left fa-lg"></i></a>
+                <h1 class="fw-bold m-0">Menu</h1>
             </div>
 
-            <div class="pe-4">
-                <form style="padding-top: 0.5rem;" class="ms-3 d-flex" action="{{ route('admin.products.index') }}"
+            <div class="">
+                <form class="ms-3 d-flex" action="{{ route('admin.products.index') }}"
                     method="get">
                     {{-- @dd($query->product_course) --}}
                     <select name="product_course" id="product_course_id" class="form-select"
@@ -44,104 +33,103 @@
         </div>
 
         @if (count($products))
+            <div class="row flex-nowrap fw-bold text-center mt-4">
+                <div class="col">Immagine</div>
+                <div class="col-2">Nome</div>
+                <div class="col">Prezzo</div>
 
-                <div class="row flex-nowrap fw-bold text-center mt-4">
-                    <div class="col">Immagine</div>
-                    <div class="col-2">Nome</div>
-                    <div class="col">Prezzo</div>
+                <div class="col d-none d-xl-block">Portata</div>
+                <div class="col d-none d-lg-block">Categoria</div>
 
-                    <div class="col d-none d-xl-block">Portata</div>
-                    <div class="col d-none d-lg-block">Categoria</div>
-                    
-                    <div class="col d-none d-md-block">Visibile</div>
+                <div class="col d-none d-md-block">Visibile</div>
 
-                    <div class="col d-none d-xl-block">Disponibile</div>
+                <div class="col d-none d-xl-block">Disponibile</div>
 
-                    <div class="col-3">Azioni</div>
-                </div>
+                <div class="col-3">Azioni</div>
+            </div>
 
-                    @foreach ($products as $product)
-                        <div class="row flex-nowrap text-center mt-4 pt-2">
+            @foreach ($products as $product)
+                <div class="row flex-nowrap text-center mt-4 pt-2 align-items-center">
 
-                            {{-- Immagine --}}
-                            <div class="col">
-                                <button type="button" class="img-thumbnail" data-bs-toggle="modal"
-                                    data-bs-target="#exampleModal-{{ $product->id }}">
-                                    <img class="w-100"
+                    {{-- Immagine --}}
+                    <div class="col">
+                        <button type="button" class="img-thumbnail" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal-{{ $product->id }}">
+                            <img class="w-100"
+                                src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
+                                alt="">
+                        </button>
+                    </div>
+
+                    {{-- Modal --}}
+                    <div class="modal fade" id="exampleModal-{{ $product->id }}" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <img class="" style="height: 300px"
                                         src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
                                         alt="">
-                                </button>
-                            </div>
-
-                            {{-- Modal --}}
-                            <div class="modal fade" id="exampleModal-{{ $product->id }}" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <img class="" style="height: 300px"
-                                                src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
-                                                alt="">
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-                            {{-- Nome --}}
-                            <div class="col-2">{{ $product->name }}</div>
-
-                            {{-- Prezzo --}}
-                            <div class="col">€ {{ $product->price }}</div>
-
-                            {{-- Portata --}}
-                            <div class="col d-none d-xl-block">
-                                {{ $product->product_course_id ? $product->product_course->name : 'non inserita' }}</div>
-
-                            {{-- Categoria --}}
-                            <div class="col d-none d-lg-block">
-                                {{ $product->product_categories ? $product->product_categories->implode('name', ',') : 'non esiste' }}
-                            </div>
-
-                            {{-- Visible/Available --}}
-                            <div class="col d-none d-md-block"><i
-                                    class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }}"></i>
-                            </div>
-                            <div class="col d-none d-xl-block"><i
-                                    class="fa-solid {{ $product->available === 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }}"></i>
-                            </div>
-
-                            {{-- Azioni --}}
-                            <div class="col-3">
-                                    {{-- Button SHOW --}}
-                                    <div class="d-inline">
-                                        <a href="{{ route('admin.products.show', $product->id) }}" class="btn show-btn mb-2">
-                                            <i class="fa-solid fa-eye fa-lg"></i>
-                                        </a>
-                                    </div>
-
-                                    {{-- Button EDIT --}}
-                                    <div class="d-inline py-1">
-                                        <a href="{{ route('admin.products.edit', $product->id) }}" class="btn edit-btn mb-2">
-                                            <i class="fa-regular fa-pen-to-square fa-lg"></i>
-                                        </a>
-                                    </div>
-
-                                    {{-- Button DELETE --}}
-                                    <div class="d-inline py-1">
-                                        <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST"
-                                            class="d-inline-block">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn delete-btn mb-2"><i
-                                                    class="fa-solid fa-trash-can fa-lg"></i></button>
-                                        </form>
-                                    </div>
-                            </div>
                         </div>
-                    @endforeach
+                    </div>
+                    {{-- Nome --}}
+                    <div class="col-2">{{ $product->name }}</div>
+
+                    {{-- Prezzo --}}
+                    <div class="col">€ {{ $product->price }}</div>
+
+                    {{-- Portata --}}
+                    <div class="col d-none d-xl-block">
+                        {{ $product->product_course_id ? $product->product_course->name : 'non inserita' }}</div>
+
+                    {{-- Categoria --}}
+                    <div class="col d-none d-lg-block">
+                        {{ $product->product_categories ? $product->product_categories->implode('name', ',') : 'non esiste' }}
+                    </div>
+
+                    {{-- Visible/Available --}}
+                    <div class="col d-none d-md-block"><i
+                            class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }}"></i>
+                    </div>
+                    <div class="col d-none d-xl-block"><i
+                            class="fa-solid {{ $product->available === 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }}"></i>
+                    </div>
+
+                    {{-- Azioni --}}
+                    <div class="col-3">
+                        {{-- Button SHOW --}}
+                        <div class="d-inline">
+                            <a href="{{ route('admin.products.show', $product->id) }}" class="my-button show-btn m-1">
+                                <i class="fa-solid fa-eye fa-lg"></i>
+                            </a>
+                        </div>
+
+                        {{-- Button EDIT --}}
+                        <div class="d-inline py-1">
+                            <a href="{{ route('admin.products.edit', $product->id) }}" class="my-button edit-btn m-1">
+                                <i class="fa-regular fa-pen-to-square fa-lg"></i>
+                            </a>
+                        </div>
+
+                        {{-- Button DELETE --}}
+                        <div class="d-inline py-1">
+                            <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST"
+                                class="d-inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="my-button delete-btn m-1"><i
+                                        class="fa-solid fa-trash-can fa-lg"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         @else
             <h2 class="text-center">Nessun prodotto esistente</h2>
             <p class="text-center pt-3">
@@ -158,4 +146,52 @@
             </div>
         @endif
     </div>
+
+    <style>
+        .show-btn {
+            background-color: #3DA5D9;
+        }
+
+        .edit-btn {
+            background-color: #FFCA3A
+        }
+
+        .delete-btn {
+            background-color: #FF595E
+        }
+
+        .my-button {
+            border-radius: 4px;
+            border: none;
+            color: #fff;
+            text-align: center;
+            font-size: 1rem;
+            padding: 8px;
+            width: 2.5rem;
+            transition: all 0.5s;
+            cursor: pointer;
+            box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
+            display: inline-block;
+            position: relative;
+        }
+        .my-button:after {
+            content: '»';
+            position: absolute;
+            opacity: 0;
+            top: 22px;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .my-button:hover {
+            padding-right: 24px;
+            padding-left: 8px;
+            color: white
+        }
+
+        .my-button:hover:after {
+            opacity: 1;
+            right: 10px;
+        }
+    </style>
 @endsection
