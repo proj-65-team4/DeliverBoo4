@@ -192,7 +192,7 @@
             </div>
         </header>
 
-        <main>
+        <main style="height: 100vh; overflow: auto;">
             @yield('content')
         </main>
 
