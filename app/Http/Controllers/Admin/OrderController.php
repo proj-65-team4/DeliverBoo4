@@ -50,7 +50,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $orders = Order::findOrFail($id);
+
+        return view("admin.orders.show", compact("orders"));
     }
 
     /**
