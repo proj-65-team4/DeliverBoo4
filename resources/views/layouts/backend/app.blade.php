@@ -188,7 +188,11 @@
             {{-- BLOCCO DEL RISTORANTE DA VISUALIZZARE IN MOBILE --}}
 
             <div class="user-wrapper-mobile">
-                <img src="{{Auth::user()->restaurant ? Auth::user()->restaurant->pathImg  : asset('img/placeholder-restaurant.png')}}" width="55px" height="55px" alt="">
+                @if(!Auth::user()->restaurant)
+                <img src="{{asset('img/placeholder-restaurant.png')}}" width="60px" height="60px" alt="">
+                @else
+                <img src="{{Auth::user()->restaurant->pathImg ? Auth::user()->restaurant->pathImg  : asset('img/placeholder-restaurant.png')}}" width="60px" height="60px" alt="">
+                @endif
                 <div>
                     <h4>{{ Auth::user()->restaurant ? Auth::user()->restaurant->restaurant_name : 'Nome Ristorante' }}</h4>
                 </div>
