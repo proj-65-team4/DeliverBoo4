@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section("page_title",'Completa user')
+@section('page_title',"Registra ristorante")
 
 @section('content')
     <div class="container">
