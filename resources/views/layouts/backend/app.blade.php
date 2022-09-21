@@ -180,11 +180,6 @@
                 </ul>
             </h2>
 
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search here" />
-            </div>
-
             {{-- BLOCCO DEL RISTORANTE DA VISUALIZZARE IN MOBILE --}}
 
             <div class="user-wrapper-mobile">
