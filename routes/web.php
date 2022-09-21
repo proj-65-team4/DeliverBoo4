@@ -20,6 +20,22 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'Admin\HomeController@index')->name('admin');
+
+Route::middleware("auth")
+->namespace("Admin")
+->name("admin.")
+->prefix("admin")
+->group(function () {
+Route::get("/dashboard", "DashboardController@index")->name("dashboard");
+
+    Route::resource("products", "MenuController");
+ /*    Route::resource("restaurant", "RestaurantController"); */
+    Route::get("/restaurant/create/{id}", "RestaurantController@create")->name("restaurant.create");
+    Route::post("/restaurant/{id}", "RestaurantController@store")->name("restaurant.store");
+
+
+
+});
 
 
