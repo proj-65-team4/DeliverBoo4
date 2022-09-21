@@ -81,17 +81,7 @@ class RestaurantController extends Controller
         $data = $request->all();
         
         
-        $validatedData = $request->validate(
-            [
-                "restaurant_name" => "required|max:50",
-                "address" => "required|max:50",
-                "city" => "required|max:50",
-                "VAT" => "required|max:11|min:11",
-                "image" => "nullable|image",
-                "slug" => "required",
-                "categories" => "nullable|exists:categories,id"
-            ]
-        );
+        $validatedData = $request->validated();
         $pathImg=null;
         if ($request->image) {
             $file = $request->image;
