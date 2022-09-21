@@ -112,7 +112,7 @@
                 <li class="drop">
                     <a class="{{ Request::route()->getName() === 'admin.products.index' ? 'active' : '' }} test" data-bs-toggle="collapse" aria-expanded="false" aria-controls="multiCollapseExample1" role="button" href="#dropmenu"><span
                             class="las la-hamburger"></span>
-                        <span>Products</span>
+                        <span>Prodotti</span>
 
                     </a>
 
@@ -128,12 +128,31 @@
 
 
                 </li>
-               
 
+                <li class="drop">
+                    <a class="{{ Request::route()->getName() === 'admin.products.index' ? 'active' : '' }} test" data-bs-toggle="collapse" aria-expanded="false" aria-controls="multiCollapseExample1" role="button" href="#dropmenu2"><span
+                            class="las la-shopping-bag"></span>
+                        <span>Ordini</span>
+
+                    </a>
+
+                        <div class="drop-item collapse multi-collapse" id="dropmenu2">
+                            <a href="{{route('admin.orders.index')}}"><span class="las la-info-circle"></span>
+                                <span>Dettagli ordini</span></a>
+                                <a href="{{route('admin.orders.index')}}"><span class="las la-chart-bar"></span>
+                                    <span>Statistiche ordini</span></a>
+                        </div>
+
+
+
+                </li>
+
+               
+{{-- 
                 <li>
                     <a href="{{route('admin.orders.index')}}"><span class="las la-shopping-bag"></span>
                         <span>Orders Details</span></a>
-                </li>
+                </li> --}}
             </ul>
         </div>
         @endif
