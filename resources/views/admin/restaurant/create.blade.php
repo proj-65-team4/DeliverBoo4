@@ -48,10 +48,10 @@
                     </div>
                 @enderror
             </div>
-            <div class="mb-3 form-floating">
+            <div class="mb-3">
+                <label for="image">Inserisci immagine</label>
                 <input class="form-control {{ $errors->has('image') ? 'is-invalid' : '' }}" type="file" name="image"
                     id="image">
-                <label for="image">Inserisci immagine</label>
                 @error('image')
                     <div class="invalid-feedback alert alert-danger p-2">
                         {{ $message }}
@@ -63,9 +63,10 @@
                 <select class="form-select" name="categories[]" multiple aria-label="multiple select example">
                     <option selected></option>
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->id }} - {{ $category->name }}</option>
+                        <option value="{{ $category->id }}" >{{ $category->id }} - {{ $category->name }}</option>
                     @endforeach
                 </select>
+                
                 @error('name')
                     <div class="invalid-feedback alert alert-danger p-2">
                         {{ $message }}
