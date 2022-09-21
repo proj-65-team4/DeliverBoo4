@@ -4,9 +4,9 @@
 @section('content')
   <div class="container-fluid">
     <div class="d-flex align-items-center gap-3">
-            <a href="{{ route("admin.products.index") }}"><i class="fa-solid fa-arrow-left"></i></a>
-            <h1 mb-0>Modifica il Piatto</h1>
-        </div>
+        <a href="{{ route("admin.products.index") }}"><i class="fa-solid fa-arrow-left"></i></a>
+        <h1 class="mt-1 fw-bold">Modifica il Piatto</h1>
+    </div>
     <form action="{{route('admin.products.update', $product->id)}}" method="POST">
       @csrf
       @method('PATCH')
