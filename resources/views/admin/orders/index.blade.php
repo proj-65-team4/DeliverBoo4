@@ -164,8 +164,8 @@
                     <tr>
                         <td id="order">{{$order->id}}</td>
                         <td id="address">{{$order->delivery_address}}</td>
-                        <td id="date">{{$order->date_order}}</td>
-                        <td id="time">{{$order->date_delivery}}</td>
+                        <td id="date">{{/* $order->date_order-> */date("d-m-Y h:m", strtotime($order->date_order))}}</td>
+                        <td id="time">{{/* $order->date_delivery */date("h:m", strtotime($order->date_delivery))}}</td>
                         <td id="name">{{$order->customer_name}}</td>
                         <td id="surname">{{$order->customer_surname}}</td>
                         <td id="mail">{{$order->customer_email}}</td>
