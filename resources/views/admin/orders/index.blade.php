@@ -2,12 +2,20 @@
 
 @section('content')
 <style>
-    @media only screen and (max-width: 980px){
+    @media only screen and (max-width: 990px){
         #order{
             display: none;
         }
+
+        main{
+            padding: 2rem 0.5rem;
+        }
+
+        .container {
+            margin-left: 1rem;
+        } 
     }
-    @media only screen and (max-width: 780px){
+    @media only screen and (max-width: 890px){
         #order{
             display: none;
         }
@@ -15,9 +23,18 @@
         #mail{
             display: none;
         }
+
+        main {
+            padding: 2rem 0.5rem;
+        }
+
+        .container{
+            margin-left: 0rem;
+        }
     }
 
-    @media only screen and (max-width: 570px){
+
+    @media only screen and (max-width: 740px){
         #order{
             display: none;
         }
@@ -29,9 +46,13 @@
         #surname{
             display: none;
         }
+
+        main{
+            padding: 2rem 0.5rem;
+        }
     }
 
-    @media only screen and (max-width: 570px){
+    @media only screen and (max-width: 640px){
         #order{
             display: none;
         }
@@ -46,6 +67,36 @@
 
         #address{
             display: none;
+        }
+
+        main{
+            padding: 2rem 0.5rem;
+        }
+    }
+
+    @media only screen and (max-width: 480px){
+        #order{
+            display: none;
+        }
+
+        #mail{
+            display: none;
+        }
+
+        #surname{
+            display: none;
+        }
+
+        #address{
+            display: none;
+        }
+
+        main{
+            padding: 2rem 0rem;
+        }
+
+        .container{
+            margin-left: 0rem;
         }
     }
 </style>
