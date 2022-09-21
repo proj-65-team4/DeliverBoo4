@@ -28,6 +28,8 @@ class OrderController extends Controller
         foreach($orders as $order){
             $total += $order->subtotal;
         }
+
+        return view("admin.orders.statistic", compact("total", "orders"));
     }
     
     /**
