@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Order;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +17,10 @@ public function index()
 
     $dataProducts = Product::orderBy("name", "asc")->where('user_id', $user->id)->paginate(10);
 
+    $orders = Order::all();
+
     /* dd($products); */
 
-    return view("admin.index", compact("totalProducts", "dataProducts"));
+    return view("admin.index", compact("totalProducts", "dataProducts","orders"));
 }
 }

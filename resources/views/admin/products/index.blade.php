@@ -6,7 +6,7 @@
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center gap-3">
                 <a href="{{ route('admin.products.index') }}"><i class="fa-solid fa-arrow-left fa-lg"></i></a>
-                <h1 class="fw-bold m-0">Menu</h1>
+                <h1 class="fw-bold m-0">Prodotti</h1>
             </div>
 
             <div class="">
@@ -45,7 +45,7 @@
 
                 <div class="col d-none d-xl-block">Disponibile</div>
 
-                <div class="col-3">Azioni</div>
+                <div class="col-2">Azioni</div>
             </div>
 
             @foreach ($products as $product)
@@ -53,28 +53,20 @@
 
                     {{-- Immagine --}}
                     <div class="col">
-                        <button type="button" class="img-thumbnail" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal-{{ $product->id }}">
-                            <img class="w-100"
-                                src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
-                                alt="">
-                        </button>
+                        <img class="w-100 shadow bg-body rounded food-image" data-bs-toggle="modal" data-bs-target="#exampleModal-{{ $product->id }}"
+                        src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}" alt="">
                     </div>
 
                     {{-- Modal --}}
                     <div class="modal fade" id="exampleModal-{{ $product->id }}" tabindex="-1"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <img class="" style="height: 300px"
-                                        src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
-                                        alt="">
-                                </div>
+                            <div class="modal-content position-relative">
+                                <button type="button" class="btn-close position-absolute end-0 m-3" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                                <img class="" style="height: 300px"
+                                    src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}"
+                                    alt="">
                             </div>
                         </div>
                     </div>
@@ -90,7 +82,7 @@
 
                     {{-- Categoria --}}
                     <div class="col d-none d-lg-block">
-                        {{ $product->product_categories ? $product->product_categories->implode('name', ',') : 'non esiste' }}
+                        {{ count($product->product_categories) !== 0 ? $product->product_categories->implode('name', ',') : 'non inserita' }}
                     </div>
 
                     {{-- Visible/Available --}}
@@ -102,7 +94,7 @@
                     </div>
 
                     {{-- Azioni --}}
-                    <div class="col-3">
+                    <div class="col-2">
                         {{-- Button SHOW --}}
                         <div class="d-inline">
                             <a href="{{ route('admin.products.show', $product->id) }}" class="my-button show-btn m-1">
@@ -192,6 +184,10 @@
         .my-button:hover:after {
             opacity: 1;
             right: 10px;
+        }
+
+        .food-image {
+            cursor: pointer;
         }
     </style>
 @endsection

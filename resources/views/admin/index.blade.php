@@ -29,7 +29,7 @@
         <div>
             {{-- INSERIRE NUMERO TOTALE PRODOTTI --}}
             <h1>{{$totalProducts}}</h1>
-            <span>Products</span>
+            <span>Prodotti</span>
         </div>
 
         <div>
@@ -40,8 +40,8 @@
     <div class="card-single">
         <div>
             {{-- INSERIRE NUMERO TOTALE DEGLI ORDINI --}}
-            <h1>79</h1>
-            <span>Orders</span>
+            <h1>{{ count($orders) }}</h1>
+            <span>Ordini</span>
         </div>
 
         <div>
@@ -59,9 +59,9 @@
     <div class="products">
         <div class="card">
             <div class="card-header">
-                <h3>Recent Products</h3>
+                <h3>Prodotti recenti</h3>
 
-                <a href="{{route('admin.products.index')}}" class="btn" role="button">See All <span class="las la-arrow-right"></span></a>
+                <a href="{{route('admin.products.index')}}" class="btn" role="button">Vedi tutti <span class="las la-arrow-right"></span></a>
             </div>
 
             <div class="card-body">
@@ -69,9 +69,9 @@
                     <table width="100%">
                         <thead>
                             <tr>
-                                <td>Name</td>
-                                <td>Available</td>
-                                <td>Visible</td>
+                                <td>Nome</td>
+                                <td>Disponibilità</td>
+                                <td>Visibile</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -80,7 +80,7 @@
                             <tr>
                                 <td>{{$product->name}}</td>
                                 <td><span class="status {{$product->available == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->available ? 'Disponibile' : 'Non Disponibile'}}</span></td>
-                                <td><span class="status {{$product->visible == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->visible ? 'Visibile' : 'Non Disibile'}}</span></td>
+                                <td><span class="status {{$product->visible == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->visible ? 'Visibile' : 'Non Visibile'}}</span></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -95,42 +95,28 @@
     <div class="orders">
         <div class="card">
             <div class="card-header">
-                <h3>Recent Orders</h3>
+                <h3>Ordini Recenti</h3>
 
-                <a href="" class="btn">See all <span class="las la-arrow-right"></span></a>
+                <a href="{{route('admin.orders.index')}}" class="btn">Vedi tutti <span class="las la-arrow-right"></span></a>
             </div>
 
             <div class="card-body">
                 <table width="100%">
                     <thead>
                         <tr>
-                            <td>Date <span class="las la-calendar"></span></td>
-                            <td>Sub Total <span class="las la-dollar-sign"></span></td>
+                            <td>Data ordine <i class="fa-regular fa-calendar-days"></i></td>
+                            <td>Subtotale <i class="fa-regular fa-credit-card"></i></td>
                         </tr>
                     </thead>
 
                     <tbody>
                         {{-- CICLARE PER VISUALIZZARE I DATI DELLA TABELLA ORDINI --}}
+                        @foreach ($orders as $order)
                         <tr>
-                            <td>12/05/2022 12:30</td>
-                            <td>22.00 €</td>
+                            <td>{{ $order->date_order ? $order->date_order : 'Nessun ordine effettuato' }}</td>
+                            <td>€ {{ $order->subtotal ? $order->subtotal : '' }}</td>
                         </tr>
-                        <tr>
-                            <td>01/01/2022 11:45</td>
-                            <td>52.00 €</td>
-                        </tr>
-                        <tr>
-                            <td>02/04/2022 12:45</td>
-                            <td>31.50 €</td>
-                        </tr>
-                        <tr>
-                            <td>10/08/2022 20:30</td>
-                            <td>45.00 €</td>
-                        </tr>
-                        <tr>
-                            <td>11/02/2022 13:30</td>
-                            <td>12.00 €</td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

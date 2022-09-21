@@ -198,7 +198,7 @@
                 <img src="{{Auth::user()->restaurant->pathImg ? Auth::user()->restaurant->pathImg  : asset('img/placeholder-restaurant.png')}}" width="60px" height="60px" alt="">
                 @endif
                 <div>
-                    <h4>{{ Auth::user()->restaurant ? Auth::user()->restaurant->restaurant_name : 'Nome Ristorante' }}</h4>
+                    <h4 class="ms-2">{{ Auth::user()->restaurant ? Auth::user()->restaurant->restaurant_name : 'Nome Ristorante' }}</h4>
                 </div>
             </div>
         </header>
