@@ -169,6 +169,10 @@ header label span {
     border-radius: 50%;
 }
 
+.user-wrapper h4 {
+    color:white
+}
+
 /* MOBILE */
 .user-wrapper-mobile {
     display: none;
@@ -265,11 +269,6 @@ td {
     padding: .5rem 1rem;
     font-size: .9rem;
     color: #222;
-}
-
-tr td:last-child {
-    display: flex;
-    align-items: center;
 }
 
 .status {
@@ -473,6 +472,18 @@ tr td:last-child {
 
     #nav-toggle:checked ~ .main-content{
         margin-left: 0rem !important;
+    }
+
+    .user-wrapper-mobile h4 {
+        display: none;
+    }
+
+    #dashboard {
+        display: none;
+    }
+
+    .text-status{
+        display: none;
     }
 }
 

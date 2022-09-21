@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductCourse extends Model
 {
-    public function product()
+    protected $fillable = ["name"]; 
+
+    public function products()
     {
-        return $this->hasOne("App\Product");
+        return $this->hasMany("App\Product");
     }
 }

@@ -6,19 +6,18 @@
 
         <div class="row justify-content-center">
                 <div class="col-sm-12 py-4">
-
                     {{-- Image --}}
                     <div class="backend-img m-auto">
-                        <img class="index-img" src="{{ $product->image }}" alt="">
+                        <img class="index-img" src="{{ $product->image ? $product->image : asset('img/food-placeholder.jpeg') }}" alt="">
                     </div>
 
                     {{-- Info base --}}
                     <div>
                         <div>Descrizione {{ $product->description }}</div>
                         <div>Prezzo: € {{ $product->price }}</div>
-                        <div>Portata: {{ $product->product_course_id ? $product->product_course_id->name : 'non inserita' }}
+                        <div>Portata: {{ $product->product_course_id ? $product->product_course->name : 'non inserita' }}
                         </div>
-                        <div>Categoria:{{ $product->product_course_id ? $product->product_course_id->name : 'non inserita' }}</div>
+                        <div>Categoria: {{ $product->product_categories ? $product->product_categories->implode("name",", ") : "non inserita" }}</div>
                         <div>Visibile: {{ $product->visible === 1 ? 'SI' : 'NO' }}</div>
                         <div>Disponibile: {{ $product->available === 1 ? 'SI' : 'NO' }}</div>
 
