@@ -20,12 +20,13 @@
         </div>
     </div>
 </div> --}}
+
 <div class="cards">
 
     <div class="card-single">
         <div>
             {{-- INSERIRE NUMERO TOTALE PRODOTTI --}}
-            <h1>54</h1>
+            <h1>{{$totalProducts}}</h1>
             <span>Products</span>
         </div>
 
@@ -73,36 +74,13 @@
                         </thead>
                         <tbody>
                             {{-- CICLARE PER VISUALIZZARE I DATI DEI PIATTI --}}
+                            @foreach ($dataProducts as $product)
                             <tr>
-                                <td>Prodotto 1</td>
-                                <td><span class="status status-false"></span><span class="text-status">not available</span></td>
-                                <td><span class="status status-false"></span><span class="text-status">not visible</span></td>
+                                <td>{{$product->name}}</td>
+                                <td><span class="status {{$product->available == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->available ? 'disponibile' : 'non disponibile'}}</span></td>
+                                <td><span class="status {{$product->visible == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->visible ? 'visibile' : 'non visibile'}}</span></td>
                             </tr>
-                            <tr>
-                                <td>Prodotto 12</td>
-                                <td><span class="status status-true"></span><span class="text-status">available</span></td>
-                                <td><span class="status status-true"></span><span class="text-status">visible</span></td>
-                            </tr>
-                            <tr>
-                                <td>Prodotto 3</td>
-                                <td><span class="status status-false"></span><span class="text-status">not available</span></td>
-                                <td><span class="status status-false"></span><span class="text-status">not visible</span></td>
-                            </tr>
-                            <tr>
-                                <td>Prodotto 4</td>
-                                <td><span class="status status-false"></span><span class="text-status">not available</span></td>
-                                <td><span class="status status-false"></span><span class="text-status">not visible</span></td>
-                            </tr>
-                            <tr>
-                                <td>Prodotto 5</td>
-                                <td><span class="status status-true"></span><span class="text-status">available</span></td>
-                                <td><span class="status status-true"></span><span class="text-status">visible</span></td>
-                            </tr>
-                            <tr>
-                                <td>Prodotto 6</td>
-                                <td><span class="status status-true"></span><span class="text-status">available</span></td>
-                                <td><span class="status status-false"></span><span class="text-status">not visible</span></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
