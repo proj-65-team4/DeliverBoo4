@@ -2,6 +2,14 @@
 
 @section('content')
 <style>
+    #show-details{
+            display: none;
+        }
+        
+        #show-details-button{
+            display: none;
+        } 
+
     @media only screen and (max-width: 990px){
         #order{
             display: none;
@@ -13,7 +21,8 @@
 
         .container {
             margin-left: 1rem;
-        } 
+        }
+        
     }
     @media only screen and (max-width: 890px){
         #order{
@@ -91,12 +100,41 @@
             display: none;
         }
 
+        #name{
+            display: none;
+        }
+
+        #tel{
+            display: none;
+        }
+
+        #total{
+            display: none;
+        }
+
         main{
             padding: 2rem 0rem;
         }
 
         .container{
             margin-left: 0rem;
+        }
+
+        .order-details #show-details{
+            display: inline-block;
+        }
+
+        .order-details #show-details-button{
+            display: inline;
+            background: var(--main-color);
+            border-radius: 10px;
+            font-size: .8rem;
+            padding: .5rem 0.2rem;
+        }
+
+        .order-details #show-details-button a:hover{
+        background: #347dd5;
+        color: white;
         }
     }
 </style>
@@ -117,6 +155,7 @@
                         <td id="mail">Email</td>
                         <td id="tel">Tel.</td>
                         <td id="total">Subtotale</td>
+                        <td id="show-details"></td>
                     </tr>
                 </thead>
 
@@ -125,13 +164,16 @@
                     <tr>
                         <td id="order">{{$order->id}}</td>
                         <td id="address">{{$order->delivery_address}}</td>
-                        <td id="date">{{$order->date_order}}</td>
-                        <td id="time">{{$order->date_delivery}}</td>
+                        <td id="date">{{/* $order->date_order-> */date("d-m-Y h:m", strtotime($order->date_order))}}</td>
+                        <td id="time">{{/* $order->date_delivery */date("h:m", strtotime($order->date_delivery))}}</td>
                         <td id="name">{{$order->customer_name}}</td>
                         <td id="surname">{{$order->customer_surname}}</td>
                         <td id="mail">{{$order->customer_email}}</td>
                         <td id="tel">{{$order->customer_telephone}}</td>
                         <td id="total">{{$order->subtotal}} €</td>
+                        <td id="show-details-button">
+                            <a href="{{route('admin.orders.show',$order->id)}}" class="btn text-light" role="button">Dettagli{{--  <span class="text-light las la-arrow-right"></span> --}}</a>
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
