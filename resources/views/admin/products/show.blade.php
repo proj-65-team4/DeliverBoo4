@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="container-fluid">
-        <h1 class="pb-4 pt-1 fw-bold">{{ $product->name }}</h1>
+    <div class="d-flex align-items-center gap-3">
+      <a href="{{ route("admin.products.index") }}"><i class="fa-solid fa-arrow-left"></i></a>
+      <h1 class="fw-bold mt-2">{{ $product->name }}</h1>
+    </div>
 
         <div class="row justify-content-center">
                 <div class="col-sm-12 py-4">

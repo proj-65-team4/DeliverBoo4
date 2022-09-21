@@ -5,8 +5,9 @@
 
 
         <div class="d-flex justify-content-between">
-            <div>
-                <h1 class="pb-4 pt-1">Prodotti Menu</h1>
+            <div class="d-flex align-items-center gap-3  mb-4">
+                <a href="{{ route("admin.products.index") }}"><i class="fa-solid fa-arrow-left"></i></a>
+                <h1 class="mt-1 fw-bold">Prodotti Menu</h1>
             </div>
 
             <div class="pe-4">

@@ -1,25 +1,27 @@
 @extends('layouts.backend.app')
 
+
+@section('page_title', "Dashboard")
+
 @section('content')
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+@if (!Auth::user()->restaurant)
+    
+<div class="container text-center py-5">
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
+    <h2>Ciao {{ Auth::user()->name }},</h2>
+    <p>ci risulta che sul tuo account non c'è alcun ristorante registrato!</p>
+    <p>Per sfruttare le varie funzionalità della nostra piattaforma ti suggeriamo di cliccare sul pulsante "Aggiungi Ristorante".</p>
+    
+    <div class="py-5">
+        <a href="{{ route("admin.restaurant.create", Auth::user()->id) }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Aggiungi Ristorante</a>
     </div>
-</div> --}}
+</div>
+    
+
+@else
+    
+
 
 <div class="cards">
 
@@ -136,4 +138,5 @@
     </div>
 
 </div>
+@endif
 @endsection

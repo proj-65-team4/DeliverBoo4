@@ -25,7 +25,7 @@ class StoreProductRequest extends FormRequest
       return [
         'name' => 'required|min:3|max:50',
         'description' => 'required',
-        'price' => 'required',
+        'price' => 'required|numeric|min:0|max:9990',
         'visible',
         'available',
       ];
@@ -36,8 +36,10 @@ class StoreProductRequest extends FormRequest
         'name.required' => 'Inserire il Nome',
         'name.min' => 'Il Nome deve avere più di 3 caratteri',
         'name.max' => 'il Nome può avere massimo 50 caratteri',
-        'description' => 'Inserire la descrizione',
-        'price' => 'Inserire il Prezzo',
+        'description.required' => 'Inserire la descrizione',
+        'price.required' => 'Inserire il Prezzo',
+        'price.min' => 'Il Prezzo deve essere maggiore di 0',
+        'price.max' => 'Il Prezzo deve essere minore di 9990'
       ];
     }
 }
