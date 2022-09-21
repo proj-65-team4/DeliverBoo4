@@ -128,7 +128,7 @@
                
 
                 <li>
-                    <a href=""><span class="las la-shopping-bag"></span>
+                    <a href="{{route('admin.orders.index')}}"><span class="las la-shopping-bag"></span>
                         <span>Orders Details</span></a>
                 </li>
             </ul>
