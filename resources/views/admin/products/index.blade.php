@@ -1,9 +1,19 @@
 @extends('layouts.backend.app')
 
 @section('content')
+
+<style lang="scss">
+    .show-btn {
+        background-color: #3DA5D9
+    }
+    .edit-btn {
+        background-color: #FFCA3A
+    }
+    .delete-btn {
+        background-color: #FF595E
+    }
+</style>
     <div class="container-fluid">
-
-
         <div class="d-flex justify-content-between">
             <div class="d-flex align-items-center gap-3  mb-4">
                 <a href="{{ route("admin.products.index") }}"><i class="fa-solid fa-arrow-left"></i></a>
@@ -37,10 +47,10 @@
 
                 <div class="row flex-nowrap fw-bold text-center mt-4">
                     <div class="col">Immagine</div>
-                    <div class="col-3">Nome</div>
+                    <div class="col-2">Nome</div>
                     <div class="col">Prezzo</div>
 
-                    <div class="col d-none d-lg-block">Portata</div>
+                    <div class="col d-none d-xl-block">Portata</div>
                     <div class="col d-none d-lg-block">Categoria</div>
                     
                     <div class="col d-none d-md-block">Visibile</div>
@@ -81,13 +91,13 @@
                                 </div>
                             </div>
                             {{-- Nome --}}
-                            <div class="col-3">{{ $product->name }}</div>
+                            <div class="col-2">{{ $product->name }}</div>
 
                             {{-- Prezzo --}}
                             <div class="col">€ {{ $product->price }}</div>
 
                             {{-- Portata --}}
-                            <div class="col d-none d-lg-block">
+                            <div class="col d-none d-xl-block">
                                 {{ $product->product_course_id ? $product->product_course->name : 'non inserita' }}</div>
 
                             {{-- Categoria --}}
@@ -97,24 +107,24 @@
 
                             {{-- Visible/Available --}}
                             <div class="col d-none d-md-block"><i
-                                    class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i>
+                                    class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }}"></i>
                             </div>
                             <div class="col d-none d-xl-block"><i
-                                    class="fa-solid {{ $product->available === 1 ? 'fa-circle-check' : 'fa-ban' }}"></i>
+                                    class="fa-solid {{ $product->available === 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }}"></i>
                             </div>
 
                             {{-- Azioni --}}
                             <div class="col-3">
                                     {{-- Button SHOW --}}
                                     <div class="d-inline">
-                                        <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-warning mb-2">
+                                        <a href="{{ route('admin.products.show', $product->id) }}" class="btn show-btn mb-2">
                                             <i class="fa-solid fa-eye fa-lg"></i>
                                         </a>
                                     </div>
 
                                     {{-- Button EDIT --}}
                                     <div class="d-inline py-1">
-                                        <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-info mb-2">
+                                        <a href="{{ route('admin.products.edit', $product->id) }}" class="btn edit-btn mb-2">
                                             <i class="fa-regular fa-pen-to-square fa-lg"></i>
                                         </a>
                                     </div>
@@ -125,7 +135,7 @@
                                             class="d-inline-block">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger mb-2"><i
+                                            <button type="submit" class="btn delete-btn mb-2"><i
                                                     class="fa-solid fa-trash-can fa-lg"></i></button>
                                         </form>
                                     </div>
