@@ -29,11 +29,9 @@
 
 
         .drop-item {
-            /* display: none; */
             opacity: 1;
             color: #2163b3;
-            transition: all 0.4s ease;
-            /* transition: height 0.5s ease; */
+            transition: all 0.25s ease;
             font-size: 1.2rem;
             text-decoration: none;
             background-color: #fff;
@@ -57,15 +55,6 @@
             transition: all 0.4s ease-in;
         }
 
-        /* .drop:hover .drop-item {
-            padding: 0.6rem 1.2rem; 
-           display: block; 
-           transition: all 0.5s ease; 
-            transition: height 1s ease; 
-             opacity: 1; 
-             position: relative;
-
-        } */
 
         .drop:hover .test {
             position: relative;
@@ -130,7 +119,7 @@
                 </li>
 
                 <li class="drop">
-                    <a class="{{ Request::route()->getName() === 'admin.products.index' ? 'active' : '' }} test" data-bs-toggle="collapse" aria-expanded="false" aria-controls="multiCollapseExample1" role="button" href="#dropmenu2"><span
+                    <a class="{{ Request::route()->getName() === 'admin.orders.index' ? 'active' : '' }} test" data-bs-toggle="collapse" aria-expanded="false" aria-controls="multiCollapseExample1" role="button" href="#dropmenu2"><span
                             class="las la-shopping-bag"></span>
                         <span>Ordini</span>
 
