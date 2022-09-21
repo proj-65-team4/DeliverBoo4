@@ -80,7 +80,7 @@ class RestaurantController extends Controller
         $data = $request->all();
         
         
-        /* $validatedData = $request->validate(
+        $validatedData = $request->validate(
             [
                 "restaurant_name" => "required|max:50",
                 "address" => "required|max:50",
@@ -90,7 +90,7 @@ class RestaurantController extends Controller
                 "slug" => "required",
                 "categories" => "nullable|exists:categories,id"
             ]
-        ); */
+        );
         $pathImg=null;
         if ($request->image) {
             $file = $request->image;

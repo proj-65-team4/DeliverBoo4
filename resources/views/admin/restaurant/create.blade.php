@@ -10,7 +10,7 @@
             @method("POST")
             <div class="mb-3">
                 <label for="city">Inserisci città</label>
-                <input type="text" name="city" value="" id="city" value="Napoli" disabled>
+                <input type="text" name="city" value="" id="city" value="Napoli" placeholder="Napoli" disabled>
             </div>
             <div class="mb-3">
                 <label for="address">Inserisci indirizzo</label>
@@ -38,8 +38,9 @@
                     @endforeach
                 </select>
             </div>
-            <div class="mb-3">
-                <button type="submit" class="btn btn-success">Completa</button>
+            <div class="mb-3 d-flex gap-3">
+                <button type="submit" class="btn btn-success text-white">Completa</button>
+                <a href="{{ route("admin.dashboard") }}" class="btn btn-secondary text-underline-none">Più tardi</a>
             </div>
         </form>
     </div>
