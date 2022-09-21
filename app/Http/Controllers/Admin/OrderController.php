@@ -21,26 +21,13 @@ class OrderController extends Controller
         return view("admin.orders.index", compact("orders"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function statistic() {
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $orders = Order::all();
+        $total = 0;
+        foreach($orders as $order){
+            $total += $order->subtotal;
+        }
 
     /**
      * Display the specified resource.

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('page_title')</title>
+    <script src="{{ asset('js/statistic.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet"
@@ -128,7 +129,7 @@
                         <div class="drop-item collapse multi-collapse" id="dropmenu2">
                             <a href="{{route('admin.orders.index')}}"><span class="las la-info-circle"></span>
                                 <span>Dettagli ordini</span></a>
-                                <a href="{{route('admin.orders.index')}}"><span class="las la-chart-bar"></span>
+                                <a href="{{route('admin.orders.statistic')}}"><span class="las la-chart-bar"></span>
                                     <span>Statistiche ordini</span></a>
                         </div>
 
@@ -187,11 +188,6 @@
                     @endguest
                 </ul>
             </h2>
-
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search here" />
-            </div>
 
             {{-- BLOCCO DEL RISTORANTE DA VISUALIZZARE IN MOBILE --}}
 

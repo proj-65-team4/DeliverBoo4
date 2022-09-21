@@ -79,8 +79,8 @@
                             @foreach ($dataProducts as $product)
                             <tr>
                                 <td>{{$product->name}}</td>
-                                <td><span class="status {{$product->available == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->available ? 'disponibile' : 'non disponibile'}}</span></td>
-                                <td><span class="status {{$product->visible == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->visible ? 'visibile' : 'non visibile'}}</span></td>
+                                <td><span class="status {{$product->available == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->available ? 'Disponibile' : 'Non Disponibile'}}</span></td>
+                                <td><span class="status {{$product->visible == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->visible ? 'Visibile' : 'Non Disibile'}}</span></td>
                             </tr>
                             @endforeach
                         </tbody>

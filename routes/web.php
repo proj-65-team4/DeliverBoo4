@@ -36,6 +36,8 @@ Route::get("/dashboard", "DashboardController@index")->name("dashboard");
 
     Route::get("/orders", "OrderController@index")->name("orders.index");
     Route::get("/orders/{order}", "OrderController@show")->name("orders.show");
+
+    Route::get("/orders/statistic", "OrderController@statistic")->name("orders.statistic");
 });
 
 
