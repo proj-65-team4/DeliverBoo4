@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend');
 });
 
 Auth::routes();
@@ -43,3 +43,8 @@ Route::get("/dashboard", "DashboardController@index")->name("dashboard");
 });
 
 
+
+
+Route::get("{any?}", function () {
+    return view("frontend");
+  })->where("any", ".*");

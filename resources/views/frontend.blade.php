@@ -69,7 +69,7 @@
 <body>
     <div id="app">
 
-        <div class="flex-center position-ref full-height">
+        {{-- <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
@@ -91,7 +91,7 @@
 
 
             </div>
-        </div>
+        </div> --}}
     </div>
     <script src="{{ asset('js/frontend.js') }}"></script>
 </body>
