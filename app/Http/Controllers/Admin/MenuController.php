@@ -107,9 +107,15 @@ class MenuController extends Controller
    */
   public function show($id)
   {
+   
     $product = Product::findOrFail($id);
+    if($product->user_id === Auth::user()->id){
 
-    return view("admin.products.show", compact("product"));
+      return view("admin.products.show", compact("product"));
+    }
+    else{
+      return abort(404);
+    }
   }
 
   /**

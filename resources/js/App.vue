@@ -4,7 +4,9 @@
         <a href="/login">Login</a>
         <a href="/register">Register</a>
         <i class="fa-solid fa-user"></i>
-        <Home></Home>
+        <div class="container">
+        <router-view></router-view>
+        </div>
 
         <TheFooter></TheFooter>
     </div>
@@ -13,10 +15,9 @@
 <script>
 import TheNavbar from "./components/TheNavbar.vue";
 import TheFooter from "./components/TheFooter.vue";
-import Home from "./pages/Home.vue";
 
 export default {
-    components: { TheNavbar, TheFooter, Home },
+    components: { TheNavbar, TheFooter },
 };
 </script>
 

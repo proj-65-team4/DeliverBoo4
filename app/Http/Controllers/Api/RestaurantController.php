@@ -14,14 +14,17 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request )
+    public function index($id)
     {
+
+        
       $restaurants = DB::table('restaurants')
       ->join('category_restaurant' , 'category_restaurant.restaurant_id' , '=' , 'restaurants.id')
       ->join('categories' , 'category_restaurant.category_id' , '=' , 'categories.id')
-      ->where('categories.id' , '=' , 1)
+      ->where('categories.id' , '=' ,$id)
       ->select('restaurants.*')
       ->get();
+
 
         return response()->json($restaurants);
 

@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h1>Lista Ristoranti:</h1>
+        <h1>Lista Categorie:</h1>
         <ul>
-            <li v-for=" category in categories" :key="category">
-                {{ category.name }}
+            <li v-for=" category in categories" :key="category.id">
+                <router-link :to="{name:'restaurants.index', params:{id: category.id}}"> {{ category.name }}</router-link>
             </li>
         </ul>
     </div>
@@ -19,7 +19,7 @@ import axios from 'axios';
             }
         },
         methods: {
-            fetchData() {
+            fetchData() {   
                 axios.get("api/categories")
                 .then((resp)=> {
                     this.categories = resp.data
