@@ -25255,6 +25255,38 @@ component.options.__file = "resources/js/pages/Home.vue"
 
 /***/ }),
 
+/***/ "./resources/js/pages/RestorantIndex.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/pages/RestorantIndex.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/pages/RestorantIndex.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/pages/RestorantShow.vue":
 /*!**********************************************!*\
   !*** ./resources/js/pages/RestorantShow.vue ***!
@@ -25301,8 +25333,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Home.vue */ "./resources/js/pages/Home.vue");
-/* harmony import */ var _pages_RestorantShow_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/RestorantShow.vue */ "./resources/js/pages/RestorantShow.vue");
+/* harmony import */ var _pages_RestorantShow_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/RestorantShow.vue */ "./resources/js/pages/RestorantShow.vue");
+/* harmony import */ var _pages_RestorantIndex_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/RestorantIndex.vue */ "./resources/js/pages/RestorantIndex.vue");
 !(function webpackMissingModule() { var e = new Error("Cannot find module 'vue/types/umd'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
 
 
 
@@ -25314,8 +25348,15 @@ var routes = [{
   component: _pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   name: "home.index"
 }, {
-  path: "/restorant/:id",
-  component: _pages_RestorantShow_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+  path: "/prodotti",
+  component: RestorantIndex,
+  name: "restorant.index",
+  meta: {
+    title: "Ristorante"
+  }
+}, {
+  path: "/Prodotto/:id",
+  component: _pages_RestorantShow_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   name: "restorant.show",
   meta: {
     title: "Prodotto ristorante"
