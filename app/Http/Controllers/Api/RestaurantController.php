@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Restaurant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RestaurantController extends Controller
 {
@@ -13,14 +14,22 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request )
     {
-        $query = Restaurant::with('categories')->where()->get();
-        dd($query);
+      $restaurants = DB::table('restaurants')
+      ->join('category_restaurant' , 'category_restaurant.restaurant_id' , '=' , 'restaurants.id')
+      ->join('categories' , 'category_restaurant.category_id' , '=' , 'categories.id')
+      ->where('categories.id' , '=' , 1)
+      ->select('restaurants.*')
+      ->get();
 
-        return response()->json($query);
+        return response()->json($restaurants);
 
-        
+
+        /* SELECT * FROM `restaurants` JOIN `category_restaurant` 
+        ON `category_restaurant`.`restaurant_id`= `restaurants`.`id` 
+        JOIN `categories` ON `category_restaurant`.`category_id` = `categories`.`id`
+        WHERE `categories`.`id`= 19 */
     }
 
     /**
