@@ -1,9 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "./pages/Home.vue";
-import ProductShow from "./pages/RestorantShow.vue"
-import ProductIndex from './pages/RestorantIndex.vue'
-import { component } from "vue/types/umd";
+import ProductShow from "./pages/ProductShow.vue"
+import ProductIndex from './pages/ProductIndex.vue';
 
 Vue.use(VueRouter);
 
@@ -17,15 +16,15 @@ export const routes = [
 
   {
     path: "/prodotti",
-    component: RestorantIndex,
-    name: "restorant.index",
+    component: ProductIndex,
+    name: "product.index",
     meta: { title: "Ristorante" },
   },
 
   {
-    path: "/Prodotto/:id",
+    path: "/prodotto/:id",
     component: ProductShow,
-    name: "restorant.show",
+    name: "product.show",
     meta: { title: "Prodotto ristorante" },
   },
 
