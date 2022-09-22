@@ -4,7 +4,9 @@ import VueRouter from "vue-router";
 import { routes } from "./routes"
 import "bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import VueCarousel from 'vue-carousel';
 
+Vue.use(VueCarousel);
 
 
 new Vue({
