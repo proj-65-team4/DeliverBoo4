@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('page_title')</title>
+   {{--  <script src="{{ asset('js/statistic.js') }}" defer></script> --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @yield('script')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -114,5 +116,7 @@
         </main>
         
     </div>
+
+    
 </body>
 </html>
