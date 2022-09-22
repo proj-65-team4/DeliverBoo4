@@ -2,9 +2,12 @@
     <div>
         <h1>Lista Categorie:</h1>
         <ul>
-            <li v-for=" category in categories" :key="category.id">
+            <carousel class="" :paginationEnabled="false">
+          
+            <slide v-for=" category in categories" :key="category.id">
                 <router-link :to="{name:'restaurants.index', params:{id: category.id}}"> {{ category.name }}</router-link>
-            </li>
+            </slide>
+        </carousel>
         </ul>
     </div>
 </template>
