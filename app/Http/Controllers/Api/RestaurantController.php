@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Restaurant;
 use Illuminate\Http\Request;
 
 class RestaurantController extends Controller
@@ -12,9 +13,14 @@ class RestaurantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $query = Restaurant::with('categories')->where()->get();
+        dd($query);
+
+        return response()->json($query);
+
+        
     }
 
     /**
