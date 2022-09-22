@@ -1,8 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "./pages/Home.vue";
-import RestorantShow from "./pages/RestorantShow.vue"
-import { component } from "vue/types/umd";
+import RestorantShow from "./pages/RestorantShow.vue";
 
 Vue.use(VueRouter);
 
