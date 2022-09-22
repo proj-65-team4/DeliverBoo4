@@ -17,13 +17,17 @@ class RestaurantController extends Controller
     public function index($id)
     {
 
+    if($id){
         
-      $restaurants = DB::table('restaurants')
-      ->join('category_restaurant' , 'category_restaurant.restaurant_id' , '=' , 'restaurants.id')
-      ->join('categories' , 'category_restaurant.category_id' , '=' , 'categories.id')
-      ->where('categories.id' , '=' ,$id)
-      ->select('restaurants.*')
-      ->get();
+        $restaurants = DB::table('restaurants')
+        ->join('category_restaurant' , 'category_restaurant.restaurant_id' , '=' , 'restaurants.id')
+        ->join('categories' , 'category_restaurant.category_id' , '=' , 'categories.id')
+        ->where('categories.id' , '=' ,$id)
+        ->select('restaurants.*')
+        ->get();
+    }else{
+        $restaurants = Restaurant::all();
+    }
 
 
         return response()->json($restaurants);
