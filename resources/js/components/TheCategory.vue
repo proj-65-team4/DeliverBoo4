@@ -20,7 +20,7 @@ img {
     aspect-ratio: 16/9;
     object-fit: cover;
     object-position: center;
-    background-position: inherit;
+    background-position:  center;
 }
 
 
