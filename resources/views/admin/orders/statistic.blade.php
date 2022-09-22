@@ -2,7 +2,6 @@
 
 @section('page_title', "Statistiche ordini")
     
-<<<<<<< HEAD
 @section('script')
 <script src="{{asset('js/statistic.js')}}" defer></script>
     <script defer>
@@ -44,8 +43,6 @@
        
         </script>
 @endsection
-=======
->>>>>>> 29d88221f44f976c942bc048088648b184f2bc56
 
 @section('content')
     <div class="row">
@@ -64,11 +61,7 @@
             <canvas id="myChart"></canvas>
         </div>
     </div>
-<<<<<<< HEAD
 
 
 @endsection
 
-=======
-@endsection
->>>>>>> 29d88221f44f976c942bc048088648b184f2bc56
