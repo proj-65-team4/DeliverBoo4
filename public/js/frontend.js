@@ -5698,7 +5698,7 @@ var render = function render() {
     attrs: {
       paginationSize: 20,
       perPage: 3,
-      paginationColor: "#0F0F0F",
+      paginationColor: "#272727",
       paginationActiveColor: "#dc623d",
       paginationPosition: "bottom"
     }
