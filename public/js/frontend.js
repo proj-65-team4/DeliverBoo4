@@ -5423,9 +5423,7 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("TheHeader"), _vm._v(" "), _c("div", {
-    staticClass: "container"
-  }, [_c("router-view")], 1), _vm._v(" "), _c("TheFooter")], 1);
+  return _c("div", [_c("TheHeader"), _vm._v(" "), _c("div", {}, [_c("router-view")], 1), _vm._v(" "), _c("TheFooter")], 1);
 };
 
 var staticRenderFns = [];

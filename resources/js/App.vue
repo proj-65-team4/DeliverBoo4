@@ -2,7 +2,7 @@
     <div>
         <TheHeader></TheHeader>
         
-        <div class="container">
+        <div class="">
             <router-view></router-view>
         </div>
 
