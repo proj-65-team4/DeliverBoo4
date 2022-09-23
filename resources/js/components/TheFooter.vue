@@ -24,8 +24,8 @@
                     <div class="col-3 d-flex align-items-center flex-column">
                         <div class="fw-bold pb-3">Porta DeliveBoo con te</div>
                         <div class="text-center h-100">
-                            <a href="#"><img src="img/app-store.png" alt="" class="w-50 mt-2"></a>
-                            <a href="#"><img src="img/play-store.png" alt="" class="w-50 mt-4"></a>
+                            <a href="#"><img src="/img/app-store.png" alt="" class="w-50 mt-2"></a>
+                            <a href="#"><img src="/img/play-store.png" alt="" class="w-50 mt-4"></a>
                         </div>
                     </div>    
                 </div>
