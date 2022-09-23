@@ -11088,7 +11088,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bg-category[data-v-bb7a9770] {\n  background: #FFCA3A;\n  text-align: center;\n  padding-bottom: 3rem;\n}\n.bg-category h1[data-v-bb7a9770] {\n  font-weight: bolder;\n  font-size: 4.5rem;\n  max-width: 15ch;\n  text-align: center;\n  color: #131212;\n  margin: 0 auto;\n}", ""]);
+exports.push([module.i, ".bg-category[data-v-bb7a9770] {\n  background: #FFCA3A;\n  padding-bottom: 3rem;\n}\n.bg-category h1[data-v-bb7a9770] {\n  font-weight: bolder;\n  font-size: 4.5rem;\n  text-align: center;\n  max-width: 15ch;\n  text-align: center;\n  color: rgb(30, 29, 29);\n  margin: 0 auto;\n}", ""]);
 
 // exports
 

@@ -48,15 +48,15 @@ import TheCategory from '../components/TheCategory.vue';
 <style lang="scss" scoped>
 .bg-category {
 background: #FFCA3A;
-text-align: center;
 padding-bottom: 3rem;
 
 h1 {
     font-weight: bolder;
     font-size: 4.5rem;
+    text-align: center;
     max-width: 15ch;
     text-align: center;
-    color: #131212;
+    color: rgb(30, 29, 29);
     margin: 0 auto;
 }
 }
