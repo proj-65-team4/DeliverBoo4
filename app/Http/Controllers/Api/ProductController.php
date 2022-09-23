@@ -18,7 +18,10 @@ class ProductController extends Controller
     public function index($id)
     {
         $products = Product::where("user_id", $id)->get(); 
-
+        
+        foreach ($products as $product) {
+            $product->quantity = 0;
+        }
         
         return response()->json($products);
     }
