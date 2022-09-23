@@ -1,24 +1,33 @@
 <template>
     <div>
-        <h1>Lista Ristoranti:</h1>
+        <div class="container">
+            <h2>Categorie</h2>
+            <TheCarousel :categorie="categories"></TheCarousel>
+        </div>
+        <div class="container">
+            <h1>Lista Ristoranti:</h1>
         <ul>
             <li v-for=" restaurant in restaurants" :key="restaurant.id">
             <span>{{ restaurant.restaurant_name }}</span>
                 <!-- <router-link :to="{name:'restaurant.index', params:{id: category.id}}"> {{ category.name }}</router-link> -->
             </li>
         </ul>
+            </div>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
 
+import TheCarousel from "../components/TheCarousel";
 
 
     export default {
+        components:{TheCarousel},
         data() {
             return {
                 restaurants: [],
+                categories:[]
             }
         },
         methods: {
@@ -37,7 +46,8 @@ import axios from 'axios';
                 console.log(Math.random(1,10));
                 axios.get("/api/restaurants/"+ this.$route.params.id)
                 .then((resp)=> {
-                    this.restaurants = resp.data
+                    this.restaurants = resp.data.restaurants;
+                    this.categories = resp.data.categories;
                 })
             }
         },
