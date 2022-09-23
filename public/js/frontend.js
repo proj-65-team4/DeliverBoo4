@@ -5696,10 +5696,11 @@ var render = function render() {
     staticClass: "py-5"
   }, [_vm._v("Le categorie che amate")]), _vm._v(" "), _c("carousel", {
     attrs: {
-      paginationSize: 15,
+      paginationSize: 20,
       perPage: 3,
-      paginationColor: "#333",
-      paginationActiveColor: "#dc623d"
+      paginationColor: "#0F0F0F",
+      paginationActiveColor: "#dc623d",
+      paginationPosition: "bottom"
     }
   }, _vm._l(_vm.categories, function (category) {
     return _c("slide", {
