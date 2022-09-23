@@ -23,3 +23,7 @@ Route::get("/restaurants/{id}", "Api\RestaurantController@index");
 Route::get("/categories", "Api\CategoryController@category");
 
 Route::get("/products/{id}", "Api\ProductController@show");
+
+Route::get("/{restaurant_id}/products", "Api\ProductController@index");
+
+

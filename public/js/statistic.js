@@ -120,7 +120,11 @@ new Chart(document.getElementById('myChart'), config);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/chart/statistic.js */"./resources/js/chart/statistic.js");
+<<<<<<< HEAD
+module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\chart\statistic.js */"./resources/js/chart/statistic.js");
+=======
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\chart\statistic.js */"./resources/js/chart/statistic.js");
+>>>>>>> 68b7dc3dbc1a43f48a8ebb5e4cc49910f052b0b6
 
 
 /***/ })

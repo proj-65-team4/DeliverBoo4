@@ -2,9 +2,17 @@
     <div>
         <!-- navbar -->
         <nav id="navscroll" class="my-navbar bg-color">
-            <div class="cart">
-                <span class="las la-shopping-cart"></span>
+            <button class="btn position relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa-solid fa-cart-shopping text-white"></i></button>
+
+            <div class="offcanvas offcanvas-start" data-bs-scroll="false" data-bs-backdrop="true" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
+            <div class="offcanvas-body">
+                <p>Try scrolling the rest of the page to see this option in action.</p>
+            </div>
+</div>
 
             <div class="logo">
                 <router-link :to="{ name: 'home' }">
@@ -52,6 +60,14 @@ export default {};
 
 .cart {
     display: none;
+}
+.counter-cart{
+    position:absolute;
+    width:10px;
+    aspect-ratio: 1;
+    padding:.15rem;
+    border-radius:50%;
+    background-color: red;
 }
 
 .my-navbar {
