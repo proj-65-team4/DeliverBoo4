@@ -26,9 +26,9 @@ import axios from 'axios';
                 document.getElementById("jumbotron").style.height=""
                 if(x.matches){
                     console.log((window.matchMedia('(max-width: 460px)')).matches)
-                    document.getElementById("jumbotron").style.height="250px"
+                    document.getElementById("jumbotron").style.minHeight="250px"
                 }else{
-                    document.getElementById("jumbotron").style.height="350px"
+                    document.getElementById("jumbotron").style.minHeight="350px"
                 }
         },
             fetchData() {

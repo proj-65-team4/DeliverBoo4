@@ -33,9 +33,9 @@ import TheCategory from '../components/TheCategory.vue';
                 document.getElementById("jumbotron").style.height=""
                 if(x.matches){
                     console.log((window.matchMedia('(max-width: 460px)')).matches)
-                    document.getElementById("jumbotron").style.height="250px"
+                    document.getElementById("jumbotron").style.minHeight="250px"
                 }else{
-                    document.getElementById("jumbotron").style.height="600px"
+                    document.getElementById("jumbotron").style.minHeight="700px"
                 }
         },
         fetchData() {
