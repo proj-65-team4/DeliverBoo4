@@ -4,8 +4,15 @@
             <div class="container">
                 <div class="copyright-bar py-2">
                     <div>
-                        <div>Made with <i class="fa-solid fa-heart"></i> + <i class="fa-solid fa-brain"></i> by Team 4</div>
-                        <div>© 2022 F M E G L</div>
+                        <div>Made with <i class="fa-solid fa-heart"></i> + <img class="brain-ico" src="https://img.icons8.com/external-glyph-icons-maxicons/85/000000/external-brain-medical-glyph-glyph-icons-maxicons.png"/> by Team 4</div>
+                        <div class="d-flex gap-2 align-items-center">
+                            <div>© 2022</div>
+                            <a href="https://github.com/felicetto13">Felice</a>
+                            <a href="https://github.com/Michael-Bombini">Michael</a>
+                            <a href="https://github.com/erica201193">Erica</a>
+                            <a href="https://github.com/br4nc4">Giuseppe</a>
+                            <a href="https://github.com/LucaSk-x">Luca</a>
+                        </div>
                     </div>
         
                     <div class=" d-flex d-none d-md-block">
@@ -68,13 +75,17 @@
         & a{
             text-decoration: none;
             color: white;
-            font-weight: bold;
-            font-size: 18px;
         }
 
         & li{
             display: inline-block;
         }
+    }
+
+    .brain-ico {
+        width: 20px;
+        filter: brightness(0) invert(1);
+
     }
 
 

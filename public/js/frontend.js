@@ -86,6 +86,94 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf ***!
+  \*******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.ttf?9d2bbde416583cfa5cb30c995b41f732";
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2 ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-brands-400.woff2?f4bdd85a576812f553ec3cfea8b1a2b5";
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.ttf?f417567703b4fcfbf750952bd2db8a44";
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2 ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-regular-400.woff2?83e2813a8fe0229d916c5b63fa9eab5e";
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf ***!
+  \******************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.ttf?dd5e5b90ca8ee986b13b04310f9aef9d";
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2":
+/*!********************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2 ***!
+  \********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-solid-900.woff2?3e50e269ee627bb2279f91d18c085167";
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.ttf":
+/*!************************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.ttf ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-v4compatibility.ttf?d4a14b7a210bc8b5c2fe661a18e7e8db";
+
+/***/ }),
+
+/***/ "./node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2 ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/fonts/vendor/@fortawesome/fontawesome-free/webfa-v4compatibility.woff2?1f9db9971c2d69b78e7425a012a5e486";
+
+/***/ }),
+
 /***/ "./node_modules/@popperjs/core/lib/createPopper.js":
 /*!*********************************************************!*\
   !*** ./node_modules/@popperjs/core/lib/createPopper.js ***!
@@ -5526,9 +5614,34 @@ var staticRenderFns = [function () {
     staticClass: "copyright-bar py-2"
   }, [_c("div", [_c("div", [_vm._v("Made with "), _c("i", {
     staticClass: "fa-solid fa-heart"
-  }), _vm._v(" + "), _c("i", {
-    staticClass: "fa-solid fa-brain"
-  }), _vm._v(" by Team 4")]), _vm._v(" "), _c("div", [_vm._v("© 2022 F M E G L")])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" + "), _c("img", {
+    staticClass: "brain-ico",
+    attrs: {
+      src: "https://img.icons8.com/external-glyph-icons-maxicons/85/000000/external-brain-medical-glyph-glyph-icons-maxicons.png"
+    }
+  }), _vm._v(" by Team 4")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex gap-2 align-items-center"
+  }, [_c("div", [_vm._v("© 2022")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "https://github.com/felicetto13"
+    }
+  }, [_vm._v("Felice")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "https://github.com/Michael-Bombini"
+    }
+  }, [_vm._v("Michael")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "https://github.com/erica201193"
+    }
+  }, [_vm._v("Erica")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "https://github.com/br4nc4"
+    }
+  }, [_vm._v("Giuseppe")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "https://github.com/LucaSk-x"
+    }
+  }, [_vm._v("Luca")])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex d-none d-md-block"
   }, [_c("a", {
     staticClass: "social-icon facebook-icon mx-2",
@@ -11213,7 +11326,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#deliveboo[data-v-fe5c207c] {\n  width: 120px;\n  filter: brightness(0) invert(1);\n}\n.social-icon[data-v-fe5c207c] {\n  transition: 0.3s ease-in-out;\n}\n.facebook-icon[data-v-fe5c207c]:hover {\n  color: #1877F2;\n}\n.insta-icon[data-v-fe5c207c]:hover {\n  color: #E4405F;\n}\n.twitter-icon[data-v-fe5c207c]:hover {\n  color: #1DA1F2;\n}\n.copyright-bg[data-v-fe5c207c] {\n  background: rgb(40, 191, 214);\n  width: 100%;\n}\n.copyright-bar[data-v-fe5c207c] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  color: white;\n}\n.copyright-bar a[data-v-fe5c207c] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.copyright-bar li[data-v-fe5c207c] {\n  display: inline-block;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-fe5c207c] {\n    width: 100px;\n}\n}", ""]);
+exports.push([module.i, "#deliveboo[data-v-fe5c207c] {\n  width: 120px;\n  filter: brightness(0) invert(1);\n}\n.social-icon[data-v-fe5c207c] {\n  transition: 0.3s ease-in-out;\n}\n.facebook-icon[data-v-fe5c207c]:hover {\n  color: #1877F2;\n}\n.insta-icon[data-v-fe5c207c]:hover {\n  color: #E4405F;\n}\n.twitter-icon[data-v-fe5c207c]:hover {\n  color: #1DA1F2;\n}\n.copyright-bg[data-v-fe5c207c] {\n  background: rgb(40, 191, 214);\n  width: 100%;\n}\n.copyright-bar[data-v-fe5c207c] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  color: white;\n}\n.copyright-bar a[data-v-fe5c207c] {\n  text-decoration: none;\n  color: white;\n}\n.copyright-bar li[data-v-fe5c207c] {\n  display: inline-block;\n}\n.brain-ico[data-v-fe5c207c] {\n  width: 20px;\n  filter: brightness(0) invert(1);\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-fe5c207c] {\n    width: 100px;\n}\n}", ""]);
 
 // exports
 
