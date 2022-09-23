@@ -5524,7 +5524,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      products: []
+      products: [],
+      cart: []
     };
   },
   methods: {
@@ -5535,6 +5536,12 @@ __webpack_require__.r(__webpack_exports__);
         console.log(resp);
         _this.products = resp.data;
       });
+    },
+    removeCart: function removeCart(index) {
+      if (this.products[index].quantity !== 0) this.products[index].quantity--;
+    },
+    addCart: function addCart(index) {
+      this.products[index].quantity++;
     }
   },
   mounted: function mounted() {
@@ -6181,11 +6188,28 @@ var render = function render() {
 
   return _c("div", [_c("div", {
     staticClass: "container"
-  }, [_c("h2", [_vm._v("Lista prodotti")]), _vm._v(" "), _vm._l(_vm.products, function (product) {
+  }, [_c("h2", [_vm._v("Lista prodotti")]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, _vm._l(_vm.products, function (product, index) {
     return _c("div", {
-      key: product.id
-    }, [_vm._v(_vm._s(product.name))]);
-  })], 2)]);
+      key: product.id,
+      staticClass: "col-12 border p-4"
+    }, [_vm._v("\n                " + _vm._s(product.name) + "\n                "), _c("div", {
+      staticClass: "d-flex my-4 g-4"
+    }, [_c("button", {
+      on: {
+        click: function click($event) {
+          return _vm.removeCart(index);
+        }
+      }
+    }, [_vm._v("remove -")]), _vm._v(" "), _c("div", [_vm._v("qnt. " + _vm._s(product.quantity))]), _vm._v(" "), _c("button", {
+      on: {
+        click: function click($event) {
+          return _vm.addCart(index);
+        }
+      }
+    }, [_vm._v("add +")])])]);
+  }), 0)])]);
 };
 
 var staticRenderFns = [];
@@ -29196,7 +29220,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
