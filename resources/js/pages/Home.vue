@@ -24,6 +24,7 @@ import TheCategory from '../components/TheCategory.vue';
     },
     methods: {
         fetchData() {
+            console.log(this.$route.name);
             axios.get("api/categories")
                 .then((resp) => {
                 this.categories = resp.data;

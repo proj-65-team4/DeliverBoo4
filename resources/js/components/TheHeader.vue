@@ -2,7 +2,7 @@
     <div>
         <TheNavbar class="fixed-top"></TheNavbar>
         <div class="jumbotron">
-            <div class="bg-jumbo"><img src="img/food-jumbo.jpg" alt=""></div>
+            <div class="bg-jumbo"><img src="/img/food-jumbo.jpg" alt=""></div>
         </div>
     </div>
 </template>

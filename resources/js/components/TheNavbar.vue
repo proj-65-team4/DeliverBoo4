@@ -8,7 +8,9 @@
             </div>
 
             <div class="logo">
-                <img id="deliveboo" src="img/deliveboo-logo.svg" alt="">
+                <router-link :to="{name:'home'}">
+                    <img id="deliveboo" src="/img/deliveboo-logo.svg" alt="">
+                </router-link>
             </div>
 
             <ul class="list-unstyled mb-0">
