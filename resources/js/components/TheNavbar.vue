@@ -1,15 +1,116 @@
 <template>
-    <div class="">
-        <div>Navbar</div>
+    <div>
+        <!-- navbar -->
+        <nav id="navscroll" class="my-navbar">
+    
+            <div class="cart">
+                <span class="las la-shopping-cart"></span>
+            </div>
+
+            <div class="logo">
+                <img id="deliveboo" src="img/deliveboo-logo.svg" alt="">
+            </div>
+
+            <ul class="list-unstyled mb-0">
+                <li>
+                    <a class="login btn" href="/login">Login</a>
+                </li>
+                
+                <li>
+                    <a class="register btn" href="/register">Register</a>
+                </li>
+            </ul>
+
+        </nav>
     </div>
+    
 </template>
 
 <script>
-    export default {
-        
-    }
+    window.addEventListener("scroll", function(){
+        if(this.window.pageYOffset>510){
+            document.getElementById("navscroll").style.background="#ffab00"
+        } else {
+            document.getElementById("navscroll").style.background="rgba(0,0,0,0.2)"
+        }
+    });
+export default {
+};
 </script>
 
 <style lang="scss" scoped>
+    #deliveboo{
+        width: 175px;
+    }
 
+    .cart{
+        display:none;
+    }
+    
+    .my-navbar{ 
+        background: rgba(0,0,0,0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem 200px;
+        width: 100%;
+
+        & a{
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        & li{
+            display: inline-block;
+        }
+    }
+
+    .login{
+        border-radius: 4px;
+        border: none;
+        color: #fff;
+        text-align: center;
+        padding: 0.5rem 0.9rem;
+        margin-right: 1rem;
+        background: #3DA5D9;
+        &:hover{
+            background: rgb(40, 191, 214);
+        }
+    }
+
+    .register{
+        border-radius: 4px;
+        border: none;
+        color: #fff;
+        text-align: center;
+        padding: 0.5rem 0.9rem;
+        background: #FFCA3A;
+        &:hover{
+            background: #ffab00;
+        }
+    }
+
+    @media only screen and (max-width: 460px){
+        #deliveboo{
+        width: 130px;
+        }
+
+        .my-navbar {
+            padding: 0.6rem 0.7rem;
+        }
+
+        .my-navbar a{
+            font-size: 15px;
+        }
+
+        .login{
+            padding: 0.3rem 0.5rem;
+        }
+
+        .register{
+            padding: 0.3rem 0.5rem;
+        }
+    }
 </style>

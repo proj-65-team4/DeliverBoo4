@@ -1,14 +1,13 @@
 <template>
     <div>
-        <h1>Lista Categorie:</h1>
-        <ul>
-            <carousel class="" :paginationEnabled="false">
-          
-            <slide v-for=" category in categories" :key="category.id">
-                <router-link :to="{name:'restaurants.index', params:{id: category.id}}"> {{ category.name }}</router-link>
-            </slide>
-        </carousel>
-        </ul>
+        <div class="container">
+            <h1>Lista Categorie:</h1>
+            <ul>
+                <li v-for=" category in categories" :key="category.id">
+                    <router-link :to="{name:'restaurants.index', params:{id: category.id}}"> {{ category.name }}</router-link>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
