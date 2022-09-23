@@ -2,6 +2,12 @@
     <div>
         <div class="container">
             <h2>Lista prodotti</h2>
+            <button @click="checkout()" class="btn btn-primary">
+                Procedi al pagamento
+            </button>
+            <div v-if="cart.length === 0">Il tuo carrello è vuoto</div>
+            <div v-else>contenuto carrello {{cart}}</div>
+
             <div class="row">
                 <div
                     class="col-12 border p-4"
@@ -46,6 +52,19 @@ export default {
         },
         addCart(index) {
             this.products[index].quantity++;
+        },
+
+        checkout() {
+            this.cart = [];
+            this.products.forEach((element) => {
+                if (element.quantity > 0) {
+                    console.log(element.name, element.quantity);
+                    this.cart.push({
+                        name: element.name,
+                        quantity: element.quantity,
+                    });
+                }
+            });
         },
     },
     mounted() {

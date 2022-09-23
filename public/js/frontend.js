@@ -5542,6 +5542,21 @@ __webpack_require__.r(__webpack_exports__);
     },
     addCart: function addCart(index) {
       this.products[index].quantity++;
+    },
+    checkout: function checkout() {
+      var _this2 = this;
+
+      this.cart = [];
+      this.products.forEach(function (element) {
+        if (element.quantity > 0) {
+          console.log(element.name, element.quantity);
+
+          _this2.cart.push({
+            name: element.name,
+            quantity: element.quantity
+          });
+        }
+      });
     }
   },
   mounted: function mounted() {
@@ -6188,7 +6203,14 @@ var render = function render() {
 
   return _c("div", [_c("div", {
     staticClass: "container"
-  }, [_c("h2", [_vm._v("Lista prodotti")]), _vm._v(" "), _c("div", {
+  }, [_c("h2", [_vm._v("Lista prodotti")]), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary",
+    on: {
+      click: function click($event) {
+        return _vm.checkout();
+      }
+    }
+  }, [_vm._v("\n            Procedi al pagamento\n        ")]), _vm._v(" "), _vm.cart.length === 0 ? _c("div", [_vm._v("Il tuo carrello è vuoto")]) : _c("div", [_vm._v("contenuto carrello " + _vm._s(_vm.cart))]), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, _vm._l(_vm.products, function (product, index) {
     return _c("div", {
