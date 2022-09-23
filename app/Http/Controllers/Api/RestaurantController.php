@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Restaurant;
 use Illuminate\Http\Request;
@@ -28,9 +29,9 @@ class RestaurantController extends Controller
     }else{
         $restaurants = Restaurant::all();
     }
-
-
-        return response()->json($restaurants);
+    
+        $categories = Category::all();
+        return response()->json(["restaurants"=>$restaurants,"categories"=>$categories]);
 
 
         /* SELECT * FROM `restaurants` JOIN `category_restaurant` 

@@ -4,20 +4,15 @@
 
             <h1 class="py-5">Le categorie che amate</h1>
  
-           
+           <TheCarousel :categorie="categories"></TheCarousel>
 
-            <carousel class="" :paginationSize=20 :perPage=3 paginationColor="#272727" paginationActiveColor="#dc623d" paginationPosition="bottom" >
-          
-            <slide v-for=" category in categories" :key="category.id">
-                <TheCategory :category="category"/>
-            </slide>
-        </carousel>
+           
     </div>
 </template>
 
 <script>
 import axios from 'axios';
-import TheCategory from '../components/TheCategory.vue';
+import TheCarousel from '../components/TheCarousel.vue';
 
     export default {
     data() {
@@ -52,7 +47,7 @@ import TheCategory from '../components/TheCategory.vue';
 this.media(x) // Call listener function at run time
 x.addListener(this.media) // Attach listener function on state changes
     },
-    components: { TheCategory }
+    components: { TheCarousel }
 }
 
 </script>
