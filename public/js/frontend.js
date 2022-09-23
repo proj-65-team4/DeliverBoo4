@@ -5525,7 +5525,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       products: [],
-      cart: []
+      cart: [],
+      total: 0
     };
   },
   methods: {
@@ -5547,14 +5548,18 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       this.cart = [];
+      this.total = 0;
       this.products.forEach(function (element) {
         if (element.quantity > 0) {
-          console.log(element.name, element.quantity);
+          console.log(element.name, element.quantity, element.price);
 
           _this2.cart.push({
             name: element.name,
             quantity: element.quantity
           });
+
+          _this2.total += element.price * element.quantity;
+          _this2.total = Math.round(_this2.total);
         }
       });
     }
@@ -6210,13 +6215,15 @@ var render = function render() {
         return _vm.checkout();
       }
     }
-  }, [_vm._v("\n            Procedi al pagamento\n        ")]), _vm._v(" "), _vm.cart.length === 0 ? _c("div", [_vm._v("Il tuo carrello è vuoto")]) : _c("div", [_vm._v("contenuto carrello " + _vm._s(_vm.cart))]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n            Procedi al pagamento\n        ")]), _vm._v(" "), _vm.cart.length === 0 ? _c("div", [_vm._v("Il tuo carrello è vuoto")]) : _c("div", [_vm._v("contenuto carrello " + _vm._s(_vm.cart) + "\n            "), _c("div", {
+    staticClass: "bg-secondary"
+  }, [_vm._v("Il totale da pagare è " + _vm._s(_vm.total) + "€")])]), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, _vm._l(_vm.products, function (product, index) {
     return _c("div", {
       key: product.id,
       staticClass: "col-12 border p-4"
-    }, [_vm._v("\n                " + _vm._s(product.name) + "\n                "), _c("div", {
+    }, [_vm._v("\n                " + _vm._s(product.name) + " " + _vm._s(product.price) + "\n                "), _c("div", {
       staticClass: "d-flex my-4 g-4"
     }, [_c("button", {
       on: {

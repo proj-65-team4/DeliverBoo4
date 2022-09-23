@@ -6,7 +6,10 @@
                 Procedi al pagamento
             </button>
             <div v-if="cart.length === 0">Il tuo carrello è vuoto</div>
-            <div v-else>contenuto carrello {{cart}}</div>
+            <div v-else>contenuto carrello {{cart}}
+                <div class="bg-secondary">Il totale da pagare è {{total}}€</div>
+            </div>
+
 
             <div class="row">
                 <div
@@ -14,7 +17,7 @@
                     v-for="(product, index) in products"
                     :key="product.id"
                 >
-                    {{ product.name }}
+                    {{ product.name }} {{product.price}}
                     <div class="d-flex my-4 g-4">
                         <button @click="removeCart(index)">remove -</button>
 
@@ -35,6 +38,8 @@ export default {
         return {
             products: [],
             cart: [],
+            total : 0,
+
         };
     },
     methods: {
@@ -56,13 +61,16 @@ export default {
 
         checkout() {
             this.cart = [];
+            this.total = 0 ;
             this.products.forEach((element) => {
                 if (element.quantity > 0) {
-                    console.log(element.name, element.quantity);
+                    console.log(element.name, element.quantity , element.price);
                     this.cart.push({
                         name: element.name,
                         quantity: element.quantity,
                     });
+                    this.total += element.price * element.quantity;
+                    this.total = Math.round(this.total);
                 }
             });
         },
