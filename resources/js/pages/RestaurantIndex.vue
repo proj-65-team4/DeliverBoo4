@@ -13,6 +13,8 @@
 <script>
 import axios from 'axios';
 
+
+
     export default {
         data() {
             return {
@@ -20,22 +22,37 @@ import axios from 'axios';
             }
         },
         methods: {
-
+        media(x){
+                document.getElementById("jumbotron").style.height=""
+                if(x.matches){
+                    console.log((window.matchMedia('(max-width: 460px)')).matches)
+                    document.getElementById("jumbotron").style.height="250px"
+                }else{
+                    document.getElementById("jumbotron").style.height="350px"
+                }
+        },
             fetchData() {
+                
+               
+                console.log(Math.random(1,10));
                 axios.get("/api/restaurants/"+ this.$route.params.id)
                 .then((resp)=> {
                     this.restaurants = resp.data
                 })
-                console.log(this.categories)
             }
         },
         mounted() {
             this.fetchData();
+
+        let x = window.matchMedia("(max-width:460px)")
+this.media(x) // Call listener function at run time
+x.addListener(this.media) // Attach listener function on state changes
         }
     }
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
+
 
 </style>

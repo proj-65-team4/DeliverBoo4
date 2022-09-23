@@ -23,23 +23,35 @@ import TheCategory from '../components/TheCategory.vue';
         };
     },
     methods: {
+
+        media(x){
+                document.getElementById("jumbotron").style.height=""
+                if(x.matches){
+                    console.log((window.matchMedia('(max-width: 460px)')).matches)
+                    document.getElementById("jumbotron").style.height="250px"
+                }else{
+                    document.getElementById("jumbotron").style.height="600px"
+                }
+        },
         fetchData() {
-            console.log(this.$route.name);
+             
+               
             axios.get("api/categories")
                 .then((resp) => {
                 this.categories = resp.data;
             });
-            console.log(this.categories);
         }
     },
     mounted() {
         this.fetchData();
+
+        let x = window.matchMedia("(max-width:460px)")
+this.media(x) // Call listener function at run time
+x.addListener(this.media) // Attach listener function on state changes
     },
     components: { TheCategory }
 }
 
 </script>
-
-<style lang="scss" scoped>
 
 </style>

@@ -12,3 +12,16 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+.jumbotron {
+    height:600px;
+    position:relative;
+}
+
+@media only screen and (max-width: 460px){
+    .jumbotron{
+    height: 250px;
+    position:relative;
+}
+}

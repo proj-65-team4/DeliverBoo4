@@ -2,9 +2,7 @@
     <div>
         <TheHeader></TheHeader>
         
-        <div class="container">
-            <router-view></router-view>
-        </div>
+        <TheMain></TheMain>
 
         <TheFooter></TheFooter>
     </div>
@@ -18,6 +16,7 @@ import TheMain from "./components/TheMain.vue";
 export default {
     components: { TheHeader, TheFooter, TheMain },
 };
+
 </script>
 
 <style lang="scss" scoped>
