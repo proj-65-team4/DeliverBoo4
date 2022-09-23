@@ -5,6 +5,7 @@
         <TheMain></TheMain>
 
         <TheFooter></TheFooter>
+        <TheCopyrightBar></TheCopyrightBar>
     </div>
 </template>
 
@@ -12,9 +13,10 @@
 import TheHeader from "./components/TheHeader.vue";
 import TheFooter from "./components/TheFooter.vue";
 import TheMain from "./components/TheMain.vue";
+import TheCopyrightBar from "./components/TheCopyrightBar.vue";
 
 export default {
-    components: { TheHeader, TheFooter, TheMain },
+    components: { TheHeader, TheFooter, TheMain, TheCopyrightBar },
 };
 </script>
 
