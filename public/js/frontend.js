@@ -5254,6 +5254,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RestaurantCard.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RestaurantCard.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    restaurant: Object
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TheCarousel.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TheCarousel.vue?vue&type=script&lang=js& ***!
@@ -5439,9 +5456,63 @@ window.addEventListener("scroll", function () {
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/RestaurantIndex.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************************************************************************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/ericamancini/Boolean/DeliverBoo4/resources/js/pages/RestaurantIndex.vue: Missing semicolon. (43:5)\n\n\u001b[0m \u001b[90m 41 |\u001b[39m             })\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 42 |\u001b[39m         }\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 43 |\u001b[39m     }\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 44 |\u001b[39m     mounted() {\u001b[0m\n\u001b[0m \u001b[90m 45 |\u001b[39m         \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mfetchData()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 46 |\u001b[39m         \u001b[36mlet\u001b[39m x \u001b[33m=\u001b[39m window\u001b[33m.\u001b[39mmatchMedia(\u001b[32m\"(max-width:460px)\"\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n    at instantiate (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:72:32)\n    at constructor (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:367:12)\n    at Parser.raise (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:3678:19)\n    at Parser.semicolon (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:4123:10)\n    at Parser.parseExportDefaultExpression (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:16173:10)\n    at Parser.parseExport (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:16060:31)\n    at Parser.parseStatementContent (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:14898:27)\n    at Parser.parseStatement (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:14782:17)\n    at Parser.parseBlockOrModuleBlockBody (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:15441:25)\n    at Parser.parseBlockBody (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:15432:10)\n    at Parser.parseProgram (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:14700:10)\n    at Parser.parseTopLevel (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:14687:25)\n    at Parser.parse (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:16710:10)\n    at parse (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/parser/lib/index.js:16762:38)\n    at parser (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/core/lib/parser/index.js:52:34)\n    at parser.next (<anonymous>)\n    at normalizeFile (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/core/lib/transformation/normalize-file.js:87:38)\n    at normalizeFile.next (<anonymous>)\n    at run (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/core/lib/transformation/index.js:31:50)\n    at run.next (<anonymous>)\n    at transform (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/@babel/core/lib/transform.js:29:41)\n    at transform.next (<anonymous>)\n    at step (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/gensync/index.js:261:32)\n    at /Users/ericamancini/Boolean/DeliverBoo4/node_modules/gensync/index.js:273:13\n    at async.call.result.err.err (/Users/ericamancini/Boolean/DeliverBoo4/node_modules/gensync/index.js:223:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_TheCarousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/TheCarousel */ "./resources/js/components/TheCarousel.vue");
+/* harmony import */ var _components_RestaurantCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/RestaurantCard.vue */ "./resources/js/components/RestaurantCard.vue");
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    TheCarousel: _components_TheCarousel__WEBPACK_IMPORTED_MODULE_1__["default"],
+    RestaurantCard: _components_RestaurantCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  data: function data() {
+    return {
+      restaurants: [],
+      categories: []
+    };
+  },
+  methods: {
+    media: function media(x) {
+      document.getElementById("jumbotron").style.height = "";
+
+      if (x.matches) {
+        console.log(window.matchMedia('(max-width: 460px)').matches);
+        document.getElementById("jumbotron").style.minHeight = "250px";
+      } else {
+        document.getElementById("jumbotron").style.minHeight = "350px";
+      }
+    },
+    fetchData: function fetchData() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/restaurants/" + this.$route.params.id).then(function (resp) {
+        _this.restaurants = resp.data.restaurants;
+        _this.categories = resp.data.categories;
+      });
+    }
+  },
+  // fetchData() {
+  //     console.log(Math.random(1, 10));
+  //     axios.get("/api/restaurants/" + this.$route.params.id)
+  //         .then((resp) => {
+  //         this.restaurants = resp.data;
+  //     });
+  // }
+  mounted: function mounted() {
+    this.fetchData();
+    var x = window.matchMedia("(max-width:460px)");
+    this.media(x); // Call listener function at run time
+
+    x.addListener(this.media); // Attach listener function on state changes
+  }
+});
 
 /***/ }),
 
@@ -5527,6 +5598,45 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", [_c("TheHeader"), _vm._v(" "), _c("TheMain"), _vm._v(" "), _c("TheFooter"), _vm._v(" "), _c("TheCopyrightBar")], 1);
+};
+
+var staticRenderFns = [];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RestaurantCard.vue?vue&type=template&id=272b0098&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RestaurantCard.vue?vue&type=template&id=272b0098&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", [_c("div", {
+    staticClass: "row py-2"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("router-link", {
+    attrs: {
+      to: {
+        name: "restaurant.products",
+        params: {
+          restaurant_id: _vm.restaurant.user_id
+        }
+      }
+    }
+  }, [_c("div", {
+    staticClass: "card p-4"
+  }, [_c("h5", [_vm._v(_vm._s(_vm.restaurant.restaurant_name))]), _vm._v(" "), _c("h6", [_vm._v(_vm._s(_vm.restaurant.address) + ", " + _vm._s(_vm.restaurant.city))])])])], 1)])]);
 };
 
 var staticRenderFns = [];
@@ -6023,20 +6133,14 @@ var render = function render() {
     }
   })], 1), _vm._v(" "), _c("div", {
     staticClass: "container"
-  }, [_c("h1", [_vm._v("Lista Ristoranti:")]), _vm._v(" "), _c("ul", _vm._l(_vm.restaurants, function (restaurant) {
-    return _c("li", {
-      key: restaurant.id
-    }, [_c("router-link", {
+  }, [_c("h1", [_vm._v("Lista Ristoranti:")]), _vm._v(" "), _vm._l(_vm.restaurants, function (restaurant) {
+    return _c("RestaurantCard", {
+      key: restaurant.id,
       attrs: {
-        to: {
-          name: "restaurant.products",
-          params: {
-            restaurant_id: restaurant.user_id
-          }
-        }
+        restaurant: restaurant
       }
-    }, [_vm._v(_vm._s(restaurant.restaurant_name))])], 1);
-  }), 0)])]);
+    });
+  })], 2)]);
 };
 
 var staticRenderFns = [];
@@ -11406,6 +11510,25 @@ exports.push([module.i, "@charset \"UTF-8\";\n[data-v-f348271a]:root {\n  --main
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "a[data-v-272b0098] {\n  text-decoration: none;\n  color: black;\n  transition: all 0.2s ease-in-out;\n}\na[data-v-272b0098]:hover {\n  color: rgb(40, 191, 214);\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/TheCategory.vue?vue&type=style&index=0&id=bdf40818&lang=scss&scoped=true&":
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/TheCategory.vue?vue&type=style&index=0&id=bdf40818&lang=scss&scoped=true& ***!
@@ -12069,6 +12192,36 @@ options.transform = transform
 options.insertInto = undefined;
 
 var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--8-2!../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../node_modules/vue-loader/lib??vue-loader-options!./RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -28040,6 +28193,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f348271a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_App_vue_vue_type_template_id_f348271a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/RestaurantCard.vue":
+/*!****************************************************!*\
+  !*** ./resources/js/components/RestaurantCard.vue ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _RestaurantCard_vue_vue_type_template_id_272b0098_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RestaurantCard.vue?vue&type=template&id=272b0098&scoped=true& */ "./resources/js/components/RestaurantCard.vue?vue&type=template&id=272b0098&scoped=true&");
+/* harmony import */ var _RestaurantCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RestaurantCard.vue?vue&type=script&lang=js& */ "./resources/js/components/RestaurantCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _RestaurantCard_vue_vue_type_style_index_0_id_272b0098_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true& */ "./resources/js/components/RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _RestaurantCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _RestaurantCard_vue_vue_type_template_id_272b0098_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _RestaurantCard_vue_vue_type_template_id_272b0098_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "272b0098",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/RestaurantCard.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/RestaurantCard.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/RestaurantCard.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./RestaurantCard.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RestaurantCard.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantCard_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/components/RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantCard_vue_vue_type_style_index_0_id_272b0098_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--8-2!../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../node_modules/vue-loader/lib??vue-loader-options!./RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RestaurantCard.vue?vue&type=style&index=0&id=272b0098&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantCard_vue_vue_type_style_index_0_id_272b0098_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantCard_vue_vue_type_style_index_0_id_272b0098_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantCard_vue_vue_type_style_index_0_id_272b0098_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantCard_vue_vue_type_style_index_0_id_272b0098_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/RestaurantCard.vue?vue&type=template&id=272b0098&scoped=true&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/RestaurantCard.vue?vue&type=template&id=272b0098&scoped=true& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantCard_vue_vue_type_template_id_272b0098_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../node_modules/vue-loader/lib??vue-loader-options!./RestaurantCard.vue?vue&type=template&id=272b0098&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/RestaurantCard.vue?vue&type=template&id=272b0098&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantCard_vue_vue_type_template_id_272b0098_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_RestaurantCard_vue_vue_type_template_id_272b0098_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

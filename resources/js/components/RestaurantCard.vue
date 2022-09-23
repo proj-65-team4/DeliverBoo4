@@ -2,13 +2,13 @@
     <div>
         <div class="row py-2">
             <div class="col">
-                <div href="">
-                    <a class="card p-4">
-                        <img :src="restaurant.image" alt="" class="img-fluid">
+                <router-link :to="{name: 'restaurant.products', params:{'restaurant_id': restaurant.user_id}}">
+                    <div class="card p-4">
+                        <!-- <img :src="restaurant.image" alt="" class="img-fluid"> -->
                         <h5>{{ restaurant.restaurant_name }}</h5>
-                        <h6>{{ restaurant.address }}</h6>
-                    </a>
-                </div>
+                        <h6>{{ restaurant.address}}, {{ restaurant.city }}</h6>
+                    </div>
+                </router-link>
             </div>
         </div>
     </div>

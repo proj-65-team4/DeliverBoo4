@@ -6,12 +6,9 @@
         </div>
         <div class="container">
             <h1>Lista Ristoranti:</h1>
-        <ul>
-            <li v-for="restaurant in restaurants" :key="restaurant.id">
-                
-                <router-link :to="{name: 'restaurant.products', params:{'restaurant_id': restaurant.user_id}}">{{ restaurant.restaurant_name }}</router-link>
-            </li>
-        </ul>
+
+        <RestaurantCard v-for="restaurant in restaurants" :key="restaurant.id" :restaurant="restaurant"></RestaurantCard>
+        
             </div>
     </div>
 </template>
@@ -20,10 +17,11 @@
 import axios from 'axios';
 
 import TheCarousel from "../components/TheCarousel";
+import RestaurantCard from '../components/RestaurantCard.vue';
 
 
     export default {
-        components:{TheCarousel},
+        components:{ TheCarousel, RestaurantCard },
         data() {
             return {
                 restaurants: [],
@@ -41,9 +39,7 @@ import TheCarousel from "../components/TheCarousel";
                 }
         },
             fetchData() {
-                
-               
-                console.log(Math.random(1,10));
+
                 axios.get("/api/restaurants/"+ this.$route.params.id)
                 .then((resp)=> {
                     this.restaurants = resp.data.restaurants;
@@ -51,22 +47,20 @@ import TheCarousel from "../components/TheCarousel";
                 })
             }
         },
-        fetchData() {
-            console.log(Math.random(1, 10));
-            axios.get("/api/restaurants/" + this.$route.params.id)
-                .then((resp) => {
-                this.restaurants = resp.data;
-            });
-        }
-    },
-    mounted() {
+        // fetchData() {
+        //     console.log(Math.random(1, 10));
+        //     axios.get("/api/restaurants/" + this.$route.params.id)
+        //         .then((resp) => {
+        //         this.restaurants = resp.data;
+        //     });
+        // }
+        mounted() {
         this.fetchData();
         let x = window.matchMedia("(max-width:460px)");
         this.media(x); // Call listener function at run time
         x.addListener(this.media); // Attach listener function on state changes
-    },
-    components: { RestaurantCard }
-}
+    }
+    }
 </script>
 
 <style lang="scss"></style>
