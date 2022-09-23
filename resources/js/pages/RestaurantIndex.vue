@@ -7,9 +7,9 @@
         <div class="container">
             <h1>Lista Ristoranti:</h1>
 
-        <RestaurantCard v-for="restaurant in restaurants" :key="restaurant.id" :restaurant="restaurant"></RestaurantCard>
+            <RestaurantCard v-for="restaurant in restaurants" :key="restaurant.id" :restaurant="restaurant"></RestaurantCard>
         
-            </div>
+        </div>
     </div>
 </template>
 
@@ -38,22 +38,14 @@ import RestaurantCard from '../components/RestaurantCard.vue';
                     document.getElementById("jumbotron").style.minHeight="350px"
                 }
         },
-            fetchData() {
-
-                axios.get("/api/restaurants/"+ this.$route.params.id)
-                .then((resp)=> {
-                    this.restaurants = resp.data.restaurants;
-                    this.categories = resp.data.categories;
-                })
-            }
+        fetchData() {
+            axios.get("/api/restaurants/"+ this.$route.params.id)
+            .then((resp)=> {
+                this.restaurants = resp.data.restaurants;
+                this.categories = resp.data.categories;
+            })
+        }
         },
-        // fetchData() {
-        //     console.log(Math.random(1, 10));
-        //     axios.get("/api/restaurants/" + this.$route.params.id)
-        //         .then((resp) => {
-        //         this.restaurants = resp.data;
-        //     });
-        // }
         mounted() {
         this.fetchData();
         let x = window.matchMedia("(max-width:460px)");
@@ -63,4 +55,6 @@ import RestaurantCard from '../components/RestaurantCard.vue';
     }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+    
+</style>

@@ -19,6 +19,7 @@ class ProductController extends Controller
     {
         $products = Product::where("user_id", $id)->get(); 
 
+        
         return response()->json($products);
     }
 

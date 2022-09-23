@@ -5498,13 +5498,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
-  // fetchData() {
-  //     console.log(Math.random(1, 10));
-  //     axios.get("/api/restaurants/" + this.$route.params.id)
-  //         .then((resp) => {
-  //         this.restaurants = resp.data;
-  //     });
-  // }
   mounted: function mounted() {
     this.fetchData();
     var x = window.matchMedia("(max-width:460px)");
@@ -5525,7 +5518,29 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ({});
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      products: []
+    };
+  },
+  methods: {
+    fetchData: function fetchData() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/" + this.$route.params.restaurant_id + "/products").then(function (resp) {
+        console.log(resp);
+        _this.products = resp.data;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.fetchData();
+  }
+});
 
 /***/ }),
 
@@ -6164,15 +6179,16 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
+  return _c("div", [_c("div", {
+    staticClass: "container"
+  }, [_c("h2", [_vm._v("Lista prodotti")]), _vm._v(" "), _vm._l(_vm.products, function (product) {
+    return _c("div", {
+      key: product.id
+    }, [_vm._v(_vm._s(product.name))]);
+  })], 2)]);
 };
 
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", [_c("h2", [_vm._v("Lista prodotti")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -29180,7 +29196,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
