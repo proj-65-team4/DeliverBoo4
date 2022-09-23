@@ -94,10 +94,12 @@ class RestaurantController extends Controller
         if($pathImg){
             $user->restaurant->image = $pathImg;
         }
+
+        
         $user->restaurant->fill($data);
         $user->restaurant->slug = $this->generateSlug($user->restaurant["restaurant_name"], $user->name);
         $user->restaurant->save();
-        
+        dd($user->restaurant->image);
         if (key_exists("categories", $data)) {
             $user->restaurant->categories()->attach($data["categories"]);
         }

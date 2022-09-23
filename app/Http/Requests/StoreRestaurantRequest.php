@@ -28,7 +28,7 @@ class StoreRestaurantRequest extends FormRequest
             "address" => "required|max:50",
             /* "city" => "required|max:50", */
             "VAT" => "required|max:11|min:11",
-            "image" => "nullable|image",
+            /* "image" => "nullable|image", */
             "categories" => "nullable|exists:categories,id"
         ];
     }
