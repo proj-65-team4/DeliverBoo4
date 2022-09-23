@@ -5,8 +5,6 @@
             <h1 class="py-5">Le categorie che amate</h1>
  
            
-  
-        
 
             <carousel class="" :paginationSize=20 :perPage=3 paginationColor="#272727" paginationActiveColor="#dc623d" paginationPosition="bottom" >
           
