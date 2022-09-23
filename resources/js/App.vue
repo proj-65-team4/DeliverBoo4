@@ -18,6 +18,7 @@ import TheCopyrightBar from "./components/TheCopyrightBar.vue";
 export default {
     components: { TheHeader, TheFooter, TheMain, TheCopyrightBar },
 };
+
 </script>
 
 <style lang="scss" scoped>

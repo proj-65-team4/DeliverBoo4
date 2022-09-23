@@ -1,14 +1,19 @@
 <template>
-    <div>
-        <h1>Lista Categorie:</h1>
-        <ul>
-            <carousel class="" :paginationSize=15 :perPage=4>
+    <div class="bg-category">
+   
+
+            <h1 class="py-5">Le categorie che amate</h1>
+ 
+           
+  
+        
+
+            <carousel class="" :paginationSize=20 :perPage=3 paginationColor="#272727" paginationActiveColor="#dc623d" paginationPosition="bottom" >
           
             <slide v-for=" category in categories" :key="category.id">
-                <router-link :to="{name:'restaurants.index', params:{id: category.id}}"><TheCategory :category="category"/></router-link>
+                <TheCategory :category="category"/>
             </slide>
         </carousel>
-        </ul>
     </div>
 </template>
 
@@ -23,16 +28,31 @@ import TheCategory from '../components/TheCategory.vue';
         };
     },
     methods: {
+
+        media(x){
+                document.getElementById("jumbotron").style.height=""
+                if(x.matches){
+                    console.log((window.matchMedia('(max-width: 460px)')).matches)
+                    document.getElementById("jumbotron").style.minHeight="250px"
+                }else{
+                    document.getElementById("jumbotron").style.minHeight="700px"
+                }
+        },
         fetchData() {
+             
+               
             axios.get("api/categories")
                 .then((resp) => {
                 this.categories = resp.data;
             });
-            console.log(this.categories);
         }
     },
     mounted() {
         this.fetchData();
+
+        let x = window.matchMedia("(max-width:460px)")
+this.media(x) // Call listener function at run time
+x.addListener(this.media) // Attach listener function on state changes
     },
     components: { TheCategory }
 }
@@ -40,5 +60,18 @@ import TheCategory from '../components/TheCategory.vue';
 </script>
 
 <style lang="scss" scoped>
+.bg-category {
+background: #FFCA3A;
+padding-bottom: 3rem;
 
+h1 {
+    font-weight: bolder;
+    font-size: 4.5rem;
+    text-align: center;
+    max-width: 15ch;
+    text-align: center;
+    color: rgb(30, 29, 29);
+    margin: 0 auto;
+}
+}
 </style>

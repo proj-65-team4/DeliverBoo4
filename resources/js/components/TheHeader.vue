@@ -1,22 +1,23 @@
 <template>
     <div>
         <TheNavbar class="fixed-top"></TheNavbar>
-        <div class="jumbotron">
-            <div class="bg-jumbo"><img src="img/food-jumbo.jpg" alt=""></div>
+        <div class="jumbotron" id="jumbotron">
+            <div class="bg-jumbo"><img src="/img/food2-jumbo.png" alt=""></div>
         </div>
     </div>
 </template>
 
 <script>
+
 import TheNavbar from './TheNavbar.vue';
     export default {
-    components: { TheNavbar }
+    components: { TheNavbar },
+    
 }
 </script>
 
 <style lang="scss" scoped>
     .jumbotron{
-        min-height: 600px;
         position:relative;
     }
     .bg-jumbo{
@@ -28,14 +29,14 @@ import TheNavbar from './TheNavbar.vue';
     }
     .bg-jumbo img{
         width: 100%;
-        height: 95%;
+        height: 100%;
         object-fit: cover;
         object-position: 50% 80%;
     }
 
     @media only screen and (max-width: 460px){
         .jumbotron{
-        min-height: 250px;
+        height: 250px;
         position:relative;
     }
     }

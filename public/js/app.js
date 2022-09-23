@@ -40148,9 +40148,15 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/sass/backend.scss */"./resources/sass/backend.scss");
-module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/sass/app.scss */"./resources/sass/app.scss");
+<<<<<<< HEAD
+__webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\sass\backend.scss */"./resources/sass/backend.scss");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\sass\backend.scss */"./resources/sass/backend.scss");
+module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 0cc77e98e72e8fbfd4d7cd348feef87c9d216eb9
 
 
 /***/ })
