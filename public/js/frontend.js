@@ -5982,8 +5982,8 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "offcanvas offcanvas-start",
     attrs: {
-      "data-bs-scroll": "true",
-      "data-bs-backdrop": "false",
+      "data-bs-scroll": "false",
+      "data-bs-backdrop": "true",
       tabindex: "-1",
       id: "offcanvasScrolling",
       "aria-labelledby": "offcanvasScrollingLabel"
@@ -28938,7 +28938,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
