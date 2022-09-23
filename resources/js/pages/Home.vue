@@ -2,7 +2,7 @@
     <div>
         <h1>Lista Categorie:</h1>
         <ul>
-            <carousel class="" :paginationSize=15>
+            <carousel class="" :paginationSize=15 :perPage=4>
           
             <slide v-for=" category in categories" :key="category.id">
                 <router-link :to="{name:'restaurants.index', params:{id: category.id}}"><TheCategory :category="category"/></router-link>
