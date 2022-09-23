@@ -5618,12 +5618,16 @@ var staticRenderFns = [function () {
     attrs: {
       href: "/login"
     }
-  }, [_vm._v("Login")])]), _vm._v(" "), _c("li", [_c("a", {
+  }, [_c("i", {
+    staticClass: "fa-solid fa-right-to-bracket"
+  }), _vm._v(" Login")])]), _vm._v(" "), _c("li", [_c("a", {
     staticClass: "register btn",
     attrs: {
       href: "/register"
     }
-  }, [_vm._v("Register")])])]);
+  }, [_c("i", {
+    staticClass: "fa-solid fa-user"
+  }), _vm._v("Register")])])]);
 }];
 render._withStripped = true;
 
@@ -11054,7 +11058,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n.cart[data-v-eca07cf4] {\n  display: none;\n}\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 200px;\n  width: 100%;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  margin-right: 1rem;\n  background: #3DA5D9;\n}\n.login[data-v-eca07cf4]:hover {\n  background: rgb(40, 191, 214);\n}\n.register[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  background: #FFCA3A;\n}\n.register[data-v-eca07cf4]:hover {\n  background: #ffab00;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n}\n.register[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n}\n}", ""]);
+exports.push([module.i, "#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n.cart[data-v-eca07cf4] {\n  display: none;\n}\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 200px;\n  width: 100%;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  margin-right: 1rem;\n  background: #3DA5D9;\n}\n.login[data-v-eca07cf4]:hover {\n  background: rgb(40, 191, 214);\n}\n.login i[data-v-eca07cf4] {\n  font-size: 1rem;\n}\n.register[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  background: #ffab00;\n}\n.register[data-v-eca07cf4]:hover {\n  background: #FFCA3A;\n}\n.register i[data-v-eca07cf4] {\n  font-size: 1rem;\n  padding-right: 0.3rem;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n}\n.login i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n.register[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n}\n.register i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n}", ""]);
 
 // exports
 
@@ -28200,7 +28204,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })

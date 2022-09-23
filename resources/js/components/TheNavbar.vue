@@ -15,11 +15,11 @@
 
             <ul class="list-unstyled mb-0">
                 <li>
-                    <a class="login btn" href="/login">Login</a>
+                    <a class="login btn" href="/login"> <i class="fa-solid fa-right-to-bracket"></i> Login</a>
                 </li>
                 
                 <li>
-                    <a class="register btn" href="/register">Register</a>
+                    <a class="register btn" href="/register"><i class="fa-solid fa-user"></i>Register</a>
                 </li>
             </ul>
 
@@ -80,6 +80,9 @@ export default {
         &:hover{
             background: rgb(40, 191, 214);
         }
+        & i{
+            font-size: 1rem;
+        }
     }
 
     .register{
@@ -88,9 +91,13 @@ export default {
         color: #fff;
         text-align: center;
         padding: 0.5rem 0.9rem;
-        background: #FFCA3A;
+        background: #ffab00;
         &:hover{
-            background: #ffab00;
+            background: #FFCA3A;
+        }
+        & i{
+            font-size: 1rem;
+            padding-right: 0.3rem;
         }
     }
 
@@ -111,8 +118,16 @@ export default {
             padding: 0.3rem 0.5rem;
         }
 
+        .login i{
+            font-size: 0.8rem;
+        }
+
         .register{
             padding: 0.3rem 0.5rem;
+        }
+
+        .register i{
+            font-size: 0.8rem;
         }
     }
 </style>
