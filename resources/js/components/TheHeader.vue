@@ -2,7 +2,7 @@
     <div>
         <TheNavbar class="fixed-top"></TheNavbar>
         <div class="jumbotron">
-            <div class="bg-jumbo"><img src="img/food-jumbo.jpg" alt=""></div>
+            <div class="bg-jumbo"><img src="img/food2-jumbo.png" alt=""></div>
         </div>
     </div>
 </template>
@@ -16,7 +16,7 @@ import TheNavbar from './TheNavbar.vue';
 
 <style lang="scss" scoped>
     .jumbotron{
-        min-height: 600px;
+        min-height: 700px;
         position:relative;
     }
     .bg-jumbo{
@@ -28,7 +28,7 @@ import TheNavbar from './TheNavbar.vue';
     }
     .bg-jumbo img{
         width: 100%;
-        height: 95%;
+        height: 100%;
         object-fit: cover;
         object-position: 50% 80%;
     }

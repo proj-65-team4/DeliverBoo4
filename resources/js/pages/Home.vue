@@ -1,14 +1,19 @@
 <template>
-    <div>
-        <h1>Lista Categorie:</h1>
-        <ul>
-            <carousel class="" :paginationSize=15 :perPage=4>
+    <div class="bg-category">
+   
+
+            <h1 class="py-5">Le categorie che amate</h1>
+ 
+           
+  
+        
+
+            <carousel class="" :paginationSize=15 :perPage=3 paginationColor="#333" paginationActiveColor="#dc623d" >
           
             <slide v-for=" category in categories" :key="category.id">
-                <router-link :to="{name:'restaurants.index', params:{id: category.id}}"><TheCategory :category="category"/></router-link>
+                <TheCategory :category="category"/>
             </slide>
         </carousel>
-        </ul>
     </div>
 </template>
 
@@ -40,5 +45,18 @@ import TheCategory from '../components/TheCategory.vue';
 </script>
 
 <style lang="scss" scoped>
+.bg-category {
+background: #FFCA3A;
+text-align: center;
+padding-bottom: 3rem;
 
+h1 {
+    font-weight: bolder;
+    font-size: 4.5rem;
+    max-width: 15ch;
+    text-align: center;
+    color: #131212;
+    margin: 0 auto;
+}
+}
 </style>
