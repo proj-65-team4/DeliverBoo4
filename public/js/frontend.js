@@ -5488,7 +5488,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       restaurants: [],
       categories: [],
-      currentCat: null
+      currentCat: null,
+      loaded: false,
+      data: null
     };
   },
   methods: {
@@ -5496,7 +5498,7 @@ __webpack_require__.r(__webpack_exports__);
       document.getElementById("jumbotron").style.height = "";
 
       if (x.matches) {
-        console.log(window.matchMedia('(max-width: 460px)').matches);
+        console.log(window.matchMedia("(max-width: 460px)").matches);
         document.getElementById("jumbotron").style.minHeight = "250px";
       } else {
         document.getElementById("jumbotron").style.minHeight = "350px";
@@ -5504,18 +5506,25 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   computed: {
-    fetchData: function fetchData() {
+    fetchCat: function fetchCat() {
       var _this = this;
 
-      this.currentCat = this.$route.params.id;
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/restaurants/" + this.$route.params.id).then(function (resp) {
-        _this.restaurants = resp.data.restaurants;
-        _this.categories = resp.data.categories;
-      });
+      if (this.currentCat != this.$route.params.id) {
+        this.loaded = false;
+        this.currentCat = parseInt(this.$route.params.id);
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/restaurants/" + this.$route.params.id).then(function (resp) {
+          _this.restaurants = resp.data.restaurants;
+          _this.categories = resp.data.categories;
+        });
+        setTimeout(function () {
+          _this.loaded = true;
+        }, 2000);
+      }
+
+      return this.restaurants;
     }
   },
   mounted: function mounted() {
-    this.fetchData();
     var x = window.matchMedia("(max-width:460px)");
     this.media(x); // Call listener function at run time
 
@@ -6220,7 +6229,7 @@ var render = function render() {
     }
   })], 1), _vm._v(" "), _c("div", {
     staticClass: "container"
-  }, [_c("h1", [_vm._v("Lista Ristoranti:")]), _vm._v(" "), _vm._l(_vm.restaurants, function (restaurant) {
+  }, [_c("h1", [_vm._v("Lista Ristoranti:")]), _vm._v(" "), !_vm.loaded ? [_vm._m(0)] : _vm._l(_vm.fetchCat, function (restaurant) {
     return _c("RestaurantCard", {
       key: restaurant.id,
       attrs: {
@@ -6230,7 +6239,23 @@ var render = function render() {
   })], 2)]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "row py-2"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("div", {
+    staticClass: "spinner-border",
+    attrs: {
+      role: "status"
+    }
+  }, [_c("span", {
+    staticClass: "visually-hidden"
+  }, [_vm._v("Loading...")])])])]);
+}];
 render._withStripped = true;
 
 
@@ -29390,7 +29415,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
