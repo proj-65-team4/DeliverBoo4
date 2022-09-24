@@ -56,10 +56,12 @@ fetchData() {
         },
     },
     watch : {
-        cart(product) {
-            console.log('added');
+        cart : {
+            handler(product) {
             localStorage.cart = JSON.stringify(product);
-        }
+        },
+        deep : true,
+    }
     },
     methods: {
         

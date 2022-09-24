@@ -5562,9 +5562,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   watch: {
-    cart: function cart(product) {
-      console.log('added');
-      localStorage.cart = JSON.stringify(product);
+    cart: {
+      handler: function handler(product) {
+        localStorage.cart = JSON.stringify(product);
+      },
+      deep: true
     }
   },
   methods: {
