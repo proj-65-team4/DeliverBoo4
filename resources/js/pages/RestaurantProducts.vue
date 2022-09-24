@@ -2,12 +2,15 @@
     <div>
         <div class="container">
             <h2>Lista prodotti</h2>
-            <button @click="checkout()" class="btn btn-primary">
-                Procedi al pagamento
-            </button>
             <div v-if="cart.length === 0">Il tuo carrello è vuoto</div>
-            <div v-else>contenuto carrello {{cart}}
-                <div class="bg-secondary">Il totale da pagare è {{total}}€</div>
+            <div class="row" v-else>contenuto carrello
+                <div class="col-3 border" v-for="item in cart" :key="item.id + item.name ">
+                    <img :src="item.image" alt="" style="width: 250px">
+                    <h1>{{item.name}}</h1>
+                    <h1>{{item.quantity}}</h1>
+                </div>
+                
+                
             </div>
 
 
@@ -81,21 +84,6 @@ fetchData() {
         },
 
 
-        // checkout() {
-        //     this.cart = [];
-        //     this.total = 0 ;
-        //     this.products.forEach((element) => {
-        //         if (element.quantity > 0) {
-        //             console.log(element.name, element.quantity , element.price);
-        //             this.cart.push({
-        //                 name: element.name,
-        //                 quantity: element.quantity,
-        //             });
-        //             this.total += element.price * element.quantity;
-        //             this.total = Math.round(this.total);
-        //         }
-        //     });
-        // },
     },
     mounted() {
         this.fetchData();
