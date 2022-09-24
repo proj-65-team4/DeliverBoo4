@@ -8,6 +8,7 @@
                     <img :src="item.image" alt="" style="width: 250px">
                     <h1>{{item.name}}</h1>
                     <h1>{{item.quantity}}</h1>
+                    <h2>{{(item.price * item.quantity).toFixed(2)}}</h2>
                 </div>
             </div>
 

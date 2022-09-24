@@ -6267,7 +6267,7 @@ var render = function render() {
         src: item.image,
         alt: ""
       }
-    }), _vm._v(" "), _c("h1", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("h1", [_vm._v(_vm._s(item.quantity))])]);
+    }), _vm._v(" "), _c("h1", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("h1", [_vm._v(_vm._s(item.quantity))]), _vm._v(" "), _c("h2", [_vm._v(_vm._s((item.price * item.quantity).toFixed(2)))])]);
   })], 2), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, _vm._l(_vm.products, function (product, index) {
@@ -29390,7 +29390,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
