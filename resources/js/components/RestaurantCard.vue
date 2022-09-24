@@ -6,7 +6,9 @@
                     <div class="card p-4 d-flex flex-row">
 
                         <div >
-                            <img :src="'/storage/'+restaurant.image" alt="" class="img-thumbnail">
+                            <img :src="'/storage/'+restaurant.image" alt="" class="img-thumbnail" v-if="restaurant.image">
+                            <img src="https://cwdaust.com.au/wpress/wp-content/uploads/2015/04/placeholder-restaurant.png" alt="" class="img-thumbnail" v-else>
+
                         </div>
                         <div>
                             <h5>{{ restaurant.restaurant_name }}</h5>

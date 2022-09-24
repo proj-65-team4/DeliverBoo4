@@ -5717,10 +5717,16 @@ var render = function render() {
     }
   }, [_c("div", {
     staticClass: "card p-4 d-flex flex-row"
-  }, [_c("div", [_c("img", {
+  }, [_c("div", [_vm.restaurant.image ? _c("img", {
     staticClass: "img-thumbnail",
     attrs: {
       src: "/storage/" + _vm.restaurant.image,
+      alt: ""
+    }
+  }) : _c("img", {
+    staticClass: "img-thumbnail",
+    attrs: {
+      src: "https://cwdaust.com.au/wpress/wp-content/uploads/2015/04/placeholder-restaurant.png",
       alt: ""
     }
   })]), _vm._v(" "), _c("div", [_c("h5", [_vm._v(_vm._s(_vm.restaurant.restaurant_name))]), _vm._v(" "), _c("h6", [_vm._v(_vm._s(_vm.restaurant.address) + ", " + _vm._s(_vm.restaurant.city))])])])])], 1)])]);
