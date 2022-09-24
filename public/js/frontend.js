@@ -5561,6 +5561,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       });
     }
   },
+  watch: {
+    cart: function cart(product) {
+      console.log('added');
+      localStorage.cart = JSON.stringify(product);
+    }
+  },
   methods: {
     removeCart: function removeCart(index) {
       var _this2 = this;
@@ -5592,6 +5598,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   mounted: function mounted() {
+    if (localStorage.cart) {
+      this.cart = JSON.parse(localStorage.cart);
+    }
+
     this.fetchData();
   }
 });

@@ -55,6 +55,12 @@ fetchData() {
                 });
         },
     },
+    watch : {
+        cart(product) {
+            console.log('added');
+            localStorage.cart = JSON.stringify(product);
+        }
+    },
     methods: {
         
  
@@ -86,6 +92,9 @@ fetchData() {
 
     },
     mounted() {
+        if(localStorage.cart){
+            this.cart = JSON.parse(localStorage.cart);
+        }
         this.fetchData();
     },
 };
