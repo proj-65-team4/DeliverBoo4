@@ -42,8 +42,8 @@ export default {
 
         };
     },
-    methods: {
-        fetchData() {
+    computed:{
+fetchData() {
             axios
                 .get("/api/" + this.$route.params.restaurant_id + "/products")
                 .then((resp) => {
@@ -51,6 +51,9 @@ export default {
                     this.products = resp.data;
                 });
         },
+    },
+    methods: {
+        
         removeCart(index) {
             if (this.products[index].quantity !== 0)
                 this.products[index].quantity--;

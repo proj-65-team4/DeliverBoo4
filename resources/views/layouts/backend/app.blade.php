@@ -82,7 +82,7 @@
             @if(!Auth::user()->restaurant)
             <img src="{{asset('img/placeholder-restaurant.png')}}" width="60px" height="60px" alt="">
             @else
-            <img src="{{Auth::user()->restaurant->pathImg ? Auth::user()->restaurant->pathImg  : asset('img/placeholder-restaurant.png')}}" width="60px" height="60px" alt="">
+            <img src="{{Auth::user()->restaurant->image ? asset('storage/'.Auth::user()->restaurant->image): asset('img/placeholder-restaurant.png')}}" width="60px" height="60px" alt="">
             @endif
             {{-- BISOGNA CRARE IL MENU A TENDINA CHE AL CLICK VISUALIZZA I DETTAGLI DEL RISTORANTE--}}
             <div class="title">

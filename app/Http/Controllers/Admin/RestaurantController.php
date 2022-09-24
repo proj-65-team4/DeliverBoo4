@@ -83,23 +83,24 @@ class RestaurantController extends Controller
         
         $validatedData = $request->validated();
         $pathImg=null;
+        
         if ($request->image) {
             $file = $request->image;
-            $pathImg = Storage::put("/", $file);
+            $pathImg = Storage::put("loaded", $file);
         }
-        
         
         $user->restaurant = new Restaurant();
         $user->restaurant->user_id=$user->id;
         if($pathImg){
             $user->restaurant->image = $pathImg;
-        }
+        } 
+        
 
         
-        $user->restaurant->fill($data);
+        $user->restaurant->fill($validatedData);
         $user->restaurant->slug = $this->generateSlug($user->restaurant["restaurant_name"], $user->name);
         $user->restaurant->save();
-        dd($user->restaurant->image);
+       
         if (key_exists("categories", $data)) {
             $user->restaurant->categories()->attach($data["categories"]);
         }

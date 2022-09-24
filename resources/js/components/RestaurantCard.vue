@@ -3,10 +3,15 @@
         <div class="row py-2">
             <div class="col">
                 <router-link :to="{name: 'restaurant.products', params:{'restaurant_id': restaurant.user_id}}">
-                    <div class="card p-4">
-                        <!-- <img :src="restaurant.image" alt="" class="img-fluid"> -->
-                        <h5>{{ restaurant.restaurant_name }}</h5>
+                    <div class="card p-4 d-flex flex-row">
+
+                        <div >
+                            <img :src="'/storage/'+restaurant.image" alt="" class="img-thumbnail">
+                        </div>
+                        <div>
+                            <h5>{{ restaurant.restaurant_name }}</h5>
                         <h6>{{ restaurant.address}}, {{ restaurant.city }}</h6>
+                        </div>
                     </div>
                 </router-link>
             </div>
