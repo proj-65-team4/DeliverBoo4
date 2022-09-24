@@ -9,24 +9,34 @@
                     <h1>{{item.name}}</h1>
                     <h1>{{item.quantity}}</h1>
                 </div>
-                
-                
             </div>
 
 
             <div class="row">
                 <div
-                    class="col-12 border p-4"
+                    class="col-sm-12 col-md-3 border p-4"
                     v-for="(product, index) in products"
                     :key="product.id"
-                >
-                    {{ product.name }} {{product.price}}
-                    <div class="d-flex my-4 g-4">
-                        <button @click="removeCart(index)">remove -</button>
+                >   
+                    <img :src="product.image" alt="" class="w-100">
+                    <div class="fw-bold">{{ product.name }}</div>
+                    <div>€ {{product.price}}</div>
 
-                        <div>qnt. {{ product.quantity }}</div>
-                        <button @click="addCart(index)">add +</button>
+                    <div class="cart-btn">
+                        <div>
+                            <span>Aggiungi al carrello</span>
+                            <i class="fa-solid fa-hand-point-right"></i>
+                        </div>
+                        <div>
+                            quantità
+                        </div>
+                        <div class="d-flex flex-column">
+                            <button @click="addCart(index)" class="btn"><i class="fa-solid fa-chevron-up"></i></button>
+                            <button @click="removeCart(index)" class="btn"><i class="fa-solid fa-chevron-down"></i></button>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
         </div>
@@ -64,9 +74,6 @@ fetchData() {
     }
     },
     methods: {
-        
- 
-
         removeCart(index) {
             const item = this.cart.find(product => product.id === this.products[index].id);
             if(item !== undefined && item.quantity!==0 ){
@@ -90,8 +97,6 @@ fetchData() {
             else 
             item.quantity++;
         },
-
-
     },
     mounted() {
         if(localStorage.cart){
@@ -102,4 +107,13 @@ fetchData() {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+    .cart-btn {
+        background-color: aquamarine;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 0.5rem;
+    }
+</style>
