@@ -5512,7 +5512,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.currentCat != this.$route.params.id) {
         this.loaded = false;
         this.currentCat = parseInt(this.$route.params.id);
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/restaurants/" + this.$route.params.id).then(function (resp) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/restaurants/" + this.currentCat).then(function (resp) {
           _this.restaurants = resp.data.restaurants;
           _this.categories = resp.data.categories;
         });
@@ -5525,6 +5525,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    this.fetchCat();
     var x = window.matchMedia("(max-width:460px)");
     this.media(x); // Call listener function at run time
 

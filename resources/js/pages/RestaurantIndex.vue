@@ -60,7 +60,7 @@ export default {
                 this.loaded= false
                 this.currentCat = parseInt(this.$route.params.id);
                 axios
-                .get("/api/restaurants/" +this.$route.params.id)
+                .get("/api/restaurants/" +this.currentCat)
                 .then((resp) => {
                     this.restaurants = resp.data.restaurants;
                     this.categories = resp.data.categories;
@@ -74,6 +74,7 @@ export default {
         },
     },
     mounted() {
+        this.fetchCat();
         let x = window.matchMedia("(max-width:460px)");
         this.media(x); // Call listener function at run time
         x.addListener(this.media); // Attach listener function on state changes
