@@ -2,7 +2,7 @@
     <div>
         <div class="container">
             <h2>Categorie</h2>
-            <TheCarousel :categorie="categories"></TheCarousel>
+            <TheCarousel  :categorie="categories"></TheCarousel>
         </div>
         <div class="container">
             <h1>Lista Ristoranti:</h1>
@@ -25,7 +25,8 @@ import RestaurantCard from '../components/RestaurantCard.vue';
         data() {
             return {
                 restaurants: [],
-                categories:[]
+                categories:[],
+                currentCat: null
             }
         },
         methods: {
@@ -37,14 +38,19 @@ import RestaurantCard from '../components/RestaurantCard.vue';
                 }else{
                     document.getElementById("jumbotron").style.minHeight="350px"
                 }
+        }
         },
-        fetchData() {
-            axios.get("/api/restaurants/"+ this.$route.params.id)
+        computed:{
+
+            fetchData() {
+                this.currentCat=this.$route.params.id;
+                axios.get("/api/restaurants/"+ this.$route.params.id)
             .then((resp)=> {
                 this.restaurants = resp.data.restaurants;
                 this.categories = resp.data.categories;
             })
         }
+
         },
         mounted() {
         this.fetchData();

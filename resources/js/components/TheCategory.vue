@@ -4,7 +4,7 @@
             <div class="content">
                 <h2>{{category.name}}</h2>
                 <p class="d-md-none d-lg-block">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, repellat!</p>
-                <router-link :to="{name:'restaurants.index', params:{id: category.id}}">Trova i ristoranti <i class="fa-solid fa-utensils mx-2"></i> </router-link></div>
+                <router-link :to="{name:'restaurants.index', params:{id: category.id}}" >Trova i ristoranti <i class="fa-solid fa-utensils mx-2"></i> </router-link></div>
                 
             </div>
         <img :src="category.image" alt="">
@@ -19,6 +19,11 @@
         name : "TheCategory",
         props : {
             category : Object
+        },
+
+        data(){
+            return{
+            }
         }
     }
 </script>

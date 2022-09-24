@@ -40148,9 +40148,9 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\sass\backend.scss */"./resources/sass/backend.scss");
-module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/sass/backend.scss */"./resources/sass/backend.scss");
+module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

@@ -4,7 +4,7 @@
          <carousel class="" :paginationSize=20 :perPage=3 paginationColor="#272727" paginationActiveColor="#dc623d" paginationPosition="bottom" >
           
             <slide v-for=" category in categorie" :key="category.id">
-                <TheCategory :category="category"/>
+                <TheCategory  :category="category"/>
             </slide>
         </carousel>
     </div>
@@ -20,10 +20,19 @@ import TheCategory from '../components/TheCategory.vue';
         },
         data(){
             return{
-                
+                categoria: 0,
             }
         },
+        methods:{
+
+            categorySelected(n){
+                debugger
+                console.log(n)
+                this.$emit("currentCategory", n)
+        }
+            }
     }
+
     
 </script>
 
