@@ -54,29 +54,48 @@ fetchData() {
     },
     methods: {
         
+ 
+
         removeCart(index) {
-            if (this.products[index].quantity !== 0)
-                this.products[index].quantity--;
+            const item = this.cart.find(product => product.id === this.products[index].id);
+            if(item !== undefined && item.quantity!==0 ){
+            item.quantity--;
+            if(item.quantity === 0) 
+            {
+                const eliminaIndice = this.cart.findIndex(product => product.id === this.products[index].id);
+                this.cart.splice(eliminaIndice , 1);
+            }
+        }
         },
         addCart(index) {
-            this.products[index].quantity++;
+            const item = this.cart.find(product => product.id === this.products[index].id);
+            if(item === undefined)
+            this.cart.push(
+                {
+                ...this.products[index],
+                quantity : 1,
+                }
+                );
+            else 
+            item.quantity++;
         },
 
-        checkout() {
-            this.cart = [];
-            this.total = 0 ;
-            this.products.forEach((element) => {
-                if (element.quantity > 0) {
-                    console.log(element.name, element.quantity , element.price);
-                    this.cart.push({
-                        name: element.name,
-                        quantity: element.quantity,
-                    });
-                    this.total += element.price * element.quantity;
-                    this.total = Math.round(this.total);
-                }
-            });
-        },
+
+        // checkout() {
+        //     this.cart = [];
+        //     this.total = 0 ;
+        //     this.products.forEach((element) => {
+        //         if (element.quantity > 0) {
+        //             console.log(element.name, element.quantity , element.price);
+        //             this.cart.push({
+        //                 name: element.name,
+        //                 quantity: element.quantity,
+        //             });
+        //             this.total += element.price * element.quantity;
+        //             this.total = Math.round(this.total);
+        //         }
+        //     });
+        // },
     },
     mounted() {
         this.fetchData();

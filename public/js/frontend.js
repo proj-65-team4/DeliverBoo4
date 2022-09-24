@@ -5536,6 +5536,12 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -5557,30 +5563,48 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     removeCart: function removeCart(index) {
-      if (this.products[index].quantity !== 0) this.products[index].quantity--;
-    },
-    addCart: function addCart(index) {
-      this.products[index].quantity++;
-    },
-    checkout: function checkout() {
       var _this2 = this;
 
-      this.cart = [];
-      this.total = 0;
-      this.products.forEach(function (element) {
-        if (element.quantity > 0) {
-          console.log(element.name, element.quantity, element.price);
-
-          _this2.cart.push({
-            name: element.name,
-            quantity: element.quantity
-          });
-
-          _this2.total += element.price * element.quantity;
-          _this2.total = Math.round(_this2.total);
-        }
+      var item = this.cart.find(function (product) {
+        return product.id === _this2.products[index].id;
       });
-    }
+
+      if (item !== undefined && item.quantity !== 0) {
+        item.quantity--;
+
+        if (item.quantity === 0) {
+          var eliminaIndice = this.cart.findIndex(function (product) {
+            return product.id === _this2.products[index].id;
+          });
+          this.cart.splice(eliminaIndice, 1);
+        }
+      }
+    },
+    addCart: function addCart(index) {
+      var _this3 = this;
+
+      var item = this.cart.find(function (product) {
+        return product.id === _this3.products[index].id;
+      });
+      if (item === undefined) this.cart.push(_objectSpread(_objectSpread({}, this.products[index]), {}, {
+        quantity: 1
+      }));else item.quantity++;
+    } // checkout() {
+    //     this.cart = [];
+    //     this.total = 0 ;
+    //     this.products.forEach((element) => {
+    //         if (element.quantity > 0) {
+    //             console.log(element.name, element.quantity , element.price);
+    //             this.cart.push({
+    //                 name: element.name,
+    //                 quantity: element.quantity,
+    //             });
+    //             this.total += element.price * element.quantity;
+    //             this.total = Math.round(this.total);
+    //         }
+    //     });
+    // },
+
   },
   mounted: function mounted() {
     this.fetchData();
@@ -29273,7 +29297,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
