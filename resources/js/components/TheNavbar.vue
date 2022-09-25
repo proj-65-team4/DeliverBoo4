@@ -2,17 +2,47 @@
     <div>
         <!-- navbar -->
         <nav id="navscroll" class="my-navbar bg-color">
-            <button class="btn position relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i class="fa-solid fa-cart-shopping text-white"></i></button>
+            <button
+                class="btn position relative"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasScrolling"
+                aria-controls="offcanvasScrolling"
+                @click="carts()"
+            >
+                <i class="fa-solid fa-cart-shopping text-white"></i>
+            </button>
 
-            <div class="offcanvas offcanvas-start" data-bs-scroll="false" data-bs-backdrop="true" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <div
+                class="offcanvas offcanvas-start"
+                data-bs-scroll="false"
+                data-bs-backdrop="true"
+                tabindex="-1"
+                id="offcanvasScrolling"
+                aria-labelledby="offcanvasScrollingLabel"
+            >
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+                        Offcanvas with body scrolling
+                    </h5>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="offcanvas"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <div class="offcanvas-body">
+                    <p>
+                        Try scrolling the rest of the page to see this option in
+                        action.
+                    </p>
+                    <ul class="d-flex flex-column">
+                        <li v-if="cart.length>=1" v-for="item in cart">{{item.name}} - q: {{ item.quantity }}  - t: {{(item.quantity*(parseFloat(item.price))).toFixed(2)}}</li>
+                        <li v-else><strong>Il carrello è vuoto</strong></li>
+                    </ul>
+                </div>
             </div>
-            <div class="offcanvas-body">
-                <p>Try scrolling the rest of the page to see this option in action.</p>
-            </div>
-</div>
 
             <div class="logo">
                 <router-link :to="{ name: 'home' }">
@@ -42,15 +72,54 @@ window.addEventListener("scroll", function () {
     if (this.window.pageYOffset > 510) {
         document.getElementById("navscroll").style.background = "#ffab00";
     } else {
-        document.getElementById("navscroll").style.background ="rgba(0,0,0,0.2)";
+        document.getElementById("navscroll").style.background =
+            "rgba(0,0,0,0.2)";
     }
 });
+setInterval(() => {}, 2000);
 
-export default {};
+export default {
+    data() {
+        return {
+            cart: [],
+            length: 0,
+        };
+    },
+    methods:{
+        carts() {
+
+            /* setInterval(() => {
+                console.log(JSON.parse(localStorage.cart).length)
+            }, 2000); */
+            
+           /*  this.length = JSON.parse(localStorage.cart).length; */
+           console.log(this.cart.length)
+            console.log("push")
+                this.cart = JSON.parse(localStorage.getItem("cart"));
+           
+
+            return  JSON.parse(localStorage.getItem("cart"));
+        },
+    },
+    /* computed: {
+        carts() {
+
+            setInterval(() => {
+                console.log(JSON.parse(localStorage.cart).length)
+            }, 2000);
+            
+        },
+    }, */
+    mounted() {
+        this.carts();
+        
+    },
+};
 </script>
 
 <style lang="scss" scoped>
-.bgcolor, .scrolled{
+.bgcolor,
+.scrolled {
     background: #ffab00;
 }
 
@@ -61,12 +130,12 @@ export default {};
 .cart {
     display: none;
 }
-.counter-cart{
-    position:absolute;
-    width:10px;
+.counter-cart {
+    position: absolute;
+    width: 10px;
     aspect-ratio: 1;
-    padding:.15rem;
-    border-radius:50%;
+    padding: 0.15rem;
+    border-radius: 50%;
     background-color: red;
 }
 
