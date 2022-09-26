@@ -10,7 +10,7 @@
     <!-- css and font-->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset("css/app.css") }}">
-  
+    <script src="https://js.braintreegateway.com/web/dropin/1.33.4/js/dropin.js"></script>
 </head>
 
 <body>
