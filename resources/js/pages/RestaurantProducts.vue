@@ -87,14 +87,22 @@ fetchData() {
         }
         },
         addCart(index) {
+            
             const item = this.cart.find(product => product.id === this.products[index].id);
-            if(item === undefined)
-            this.cart.push(
+            
+            if(item === undefined ){
+
+            if(this.cart.find(product => product.user_id == this.products[index].user_id) || localStorage.cart === undefined || JSON.parse(localStorage.cart).length === 0 ){
+                this.cart.push(
                 {
                 ...this.products[index],
                 quantity : 1,
                 }
                 );
+            }else{
+                alert("Aggiunta non valida")
+            }
+            }
             else 
             item.quantity++;
         },
