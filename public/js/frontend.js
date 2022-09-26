@@ -6484,7 +6484,7 @@ var render = function render() {
   return _c("div", [_c("div", {
     staticClass: "restaurant-bg"
   }, [_c("div", {
-    staticClass: "container"
+    staticClass: "container custom-padding"
   }, [_c("TheCarousel", {
     attrs: {
       categorie: _vm.categories
@@ -6546,11 +6546,9 @@ var render = function render() {
 
   return _c("div", [_c("div", {
     staticClass: "container"
-  }, [_c("h2", {
-    staticClass: "mt-5"
-  }, [_vm._v("Lista prodotti")]), _vm._v(" "), _vm.cart.length === 0 ? _c("div", [_vm._v("Il tuo carrello è vuoto")]) : _c("div", {
-    staticClass: "row"
-  }, [_vm._v("\n            contenuto carrello\n            "), _vm._l(_vm.cart, function (item) {
+  }, [_vm.cart.length === 0 ? _c("div", [_vm._v("Il tuo carrello è vuoto")]) : _c("div", {
+    staticClass: "row flex-column"
+  }, _vm._l(_vm.cart, function (item) {
     return _c("div", {
       key: item.id + item.name,
       staticClass: "col-3 border"
@@ -12117,7 +12115,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".restaurant-bg {\n  background-color: #FFCA3A;\n}\n.restaurant-jumbo {\n  height: 20vh;\n  width: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center;\n}", ""]);
+exports.push([module.i, ".custom-padding {\n  padding-top: 80px;\n}\n.restaurant-bg {\n  background-color: #FFCA3A;\n}\n.restaurant-jumbo {\n  height: 20vh;\n  width: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center;\n}", ""]);
 
 // exports
 
