@@ -17,10 +17,38 @@
                 </div>
             </div>
 
-            <!-- <div v-for="course in courses" :key="course.id">{{course.name}}</div> -->
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item" v-for="course in courses" :key="course.id">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button
+                            class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseOne"
+                            aria-expanded="false"
+                            aria-controls="flush-collapseOne">
+                            {{course.name}}
+                        </button>
+                    </h2>
+
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            Placeholder content for this accordion, which is
+                            intended to demonstrate the
+                            <code>.accordion-flush</code> class. This is the
+                            first item's accordion body.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
 
             <div class="row mt-4 mb-5">
-                <div class="col-sm-12 col-md-4" v-for="(product, index) in products" :key="product.id">
+                <div
+                    class="col-sm-12 col-md-4"
+                    v-for="(product, index) in products"
+                    :key="product.id"
+                >
                     <div class="product-card">
                         <img :src="product.image" alt="" />
 
@@ -30,7 +58,7 @@
                                 <h5>€ {{ product.price }}</h5>
                             </div>
 
-                            <h6 class="ps-3">{{product.description}}</h6>
+                            <h6 class="ps-3">{{ product.description }}</h6>
 
                             <div class="cart-btn">
                                 <div>
@@ -42,12 +70,15 @@
                                     <button @click="addCart(index)" class="btn">
                                         <i class="fa-solid fa-chevron-up"></i>
                                     </button>
-                                    <button @click="removeCart(index)" class="btn">
+                                    <button
+                                        @click="removeCart(index)"
+                                        class="btn"
+                                    >
                                         <i class="fa-solid fa-chevron-down"></i>
                                     </button>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                     </div>
                 </div>
             </div>
@@ -62,10 +93,10 @@ export default {
     data() {
         return {
             products: [],
-            /* courses: [], */
+            courses: [],
             cart: [],
             total: 0,
-            selectedCategory: null
+            /* selectedCategory: null */
         };
     },
     computed: {
@@ -74,8 +105,8 @@ export default {
                 .get("/api/" + this.$route.params.restaurant_id + "/products")
                 .then((resp) => {
                     console.log(resp.data);
-                    this.products = resp.data;
-                    /* this.courses = resp.data; */
+                    this.products = resp.data.products;
+                    this.courses = resp.data.courses;
                 });
         },
         /* filteredProducts(){
@@ -95,6 +126,9 @@ export default {
         },
     },
     methods: {
+        /* selectedCat(id){
+            this.selectedCategory = id;
+        }, */
         removeCart(index) {
             const item = this.cart.find(
                 (product) => product.id === this.products[index].id
@@ -120,7 +154,6 @@ export default {
                 });
             else item.quantity++;
         },
-        
     },
     mounted() {
         if (localStorage.cart) {
@@ -183,13 +216,12 @@ export default {
     padding: 12px 12px 0px 12px;
 }
 
-.under-image{
+.under-image {
     position: relative;
     width: 100%;
 }
 
 @media only screen and (max-width: 460px) {
-    
     .product-card {
         width: 100%;
         margin-bottom: 2rem;
@@ -202,19 +234,19 @@ export default {
     }
 
     .product-card h6 {
-    display: inline-block;
-}
+        display: inline-block;
+    }
 
-    .under-image{
-    position: relative;
-    height: 180px;
+    .under-image {
+        position: relative;
+        height: 180px;
     }
 
     .title-price {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 12px 0px 12px;
-}
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 12px 0px 12px;
+    }
 }
 </style>

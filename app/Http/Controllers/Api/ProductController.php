@@ -19,12 +19,21 @@ class ProductController extends Controller
     public function index($id)
     {
         $products = Product::where("user_id", $id)->get();
-        /* $courses = ProductCourse::get(); */
-        
-        
         $products->load("product_course:id,name");
-        
-        return response()->json($products);
+
+        $courses = ProductCourse::all();
+        $c = [];
+
+        foreach ($products as $product) {
+            foreach ($courses as $course) {
+                if($course->id == $product->product_course_id){
+                    $c[] = $course; 
+                }
+            }
+        }
+        $c = array_unique($c);
+
+        return response()->json(["products"=>$products, "courses"=>$c]);
     }
 
     /**

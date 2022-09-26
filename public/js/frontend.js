@@ -5631,11 +5631,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       products: [],
-
-      /* courses: [], */
+      courses: [],
       cart: [],
-      total: 0,
-      selectedCategory: null
+      total: 0
+      /* selectedCategory: null */
+
     };
   },
   computed: {
@@ -5644,8 +5644,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/" + this.$route.params.restaurant_id + "/products").then(function (resp) {
         console.log(resp.data);
-        _this.products = resp.data;
-        /* this.courses = resp.data; */
+        _this.products = resp.data.products;
+        _this.courses = resp.data.courses;
       });
     }
     /* filteredProducts(){
@@ -5666,6 +5666,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
+    /* selectedCat(id){
+        this.selectedCategory = id;
+    }, */
     removeCart: function removeCart(index) {
       var _this2 = this;
 
@@ -6561,6 +6564,30 @@ var render = function render() {
       }
     }), _vm._v(" "), _c("h1", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("h1", [_vm._v(_vm._s(item.quantity))]), _vm._v(" "), _c("h2", [_vm._v(_vm._s((item.price * item.quantity).toFixed(2)))])]);
   })], 2), _vm._v(" "), _c("div", {
+    staticClass: "accordion accordion-flush",
+    attrs: {
+      id: "accordionFlushExample"
+    }
+  }, _vm._l(_vm.courses, function (course) {
+    return _c("div", {
+      key: course.id,
+      staticClass: "accordion-item"
+    }, [_c("h2", {
+      staticClass: "accordion-header",
+      attrs: {
+        id: "flush-headingOne"
+      }
+    }, [_c("button", {
+      staticClass: "accordion-button collapsed",
+      attrs: {
+        type: "button",
+        "data-bs-toggle": "collapse",
+        "data-bs-target": "#flush-collapseOne",
+        "aria-expanded": "false",
+        "aria-controls": "flush-collapseOne"
+      }
+    }, [_vm._v("\n                        " + _vm._s(course.name) + "\n                    ")])]), _vm._v(" "), _vm._m(0, true)]);
+  }), 0), _vm._v(" "), _c("div", {
     staticClass: "row mt-4 mb-5"
   }, _vm._l(_vm.products, function (product, index) {
     return _c("div", {
@@ -6581,7 +6608,7 @@ var render = function render() {
       staticClass: "ps-3"
     }, [_vm._v(_vm._s(product.description))]), _vm._v(" "), _c("div", {
       staticClass: "cart-btn"
-    }, [_vm._m(0, true), _vm._v(" "), _c("div", [_vm._v("quantità")]), _vm._v(" "), _c("div", {
+    }, [_vm._m(1, true), _vm._v(" "), _c("div", [_vm._v("quantità")]), _vm._v(" "), _c("div", {
       staticClass: "d-flex flex-column"
     }, [_c("button", {
       staticClass: "btn",
@@ -6606,6 +6633,20 @@ var render = function render() {
 };
 
 var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "accordion-collapse collapse",
+    attrs: {
+      id: "flush-collapseOne",
+      "aria-labelledby": "flush-headingOne",
+      "data-bs-parent": "#accordionFlushExample"
+    }
+  }, [_c("div", {
+    staticClass: "accordion-body"
+  }, [_vm._v("\n                        Placeholder content for this accordion, which is\n                        intended to demonstrate the\n                        "), _c("code", [_vm._v(".accordion-flush")]), _vm._v(" class. This is the\n                        first item's accordion body.\n                    ")])]);
+}, function () {
   var _vm = this,
       _c = _vm._self._c;
 
@@ -29832,7 +29873,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
