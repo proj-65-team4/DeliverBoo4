@@ -14,7 +14,7 @@
             </button>
 
             <div
-                class="offcanvas offcanvas-start"
+                class="offcanvas offcanvas-end"
                 data-bs-scroll="false"
                 data-bs-backdrop="true"
                 tabindex="-1"
@@ -95,7 +95,12 @@ window.addEventListener("scroll", function () {
             "rgba(0,0,0,0.2)";
     }
 });
-setInterval(() => {}, 2000);
+setInterval(() => {
+                JSON.parse(localStorage.cart).forEach(element => {
+                    return element.quantity
+                });
+                console.log(JSON.parse(localStorage.cart).length)
+            }, 2000);
 
 export default {
     data() {
@@ -128,6 +133,7 @@ export default {
         carts() {
 
             setInterval(() => {
+                JSON.parse(localStorage.cart.quantity)
                 console.log(JSON.parse(localStorage.cart).length)
             }, 2000);
             
