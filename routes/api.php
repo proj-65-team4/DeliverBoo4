@@ -26,6 +26,7 @@ Route::get("/products/{id}", "Api\ProductController@show");
 
 Route::get("/{restaurant_id}/products", "Api\ProductController@index");
 
-Route::get("/checkout", "Api\Checkout@category");
+Route::post("/checkout", "Api\OrderController@order");
+
 
 
