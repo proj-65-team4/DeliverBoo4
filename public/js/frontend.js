@@ -5471,7 +5471,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 window.addEventListener("scroll", function () {
-  if (this.window.pageYOffset > 510) {
+  if (this.window.pageYOffset > 620) {
     document.getElementById("navscroll").style.background = "#ffab00";
   } else {
     document.getElementById("navscroll").style.background = "rgba(0,0,0,0.2)";
@@ -5631,8 +5631,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   data: function data() {
     return {
       products: [],
+
+      /* courses: [], */
       cart: [],
-      total: 0
+      total: 0,
+      selectedCategory: null
     };
   },
   computed: {
@@ -5640,10 +5643,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/" + this.$route.params.restaurant_id + "/products").then(function (resp) {
-        console.log(resp);
+        console.log(resp.data);
         _this.products = resp.data;
+        /* this.courses = resp.data; */
       });
     }
+    /* filteredProducts(){
+        return this.products.filter((product)=>{
+            return product.product_course.filter((category)=>{
+                return category.id === this.selectedCategory;
+            }).length > 0;
+        })
+    } */
+
   },
   watch: {
     cart: {
@@ -6469,7 +6481,7 @@ var render = function render() {
   return _c("div", [_c("div", {
     staticClass: "restaurant-bg"
   }, [_c("div", {
-    staticClass: "container"
+    staticClass: "container custom-padding"
   }, [_c("TheCarousel", {
     attrs: {
       categorie: _vm.categories
@@ -6531,38 +6543,37 @@ var render = function render() {
 
   return _c("div", [_c("div", {
     staticClass: "container"
-  }, [_c("h2", [_vm._v("Lista prodotti")]), _vm._v(" "), _vm.cart.length === 0 ? _c("div", [_vm._v("Il tuo carrello è vuoto")]) : _c("div", {
-    staticClass: "row"
-  }, [_vm._v("contenuto carrello\n            "), _vm._l(_vm.cart, function (item) {
+  }, [_vm.cart.length === 0 ? _c("div", [_vm._v("Il tuo carrello è vuoto")]) : _c("div", {
+    staticClass: "row flex-column"
+  }, _vm._l(_vm.cart, function (item) {
     return _c("div", {
       key: item.id + item.name,
-      staticClass: "col-3 border"
-    }, [_c("img", {
-      staticStyle: {
-        width: "250px"
-      },
-      attrs: {
-        src: item.image,
-        alt: ""
-      }
-    }), _vm._v(" "), _c("h1", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("h1", [_vm._v(_vm._s(item.quantity))]), _vm._v(" "), _c("h2", [_vm._v(_vm._s((item.price * item.quantity).toFixed(2)))])]);
-  })], 2), _vm._v(" "), _c("div", {
-    staticClass: "row"
+      staticClass: "col-3 card my-2"
+    }, [_c("span", [_vm._v("Prodotto aggiunto: " + _vm._s(item.name))]), _vm._v(" "), _c("span", [_vm._v("Quantità: " + _vm._s(item.quantity))]), _vm._v(" "), _c("span", [_vm._v(" Prezzo: " + _vm._s((item.price * item.quantity).toFixed(2)))])]);
+  }), 0), _vm._v(" "), _c("h2", {
+    staticClass: "mt-5"
+  }, [_vm._v("Lista prodotti")]), _vm._v(" "), _c("div", {
+    staticClass: "row mt-4 mb-5"
   }, _vm._l(_vm.products, function (product, index) {
     return _c("div", {
       key: product.id,
-      staticClass: "col-sm-12 col-md-3 border p-4"
+      staticClass: "col-sm-12 col-md-4"
+    }, [_c("div", {
+      staticClass: "product-card"
     }, [_c("img", {
-      staticClass: "w-100",
       attrs: {
         src: product.image,
         alt: ""
       }
     }), _vm._v(" "), _c("div", {
-      staticClass: "fw-bold"
-    }, [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("div", [_vm._v("€ " + _vm._s(product.price))]), _vm._v(" "), _c("div", {
+      staticClass: "under-image"
+    }, [_c("div", {
+      staticClass: "title-price"
+    }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("€ " + _vm._s(product.price))])]), _vm._v(" "), _c("h6", {
+      staticClass: "ps-3"
+    }, [_vm._v(_vm._s(product.description))]), _vm._v(" "), _c("div", {
       staticClass: "cart-btn"
-    }, [_vm._m(0, true), _vm._v(" "), _c("div", [_vm._v("\n                        quantità\n                    ")]), _vm._v(" "), _c("div", {
+    }, [_vm._m(0, true), _vm._v(" "), _c("div", [_vm._v("quantità")]), _vm._v(" "), _c("div", {
       staticClass: "d-flex flex-column"
     }, [_c("button", {
       staticClass: "btn",
@@ -6582,7 +6593,7 @@ var render = function render() {
       }
     }, [_c("i", {
       staticClass: "fa-solid fa-chevron-down"
-    })])])])]);
+    })])])])])])]);
   }), 0)])]);
 };
 
@@ -12057,7 +12068,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".restaurant-bg {\n  background-color: #FFCA3A;\n}\n.restaurant-jumbo {\n  height: 20vh;\n  width: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center;\n}", ""]);
+exports.push([module.i, ".custom-padding {\n  padding-top: 80px;\n}\n.restaurant-bg {\n  background-color: #FFCA3A;\n}\n.restaurant-jumbo {\n  height: 20vh;\n  width: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center;\n}", ""]);
 
 // exports
 
@@ -12076,7 +12087,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".cart-btn[data-v-96ac86ec] {\n  background-color: aquamarine;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 0.5rem;\n}", ""]);
+exports.push([module.i, "/* .category {\n    width: 100%;\n    height: 30px;\n    border: 1px solid rgb(27, 27, 27);\n    font-weight: 700;\n    font-size: 20px;\n    text-align: center;\n    margin-bottom: 1rem;\n    cursor: pointer;\n} */\n.cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  font-weight: 700;\n  display: flex;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 0.5rem;\n  margin-top: 1rem;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card img[data-v-96ac86ec] {\n  width: 180px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.product-card h6[data-v-96ac86ec] {\n  display: none;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  position: relative;\n  width: 100%;\n}\n@media only screen and (max-width: 460px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.product-card h6[data-v-96ac86ec] {\n    display: inline-block;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 180px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n}", ""]);
 
 // exports
 
