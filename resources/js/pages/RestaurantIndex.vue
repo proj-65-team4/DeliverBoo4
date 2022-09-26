@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="restaurant-bg">
-            <div class="container">
+            <div class="container custom-padding">
                 <TheCarousel :categorie="categories"></TheCarousel>
             </div>
         </div>
@@ -90,6 +90,10 @@ export default {
 </script>
 
 <style lang="scss">
+
+    .custom-padding {
+        padding-top: 80px;
+    }
     .restaurant-bg {
         background-color: #FFCA3A;
     }

@@ -5511,7 +5511,7 @@ setInterval(function () {}, 2000);
 
   /* computed: {
       carts() {
-            setInterval(() => {
+           setInterval(() => {
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
           
@@ -6481,7 +6481,7 @@ var render = function render() {
   return _c("div", [_c("div", {
     staticClass: "restaurant-bg"
   }, [_c("div", {
-    staticClass: "container"
+    staticClass: "container custom-padding"
   }, [_c("TheCarousel", {
     attrs: {
       categorie: _vm.categories
@@ -6543,24 +6543,16 @@ var render = function render() {
 
   return _c("div", [_c("div", {
     staticClass: "container"
-  }, [_c("h2", {
-    staticClass: "mt-5"
-  }, [_vm._v("Lista prodotti")]), _vm._v(" "), _vm.cart.length === 0 ? _c("div", [_vm._v("Il tuo carrello è vuoto")]) : _c("div", {
-    staticClass: "row"
-  }, [_vm._v("\n            contenuto carrello\n            "), _vm._l(_vm.cart, function (item) {
+  }, [_vm.cart.length === 0 ? _c("div", [_vm._v("Il tuo carrello è vuoto")]) : _c("div", {
+    staticClass: "row flex-column"
+  }, _vm._l(_vm.cart, function (item) {
     return _c("div", {
       key: item.id + item.name,
-      staticClass: "col-3 border"
-    }, [_c("img", {
-      staticStyle: {
-        width: "250px"
-      },
-      attrs: {
-        src: item.image,
-        alt: ""
-      }
-    }), _vm._v(" "), _c("h1", [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("h1", [_vm._v(_vm._s(item.quantity))]), _vm._v(" "), _c("h2", [_vm._v(_vm._s((item.price * item.quantity).toFixed(2)))])]);
-  })], 2), _vm._v(" "), _c("div", {
+      staticClass: "col-3 card my-2"
+    }, [_c("span", [_vm._v("Prodotto aggiunto: " + _vm._s(item.name))]), _vm._v(" "), _c("span", [_vm._v("Quantità: " + _vm._s(item.quantity))]), _vm._v(" "), _c("span", [_vm._v(" Prezzo: " + _vm._s((item.price * item.quantity).toFixed(2)))])]);
+  }), 0), _vm._v(" "), _c("h2", {
+    staticClass: "mt-5"
+  }, [_vm._v("Lista prodotti")]), _vm._v(" "), _c("div", {
     staticClass: "row mt-4 mb-5"
   }, _vm._l(_vm.products, function (product, index) {
     return _c("div", {
@@ -12076,7 +12068,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".restaurant-bg {\n  background-color: #FFCA3A;\n}\n.restaurant-jumbo {\n  height: 20vh;\n  width: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center;\n}", ""]);
+exports.push([module.i, ".custom-padding {\n  padding-top: 80px;\n}\n.restaurant-bg {\n  background-color: #FFCA3A;\n}\n.restaurant-jumbo {\n  height: 20vh;\n  width: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center;\n}", ""]);
 
 // exports
 

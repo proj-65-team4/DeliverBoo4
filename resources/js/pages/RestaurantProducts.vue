@@ -1,24 +1,22 @@
 <template>
     <div>
         <div class="container">
-            <h2 class="mt-5">Lista prodotti</h2>
             <div v-if="cart.length === 0">Il tuo carrello è vuoto</div>
-            <div class="row" v-else>
-                contenuto carrello
+            <div class="row flex-column" v-else>
                 <div
-                    class="col-3 border"
+                    class="col-3 card my-2"
                     v-for="item in cart"
                     :key="item.id + item.name"
                 >
-                    <img :src="item.image" alt="" style="width: 250px" />
-                    <h1>{{ item.name }}</h1>
-                    <h1>{{ item.quantity }}</h1>
-                    <h2>{{ (item.price * item.quantity).toFixed(2) }}</h2>
+                    <!-- <img :src="item.image" alt="" style="width: 250px" /> -->
+                    <span>Prodotto aggiunto: {{ item.name }}</span>
+                    <span>Quantità: {{ item.quantity }}</span>
+                    <span> Prezzo: {{ (item.price * item.quantity).toFixed(2) }}</span>
                 </div>
             </div>
 
             <!-- <div v-for="course in courses" :key="course.id">{{course.name}}</div> -->
-
+            <h2 class="mt-5">Lista prodotti</h2>
             <div class="row mt-4 mb-5">
                 <div class="col-sm-12 col-md-4" v-for="(product, index) in products" :key="product.id">
                     <div class="product-card">
