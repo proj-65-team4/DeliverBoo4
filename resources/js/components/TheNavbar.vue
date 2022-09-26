@@ -23,7 +23,7 @@
             >
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
-                        Offcanvas with body scrolling
+                        Carrello
                     </h5>
                     <button
                         type="button"
@@ -32,15 +32,34 @@
                         aria-label="Close"
                     ></button>
                 </div>
+                <hr>
                 <div class="offcanvas-body">
-                    <p>
-                        Try scrolling the rest of the page to see this option in
-                        action.
-                    </p>
-                    <ul class="d-flex flex-column">
-                        <li v-if="cart.length>=1" v-for="item in cart">{{item.name}} - q: {{ item.quantity }}  - t: {{(item.quantity*(parseFloat(item.price))).toFixed(2)}}</li>
-                        <li v-else><strong>Il carrello è vuoto</strong></li>
-                    </ul>
+                    
+                    <template v-if="cart.length === 0" >
+                        <span>Carrello vuoto</span>
+                    </template>
+                    <template v-else>
+                        <div class="row row-cols-3 border-bottom border-dark py-2">
+                                <div class="col"><strong>Prodotto</strong></div>
+                                <div class="col text-center"><strong>Quantità</strong></div>
+                                <div class="col text-center"><strong>Totale</strong></div>
+                            </div>
+                            <div class="border-bottom border-dark py-2">
+                                    <div v-for="item in cart" :key="item.id" class="row row-cols-3">
+                                    <div class="col">{{ item.name }}</div>
+                                    <div class="col text-center">{{ item.quantity }}</div>
+                                    <div class="col text-center">€ {{
+                                        (
+                                            item.quantity * parseFloat(item.price)
+                                        ).toFixed(2)
+                                    }}</div>
+                                </div>
+                            </div>
+                            <div class="py-2">
+                                <router-link :to="{name:'Checkout'}" class="d-block btn btn-primary" @click="closeOffcanvas()">Checkout</router-link>
+                            </div>
+                        </ul>
+                    </template>
                 </div>
             </div>
 
@@ -83,23 +102,27 @@ export default {
         return {
             cart: [],
             length: 0,
+            bool: false
         };
     },
-    methods:{
+    methods: {
         carts() {
-
             /* setInterval(() => {
                 console.log(JSON.parse(localStorage.cart).length)
             }, 2000); */
-            
-           /*  this.length = JSON.parse(localStorage.cart).length; */
-           console.log(this.cart.length)
-            console.log("push")
-                this.cart = JSON.parse(localStorage.getItem("cart"));
-           
-
-            return  JSON.parse(localStorage.getItem("cart"));
+            if(localStorage.cart != undefined && localStorage.cart.length>0){
+                this.bool=true
+            }else{
+                this.bool=false
+            }
+            /*  this.length = JSON.parse(localStorage.cart).length; */
+            /* console.log(this.cart.length);
+            console.log("push"); */
+            this.cart = JSON.parse(localStorage.getItem("cart"));
         },
+        closeOffcanvas(){
+            document.getElementById("offcanvasScrolling").classList.remove("show")
+        }
     },
     /* computed: {
         carts() {
@@ -112,7 +135,6 @@ export default {
     }, */
     mounted() {
         this.carts();
-        
     },
 };
 </script>
