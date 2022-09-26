@@ -6229,7 +6229,7 @@ var render = function render() {
       id: "navscroll"
     }
   }, [_c("button", {
-    staticClass: "btn position relative",
+    staticClass: "btn position relative fixed-cart",
     attrs: {
       type: "button",
       "data-bs-toggle": "offcanvas",
@@ -6242,7 +6242,7 @@ var render = function render() {
       }
     }
   }, [_c("i", {
-    staticClass: "fa-solid fa-cart-shopping text-white"
+    staticClass: "fa-solid fa-cart-shopping"
   })]), _vm._v(" "), _c("div", {
     staticClass: "offcanvas offcanvas-start",
     attrs: {
@@ -12049,7 +12049,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bgcolor[data-v-eca07cf4],\n.scrolled[data-v-eca07cf4] {\n  background: #ffab00;\n}\n#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n.cart[data-v-eca07cf4] {\n  display: none;\n}\n.counter-cart[data-v-eca07cf4] {\n  position: absolute;\n  width: 10px;\n  aspect-ratio: 1;\n  padding: 0.15rem;\n  border-radius: 50%;\n  background-color: red;\n}\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 200px;\n  width: 100%;\n  transition: background 0.8s ease;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  margin-right: 1rem;\n  background: #3da5d9;\n}\n.login[data-v-eca07cf4]:hover {\n  background: rgb(40, 191, 214);\n}\n.login i[data-v-eca07cf4] {\n  font-size: 1rem;\n}\n.register[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  background: #ffab00;\n}\n.register[data-v-eca07cf4]:hover {\n  background: #ffca3a;\n}\n.register i[data-v-eca07cf4] {\n  font-size: 1rem;\n  padding-right: 0.3rem;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n}\n.login i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n.register[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n}\n.register i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n}", ""]);
+exports.push([module.i, ".bgcolor[data-v-eca07cf4],\n.scrolled[data-v-eca07cf4] {\n  background: #ffab00;\n}\n#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n.cart[data-v-eca07cf4] {\n  display: none;\n}\n.counter-cart[data-v-eca07cf4] {\n  position: absolute;\n  width: 10px;\n  aspect-ratio: 1;\n  padding: 0.15rem;\n  border-radius: 50%;\n  background-color: red;\n}\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 200px;\n  width: 100%;\n  transition: background 0.8s ease;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  margin-right: 1rem;\n  background: #3da5d9;\n}\n.login[data-v-eca07cf4]:hover {\n  background: rgb(40, 191, 214);\n}\n.login i[data-v-eca07cf4] {\n  font-size: 1rem;\n}\n.register[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  background: #ffab00;\n}\n.register[data-v-eca07cf4]:hover {\n  background: #ffca3a;\n}\n.register i[data-v-eca07cf4] {\n  font-size: 1rem;\n  padding-right: 0.3rem;\n}\n.fixed-cart[data-v-eca07cf4] {\n  position: fixed;\n  bottom: 100px;\n  right: 150px;\n  border-radius: 50px;\n  background-color: rgb(40, 191, 214);\n}\n.fixed-cart i[data-v-eca07cf4] {\n  font-size: 2rem;\n  color: white;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n}\n.login i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n.register[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n}\n.register i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n}", ""]);
 
 // exports
 

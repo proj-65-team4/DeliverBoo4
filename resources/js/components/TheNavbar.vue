@@ -3,14 +3,14 @@
         <!-- navbar -->
         <nav id="navscroll" class="my-navbar bg-color">
             <button
-                class="btn position relative"
+                class="btn position relative fixed-cart"
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasScrolling"
                 aria-controls="offcanvasScrolling"
                 @click="carts()"
             >
-                <i class="fa-solid fa-cart-shopping text-white"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
             </button>
 
             <div
@@ -211,6 +211,18 @@ export default {
     & i {
         font-size: 1rem;
         padding-right: 0.3rem;
+    }
+}
+.fixed-cart {
+    position: fixed;
+    bottom: 100px;
+    right: 150px;
+    border-radius: 50px;
+    background-color: rgb(40, 191, 214);
+
+    & i {
+        font-size: 2rem;
+        color: white;
     }
 }
 
