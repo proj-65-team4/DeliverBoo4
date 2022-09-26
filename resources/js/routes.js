@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Home from "./pages/home.vue";
 import RestaurantProducts from './pages/RestaurantProducts.vue';
 import RestaurantIndex from './pages/RestaurantIndex.vue';
+import Checkout from './pages/Checkout.vue';
 
 Vue.use(VueRouter);
 
@@ -28,4 +29,10 @@ export const routes = [
     meta: { title: "Ristoranti" },
   },
 
+  {
+    path: "/checkout",
+    component: Checkout,
+    name: "Checkout",
+    meta: { title: "Checkout" },
+  },
 ];
