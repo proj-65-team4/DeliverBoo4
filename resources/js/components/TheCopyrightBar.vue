@@ -22,7 +22,7 @@
                     </div>
         
                     <div class="logo">
-                        <img id="deliveboo" src="img/deliveboo-logo.svg" alt="">
+                        <img id="deliveboo" src="/img/deliveboo-logo.svg" alt="">
                     </div>
                 </div>
             </div>

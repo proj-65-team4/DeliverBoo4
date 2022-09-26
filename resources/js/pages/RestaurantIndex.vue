@@ -1,11 +1,17 @@
 <template>
     <div>
-        <div class="container">
-            <h2>Categorie</h2>
-            <TheCarousel :categorie="categories"></TheCarousel>
+        <div class="restaurant-bg">
+            <div class="container">
+                <TheCarousel :categorie="categories"></TheCarousel>
+            </div>
         </div>
-        <div class="container">
-            <h1>Lista Ristoranti:</h1>
+        <div class="container my-5">
+            <template v-for="category in categories">
+                <div v-if="category.id == currentCat" class="text-center">
+                    <h5 class="">I migliori ristoranti della categoria</h5>
+                    <h3 class="fw-bold pb-3">{{ category.name }}</h3>
+                </div>
+            </template>
             <template v-if="!loaded">
                 <div class="row py-2">
                     <div class="col">
@@ -71,6 +77,7 @@ export default {
                 
                     }
                 return this.restaurants;
+                
         },
     },
     mounted() {
@@ -82,4 +89,15 @@ export default {
 };
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+    .restaurant-bg {
+        background-color: #FFCA3A;
+    }
+    .restaurant-jumbo {
+        height: 20vh;
+        width: 100%;
+        object-fit: contain;
+        object-position: center;
+    }
+
+</style>
