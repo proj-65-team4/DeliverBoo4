@@ -69,7 +69,7 @@
 
 <script>
 window.addEventListener("scroll", function () {
-    if (this.window.pageYOffset > 510) {
+    if (this.window.pageYOffset > 620) {
         document.getElementById("navscroll").style.background = "#ffab00";
     } else {
         document.getElementById("navscroll").style.background =
