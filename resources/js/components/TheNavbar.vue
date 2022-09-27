@@ -75,14 +75,8 @@
 
             <ul class="list-unstyled mb-0">
                 <li>
-                    <a class="login btn" href="/login">
-                        <i class="fa-solid fa-right-to-bracket"></i> Login</a
-                    >
-                </li>
-
-                <li>
-                    <a class="register btn" href="/register"
-                        ><i class="fa-solid fa-user"></i>Register</a
+                    <a class="btn login" href="/login">
+                        <i class="fa-solid fa-right-to-bracket"></i> Accedi</a
                     >
                 </li>
             </ul>

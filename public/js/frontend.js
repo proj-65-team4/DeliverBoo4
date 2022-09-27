@@ -6416,20 +6416,13 @@ var staticRenderFns = [function () {
   return _c("ul", {
     staticClass: "list-unstyled mb-0"
   }, [_c("li", [_c("a", {
-    staticClass: "login btn",
+    staticClass: "btn login",
     attrs: {
       href: "/login"
     }
   }, [_c("i", {
     staticClass: "fa-solid fa-right-to-bracket"
-  }), _vm._v(" Login")])]), _vm._v(" "), _c("li", [_c("a", {
-    staticClass: "register btn",
-    attrs: {
-      href: "/register"
-    }
-  }, [_c("i", {
-    staticClass: "fa-solid fa-user"
-  }), _vm._v("Register")])])]);
+  }), _vm._v(" Accedi")])])]);
 }];
 render._withStripped = true;
 
@@ -6716,14 +6709,7 @@ var render = function render() {
 
   return _c("div", [_c("div", {
     staticClass: "container"
-  }, [_vm.cart.length === 0 ? _c("div", [_vm._v("Il tuo carrello è vuoto")]) : _c("div", {
-    staticClass: "row flex-column"
-  }, _vm._l(_vm.cart, function (item) {
-    return _c("div", {
-      key: item.id + item.name,
-      staticClass: "col-3 card my-2"
-    }, [_c("span", [_vm._v("Prodotto aggiunto: " + _vm._s(item.name))]), _vm._v(" "), _c("span", [_vm._v("Quantità: " + _vm._s(item.quantity))]), _vm._v(" "), _c("span", [_vm._v(" Prezzo: " + _vm._s((item.price * item.quantity).toFixed(2)))])]);
-  }), 0), _vm._v(" "), _c("div", {
+  }, [_c("div", {
     staticClass: "accordion accordion-flush",
     attrs: {
       id: "accordionFlushExample"
@@ -30100,7 +30086,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })

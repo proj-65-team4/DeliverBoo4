@@ -1,19 +1,21 @@
 <template>
     <div>
         <div class="container">
-            <div v-if="cart.length === 0">Il tuo carrello è vuoto</div>
+            <!-- PROVA CARRELLO IN PAGINA! -->
+            <!-- <div v-if="cart.length === 0">Il tuo carrello è vuoto</div>
             <div class="row flex-column" v-else>
                 <div
                     class="col-3 card my-2"
                     v-for="item in cart"
                     :key="item.id + item.name"
                 >
-                    <!-- <img :src="item.image" alt="" style="width: 250px" /> -->
+                    <img :src="item.image" alt="" style="width: 250px" />
                     <span>Prodotto aggiunto: {{ item.name }}</span>
                     <span>Quantità: {{ item.quantity }}</span>
                     <span> Prezzo: {{ (item.price * item.quantity).toFixed(2) }}</span>
                 </div>
-            </div>
+            </div> -->
+            
 
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item" v-for="course in courses" :key="course.id">
