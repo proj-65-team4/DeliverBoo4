@@ -201,13 +201,22 @@ export default {
 
 .fixed-cart {
     position: fixed;
-    bottom: 100px;
-    right: 150px;
+    bottom: 0;
+    margin: 20px;
+    width: 60px;
+    height: 60px;
+    right: 0;
     border-radius: 50px;
     background-color: rgb(40, 191, 214);
 
+    &:hover , &:active , &:focus {
+        background-color: rgb(40, 191, 214);
+        border: 0;
+    }
+    
+
     & i {
-        font-size: 2rem;
+        font-size: 1.7rem;
         color: white;
     }
 }
