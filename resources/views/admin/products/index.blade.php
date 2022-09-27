@@ -3,6 +3,9 @@
 @section('content')
 
     <div class="container-fluid">
+        @if (session("message"))
+        <div class="alert alert-success">{{ session("message")}}</div>
+        @endif
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center gap-3">
                 <a href="{{ route('admin.products.index') }}"><i class="fa-solid fa-arrow-left fa-lg"></i></a>
@@ -112,12 +115,39 @@
                         {{-- Button DELETE --}}
                         <div class="d-inline py-1">
                             <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST"
-                                class="d-inline-block">
+                                class="d-inline-block {{-- form-delete --}}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="my-button delete-btn m-1"><i
-                                        class="fa-solid fa-trash-can fa-lg"></i></button>
+                                <button type="submit" class="my-button delete-btn m-1" data-bs-toggle="modal" data-bs-target="#ModalDelete{{$product->id}}">
+                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                </button>
+
+                                {{-- delete modal --}}
+                                <div class="modal fade" id="ModalDelete{{$product->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">{{ __('Elimina prodotto')}}</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">Sicuro di voler eliminare<b>{{$product->name}}</b>?</div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                                                    {{ __('Elimina')}}
+                                                </button>
+                                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+                                                    {{ __('Annulla')}}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
+                            {{-- <crud-delete-btn action="{{ route('admin.products.destroy', $product->id)}}">
+                                @csrf
+                                @method('DELETE')
+                            </crud-delete-btn> --}}
                         </div>
                     </div>
                 </div>

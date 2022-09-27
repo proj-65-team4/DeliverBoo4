@@ -5519,7 +5519,7 @@ window.addEventListener("scroll", function () {
 
   /* computed: {
       carts() {
-           setInterval(() => {
+            setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -30217,7 +30217,11 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+=======
+module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
+>>>>>>> b0bee26f9f6093a9b005315baf45c7a21f9334fc
 
 
 /***/ })
