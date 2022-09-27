@@ -5516,7 +5516,7 @@ setInterval(function () {
 
   /* computed: {
       carts() {
-            setInterval(() => {
+           setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -5542,26 +5542,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-var button = document.querySelector('#submit-button');
-braintree.dropin.create({
+/* braintree.dropin.create({
   authorization: 'sandbox_rzbhrwvw_jvtyvgv4fdj4br5y',
   selector: '#dropin-container'
 }, function (err, instance) {
-  button.addEventListener('click', function () {
-    var formData = new FormData();
-    formData.append("name", this.name);
-    formData.append("surname", this.surname);
-    formData.append("email", this.email);
-    formData.append("address", this.address);
-    formData.append("telephone", this.telephone); // formData.append(document.getElementById('credit-card-number'));
-    // formData.append(document.getElementById('expiration'));
+  
+    
+    instance.requestPaymentMethod(function (err, payload) {
+       
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/checkout", formData).then(function (resp) {
-      console.log(resp.data);
     });
-    instance.requestPaymentMethod(function (err, payload) {});
-  });
-});
+}); */
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5571,6 +5563,21 @@ braintree.dropin.create({
       address: '',
       telephone: ''
     };
+  },
+  methods: {
+    send: function send() {
+      var formData = new FormData();
+      formData.append("name", this.name);
+      formData.append("surname", this.surname);
+      formData.append("email", this.email);
+      formData.append("address", this.address);
+      formData.append("telephone", this.telephone); // formData.append(document.getElementById('credit-card-number'));
+      // formData.append(document.getElementById('expiration'));
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/order", formData).then(function (resp) {
+        console.log(resp.data);
+      });
+    }
   }
 });
 
@@ -5672,7 +5679,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       products: [],
       courses: [],
       cart: [],
-      total: 0
+      total: 0,
+      id: null
       /* selectedCategory: null */
 
     };
@@ -5685,6 +5693,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         console.log(resp.data);
         _this.products = resp.data.products;
         _this.courses = resp.data.courses;
+      });
+    },
+    filteredProducts: function filteredProducts() {
+      var _this2 = this;
+
+      return this.products.filter(function (el) {
+        return el.product_course_id == _this2.id ? el : '';
       });
     }
     /* filteredProducts(){
@@ -5709,10 +5724,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.selectedCategory = id;
     }, */
     removeCart: function removeCart(index) {
-      var _this2 = this;
+      var _this3 = this;
 
       var item = this.cart.find(function (product) {
-        return product.id === _this2.products[index].id;
+        return product.id === _this3.products[index].id;
       });
 
       if (item !== undefined && item.quantity !== 0) {
@@ -5720,22 +5735,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         if (item.quantity === 0) {
           var eliminaIndice = this.cart.findIndex(function (product) {
-            return product.id === _this2.products[index].id;
+            return product.id === _this3.products[index].id;
           });
           this.cart.splice(eliminaIndice, 1);
         }
       }
     },
     addCart: function addCart(index) {
-      var _this3 = this;
+      var _this4 = this;
 
       var item = this.cart.find(function (product) {
-        return product.id === _this3.products[index].id;
+        return product.id === _this4.products[index].id;
       });
 
       if (item === undefined) {
         if (this.cart.find(function (product) {
-          return product.user_id == _this3.products[index].user_id;
+          return product.user_id == _this4.products[index].user_id;
         }) || localStorage.cart === undefined || JSON.parse(localStorage.cart).length === 0) {
           this.cart.push(_objectSpread(_objectSpread({}, this.products[index]), {}, {
             quantity: 1
@@ -5744,6 +5759,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           alert("Aggiunta non valida");
         }
       } else item.quantity++;
+    },
+    changeID: function changeID(id) {
+      this.id = id;
     }
   },
   mounted: function mounted() {
@@ -6425,7 +6443,14 @@ var render = function render() {
 
   return _c("div", [_c("div", {
     staticClass: "container py-2"
-  }, [_c("h2", [_vm._v("Checkout")]), _vm._v(" "), _c("form", [_c("div", {
+  }, [_c("h2", [_vm._v("Checkout")]), _vm._v(" "), _c("form", {
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.send.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
     staticClass: "form-floating mb-3"
   }, [_c("input", {
     directives: [{
@@ -6694,71 +6719,71 @@ var render = function render() {
       attrs: {
         type: "button",
         "data-bs-toggle": "collapse",
-        "data-bs-target": "#flush-collapseOne",
+        "data-bs-target": "#flush-collapseOne-" + course.id,
         "aria-expanded": "false",
         "aria-controls": "flush-collapseOne"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.changeID(course.id);
+        }
       }
-    }, [_vm._v("\n                        " + _vm._s(course.name) + "\n                    ")])]), _vm._v(" "), _vm._m(0, true)]);
-  }), 0), _vm._v(" "), _c("div", {
-    staticClass: "row mt-4 mb-5"
-  }, _vm._l(_vm.products, function (product, index) {
-    return _c("div", {
-      key: product.id,
-      staticClass: "col-sm-12 col-md-4"
-    }, [_c("div", {
-      staticClass: "product-card"
-    }, [_c("img", {
+    }, [_vm._v("\n                        " + _vm._s(course.name) + "\n                    ")])]), _vm._v(" "), _c("div", {
+      staticClass: "accordion-collapse collapse",
       attrs: {
-        src: product.image,
-        alt: ""
+        id: "flush-collapseOne-" + course.id,
+        "aria-labelledby": "flush-headingOne",
+        "data-bs-parent": "#accordionFlushExample"
       }
-    }), _vm._v(" "), _c("div", {
-      staticClass: "under-image"
     }, [_c("div", {
-      staticClass: "title-price"
-    }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("€ " + _vm._s(product.price))])]), _vm._v(" "), _c("h6", {
-      staticClass: "ps-3"
-    }, [_vm._v(_vm._s(product.description))]), _vm._v(" "), _c("div", {
-      staticClass: "cart-btn"
-    }, [_vm._m(1, true), _vm._v(" "), _c("div", [_vm._v("quantità")]), _vm._v(" "), _c("div", {
-      staticClass: "d-flex flex-column"
-    }, [_c("button", {
-      staticClass: "btn",
-      on: {
-        click: function click($event) {
-          return _vm.addCart(index);
+      staticClass: "accordion-body"
+    }, [_c("div", {
+      staticClass: "row mt-4 mb-5"
+    }, _vm._l(_vm.filteredProducts, function (product, index) {
+      return _c("div", {
+        key: product.id,
+        staticClass: "col-sm-12 col-md-4"
+      }, [_c("div", {
+        staticClass: "product-card"
+      }, [_c("img", {
+        attrs: {
+          src: product.image,
+          alt: ""
         }
-      }
-    }, [_c("i", {
-      staticClass: "fa-solid fa-chevron-up"
-    })]), _vm._v(" "), _c("button", {
-      staticClass: "btn",
-      on: {
-        click: function click($event) {
-          return _vm.removeCart(index);
+      }), _vm._v(" "), _c("div", {
+        staticClass: "under-image"
+      }, [_c("div", {
+        staticClass: "title-price"
+      }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("€ " + _vm._s(product.price))])]), _vm._v(" "), _c("h6", {
+        staticClass: "ps-3"
+      }, [_vm._v(_vm._s(product.description))]), _vm._v(" "), _c("div", {
+        staticClass: "cart-btn"
+      }, [_vm._m(0, true), _vm._v(" "), _c("div", [_vm._v("quantità")]), _vm._v(" "), _c("div", {
+        staticClass: "d-flex flex-column"
+      }, [_c("button", {
+        staticClass: "btn",
+        on: {
+          click: function click($event) {
+            return _vm.addCart(index);
+          }
         }
-      }
-    }, [_c("i", {
-      staticClass: "fa-solid fa-chevron-down"
-    })])])])])])]);
+      }, [_c("i", {
+        staticClass: "fa-solid fa-chevron-up"
+      })]), _vm._v(" "), _c("button", {
+        staticClass: "btn",
+        on: {
+          click: function click($event) {
+            return _vm.removeCart(index);
+          }
+        }
+      }, [_c("i", {
+        staticClass: "fa-solid fa-chevron-down"
+      })])])])])])]);
+    }), 0)])])]);
   }), 0)])]);
 };
 
 var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "accordion-collapse collapse",
-    attrs: {
-      id: "flush-collapseOne",
-      "aria-labelledby": "flush-headingOne",
-      "data-bs-parent": "#accordionFlushExample"
-    }
-  }, [_c("div", {
-    staticClass: "accordion-body"
-  }, [_vm._v("\n                        Placeholder content for this accordion, which is\n                        intended to demonstrate the\n                        "), _c("code", [_vm._v(".accordion-flush")]), _vm._v(" class. This is the\n                        first item's accordion body.\n                    ")])]);
-}, function () {
   var _vm = this,
       _c = _vm._self._c;
 
@@ -30052,7 +30077,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })

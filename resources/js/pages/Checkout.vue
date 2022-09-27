@@ -3,7 +3,7 @@
         <div class="container py-2">
             <h2>Checkout</h2>
 
-            <form>
+            <form @submit.prevent="send">
                 <div class="form-floating mb-3">
                     <input
                         type="text"
@@ -73,31 +73,19 @@
 
 <script>
 import axios from 'axios';
-var button = document.querySelector('#submit-button');
 
-braintree.dropin.create({
+
+/* braintree.dropin.create({
   authorization: 'sandbox_rzbhrwvw_jvtyvgv4fdj4br5y',
   selector: '#dropin-container'
 }, function (err, instance) {
-  button.addEventListener('click', function () {
-    const formData = new FormData();
-    formData.append("name", this.name);
-    formData.append("surname", this.surname);
-    formData.append("email", this.email);
-    formData.append("address", this.address);
-    formData.append("telephone", this.telephone);
-    // formData.append(document.getElementById('credit-card-number'));
-    // formData.append(document.getElementById('expiration'));
-     axios.post("/api/checkout", formData).
-        then(resp => {
-          console.log(resp.data);
-        })
+  
+    
     instance.requestPaymentMethod(function (err, payload) {
        
 
     });
-  })
-});
+}); */
 export default{
     data(){
         return{
@@ -106,6 +94,22 @@ export default{
             email : '',
             address : '',
             telephone : '',
+        }
+    },
+    methods:{
+        send(){
+const formData = new FormData();
+    formData.append("name", this.name);
+    formData.append("surname", this.surname);
+    formData.append("email", this.email);
+    formData.append("address", this.address);
+    formData.append("telephone", this.telephone);
+    // formData.append(document.getElementById('credit-card-number'));
+    // formData.append(document.getElementById('expiration'));
+     axios.post("/api/order", formData).
+        then(resp => {
+          console.log(resp.data);
+        })
         }
     }
 }

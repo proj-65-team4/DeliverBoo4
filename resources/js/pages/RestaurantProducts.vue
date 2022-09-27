@@ -22,32 +22,24 @@
                             class="accordion-button collapsed"
                             type="button"
                             data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOne"
+                            :data-bs-target="'#flush-collapseOne-'+course.id"
                             aria-expanded="false"
-                            aria-controls="flush-collapseOne">
+                            aria-controls="flush-collapseOne"
+                            @click="changeID(course.id)" >
                             {{course.name}}
                         </button>
                     </h2>
 
-                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div :id="'flush-collapseOne-'+course.id" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
-                            Placeholder content for this accordion, which is
-                            intended to demonstrate the
-                            <code>.accordion-flush</code> class. This is the
-                            first item's accordion body.
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="row mt-4 mb-5">
+                            <div class="row mt-4 mb-5">
                 <div
                     class="col-sm-12 col-md-4"
-                    v-for="(product, index) in products"
+                    v-for="(product, index) in filteredProducts"
                     :key="product.id"
                 >
-                    <div class="product-card">
+                    <!-- v-if="product.product_course_id == course.id" -->
+                    <div  class="product-card">
                         <img :src="product.image" alt="" />
 
                         <div class="under-image">
@@ -80,6 +72,13 @@
                     </div>
                 </div>
             </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            
         </div>
     </div>
 </template>
@@ -94,6 +93,7 @@ export default {
             courses: [],
             cart: [],
             total: 0,
+            id: null
             /* selectedCategory: null */
         };
     },
@@ -105,8 +105,14 @@ export default {
                     console.log(resp.data);
                     this.products = resp.data.products;
                     this.courses = resp.data.courses;
+                    
                 });
         },
+        filteredProducts(){
+            return this.products.filter((el)=>{
+                return el.product_course_id == this.id ? el : '' ;
+            })
+        }
         /* filteredProducts(){
             return this.products.filter((product)=>{
                 return product.product_course.filter((category)=>{
@@ -161,6 +167,10 @@ export default {
             else 
             item.quantity++;
         },
+        changeID(id){
+            this.id = id;
+        }
+        
     },
     mounted() {
         if (localStorage.cart) {
