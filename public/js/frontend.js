@@ -5519,7 +5519,7 @@ window.addEventListener("scroll", function () {
 
   /* computed: {
       carts() {
-           setInterval(() => {
+            setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -6349,7 +6349,7 @@ var render = function render() {
       type: "button",
       "data-bs-dismiss": "offcanvas"
     }
-  }, [_vm._v("\n                                    Checkout\n                                    ")])])], 1)]], 2)]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                                Checkout\n                                ")])])], 1)]], 2)]), _vm._v(" "), _c("div", {
     staticClass: "logo"
   }, [_c("router-link", {
     attrs: {
@@ -6377,7 +6377,7 @@ var staticRenderFns = [function () {
     attrs: {
       id: "offcanvasScrollingLabel"
     }
-  }, [_vm._v("\n                        Carrello\n                    ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                    Carrello\n                ")]), _vm._v(" "), _c("button", {
     staticClass: "btn-close",
     attrs: {
       type: "button",
@@ -6404,17 +6404,9 @@ var staticRenderFns = [function () {
 
   return _c("ul", {
     staticClass: "list-unstyled mb-0"
-  }, [_c("li", [_vm._v("\n<<<<<<< HEAD\n                    "), _c("a", {
+  }, [_c("li", [_c("a", {
     staticClass: "btn login",
     attrs: {
-      href: "/login"
-    }
-  }, [_c("i", {
-    staticClass: "fa-solid fa-right-to-bracket"
-  }), _vm._v(" Accedi")]), _vm._v("\n=======\n                    "), _c("a", {
-    staticClass: "login btn",
-    attrs: {
-      id: "login",
       href: "/login"
     }
   }, [_c("i", {
@@ -30085,7 +30077,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })

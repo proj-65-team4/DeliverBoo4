@@ -112,12 +112,17 @@
                         {{-- Button DELETE --}}
                         <div class="d-inline py-1">
                             <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST"
-                                class="d-inline-block">
+                                class="d-inline-block form-delete">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="my-button delete-btn m-1"><i
-                                        class="fa-solid fa-trash-can fa-lg"></i></button>
+                                <button type="submit" class="my-button delete-btn m-1">
+                                    <i class="fa-solid fa-trash-can fa-lg"></i>
+                                </button>
                             </form>
+                            {{-- <crud-delete-btn action="{{ route('admin.products.destroy', $product->id)}}">
+                                @csrf
+                                @method('DELETE')
+                            </crud-delete-btn> --}}
                         </div>
                     </div>
                 </div>
