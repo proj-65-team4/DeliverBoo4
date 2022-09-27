@@ -82,7 +82,8 @@ class MenuController extends Controller
     } else {
       $user->product->available = 0;
     }
-    $product['image'] = $request->image;
+    $user->product['image'] = $request->image;
+    
     $user->product->fill($validateData);
     $user->product->user_id = $user->id;
     /* $user->product->save(); */
@@ -186,6 +187,7 @@ class MenuController extends Controller
    */
   public function destroy($id)
   {
+    
     $product = Product::findOrFail($id);
   
     $product->delete();

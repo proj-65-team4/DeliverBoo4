@@ -5473,9 +5473,7 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener("scroll", function () {
   if (this.window.pageYOffset > 620) {
     document.getElementById("navscroll").style.background = "#ffab00";
-    document.getElementById("login").style.background = "#ffab00";
   } else {
-    document.getElementById("login").style.background = "#3da5d9";
     document.getElementById("navscroll").style.background = "rgba(0,0,0,0.2)";
   }
 });
@@ -5511,9 +5509,6 @@ window.addEventListener("scroll", function () {
 
 
       this.cart = JSON.parse(localStorage.getItem("cart"));
-    },
-    closeOffcanvas: function closeOffcanvas() {
-      document.getElementById("offcanvasScrolling").classList.remove("show");
     }
   },
 
@@ -5545,18 +5540,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-/* braintree.dropin.create({
-  authorization: 'sandbox_rzbhrwvw_jvtyvgv4fdj4br5y',
-  selector: '#dropin-container'
-}, function (err, instance) {
-  
-    
-    instance.requestPaymentMethod(function (err, payload) {
-       
-
-    });
-}); */
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5564,7 +5547,9 @@ __webpack_require__.r(__webpack_exports__);
       customer_surname: "",
       customer_email: "",
       delivery_address: "",
-      customer_telephone: ""
+      customer_telephone: "",
+      cart: [],
+      bool: false
     };
   },
   methods: {
@@ -5583,10 +5568,43 @@ __webpack_require__.r(__webpack_exports__);
         customer_surname: this.customer_surname,
         customer_email: this.customer_email,
         delivery_address: this.delivery_address,
-        customer_telephone: this.customer_telephone
+        customer_telephone: this.customer_telephone,
+        payload: this.payments
+      }).then(function (resp) {
+        console.log(resp.data);
       });
+    },
+    carts: function carts() {
+      /* setInterval(() => {
+                console.log(JSON.parse(localStorage.cart).length)
+            }, 2000); */
+      if (localStorage.cart != undefined && localStorage.cart.length > 0) {
+        this.bool = true;
+      } else {
+        this.bool = false;
+      }
+      /*  this.length = JSON.parse(localStorage.cart).length; */
+
+      /* console.log(this.cart.length);
+            console.log("push"); */
+
+
+      this.cart = JSON.parse(localStorage.getItem("cart"));
     }
+  },
+  mounted: function mounted() {
+    this.carts();
   }
+});
+var button = document.getElementById("sub");
+var form = document.querySelector("form");
+braintree.dropin.create({
+  authorization: "sandbox_rzbhrwvw_jvtyvgv4fdj4br5y",
+  selector: "#dropin-container"
+}, function (err, instance) {
+  button.addEventListener("click", function () {
+    instance.requestPaymentMethod(function (err, payload) {});
+  });
 });
 
 /***/ }),
@@ -6441,7 +6459,7 @@ var staticRenderFns = [function () {
   return _c("ul", {
     staticClass: "list-unstyled mb-0"
   }, [_c("li", [_c("a", {
-    staticClass: "btn login",
+    staticClass: "login",
     attrs: {
       href: "/login"
     }
@@ -6470,8 +6488,27 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", [_c("div", {
-    staticClass: "container py-2"
-  }, [_c("h2", [_vm._v("Checkout")]), _vm._v(" "), _c("form", {
+    staticClass: "container py-5"
+  }, [_c("h2", {
+    staticClass: "mb-5 text-uppercase text-decoration-underline"
+  }, [_vm._v("Checkout")]), _vm._v(" "), _c("div", {
+    staticClass: "p-2 border mb-3 rounded"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "py-4 d-block"
+  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.cart, function (item) {
+    return _c("div", {
+      key: item.id,
+      staticClass: "row py-2"
+    }, [_c("div", {
+      staticClass: "col text-center"
+    }, [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("div", {
+      staticClass: "col text-center"
+    }, [_vm._v(_vm._s(item.description))]), _vm._v(" "), _c("div", {
+      staticClass: "col text-center"
+    }, [_vm._v(_vm._s(item.quantity))]), _vm._v(" "), _c("div", {
+      staticClass: "col text-center"
+    }, [_vm._v("\n            " + _vm._s((item.quantity * parseFloat(item.price)).toFixed(2)) + "\n          ")])]);
+  })], 2)]), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -6633,17 +6670,40 @@ var render = function render() {
       id: "dropin-container"
     }
   }), _vm._v(" "), _c("button", {
-    staticClass: "button button--small button--green"
+    staticClass: "button button--small button--green",
+    attrs: {
+      id: "sub"
+    }
   }, [_c("router-link", {
     attrs: {
       to: {
         name: "ThankYou"
       }
     }
-  }, [_vm._v("\n        Purchase\n          ")])], 1)])])]);
+  }, [_vm._v(" Purchase ")])], 1)])])]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("h4", [_c("strong", [_vm._v(" Riepilogo ordine")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "row py-2 border-1 border-bottom"
+  }, [_c("div", {
+    staticClass: "col text-center"
+  }, [_c("strong", [_vm._v("Nome")])]), _vm._v(" "), _c("div", {
+    staticClass: "col text-center"
+  }, [_c("strong", [_vm._v("Descrizione")])]), _vm._v(" "), _c("div", {
+    staticClass: "col text-center"
+  }, [_c("strong", [_vm._v("Quantità")])]), _vm._v(" "), _c("div", {
+    staticClass: "col text-center"
+  }, [_c("strong", [_vm._v("Subtotal")])])]);
+}];
 render._withStripped = true;
 
 
@@ -6810,7 +6870,7 @@ var render = function render() {
       }, [_c("div", {
         staticClass: "title-price"
       }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("€ " + _vm._s(product.price))])]), _vm._v(" "), _c("h6", {
-        staticClass: "ps-3"
+        staticClass: "px-3"
       }, [_vm._v(_vm._s(product.description))]), _vm._v(" "), _c("div", {
         staticClass: "cart-btn"
       }, [_vm._m(2, true), _vm._v(" "), _c("div", [_vm._v("quantità")]), _vm._v(" "), _c("div", {
@@ -12338,7 +12398,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bgcolor[data-v-eca07cf4],\n.scrolled[data-v-eca07cf4] {\n  background: #ffab00;\n}\n#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n\n/* .cart {\n    display: none;\n}\n.counter-cart {\n    position: absolute;\n    width: 10px;\n    aspect-ratio: 1;\n    padding: 0.15rem;\n    border-radius: 50%;\n    background-color: red;\n} */\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 200px;\n  width: 100%;\n  transition: background 0.8s ease;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  margin-right: 1rem;\n  transition: background 0.8s ease;\n  background: #3da5d9;\n}\n.login i[data-v-eca07cf4] {\n  font-size: 1rem;\n}\n#login[data-v-eca07cf4]:hover {\n  background-color: rgb(40, 191, 214);\n}\n.register[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  background: #ffab00;\n}\n.register[data-v-eca07cf4]:hover {\n  background: #ffca3a;\n}\n.register i[data-v-eca07cf4] {\n  font-size: 1rem;\n  padding-right: 0.3rem;\n}\n.fixed-cart[data-v-eca07cf4] {\n  position: fixed;\n  bottom: 100px;\n  right: 150px;\n  border-radius: 50px;\n  background-color: rgb(40, 191, 214);\n}\n.fixed-cart i[data-v-eca07cf4] {\n  font-size: 2rem;\n  color: white;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n    margin-right: 2rem;\n}\n.login i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n.register[data-v-eca07cf4] {\n    display: none;\n}\n}", ""]);
+exports.push([module.i, ".bgcolor[data-v-eca07cf4],\n.scrolled[data-v-eca07cf4] {\n  background: #ffab00;\n}\n#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n\n/* .cart {\n    display: none;\n}\n.counter-cart {\n    position: absolute;\n    width: 10px;\n    aspect-ratio: 1;\n    padding: 0.15rem;\n    border-radius: 50%;\n    background-color: red;\n} */\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 200px;\n  width: 100%;\n  transition: background 0.8s ease;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.7rem 0.9rem;\n  margin-right: 1rem;\n  background: #3da5d9;\n}\n.login[data-v-eca07cf4]:hover {\n  background: #3db7d9;\n}\n.login i[data-v-eca07cf4] {\n  font-size: 1rem;\n}\n.fixed-cart[data-v-eca07cf4] {\n  position: fixed;\n  bottom: 100px;\n  right: 150px;\n  border-radius: 50px;\n  background-color: rgb(40, 191, 214);\n}\n.fixed-cart i[data-v-eca07cf4] {\n  font-size: 2rem;\n  color: white;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n    margin-right: 2rem;\n}\n.login i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n}", ""]);
 
 // exports
 
@@ -12357,7 +12417,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".button[data-v-19797662] {\n  cursor: pointer;\n  font-weight: 500;\n  left: 3px;\n  line-height: inherit;\n  position: relative;\n  text-decoration: none;\n  text-align: center;\n  border-style: solid;\n  border-width: 1px;\n  border-radius: 3px;\n  display: inline-block;\n}\n.button--small[data-v-19797662] {\n  padding: 10px 20px;\n  font-size: 0.875rem;\n}\n.button--green[data-v-19797662] {\n  outline: none;\n  background-color: #64d18a;\n  border-color: #64d18a;\n  color: white;\n  transition: all 200ms ease;\n}\n.button--green[data-v-19797662]:hover {\n  background-color: #8bdda8;\n  color: white;\n}", ""]);
+exports.push([module.i, ".button[data-v-19797662] {\n  cursor: pointer;\n  font-weight: 500;\n  left: 3px;\n  line-height: inherit;\n  position: relative;\n  text-decoration: none;\n  text-align: center;\n  border-style: solid;\n  border-width: 1px;\n  border-radius: 3px;\n  display: inline-block;\n}\n.button--small[data-v-19797662] {\n  padding: 10px 20px;\n  font-size: 0.875rem;\n}\n.button--green[data-v-19797662] {\n  outline: none;\n  background-color: #64d18a;\n  border-color: #64d18a;\n  color: white;\n  transition: all 200ms ease;\n}\n.button--green[data-v-19797662]:hover {\n  background-color: #8bdda8;\n  color: white;\n}\nul li[data-v-19797662] {\n  flex-grow: 1;\n  text-align: center;\n}", ""]);
 
 // exports
 
@@ -12395,7 +12455,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  font-weight: 700;\n  display: flex;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 0.5rem;\n  margin-top: 1rem;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card img[data-v-96ac86ec] {\n  width: 180px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.product-card h6[data-v-96ac86ec] {\n  display: none;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  position: relative;\n  width: 100%;\n}\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n.card-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n@media only screen and (max-width: 460px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.product-card h6[data-v-96ac86ec] {\n    display: inline-block;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 180px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n}", ""]);
+exports.push([module.i, ".cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  font-weight: 700;\n  display: flex;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 0.5rem;\n  margin-top: 1rem;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card img[data-v-96ac86ec] {\n  width: 180px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.product-card h6[data-v-96ac86ec] {\n  display: none;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  position: relative;\n  width: 100%;\n}\n.under-image h5[data-v-96ac86ec] {\n  flex-shrink: 0;\n}\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n.card-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n@media only screen and (max-width: 460px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.product-card h6[data-v-96ac86ec] {\n    display: inline-block;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 180px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n}", ""]);
 
 // exports
 

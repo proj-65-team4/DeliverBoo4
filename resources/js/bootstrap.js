@@ -1,6 +1,6 @@
 window._ = require('lodash');
 
-require("./handleDelete");
+/* require("./handleDelete"); */
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support

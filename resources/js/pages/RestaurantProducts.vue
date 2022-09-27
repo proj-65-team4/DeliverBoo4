@@ -72,7 +72,7 @@
                                 <h5>€ {{ product.price }}</h5>
                             </div>
 
-                            <h6 class="ps-3">{{ product.description }}</h6>
+                            <h6 class="px-3">{{ product.description }}</h6>
 
                             <div class="cart-btn">
                                 <div>
@@ -242,6 +242,10 @@ export default {
 .under-image {
     position: relative;
     width: 100%;
+}
+
+.under-image h5 {
+    flex-shrink: 0;
 }
 
 .accordion-button:focus {
