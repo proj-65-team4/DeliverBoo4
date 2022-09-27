@@ -1,8 +1,26 @@
 <template>
   <div>
-    <div class="container py-2">
-      <h2>Checkout</h2>
-
+    <div class="container py-5">
+      <h2 class="mb-5 text-uppercase text-decoration-underline">Checkout</h2>
+      <div class="p-2 border mb-3 rounded">
+        <h4><strong> Riepilogo ordine</strong></h4>
+        <div class="py-4 d-block">
+          <div class="row py-2 border-1 border-bottom">
+            <div class="col text-center"><strong>Nome</strong></div>
+            <div class="col text-center"><strong>Descrizione</strong></div>
+            <div class="col text-center"><strong>Quantità</strong></div>
+            <div class="col text-center"><strong>Subtotal</strong></div>
+          </div>
+          <div class="row py-2" v-for="item in cart" :key="item.id">
+            <div class="col text-center">{{ item.name }}</div>
+            <div class="col text-center">{{ item.description }}</div>
+            <div class="col text-center">{{ item.quantity }}</div>
+            <div class="col text-center">
+              {{ (item.quantity * parseFloat(item.price)).toFixed(2) }}
+            </div>
+          </div>
+        </div>
+      </div>
       <form @submit.prevent="send">
         <div class="form-floating mb-3">
           <input
@@ -66,11 +84,8 @@
         </div>
 
         <div id="dropin-container"></div>
-        <button id="sub"  class="button button--small button--green" >
-            <router-link :to="{name: 'ThankYou'}">
-          Purchase
-            </router-link>
-           
+        <button id="sub" class="button button--small button--green">
+          <router-link :to="{ name: 'ThankYou' }"> Purchase </router-link>
         </button>
       </form>
     </div>
@@ -78,22 +93,22 @@
 </template>
 
 <script>
-import Axios from 'axios';
+import Axios from "axios";
 
 export default {
   data() {
     return {
-        customer_name: "",
-        customer_surname: "",
-        customer_email: "",
-        delivery_address: "",
-        customer_telephone: "",
-        payments: null
+      customer_name: "",
+      customer_surname: "",
+      customer_email: "",
+      delivery_address: "",
+      customer_telephone: "",
+      cart: [],
+      bool: false,
     };
   },
   methods: {
     send() {
-        
       /* let formData = new FormData();
       formData.append("customer_name", this.name);
       formData.append("customer_surname", this.surname);
@@ -102,35 +117,51 @@ export default {
       formData.append("customer_telephone", this.telephone); */
       // formData.append(document.getElementById('credit-card-number'));
       // formData.append(document.getElementById('expiration'));
-      debugger
+      debugger;
       Axios.post("/api/ordina", {
-            customer_name:this.customer_name,
-            customer_surname: this.customer_surname,
-            customer_email: this.customer_email,
-            delivery_address: this.delivery_address,
-            customer_telephone: this.customer_telephone,
-            payload: this.payments
-      })
-      .then(resp =>{
-          console.log(resp.data)
+        customer_name: this.customer_name,
+        customer_surname: this.customer_surname,
+        customer_email: this.customer_email,
+        delivery_address: this.delivery_address,
+        customer_telephone: this.customer_telephone,
+        payload: this.payments,
+      }).then((resp) => {
+        console.log(resp.data);
       });
     },
+    carts() {
+      /* setInterval(() => {
+                console.log(JSON.parse(localStorage.cart).length)
+            }, 2000); */
+      if (localStorage.cart != undefined && localStorage.cart.length > 0) {
+        this.bool = true;
+      } else {
+        this.bool = false;
+      }
+      /*  this.length = JSON.parse(localStorage.cart).length; */
+      /* console.log(this.cart.length);
+            console.log("push"); */
+      this.cart = JSON.parse(localStorage.getItem("cart"));
+    },
+  },
+  mounted() {
+    this.carts();
   },
 };
 const button = document.getElementById("sub");
 const form = document.querySelector("form");
 
-braintree.dropin.create({
-    
-  authorization: 'sandbox_rzbhrwvw_jvtyvgv4fdj4br5y',
-  selector: '#dropin-container'
-}, function (err, instance) {
- button.addEventListener('click', function () {
-   instance.requestPaymentMethod(function (err, payload) {
-      
+braintree.dropin.create(
+  {
+    authorization: "sandbox_rzbhrwvw_jvtyvgv4fdj4br5y",
+    selector: "#dropin-container",
+  },
+  function (err, instance) {
+    button.addEventListener("click", function () {
+      instance.requestPaymentMethod(function (err, payload) {});
     });
-  })
-});
+  }
+);
 </script>
 
 <style lang="scss" scoped>
@@ -164,5 +195,11 @@ braintree.dropin.create({
 .button--green:hover {
   background-color: #8bdda8;
   color: white;
+}
+ul {
+  li {
+    flex-grow: 1;
+    text-align: center;
+  }
 }
 </style>
