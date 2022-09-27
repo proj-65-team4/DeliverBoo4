@@ -127,7 +127,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                                 </button>
                                             </div>
-                                            <div class="modal-body">Sicuro di voler eliminare<b>{{$product->name}}</b>?</div>
+                                            <div class="modal-body">Sicuro di voler eliminare <b>{{$product->name}}</b>?</div>
                                             <div class="modal-footer">
                                                 <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST"
                                                     class="d-inline-block {{-- form-delete --}}">
