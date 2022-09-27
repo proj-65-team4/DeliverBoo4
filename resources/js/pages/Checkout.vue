@@ -66,7 +66,7 @@
         </div>
 
         <div id="dropin-container"></div>
-        <button  class="button button--small button--green" >
+        <button id="sub"  class="button button--small button--green" >
             <router-link :to="{name: 'ThankYou'}">
           Purchase
             </router-link>
@@ -80,17 +80,6 @@
 <script>
 import Axios from 'axios';
 
-/* braintree.dropin.create({
-  authorization: 'sandbox_rzbhrwvw_jvtyvgv4fdj4br5y',
-  selector: '#dropin-container'
-}, function (err, instance) {
-  
-    
-    instance.requestPaymentMethod(function (err, payload) {
-       
-
-    });
-}); */
 export default {
   data() {
     return {
@@ -99,10 +88,12 @@ export default {
         customer_email: "",
         delivery_address: "",
         customer_telephone: "",
+        payments: null
     };
   },
   methods: {
     send() {
+        
       /* let formData = new FormData();
       formData.append("customer_name", this.name);
       formData.append("customer_surname", this.surname);
@@ -117,11 +108,29 @@ export default {
             customer_surname: this.customer_surname,
             customer_email: this.customer_email,
             delivery_address: this.delivery_address,
-            customer_telephone: this.customer_telephone 
+            customer_telephone: this.customer_telephone,
+            payload: this.payments
+      })
+      .then(resp =>{
+          console.log(resp.data)
       });
     },
   },
 };
+const button = document.getElementById("sub");
+const form = document.querySelector("form");
+
+braintree.dropin.create({
+    
+  authorization: 'sandbox_rzbhrwvw_jvtyvgv4fdj4br5y',
+  selector: '#dropin-container'
+}, function (err, instance) {
+ button.addEventListener('click', function () {
+   instance.requestPaymentMethod(function (err, payload) {
+      
+    });
+  })
+});
 </script>
 
 <style lang="scss" scoped>

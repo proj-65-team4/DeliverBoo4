@@ -5545,18 +5545,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-/* braintree.dropin.create({
-  authorization: 'sandbox_rzbhrwvw_jvtyvgv4fdj4br5y',
-  selector: '#dropin-container'
-}, function (err, instance) {
-  
-    
-    instance.requestPaymentMethod(function (err, payload) {
-       
-
-    });
-}); */
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5564,7 +5552,8 @@ __webpack_require__.r(__webpack_exports__);
       customer_surname: "",
       customer_email: "",
       delivery_address: "",
-      customer_telephone: ""
+      customer_telephone: "",
+      payments: null
     };
   },
   methods: {
@@ -5583,10 +5572,23 @@ __webpack_require__.r(__webpack_exports__);
         customer_surname: this.customer_surname,
         customer_email: this.customer_email,
         delivery_address: this.delivery_address,
-        customer_telephone: this.customer_telephone
+        customer_telephone: this.customer_telephone,
+        payload: this.payments
+      }).then(function (resp) {
+        console.log(resp.data);
       });
     }
   }
+});
+var button = document.getElementById("sub");
+var form = document.querySelector("form");
+braintree.dropin.create({
+  authorization: 'sandbox_rzbhrwvw_jvtyvgv4fdj4br5y',
+  selector: '#dropin-container'
+}, function (err, instance) {
+  button.addEventListener('click', function () {
+    instance.requestPaymentMethod(function (err, payload) {});
+  });
 });
 
 /***/ }),
@@ -6381,7 +6383,7 @@ var render = function render() {
       type: "button",
       "data-bs-dismiss": "offcanvas"
     }
-  }, [_vm._v("\n                                    Checkout\n                                    ")])])], 1)]], 2)]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                                Checkout\n                                ")])])], 1)]], 2)]), _vm._v(" "), _c("div", {
     staticClass: "logo"
   }, [_c("router-link", {
     attrs: {
@@ -6409,7 +6411,7 @@ var staticRenderFns = [function () {
     attrs: {
       id: "offcanvasScrollingLabel"
     }
-  }, [_vm._v("\n                        Carrello\n                    ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                    Carrello\n                ")]), _vm._v(" "), _c("button", {
     staticClass: "btn-close",
     attrs: {
       type: "button",
@@ -6436,17 +6438,9 @@ var staticRenderFns = [function () {
 
   return _c("ul", {
     staticClass: "list-unstyled mb-0"
-  }, [_c("li", [_vm._v("\n<<<<<<< HEAD\n                    "), _c("a", {
+  }, [_c("li", [_c("a", {
     staticClass: "btn login",
     attrs: {
-      href: "/login"
-    }
-  }, [_c("i", {
-    staticClass: "fa-solid fa-right-to-bracket"
-  }), _vm._v(" Accedi")]), _vm._v("\n=======\n                    "), _c("a", {
-    staticClass: "login btn",
-    attrs: {
-      id: "login",
       href: "/login"
     }
   }, [_c("i", {
@@ -6637,7 +6631,10 @@ var render = function render() {
       id: "dropin-container"
     }
   }), _vm._v(" "), _c("button", {
-    staticClass: "button button--small button--green"
+    staticClass: "button button--small button--green",
+    attrs: {
+      id: "sub"
+    }
   }, [_c("router-link", {
     attrs: {
       to: {
@@ -30220,7 +30217,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })

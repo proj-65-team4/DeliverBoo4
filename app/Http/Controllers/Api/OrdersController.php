@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\Api\Braintree_Transaction;
 class OrdersController extends Controller
 {
     public function index(){
@@ -16,7 +16,7 @@ class OrdersController extends Controller
     }
     public function store(Request $request){
      
-        $data = $request->validated();
+        $data = $request->all();
 
 
        /*  "subtotal","date_order","date_delivery" */
@@ -26,12 +26,22 @@ class OrdersController extends Controller
         $order->subtotal = 20;
         $order->date_order = Carbon::now();
         $order->date_delivery = Carbon::now();
-
-
         $order->save();
+        /* 
+        $payload = $request->payload;
+        $nonce = $payload['nonce'];
+        $status = Braintree_Transaction::sale([
+            'amount' => 10000,
+            'paymentMethodNonce' => $nonce,
+            'options' => [
+                'submitForSettlement' => True
+            ]
+            ]);
+ */
 
-
-
-        return redirect()->;
+        return response()->json($order);
     }
 }
+    
+
+
