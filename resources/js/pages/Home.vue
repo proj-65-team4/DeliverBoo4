@@ -21,7 +21,6 @@ import TheCarousel from '../components/TheCarousel.vue';
         };
     },
     methods: {
-
         media(x){
                 document.getElementById("jumbotron").style.height=""
                 if(x.matches){
@@ -32,8 +31,6 @@ import TheCarousel from '../components/TheCarousel.vue';
                 }
         },
         fetchData() {
-             
-               
             axios.get("api/categories")
                 .then((resp) => {
                 this.categories = resp.data;
@@ -44,8 +41,8 @@ import TheCarousel from '../components/TheCarousel.vue';
         this.fetchData();
 
         let x = window.matchMedia("(max-width:460px)")
-this.media(x) // Call listener function at run time
-x.addListener(this.media) // Attach listener function on state changes
+        this.media(x) // Call listener function at run time
+        x.addListener(this.media) // Attach listener function on state changes
     },
     components: { TheCarousel }
 }
@@ -65,6 +62,12 @@ h1 {
     text-align: center;
     color: rgb(30, 29, 29);
     margin: 0 auto;
+    }
 }
+
+@media only screen and (max-width: 460px) {
+    .bg-category h1{
+        font-size: 2.7rem;
+    }
 }
 </style>
