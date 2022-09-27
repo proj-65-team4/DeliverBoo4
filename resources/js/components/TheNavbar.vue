@@ -88,9 +88,7 @@
 window.addEventListener("scroll", function () {
     if (this.window.pageYOffset > 620) {
         document.getElementById("navscroll").style.background = "#ffab00";
-        document.getElementById("login").style.background = "#ffab00";
     } else {
-        document.getElementById("login").style.background = "#3da5d9";
         document.getElementById("navscroll").style.background = "rgba(0,0,0,0.2)";
     }
 });
@@ -205,21 +203,6 @@ export default {
     background-color: rgb(40, 191, 214);
 }
 
-.register {
-    border-radius: 4px;
-    border: none;
-    color: #fff;
-    text-align: center;
-    padding: 0.5rem 0.9rem;
-    background: #ffab00;
-    &:hover {
-        background: #ffca3a;
-    }
-    & i {
-        font-size: 1rem;
-        padding-right: 0.3rem;
-    }
-}
 .fixed-cart {
     position: fixed;
     bottom: 100px;
@@ -253,10 +236,6 @@ export default {
 
     .login i {
         font-size: 0.8rem;
-    }
-
-    .register{
-        display: none;
     }
 }
 </style>
