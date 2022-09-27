@@ -25,8 +25,9 @@ Route::get("/categories", "Api\CategoryController@category");
 Route::get("/products/{id}", "Api\ProductController@show");
 
 Route::get("/{restaurant_id}/products", "Api\ProductController@index");
+Route::get("/thanks", "Api\OrdersController@index");
 
-Route::post("/order", "Api\OrdersController@order");
+Route::post("/ordina", "Api\OrdersController@store");
 
 
 

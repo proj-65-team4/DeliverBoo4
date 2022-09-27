@@ -3,7 +3,7 @@
     <div class="container py-2">
       <h2>Checkout</h2>
 
-      <form @submit.prevent="send" method="get">
+      <form @submit.prevent="send">
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -12,7 +12,7 @@
             class="form-control"
             required
             placeholder="Inserisci nome"
-            v-model="form.name"
+            v-model="customer_name"
           />
           <label for="customer_name">Inserisci nome</label>
         </div>
@@ -24,7 +24,7 @@
             class="form-control"
             required
             placeholder="Inserisci cognome"
-            v-model="form.surname"
+            v-model="customer_surname"
           />
           <label for="customer_surname">Inserisci cognome</label>
         </div>
@@ -36,7 +36,7 @@
             class="form-control"
             required
             placeholder="Inserisci email"
-            v-model="form.email"
+            v-model="customer_email"
           />
           <label for="customer_email">Inserisci email</label>
         </div>
@@ -48,7 +48,7 @@
             class="form-control"
             required
             placeholder="Inserisci numero telefono"
-            v-model="form.telephone"
+            v-model="customer_telephone"
           />
           <label for="customer_telephone">Inserisci contatto telefonico</label>
         </div>
@@ -60,14 +60,17 @@
             class="form-control"
             required
             placeholder="Inserisci indirizzo consegna"
-            v-model="form.address"
+            v-model="delivery_address"
           />
           <label for="delivery_address">Inserisci indirizzo di consegna</label>
         </div>
 
         <div id="dropin-container"></div>
-        <button type="submit" class="button button--small button--green">
+        <button  class="button button--small button--green" >
+            <router-link :to="{name: 'ThankYou'}">
           Purchase
+            </router-link>
+           
         </button>
       </form>
     </div>
@@ -75,7 +78,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import Axios from 'axios';
 
 /* braintree.dropin.create({
   authorization: 'sandbox_rzbhrwvw_jvtyvgv4fdj4br5y',
@@ -91,13 +94,11 @@ import axios from "axios";
 export default {
   data() {
     return {
-      form: {
-        name: "",
-        surname: "",
-        email: "",
-        address: "",
-        telephone: "",
-      },
+        customer_name: "",
+        customer_surname: "",
+        customer_email: "",
+        delivery_address: "",
+        customer_telephone: "",
     };
   },
   methods: {
@@ -110,13 +111,13 @@ export default {
       formData.append("customer_telephone", this.telephone); */
       // formData.append(document.getElementById('credit-card-number'));
       // formData.append(document.getElementById('expiration'));
-      axios.get("api/order", this.form,{
-        headers: {'Content-Type': 'application/json'}
-      }).then((resp) => {
-        console.log();
-      })
-      .catch(error=>{
-          console.log(error);
+      debugger
+      Axios.post("/api/ordina", {
+            customer_name:this.customer_name,
+            customer_surname: this.customer_surname,
+            customer_email: this.customer_email,
+            delivery_address: this.delivery_address,
+            customer_telephone: this.customer_telephone 
       });
     },
   },
