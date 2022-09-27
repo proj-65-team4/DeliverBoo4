@@ -75,14 +75,8 @@
 
             <ul class="list-unstyled mb-0">
                 <li>
-                    <a class="login btn" href="/login">
-                        <i class="fa-solid fa-right-to-bracket"></i> Login</a
-                    >
-                </li>
-
-                <li>
-                    <a class="register btn" href="/register"
-                        ><i class="fa-solid fa-user"></i>Register</a
+                    <a class="btn login" href="/login">
+                        <i class="fa-solid fa-right-to-bracket"></i> Accedi</a
                     >
                 </li>
             </ul>
@@ -94,9 +88,10 @@
 window.addEventListener("scroll", function () {
     if (this.window.pageYOffset > 620) {
         document.getElementById("navscroll").style.background = "#ffab00";
+        document.getElementById("login").style.background = "#ffab00";
     } else {
-        document.getElementById("navscroll").style.background =
-            "rgba(0,0,0,0.2)";
+        document.getElementById("login").style.background = "#3da5d9";
+        document.getElementById("navscroll").style.background = "rgba(0,0,0,0.2)";
     }
 });
 /* setInterval(() => {
@@ -159,7 +154,7 @@ export default {
     width: 175px;
 }
 
-.cart {
+/* .cart {
     display: none;
 }
 .counter-cart {
@@ -169,7 +164,7 @@ export default {
     padding: 0.15rem;
     border-radius: 50%;
     background-color: red;
-}
+} */
 
 .my-navbar {
     background: rgba(0, 0, 0, 0.2);
@@ -199,13 +194,15 @@ export default {
     text-align: center;
     padding: 0.5rem 0.9rem;
     margin-right: 1rem;
+    transition: background 0.8s ease;
     background: #3da5d9;
-    &:hover {
-        background: rgb(40, 191, 214);
-    }
     & i {
         font-size: 1rem;
     }
+}
+
+#login:hover{
+    background-color: rgb(40, 191, 214);
 }
 
 .register {
@@ -251,18 +248,15 @@ export default {
 
     .login {
         padding: 0.3rem 0.5rem;
+        margin-right: 2rem;
     }
 
     .login i {
         font-size: 0.8rem;
     }
 
-    .register {
-        padding: 0.3rem 0.5rem;
-    }
-
-    .register i {
-        font-size: 0.8rem;
+    .register{
+        display: none;
     }
 }
 </style>

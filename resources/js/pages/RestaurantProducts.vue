@@ -1,19 +1,21 @@
 <template>
     <div>
         <div class="container">
-            <div v-if="cart.length === 0">Il tuo carrello è vuoto</div>
+            <!-- PROVA CARRELLO IN PAGINA! -->
+            <!-- <div v-if="cart.length === 0">Il tuo carrello è vuoto</div>
             <div class="row flex-column" v-else>
                 <div
                     class="col-3 card my-2"
                     v-for="item in cart"
                     :key="item.id + item.name"
                 >
-                    <!-- <img :src="item.image" alt="" style="width: 250px" /> -->
+                    <img :src="item.image" alt="" style="width: 250px" />
                     <span>Prodotto aggiunto: {{ item.name }}</span>
                     <span>Quantità: {{ item.quantity }}</span>
                     <span> Prezzo: {{ (item.price * item.quantity).toFixed(2) }}</span>
                 </div>
-            </div>
+            </div> -->
+            
 
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item" v-for="course in courses" :key="course.id">
@@ -26,7 +28,7 @@
                             aria-expanded="false"
                             aria-controls="flush-collapseOne"
                             @click="changeID(course.id)" >
-                            {{course.name}}
+                            <span class="fw-bold">{{course.name}}</span>
                         </button>
                     </h2>
 
@@ -94,7 +96,6 @@ export default {
             cart: [],
             total: 0,
             id: null
-            /* selectedCategory: null */
         };
     },
     computed: {
@@ -113,13 +114,6 @@ export default {
                 return el.product_course_id == this.id ? el : '' ;
             })
         }
-        /* filteredProducts(){
-            return this.products.filter((product)=>{
-                return product.product_course.filter((category)=>{
-                    return category.id === this.selectedCategory;
-                }).length > 0;
-            })
-        } */
     },
     watch: {
         cart: {
@@ -130,9 +124,6 @@ export default {
         },
     },
     methods: {
-        /* selectedCat(id){
-            this.selectedCategory = id;
-        }, */
         removeCart(index) {
             const item = this.cart.find(
                 (product) => product.id === this.products[index].id
@@ -182,16 +173,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* .category {
-    width: 100%;
-    height: 30px;
-    border: 1px solid rgb(27, 27, 27);
-    font-weight: 700;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 1rem;
-    cursor: pointer;
-} */
 .cart-btn {
     background-color: #3dd9bc;
     width: 100%;
@@ -237,6 +218,21 @@ export default {
     position: relative;
     width: 100%;
 }
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: #fff;
+    outline: 0;
+    box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+    color: black;
+    background-color: #fff;
+    box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);
+}
+
+
 
 @media only screen and (max-width: 460px) {
     .product-card {

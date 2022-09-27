@@ -19,6 +19,7 @@ import TheNavbar from './TheNavbar.vue';
 <style lang="scss" scoped>
     .jumbotron{
         position:relative;
+        height: 700px;
     }
     .bg-jumbo{
         position: absolute;
@@ -34,10 +35,9 @@ import TheNavbar from './TheNavbar.vue';
         object-position: 50% 80%;
     }
 
-    @media only screen and (max-width: 460px){
-        .jumbotron{
+@media only screen and (max-width: 460px){
+    .jumbotron{
         height: 250px;
-        position:relative;
     }
-    }
+}
 </style>
