@@ -56,7 +56,11 @@
                                 </div>
                             </div>
                             <div class="py-2">
-                                <router-link :to="{name:'Checkout'}" class="d-block btn btn-primary" @click="closeOffcanvas()">Checkout</router-link>
+                                <router-link :to="{name:'Checkout'}" class="d-block btn btn-primary">
+                                <button type="button" class=" bg-transparent border-0 text-white" data-bs-dismiss="offcanvas">
+                                    Checkout
+                                    </button>
+                                    </router-link>
                             </div>
                         </ul>
                     </template>
@@ -95,12 +99,12 @@ window.addEventListener("scroll", function () {
             "rgba(0,0,0,0.2)";
     }
 });
-setInterval(() => {
+/* setInterval(() => {
                 JSON.parse(localStorage.cart).forEach(element => {
                     return element.quantity
                 });
                 console.log(JSON.parse(localStorage.cart).length)
-            }, 2000);
+            }, 2000); */
 
 export default {
     data() {

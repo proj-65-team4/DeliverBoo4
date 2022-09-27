@@ -30,7 +30,7 @@ export const routes = [
   },
 
   {
-    path: "/checkout",
+    path: "/order",
     component: Checkout,
     name: "Checkout",
     meta: { title: "Checkout" },

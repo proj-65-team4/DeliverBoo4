@@ -7,9 +7,10 @@ use Illuminate\Http\Request;
 
 class OrdersController extends Controller
 {
-    public function order(Request $request)
-    {
-        $data= $request->all();
-        return /* response()->json($data) */;
+    public function order(Request $request){
+        dd($request);
+        $data = $request->all();
+
+        return response()->json($data);
     }
 }
