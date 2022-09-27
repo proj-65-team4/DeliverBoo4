@@ -33,10 +33,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
-                    </ul>
+                    {{-- </ul>
 
                     <!-- Right Side Of Navbar -->
-                    {{-- <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         {{-- @guest
                             <li class="nav-item">
@@ -49,13 +49,8 @@
                             @endif
                         @else
                             
-<<<<<<< HEAD
-                        @endguest --}}
-                    </ul>
-=======
                         @endguest
-                    </ul> --}}
->>>>>>> 940e3d6b780850705204eecbbf1ae1d27ce0f624
+                    </ul>  --}}
                 </div>
             </div>
         </nav>
