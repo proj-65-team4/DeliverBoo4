@@ -4,6 +4,7 @@ import Home from "./pages/home.vue";
 import RestaurantProducts from './pages/RestaurantProducts.vue';
 import RestaurantIndex from './pages/RestaurantIndex.vue';
 import Checkout from './pages/Checkout.vue';
+import ThankYou from './pages/ThankYou.vue';
 
 Vue.use(VueRouter);
 
@@ -30,9 +31,15 @@ export const routes = [
   },
 
   {
-    path: "/order",
+    path: "/ordini",
     component: Checkout,
     name: "Checkout",
     meta: { title: "Checkout" },
+  },
+  {
+    path: "/thankyou",
+    component: ThankYou,
+    name: "ThankYou",
+    meta: { title: "ThankYou" },
   },
 ];
