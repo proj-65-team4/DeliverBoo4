@@ -5511,15 +5511,12 @@ window.addEventListener("scroll", function () {
 
 
       this.cart = JSON.parse(localStorage.getItem("cart"));
-    },
-    closeOffcanvas: function closeOffcanvas() {
-      document.getElementById("offcanvasScrolling").classList.remove("show");
     }
   },
 
   /* computed: {
       carts() {
-            setInterval(() => {
+           setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -5553,7 +5550,8 @@ __webpack_require__.r(__webpack_exports__);
       customer_email: "",
       delivery_address: "",
       customer_telephone: "",
-      payments: null
+      cart: [],
+      bool: false
     };
   },
   methods: {
@@ -5577,16 +5575,36 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (resp) {
         console.log(resp.data);
       });
+    },
+    carts: function carts() {
+      /* setInterval(() => {
+                console.log(JSON.parse(localStorage.cart).length)
+            }, 2000); */
+      if (localStorage.cart != undefined && localStorage.cart.length > 0) {
+        this.bool = true;
+      } else {
+        this.bool = false;
+      }
+      /*  this.length = JSON.parse(localStorage.cart).length; */
+
+      /* console.log(this.cart.length);
+            console.log("push"); */
+
+
+      this.cart = JSON.parse(localStorage.getItem("cart"));
     }
+  },
+  mounted: function mounted() {
+    this.carts();
   }
 });
 var button = document.getElementById("sub");
 var form = document.querySelector("form");
 braintree.dropin.create({
-  authorization: 'sandbox_rzbhrwvw_jvtyvgv4fdj4br5y',
-  selector: '#dropin-container'
+  authorization: "sandbox_rzbhrwvw_jvtyvgv4fdj4br5y",
+  selector: "#dropin-container"
 }, function (err, instance) {
-  button.addEventListener('click', function () {
+  button.addEventListener("click", function () {
     instance.requestPaymentMethod(function (err, payload) {});
   });
 });
@@ -6468,8 +6486,27 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", [_c("div", {
-    staticClass: "container py-2"
-  }, [_c("h2", [_vm._v("Checkout")]), _vm._v(" "), _c("form", {
+    staticClass: "container py-5"
+  }, [_c("h2", {
+    staticClass: "mb-5 text-uppercase text-decoration-underline"
+  }, [_vm._v("Checkout")]), _vm._v(" "), _c("div", {
+    staticClass: "p-2 border mb-3 rounded"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "py-4 d-block"
+  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.cart, function (item) {
+    return _c("div", {
+      key: item.id,
+      staticClass: "row py-2"
+    }, [_c("div", {
+      staticClass: "col text-center"
+    }, [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("div", {
+      staticClass: "col text-center"
+    }, [_vm._v(_vm._s(item.description))]), _vm._v(" "), _c("div", {
+      staticClass: "col text-center"
+    }, [_vm._v(_vm._s(item.quantity))]), _vm._v(" "), _c("div", {
+      staticClass: "col text-center"
+    }, [_vm._v("\n            " + _vm._s((item.quantity * parseFloat(item.price)).toFixed(2)) + "\n          ")])]);
+  })], 2)]), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -6641,10 +6678,30 @@ var render = function render() {
         name: "ThankYou"
       }
     }
-  }, [_vm._v("\n        Purchase\n          ")])], 1)])])]);
+  }, [_vm._v(" Purchase ")])], 1)])])]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("h4", [_c("strong", [_vm._v(" Riepilogo ordine")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "row py-2 border-1 border-bottom"
+  }, [_c("div", {
+    staticClass: "col text-center"
+  }, [_c("strong", [_vm._v("Nome")])]), _vm._v(" "), _c("div", {
+    staticClass: "col text-center"
+  }, [_c("strong", [_vm._v("Descrizione")])]), _vm._v(" "), _c("div", {
+    staticClass: "col text-center"
+  }, [_c("strong", [_vm._v("Quantità")])]), _vm._v(" "), _c("div", {
+    staticClass: "col text-center"
+  }, [_c("strong", [_vm._v("Subtotal")])])]);
+}];
 render._withStripped = true;
 
 
@@ -12316,7 +12373,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".button[data-v-19797662] {\n  cursor: pointer;\n  font-weight: 500;\n  left: 3px;\n  line-height: inherit;\n  position: relative;\n  text-decoration: none;\n  text-align: center;\n  border-style: solid;\n  border-width: 1px;\n  border-radius: 3px;\n  display: inline-block;\n}\n.button--small[data-v-19797662] {\n  padding: 10px 20px;\n  font-size: 0.875rem;\n}\n.button--green[data-v-19797662] {\n  outline: none;\n  background-color: #64d18a;\n  border-color: #64d18a;\n  color: white;\n  transition: all 200ms ease;\n}\n.button--green[data-v-19797662]:hover {\n  background-color: #8bdda8;\n  color: white;\n}", ""]);
+exports.push([module.i, ".button[data-v-19797662] {\n  cursor: pointer;\n  font-weight: 500;\n  left: 3px;\n  line-height: inherit;\n  position: relative;\n  text-decoration: none;\n  text-align: center;\n  border-style: solid;\n  border-width: 1px;\n  border-radius: 3px;\n  display: inline-block;\n}\n.button--small[data-v-19797662] {\n  padding: 10px 20px;\n  font-size: 0.875rem;\n}\n.button--green[data-v-19797662] {\n  outline: none;\n  background-color: #64d18a;\n  border-color: #64d18a;\n  color: white;\n  transition: all 200ms ease;\n}\n.button--green[data-v-19797662]:hover {\n  background-color: #8bdda8;\n  color: white;\n}\nul li[data-v-19797662] {\n  flex-grow: 1;\n  text-align: center;\n}", ""]);
 
 // exports
 
@@ -30217,11 +30274,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
-=======
-module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
->>>>>>> b0bee26f9f6093a9b005315baf45c7a21f9334fc
 
 
 /***/ })

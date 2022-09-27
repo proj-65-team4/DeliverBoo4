@@ -124,9 +124,6 @@ export default {
             console.log("push"); */
             this.cart = JSON.parse(localStorage.getItem("cart"));
         },
-        closeOffcanvas(){
-            document.getElementById("offcanvasScrolling").classList.remove("show")
-        }
     },
     /* computed: {
         carts() {
