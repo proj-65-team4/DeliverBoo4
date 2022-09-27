@@ -82,7 +82,7 @@ class MenuController extends Controller
     } else {
       $user->product->available = 0;
     }
-
+    $product['image'] = $request->image;
     $user->product->fill($validateData);
     $user->product->user_id = $user->id;
     /* $user->product->save(); */

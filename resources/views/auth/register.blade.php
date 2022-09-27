@@ -8,9 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                
-                <div class="card-header">{{ __('Registrati') }}</div>
-
+                <div class="card-header justify-content-center"><h4 class="mb-0 fw-bold text-primary">{{ __('Registrati') }}</h4></div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -80,10 +78,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0 pt-3">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                        <div class="form-group row mb-0 pt-3 justify-content-center">
+                            <div class="col text-center">
+                                <button type="submit" class="btn btn-primary text-white px-4">
+                                    {{ __('Crea un account') }}
                                 </button>
                             </div>
                         </div>
