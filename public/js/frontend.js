@@ -5473,7 +5473,9 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener("scroll", function () {
   if (this.window.pageYOffset > 620) {
     document.getElementById("navscroll").style.background = "#ffab00";
+    document.getElementById("login").style.background = "#ffab00";
   } else {
+    document.getElementById("login").style.background = "#3da5d9";
     document.getElementById("navscroll").style.background = "rgba(0,0,0,0.2)";
   }
 });
@@ -5690,8 +5692,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       cart: [],
       total: 0,
       id: null
-      /* selectedCategory: null */
-
     };
   },
   computed: {
@@ -5711,14 +5711,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return el.product_course_id == _this2.id ? el : '';
       });
     }
-    /* filteredProducts(){
-        return this.products.filter((product)=>{
-            return product.product_course.filter((category)=>{
-                return category.id === this.selectedCategory;
-            }).length > 0;
-        })
-    } */
-
   },
   watch: {
     cart: {
@@ -5729,9 +5721,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
-    /* selectedCat(id){
-        this.selectedCategory = id;
-    }, */
     removeCart: function removeCart(index) {
       var _this3 = this;
 
@@ -6360,7 +6349,7 @@ var render = function render() {
       type: "button",
       "data-bs-dismiss": "offcanvas"
     }
-  }, [_vm._v("\n                                Checkout\n                                ")])])], 1)]], 2)]), _vm._v(" "), _c("div", {
+  }, [_vm._v("\n                                    Checkout\n                                    ")])])], 1)]], 2)]), _vm._v(" "), _c("div", {
     staticClass: "logo"
   }, [_c("router-link", {
     attrs: {
@@ -6388,7 +6377,7 @@ var staticRenderFns = [function () {
     attrs: {
       id: "offcanvasScrollingLabel"
     }
-  }, [_vm._v("\n                    Carrello\n                ")]), _vm._v(" "), _c("button", {
+  }, [_vm._v("\n                        Carrello\n                    ")]), _vm._v(" "), _c("button", {
     staticClass: "btn-close",
     attrs: {
       type: "button",
@@ -6415,9 +6404,17 @@ var staticRenderFns = [function () {
 
   return _c("ul", {
     staticClass: "list-unstyled mb-0"
-  }, [_c("li", [_c("a", {
+  }, [_c("li", [_vm._v("\n<<<<<<< HEAD\n                    "), _c("a", {
     staticClass: "btn login",
     attrs: {
+      href: "/login"
+    }
+  }, [_c("i", {
+    staticClass: "fa-solid fa-right-to-bracket"
+  }), _vm._v(" Accedi")]), _vm._v("\n=======\n                    "), _c("a", {
+    staticClass: "login btn",
+    attrs: {
+      id: "login",
       href: "/login"
     }
   }, [_c("i", {
@@ -6737,7 +6734,9 @@ var render = function render() {
           return _vm.changeID(course.id);
         }
       }
-    }, [_vm._v("\n                        " + _vm._s(course.name) + "\n                    ")])]), _vm._v(" "), _c("div", {
+    }, [_c("span", {
+      staticClass: "fw-bold"
+    }, [_vm._v(_vm._s(course.name))])])]), _vm._v(" "), _c("div", {
       staticClass: "accordion-collapse collapse",
       attrs: {
         id: "flush-collapseOne-" + course.id,
@@ -12225,7 +12224,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".jumbotron[data-v-0c300183] {\n  position: relative;\n}\n.bg-jumbo[data-v-0c300183] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.bg-jumbo img[data-v-0c300183] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: 50% 80%;\n     object-position: 50% 80%;\n}\n@media only screen and (max-width: 460px) {\n.jumbotron[data-v-0c300183] {\n    height: 250px;\n    position: relative;\n}\n}", ""]);
+exports.push([module.i, ".jumbotron[data-v-0c300183] {\n  position: relative;\n  height: 700px;\n}\n.bg-jumbo[data-v-0c300183] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.bg-jumbo img[data-v-0c300183] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: 50% 80%;\n     object-position: 50% 80%;\n}\n@media only screen and (max-width: 460px) {\n.jumbotron[data-v-0c300183] {\n    height: 250px;\n}\n}", ""]);
 
 // exports
 
@@ -12244,7 +12243,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bgcolor[data-v-eca07cf4],\n.scrolled[data-v-eca07cf4] {\n  background: #ffab00;\n}\n#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n.cart[data-v-eca07cf4] {\n  display: none;\n}\n.counter-cart[data-v-eca07cf4] {\n  position: absolute;\n  width: 10px;\n  aspect-ratio: 1;\n  padding: 0.15rem;\n  border-radius: 50%;\n  background-color: red;\n}\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 200px;\n  width: 100%;\n  transition: background 0.8s ease;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  margin-right: 1rem;\n  background: #3da5d9;\n}\n.login[data-v-eca07cf4]:hover {\n  background: rgb(40, 191, 214);\n}\n.login i[data-v-eca07cf4] {\n  font-size: 1rem;\n}\n.register[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  background: #ffab00;\n}\n.register[data-v-eca07cf4]:hover {\n  background: #ffca3a;\n}\n.register i[data-v-eca07cf4] {\n  font-size: 1rem;\n  padding-right: 0.3rem;\n}\n.fixed-cart[data-v-eca07cf4] {\n  position: fixed;\n  bottom: 100px;\n  right: 150px;\n  border-radius: 50px;\n  background-color: rgb(40, 191, 214);\n}\n.fixed-cart i[data-v-eca07cf4] {\n  font-size: 2rem;\n  color: white;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n}\n.login i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n.register[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n}\n.register i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n}", ""]);
+exports.push([module.i, ".bgcolor[data-v-eca07cf4],\n.scrolled[data-v-eca07cf4] {\n  background: #ffab00;\n}\n#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n\n/* .cart {\n    display: none;\n}\n.counter-cart {\n    position: absolute;\n    width: 10px;\n    aspect-ratio: 1;\n    padding: 0.15rem;\n    border-radius: 50%;\n    background-color: red;\n} */\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 200px;\n  width: 100%;\n  transition: background 0.8s ease;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  margin-right: 1rem;\n  transition: background 0.8s ease;\n  background: #3da5d9;\n}\n.login i[data-v-eca07cf4] {\n  font-size: 1rem;\n}\n#login[data-v-eca07cf4]:hover {\n  background-color: rgb(40, 191, 214);\n}\n.register[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.5rem 0.9rem;\n  background: #ffab00;\n}\n.register[data-v-eca07cf4]:hover {\n  background: #ffca3a;\n}\n.register i[data-v-eca07cf4] {\n  font-size: 1rem;\n  padding-right: 0.3rem;\n}\n.fixed-cart[data-v-eca07cf4] {\n  position: fixed;\n  bottom: 100px;\n  right: 150px;\n  border-radius: 50px;\n  background-color: rgb(40, 191, 214);\n}\n.fixed-cart i[data-v-eca07cf4] {\n  font-size: 2rem;\n  color: white;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n    margin-right: 2rem;\n}\n.login i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n.register[data-v-eca07cf4] {\n    display: none;\n}\n}", ""]);
 
 // exports
 
@@ -12301,7 +12300,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* .category {\n    width: 100%;\n    height: 30px;\n    border: 1px solid rgb(27, 27, 27);\n    font-weight: 700;\n    font-size: 20px;\n    text-align: center;\n    margin-bottom: 1rem;\n    cursor: pointer;\n} */\n.cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  font-weight: 700;\n  display: flex;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 0.5rem;\n  margin-top: 1rem;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card img[data-v-96ac86ec] {\n  width: 180px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.product-card h6[data-v-96ac86ec] {\n  display: none;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  position: relative;\n  width: 100%;\n}\n@media only screen and (max-width: 460px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.product-card h6[data-v-96ac86ec] {\n    display: inline-block;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 180px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n}", ""]);
+exports.push([module.i, ".cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  font-weight: 700;\n  display: flex;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 0.5rem;\n  margin-top: 1rem;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card img[data-v-96ac86ec] {\n  width: 180px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.product-card h6[data-v-96ac86ec] {\n  display: none;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  position: relative;\n  width: 100%;\n}\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n@media only screen and (max-width: 460px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.product-card h6[data-v-96ac86ec] {\n    display: inline-block;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 180px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n}", ""]);
 
 // exports
 
@@ -12320,7 +12319,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bg-category[data-v-bb7a9770] {\n  background: #FFCA3A;\n  padding-bottom: 3rem;\n}\n.bg-category h1[data-v-bb7a9770] {\n  font-weight: bolder;\n  font-size: 4.5rem;\n  text-align: center;\n  max-width: 15ch;\n  text-align: center;\n  color: rgb(30, 29, 29);\n  margin: 0 auto;\n}", ""]);
+exports.push([module.i, ".bg-category[data-v-bb7a9770] {\n  background: #FFCA3A;\n  padding-bottom: 3rem;\n}\n.bg-category h1[data-v-bb7a9770] {\n  font-weight: bolder;\n  font-size: 4.5rem;\n  text-align: center;\n  max-width: 15ch;\n  text-align: center;\n  color: rgb(30, 29, 29);\n  margin: 0 auto;\n}\n@media only screen and (max-width: 460px) {\n.bg-category h1[data-v-bb7a9770] {\n    font-size: 2.7rem;\n}\n}", ""]);
 
 // exports
 
