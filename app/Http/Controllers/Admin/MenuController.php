@@ -190,6 +190,6 @@ class MenuController extends Controller
   
     $product->delete();
 
-    return redirect()->route("admin.products.index");
+    return redirect()->route("admin.products.index")->with("message", "Prodotto eliminato con successo");
   }
 }

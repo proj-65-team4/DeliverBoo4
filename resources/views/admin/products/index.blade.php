@@ -3,6 +3,9 @@
 @section('content')
 
     <div class="container-fluid">
+        @if (session("message"))
+        <div class="alert alert-success">{{ session("message")}}</div>
+        @endif
         <div class="d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center gap-3">
                 <a href="{{ route('admin.products.index') }}"><i class="fa-solid fa-arrow-left fa-lg"></i></a>
