@@ -96,7 +96,7 @@ class MenuController extends Controller
 
 
 
-    return redirect()->route("admin.products.show", $user->product->id);
+    return redirect()->route("admin.products.show", $user->product->id)->with("message", "Prodotto aggiunto con successo");
   }
 
   /**
@@ -175,7 +175,7 @@ class MenuController extends Controller
 
     $product->update($validateData);
 
-    return redirect()->route('admin.products.show', $product->id);
+    return redirect()->route('admin.products.show', $product->id)->with("message", "Prodotto modificato con successo");
   }
 
   /**
@@ -188,7 +188,8 @@ class MenuController extends Controller
   {
     
     $product = Product::findOrFail($id);
+  
     $product->delete();
-    return redirect()->route("admin.products.index");
+
+    return redirect()->route("admin.products.index")->with("message", "Prodotto eliminato con successo");
   }
-}
