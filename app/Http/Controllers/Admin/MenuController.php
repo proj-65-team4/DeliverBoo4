@@ -193,3 +193,4 @@ class MenuController extends Controller
 
     return redirect()->route("admin.products.index")->with("message", "Prodotto eliminato con successo");
   }
+}
