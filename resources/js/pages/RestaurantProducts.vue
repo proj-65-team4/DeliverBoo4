@@ -15,8 +15,30 @@
                     <span> Prezzo: {{ (item.price * item.quantity).toFixed(2) }}</span>
                 </div>
             </div> -->
-            
+            <!-- :key="restaurant_data.id" -->
+            <div class="row">
+                <div class="col">
+                    
+                </div>
+            </div>
 
+            <div class="row py-4" v-for="restaurant_data in restaurant">
+                <div class="col-3">
+                    <img :src="'/storage/'+ restaurant_data.image" alt="" class="w-100 rounded card-img" v-if="restaurant_data.image" />
+                    <img src="https://cwdaust.com.au/wpress/wp-content/uploads/2015/04/placeholder-restaurant.png" alt="" class="card-img rounded" v-else>
+                </div>
+                <div class="col">
+                    <h1 class="fw-bold">{{restaurant_data.restaurant_name}}</h1>
+                    <span v-for="category in categories">{{ category.name }} </span>
+                    <h5>{{restaurant_data.address}}</h5>
+                    <h5>{{restaurant_data.city}}</h5>
+                </div>
+                <div class="col-3">
+                    <div>
+                        <i class="fa-solid fa-truck"></i> Consegna tra 20 - 35 min
+                    </div>
+                </div>
+            </div>
             <div class="accordion accordion-flush" id="accordionFlushExample">
                 <div class="accordion-item" v-for="course in courses" :key="course.id">
                     <h2 class="accordion-header" id="flush-headingOne">
@@ -94,6 +116,8 @@ export default {
             products: [],
             courses: [],
             cart: [],
+            restaurant: [],
+            categories: [],
             total: 0,
             id: null
         };
@@ -106,7 +130,8 @@ export default {
                     console.log(resp.data);
                     this.products = resp.data.products;
                     this.courses = resp.data.courses;
-                    
+                    this.restaurant = resp.data.restaurant;
+                    this.categories = resp.data.categories;
                 });
         },
         filteredProducts(){
@@ -230,6 +255,12 @@ export default {
     color: black;
     background-color: #fff;
     box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);
+}
+
+.card-img {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: cover;
 }
 
 

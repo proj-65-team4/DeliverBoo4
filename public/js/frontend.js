@@ -5519,7 +5519,7 @@ window.addEventListener("scroll", function () {
 
   /* computed: {
       carts() {
-            setInterval(() => {
+           setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -5687,6 +5687,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       products: [],
       courses: [],
       cart: [],
+      restaurant: [],
+      categories: [],
       total: 0,
       id: null
     };
@@ -5699,6 +5701,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         console.log(resp.data);
         _this.products = resp.data.products;
         _this.courses = resp.data.courses;
+        _this.restaurant = resp.data.restaurant;
+        _this.categories = resp.data.categories;
       });
     },
     filteredProducts: function filteredProducts() {
@@ -6725,7 +6729,31 @@ var render = function render() {
 
   return _c("div", [_c("div", {
     staticClass: "container"
-  }, [_c("div", {
+  }, [_vm._m(0), _vm._v(" "), _vm._l(_vm.restaurant, function (restaurant_data) {
+    return _c("div", {
+      staticClass: "row py-4"
+    }, [_c("div", {
+      staticClass: "col-3"
+    }, [restaurant_data.image ? _c("img", {
+      staticClass: "w-100 rounded card-img",
+      attrs: {
+        src: "/storage/" + restaurant_data.image,
+        alt: ""
+      }
+    }) : _c("img", {
+      staticClass: "card-img rounded",
+      attrs: {
+        src: "https://cwdaust.com.au/wpress/wp-content/uploads/2015/04/placeholder-restaurant.png",
+        alt: ""
+      }
+    })]), _vm._v(" "), _c("div", {
+      staticClass: "col"
+    }, [_c("h1", {
+      staticClass: "fw-bold"
+    }, [_vm._v(_vm._s(restaurant_data.restaurant_name))]), _vm._v(" "), _vm._l(_vm.categories, function (category) {
+      return _c("span", [_vm._v(_vm._s(category.name) + " ")]);
+    }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.address))]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.city))])], 2), _vm._v(" "), _vm._m(1, true)]);
+  }), _vm._v(" "), _c("div", {
     staticClass: "accordion accordion-flush",
     attrs: {
       id: "accordionFlushExample"
@@ -6785,7 +6813,7 @@ var render = function render() {
         staticClass: "ps-3"
       }, [_vm._v(_vm._s(product.description))]), _vm._v(" "), _c("div", {
         staticClass: "cart-btn"
-      }, [_vm._m(0, true), _vm._v(" "), _c("div", [_vm._v("quantità")]), _vm._v(" "), _c("div", {
+      }, [_vm._m(2, true), _vm._v(" "), _c("div", [_vm._v("quantità")]), _vm._v(" "), _c("div", {
         staticClass: "d-flex flex-column"
       }, [_c("button", {
         staticClass: "btn",
@@ -6807,10 +6835,28 @@ var render = function render() {
         staticClass: "fa-solid fa-chevron-down"
       })])])])])])]);
     }), 0)])])]);
-  }), 0)])]);
+  }), 0)], 2)]);
 };
 
 var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    staticClass: "col"
+  })]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "col-3"
+  }, [_c("div", [_c("i", {
+    staticClass: "fa-solid fa-truck"
+  }), _vm._v(" Consegna tra 20 - 35 min\n                ")])]);
+}, function () {
   var _vm = this,
       _c = _vm._self._c;
 
@@ -12349,7 +12395,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  font-weight: 700;\n  display: flex;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 0.5rem;\n  margin-top: 1rem;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card img[data-v-96ac86ec] {\n  width: 180px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.product-card h6[data-v-96ac86ec] {\n  display: none;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  position: relative;\n  width: 100%;\n}\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n@media only screen and (max-width: 460px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.product-card h6[data-v-96ac86ec] {\n    display: inline-block;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 180px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n}", ""]);
+exports.push([module.i, ".cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  font-weight: 700;\n  display: flex;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 0.5rem;\n  margin-top: 1rem;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card img[data-v-96ac86ec] {\n  width: 180px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.product-card h6[data-v-96ac86ec] {\n  display: none;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  position: relative;\n  width: 100%;\n}\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n.card-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n@media only screen and (max-width: 460px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.product-card h6[data-v-96ac86ec] {\n    display: inline-block;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 180px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n}", ""]);
 
 // exports
 
@@ -30212,7 +30258,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })

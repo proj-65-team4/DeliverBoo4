@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\Product;
 use App\ProductCourse;
+use App\Restaurant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -33,7 +34,16 @@ class ProductController extends Controller
         }
         $c = array_unique($c);
 
-        return response()->json(["products"=>$products, "courses"=>$c]);
+        $restaurant = Restaurant::where("user_id", $id)->get();
+
+        $categories = DB::table('categories')
+        ->join('category_restaurant' , 'category_restaurant.category_id' , '=' , 'categories.id')
+        ->join('restaurants' , 'category_restaurant.restaurant_id' , '=' , 'restaurants.id')
+        ->where('restaurants.id' , '=' ,$id)
+        ->select('categories.name')
+        ->get();
+
+        return response()->json(["products"=>$products, "courses"=>$c, "restaurant"=>$restaurant, "categories"=>$categories]);
     }
 
     /**
