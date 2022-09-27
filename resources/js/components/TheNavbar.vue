@@ -75,7 +75,7 @@
 
             <ul class="list-unstyled mb-0">
                 <li>
-                    <a class="btn login" href="/login">
+                    <a class="login" href="/login">
                         <i class="fa-solid fa-right-to-bracket"></i> Accedi</a
                     >
                 </li>
@@ -187,17 +187,16 @@ export default {
     border: none;
     color: #fff;
     text-align: center;
-    padding: 0.5rem 0.9rem;
+    padding: 0.7rem 0.9rem;
     margin-right: 1rem;
-    transition: background 0.8s ease;
     background: #3da5d9;
+    &:hover{
+        background: #3db7d9;
+    }
+
     & i {
         font-size: 1rem;
     }
-}
-
-#login:hover{
-    background-color: rgb(40, 191, 214);
 }
 
 .fixed-cart {
