@@ -6088,9 +6088,9 @@ var staticRenderFns = [function () {
   return _c("div", [_c("div", {
     staticClass: "copyright-bg"
   }, [_c("div", {
-    staticClass: "container"
+    staticClass: "container copyright-container"
   }, [_c("div", {
-    staticClass: "copyright-bar py-2"
+    staticClass: "copyright-bar py-3"
   }, [_c("div", [_c("div", [_vm._v("Made with "), _c("i", {
     staticClass: "fa-solid fa-heart"
   }), _vm._v(" + "), _c("img", {
@@ -6099,7 +6099,7 @@ var staticRenderFns = [function () {
       src: "https://img.icons8.com/external-glyph-icons-maxicons/85/000000/external-brain-medical-glyph-glyph-icons-maxicons.png"
     }
   }), _vm._v(" by Team 4")]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex gap-2 align-items-center"
+    staticClass: "d-flex gap-2 align-items-center team-names"
   }, [_c("div", [_vm._v("© 2022")]), _vm._v(" "), _c("a", {
     attrs: {
       href: "https://github.com/felicetto13"
@@ -6178,9 +6178,9 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "row pt-5 pb-4 flex-nowrap"
+    staticClass: "row pt-5 pb-4"
   }, [_c("div", {
-    staticClass: "col d-flex flex-column ms-3"
+    staticClass: "col"
   }, [_c("div", {
     staticClass: "footer-title pb-3"
   }, [_vm._v("Scopri DeliveBoo")]), _vm._v(" "), _c("ul", {
@@ -6194,7 +6194,7 @@ var render = function render() {
       }
     }, [_vm._v(_vm._s(link.link))])]);
   }), 0)]), _vm._v(" "), _c("div", {
-    staticClass: "col d-flex flex-column d-none d-sm-block ms-3"
+    staticClass: "col"
   }, [_c("div", {
     staticClass: "footer-title pb-3"
   }, [_vm._v("Servizio Clienti")]), _vm._v(" "), _c("ul", {
@@ -6208,7 +6208,7 @@ var render = function render() {
       }
     }, [_vm._v(_vm._s(link.link))])]);
   }), 0)]), _vm._v(" "), _c("div", {
-    staticClass: "col d-flex flex-column ms-3"
+    staticClass: "col"
   }, [_c("div", {
     staticClass: "footer-title pb-3"
   }, [_vm._v("Note legali")]), _vm._v(" "), _c("ul", {
@@ -6229,17 +6229,14 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "col d-flex align-items-center flex-column d-none d-lg-block ms-3"
+    staticClass: "col"
   }, [_c("div", {
     staticClass: "footer-title pb-3"
-  }, [_vm._v("Porta DeliveBoo con te")]), _vm._v(" "), _c("div", {
-    staticClass: "h-100"
-  }, [_c("a", {
+  }, [_vm._v("Porta DeliveBoo con te")]), _vm._v(" "), _c("div", {}, [_c("a", {
     attrs: {
       href: "#"
     }
   }, [_c("img", {
-    staticClass: "w-50 mt-3 ms-2",
     attrs: {
       src: "/img/app-store.png",
       alt: ""
@@ -6249,7 +6246,7 @@ var staticRenderFns = [function () {
       href: "#"
     }
   }, [_c("img", {
-    staticClass: "w-50 mt-5 ms-2",
+    staticClass: "mt-sm-0 mt-md-4",
     attrs: {
       src: "/img/play-store.png",
       alt: ""
@@ -12341,7 +12338,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#deliveboo[data-v-fe5c207c] {\n  width: 120px;\n  filter: brightness(0) invert(1);\n}\n.social-icon[data-v-fe5c207c] {\n  transition: 0.3s ease-in-out;\n}\n.facebook-icon[data-v-fe5c207c]:hover {\n  color: #1877F2;\n}\n.insta-icon[data-v-fe5c207c]:hover {\n  color: #E4405F;\n}\n.twitter-icon[data-v-fe5c207c]:hover {\n  color: #1DA1F2;\n}\n.copyright-bg[data-v-fe5c207c] {\n  background: rgb(40, 191, 214);\n  width: 100%;\n}\n.copyright-bar[data-v-fe5c207c] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  color: white;\n}\n.copyright-bar a[data-v-fe5c207c] {\n  text-decoration: none;\n  color: white;\n}\n.copyright-bar li[data-v-fe5c207c] {\n  display: inline-block;\n}\n.brain-ico[data-v-fe5c207c] {\n  width: 20px;\n  filter: brightness(0) invert(1);\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-fe5c207c] {\n    width: 100px;\n}\n}", ""]);
+exports.push([module.i, "#deliveboo[data-v-fe5c207c] {\n  width: 120px;\n  filter: brightness(0) invert(1);\n}\n.social-icon[data-v-fe5c207c] {\n  transition: 0.3s ease-in-out;\n}\n.facebook-icon[data-v-fe5c207c]:hover {\n  color: #1877F2;\n}\n.insta-icon[data-v-fe5c207c]:hover {\n  color: #E4405F;\n}\n.twitter-icon[data-v-fe5c207c]:hover {\n  color: #1DA1F2;\n}\n.copyright-bg[data-v-fe5c207c] {\n  background: #0b0b0b;\n  width: 100%;\n}\n.copyright-container[data-v-fe5c207c] {\n  border-top: 1px solid #3da5d9;\n}\n.copyright-bar[data-v-fe5c207c] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  color: white;\n}\n.copyright-bar a[data-v-fe5c207c] {\n  text-decoration: none;\n  color: white;\n}\n.copyright-bar li[data-v-fe5c207c] {\n  display: inline-block;\n}\n.brain-ico[data-v-fe5c207c] {\n  width: 20px;\n  filter: brightness(0) invert(1);\n}\n.team-names a[data-v-fe5c207c] {\n  color: #4ecdf0;\n  transition: all 0.3s ease;\n}\n.team-names a[data-v-fe5c207c]:hover {\n  transform: scale(1.1);\n  transition: all 0.3s ease;\n  color: #22a7fa;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-fe5c207c] {\n    width: 100px;\n}\n}", ""]);
 
 // exports
 
@@ -12360,7 +12357,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bg-footer[data-v-2a04c4de] {\n  background-color: #272727;\n}\n.footer-title[data-v-2a04c4de] {\n  font-weight: bold;\n  display: inline-block;\n  color: #FFCA3A;\n  margin: 0 0.5rem;\n}\n.link-list[data-v-2a04c4de] {\n  list-style-type: none;\n  margin-bottom: 0;\n  font-size: 0.9rem;\n  margin: 0;\n  padding: 0;\n}\n.link-list a[data-v-2a04c4de] {\n  color: white;\n  text-decoration: none;\n  padding: 0.5rem;\n}\n.link-list a[data-v-2a04c4de]:hover {\n  text-decoration: underline;\n}\n.link-list li[data-v-2a04c4de] {\n  margin: 1rem 0;\n}", ""]);
+exports.push([module.i, "img[data-v-2a04c4de] {\n  max-width: 200px;\n}\n.bg-footer[data-v-2a04c4de] {\n  background-color: #0b0b0b;\n}\n.footer-title[data-v-2a04c4de] {\n  font-weight: bold;\n  display: inline-block;\n  color: #FFCA3A;\n  margin: 0 0.5rem;\n}\n.link-list[data-v-2a04c4de] {\n  list-style-type: none;\n  margin-bottom: 0;\n  font-size: 0.9rem;\n  margin: 0;\n  padding: 0;\n}\n.link-list a[data-v-2a04c4de] {\n  color: white;\n  text-decoration: none;\n  padding: 0.5rem;\n}\n.link-list a[data-v-2a04c4de]:hover {\n  text-decoration: underline;\n}\n.link-list li[data-v-2a04c4de] {\n  margin: 1rem 0;\n}", ""]);
 
 // exports
 
