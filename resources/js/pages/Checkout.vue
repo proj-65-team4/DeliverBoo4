@@ -85,7 +85,8 @@
 
         <div id="dropin-container"></div>
         <button id="sub" class="button button--small button--green">
-          <router-link :to="{ name: 'ThankYou' }"> Purchase </router-link>
+          <!-- <router-link :to="{ name: 'ThankYou' }"> Purchase </router-link> -->
+          invia
         </button>
       </form>
     </div>
@@ -124,7 +125,7 @@ export default {
         customer_email: this.customer_email,
         delivery_address: this.delivery_address,
         customer_telephone: this.customer_telephone,
-        payload: this.payments,
+        cart: this.cart
       }).then((resp) => {
         console.log(resp.data);
       });

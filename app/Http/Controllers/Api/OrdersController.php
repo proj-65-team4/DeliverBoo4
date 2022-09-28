@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Order;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Api\Braintree_Transaction;
 class OrdersController extends Controller
 {
     public function index(){
@@ -18,7 +17,7 @@ class OrdersController extends Controller
      
         $data = $request->all();
 
-
+        $cart = $request->cart;
        /*  "subtotal","date_order","date_delivery" */
         $order= new Order();
 
@@ -27,6 +26,12 @@ class OrdersController extends Controller
         $order->date_order = Carbon::now();
         $order->date_delivery = Carbon::now();
         $order->save();
+        for ($i=0; $i <count($cart) ; $i++) { 
+
+
+            $order->products()->attach(count($cart),['order_id'=>$order->id,'product_id'=>$cart[$i]['id'],'quantity'=>$cart[$i]['quantity']]);
+        }
+          
         /* 
         $payload = $request->payload;
         $nonce = $payload['nonce'];
