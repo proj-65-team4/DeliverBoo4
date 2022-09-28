@@ -17,11 +17,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index($slug)
     {
+        $restaurant = Restaurant::where("slug", $slug)->get();
+        
+        foreach ($restaurant as $rest) {
+            $id = $rest["user_id"];
+        }
+        
         $products = Product::where("user_id", $id)->get();
-        $products->load("product_course:id,name");
 
+        $products->load("product_course:id,name");
+        
         $courses = ProductCourse::all();
         $c = [];
 
@@ -34,12 +41,11 @@ class ProductController extends Controller
         }
         $c = array_unique($c);
 
-        $restaurant = Restaurant::where("user_id", $id)->get();
 
         $categories = DB::table('categories')
         ->join('category_restaurant' , 'category_restaurant.category_id' , '=' , 'categories.id')
         ->join('restaurants' , 'category_restaurant.restaurant_id' , '=' , 'restaurants.id')
-        ->where('restaurants.id' , '=' ,$id)
+        ->where('restaurants.slug' , '=' ,$slug)
         ->select('categories.name')
         ->get();
 

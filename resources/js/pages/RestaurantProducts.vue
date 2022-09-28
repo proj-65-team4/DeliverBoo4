@@ -36,21 +36,10 @@
                     />
                 </div>
                 <div class="col">
-<<<<<<< HEAD
-                    <h1 class="fw-bold">
-                        {{ restaurant_data.restaurant_name }}
-                    </h1>
-                    <span v-for="category in categories"
-                        >{{ category.name }}
-                    </span>
-                    <h5>{{ restaurant_data.address }}</h5>
-                    <h5>{{ restaurant_data.city }}</h5>
-=======
                     <h1 class="fw-bold">{{restaurant_data.restaurant_name}}</h1>
                     <span v-for="category in categories" :key="category.id">{{ category.name }} </span>
                     <h5>{{restaurant_data.address}}</h5>
                     <h5>{{restaurant_data.city}}</h5>
->>>>>>> 52a8b3a8169e49965b6bfe7e22ba88c16933d1db
                 </div>
                 <div class="col-3">
                     <div>
@@ -258,7 +247,7 @@ export default {
     computed: {
         fetchData() {
             axios
-                .get("/api/" + this.$route.params.restaurant_id + "/products")
+                .get("/api/" + this.$route.params.restaurant_slug + "/products")
                 .then((resp) => {
                     console.log(resp.data);
                     this.products = resp.data.products;

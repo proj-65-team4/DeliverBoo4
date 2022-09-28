@@ -5715,7 +5715,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     fetchData: function fetchData() {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/" + this.$route.params.restaurant_id + "/products").then(function (resp) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/" + this.$route.params.restaurant_slug + "/products").then(function (resp) {
         console.log(resp.data);
         _this.products = resp.data.products;
         _this.courses = resp.data.courses;
@@ -5926,7 +5926,7 @@ var render = function render() {
       to: {
         name: "restaurant.products",
         params: {
-          restaurant_id: _vm.restaurant.user_id
+          restaurant_slug: _vm.restaurant.slug
         }
       }
     }
@@ -6808,17 +6808,13 @@ var render = function render() {
       }
     })]), _vm._v(" "), _c("div", {
       staticClass: "col"
-    }, [_vm._v("\n<<<<<<< HEAD\n                    "), _c("h1", {
-      staticClass: "fw-bold"
-    }, [_vm._v("\n                        " + _vm._s(restaurant_data.restaurant_name) + "\n                    ")]), _vm._v(" "), _vm._l(_vm.categories, function (category) {
-      return _c("span", [_vm._v(_vm._s(category.name) + "\n                    ")]);
-    }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.address))]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.city))]), _vm._v("\n=======\n                    "), _c("h1", {
+    }, [_c("h1", {
       staticClass: "fw-bold"
     }, [_vm._v(_vm._s(restaurant_data.restaurant_name))]), _vm._v(" "), _vm._l(_vm.categories, function (category) {
       return _c("span", {
         key: category.id
       }, [_vm._v(_vm._s(category.name) + " ")]);
-    }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.address))]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.city))]), _vm._v("\n>>>>>>> 52a8b3a8169e49965b6bfe7e22ba88c16933d1db\n                ")], 2), _vm._v(" "), _vm._m(1, true)]);
+    }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.address))]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.city))])], 2), _vm._v(" "), _vm._m(1, true)]);
   }), _vm._v(" "), _c("div", {
     staticClass: "accordion accordion-flush",
     attrs: {
@@ -6882,7 +6878,7 @@ var render = function render() {
         staticClass: "under-image"
       }, [_c("div", {
         staticClass: "title-price"
-      }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("\n                                                        € " + _vm._s(product.price) + "\n                                                    ")])])])])]), _vm._v(" "), _c("div", {
+      }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("\n                                                    € " + _vm._s(product.price) + "\n                                                ")])])])])]), _vm._v(" "), _c("div", {
         staticClass: "modal fade",
         attrs: {
           id: "exampleModal-" + product.id,
@@ -6909,7 +6905,7 @@ var render = function render() {
           src: product.image,
           alt: ""
         }
-      }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("\n                                                        € " + _vm._s(product.price) + "\n                                                    ")]), _vm._v(" "), _c("h5", [_vm._v("\n                                                        " + _vm._s(product.description) + "\n                                                    ")]), _vm._v(" "), _c("div", {
+      }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("\n                                                    € " + _vm._s(product.price) + "\n                                                ")]), _vm._v(" "), _c("h5", [_vm._v("\n                                                    " + _vm._s(product.description) + "\n                                                ")]), _vm._v(" "), _c("div", {
         staticClass: "d-flex justify-content-evenly"
       }, [_c("button", {
         staticClass: "btn btn-primary",
@@ -6937,11 +6933,11 @@ var render = function render() {
           staticClass: "row row-cols-3"
         }, [_c("div", {
           staticClass: "col"
-        }, [_vm._v("\n                                                                " + _vm._s(item.name) + "\n                                                            ")]), _vm._v(" "), _c("div", {
+        }, [_vm._v("\n                                                            " + _vm._s(item.name) + "\n                                                        ")]), _vm._v(" "), _c("div", {
           staticClass: "col text-center"
-        }, [_vm._v("\n                                                                " + _vm._s(item.quantity) + "\n                                                            ")]), _vm._v(" "), _c("div", {
+        }, [_vm._v("\n                                                            " + _vm._s(item.quantity) + "\n                                                        ")]), _vm._v(" "), _c("div", {
           staticClass: "col text-center"
-        }, [_vm._v("\n                                                                €\n                                                                " + _vm._s((item.quantity * parseFloat(item.price)).toFixed(2)) + "\n                                                            ")])]);
+        }, [_vm._v("\n                                                            €\n                                                            " + _vm._s((item.quantity * parseFloat(item.price)).toFixed(2)) + "\n                                                        ")])]);
       }), 0)]), _vm._v(" "), _vm._m(2, true)])])])]);
     }), 0)])])]);
   }), 0)], 2)]);
@@ -6964,7 +6960,7 @@ var staticRenderFns = [function () {
     staticClass: "col-3"
   }, [_c("div", [_c("i", {
     staticClass: "fa-solid fa-truck"
-  }), _vm._v(" Consegna tra 20 - 35\n                        min\n                    ")])]);
+  }), _vm._v(" Consegna tra 20 - 35\n                    min\n                ")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
@@ -6977,7 +6973,7 @@ var staticRenderFns = [function () {
       type: "button",
       "data-bs-dismiss": "modal"
     }
-  }, [_vm._v("\n                                                        Aggiungi\n                                                    ")])]);
+  }, [_vm._v("\n                                                    Aggiungi\n                                                ")])]);
 }];
 render._withStripped = true;
 
@@ -30345,7 +30341,7 @@ var routes = [{
   component: _pages_home_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
   name: "home"
 }, {
-  path: "/:restaurant_id/products",
+  path: "/:restaurant_slug/products",
   component: _pages_RestaurantProducts_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   name: "restaurant.products",
   meta: {

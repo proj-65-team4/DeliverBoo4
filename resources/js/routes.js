@@ -17,7 +17,7 @@ export const routes = [
   },
 
   {
-    path: "/:restaurant_id/products",
+    path: "/:restaurant_slug/products",
     component: RestaurantProducts,
     name: "restaurant.products",
     meta: { title: "Ristorante" },
