@@ -7032,10 +7032,20 @@ var render = function render() {
   }, [_c("h1", {
     staticClass: "py-5"
   }, [_vm._v("Le categorie che amate")]), _vm._v(" "), _c("TheCarousel", {
+    staticClass: "d-none d-md-block",
     attrs: {
       categorie: _vm.categories
     }
-  })], 1);
+  }), _vm._v(" "), _c("div", {
+    staticClass: "d-block d-md-none container"
+  }, [_c("div", {
+    staticClass: "row"
+  }, _vm._l(_vm.categories, function (category) {
+    return _c("div", {
+      key: category.id,
+      staticClass: "col"
+    }, [_vm._v(_vm._s(category.name))]);
+  }), 0)])], 1);
 };
 
 var staticRenderFns = [];
@@ -30371,7 +30381,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })

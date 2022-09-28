@@ -4,8 +4,13 @@
 
             <h1 class="py-5">Le categorie che amate</h1>
  
-           <TheCarousel :categorie="categories"></TheCarousel>
+           <TheCarousel class="d-none d-md-block" :categorie="categories"></TheCarousel>
+            <div class="d-block d-md-none container">
+                <div class="row">
+                    <div class="col" v-for="category in categories" :key="category.id">{{category.name}}</div>
+                </div>
 
+            </div>
            
     </div>
 </template>
