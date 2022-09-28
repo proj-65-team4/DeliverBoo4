@@ -5514,7 +5514,7 @@ window.addEventListener("scroll", function () {
 
   /* computed: {
       carts() {
-           setInterval(() => {
+            setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -5562,7 +5562,6 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("customer_telephone", this.telephone); */
       // formData.append(document.getElementById('credit-card-number'));
       // formData.append(document.getElementById('expiration'));
-      debugger;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/ordina", {
         customer_name: this.customer_name,
         customer_surname: this.customer_surname,
@@ -5594,18 +5593,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.carts();
+    braintree.dropin.create({
+      authorization: "sandbox_rzbhrwvw_jvtyvgv4fdj4br5y",
+      selector: "#dropin-container"
+    }, function (err, instance) {
+      button.addEventListener("click", function () {
+        instance.requestPaymentMethod(function (err, payload) {});
+      });
+    });
   }
 });
 var button = document.getElementById("sub");
 var form = document.querySelector("form");
-braintree.dropin.create({
-  authorization: "sandbox_rzbhrwvw_jvtyvgv4fdj4br5y",
-  selector: "#dropin-container"
-}, function (err, instance) {
-  button.addEventListener("click", function () {
-    instance.requestPaymentMethod(function (err, payload) {});
-  });
-});
 
 /***/ }),
 
@@ -30377,7 +30376,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
