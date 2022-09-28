@@ -11,10 +11,10 @@
                             </div>
                         </div>
                         <div class="col">
-                            <h5 class="fw-bold">{{ restaurant.restaurant_name }}</h5>
+                            <h5 class="fw-bold text-capitalize">{{ restaurant.restaurant_name }}</h5>
                             <div class="row">
                                 <div class="col">
-                                    <h6>{{ restaurant.address}}</h6>
+                                    <h6 class="text-capitalize">{{ restaurant.address}}</h6>
                                     <h6> {{ restaurant.city}}</h6>
                                 </div>
                                 <div class="col text-muted">
