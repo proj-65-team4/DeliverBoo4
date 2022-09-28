@@ -6234,7 +6234,9 @@ var staticRenderFns = [function () {
     staticClass: "col"
   }, [_c("div", {
     staticClass: "footer-title"
-  }, [_vm._v("Porta DeliveBoo con te")]), _vm._v(" "), _c("div", {}, [_c("a", {
+  }, [_vm._v("Porta DeliveBoo con te")]), _vm._v(" "), _c("div", {
+    staticClass: "app-links"
+  }, [_c("a", {
     attrs: {
       href: "#"
     }
@@ -12423,7 +12425,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-2a04c4de] {\n  max-width: 200px;\n}\n.bg-footer[data-v-2a04c4de] {\n  background-color: #0b0b0b;\n}\n.footer-title[data-v-2a04c4de] {\n  font-weight: bold;\n  display: inline-block;\n  color: #FFCA3A;\n  margin: 0 0.5rem;\n}\n.link-list[data-v-2a04c4de] {\n  list-style-type: none;\n  margin-bottom: 0;\n  font-size: 0.9rem;\n  margin: 0;\n  padding: 0;\n}\n.link-list a[data-v-2a04c4de] {\n  color: white;\n  text-decoration: none;\n  padding: 0.5rem;\n}\n.link-list a[data-v-2a04c4de]:hover {\n  text-decoration: underline;\n}\n.link-list li[data-v-2a04c4de] {\n  margin: 1rem 0;\n}\n@media only screen and (max-width: 568px) {\na p[data-v-2a04c4de] {\n    text-indent: 0px;\n}\n.link-list li[data-v-2a04c4de] {\n    margin: 0;\n    height: 63px;\n    padding-left: 10px;\n}\n.link-list a[data-v-2a04c4de] {\n    padding: 0;\n}\np[data-v-2a04c4de] {\n    margin-bottom: 0;\n}\n.row.test[data-v-2a04c4de] {\n    align-items: baseline;\n}\n.footer-title[data-v-2a04c4de] {\n    padding-bottom: 1.5rem;\n}\n}", ""]);
+exports.push([module.i, "img[data-v-2a04c4de] {\n  max-width: 200px;\n}\n.bg-footer[data-v-2a04c4de] {\n  background-color: #0b0b0b;\n}\n.footer-title[data-v-2a04c4de] {\n  font-weight: bold;\n  display: inline-block;\n  color: #FFCA3A;\n  padding-bottom: 1rem;\n}\n.link-list[data-v-2a04c4de] {\n  list-style-type: none;\n  margin-bottom: 0;\n  font-size: 0.9rem;\n  margin: 0;\n  padding: 0;\n}\n.link-list a[data-v-2a04c4de] {\n  color: white;\n  text-decoration: none;\n  padding: 0.5rem;\n}\n.link-list a[data-v-2a04c4de]:hover {\n  text-decoration: underline;\n}\n.link-list li[data-v-2a04c4de] {\n  height: 50px;\n}\n.app-links[data-v-2a04c4de] {\n  padding-top: 1rem;\n}\n@media only screen and (max-width: 768px) {\n.link-list li[data-v-2a04c4de] {\n    height: 60px;\n}\n}\n@media only screen and (max-width: 568px) {\na p[data-v-2a04c4de] {\n    text-indent: 0px;\n}\n.link-list li[data-v-2a04c4de] {\n    margin: 0;\n    height: 63px;\n    padding-left: 10px;\n}\n.link-list a[data-v-2a04c4de] {\n    padding: 0;\n}\np[data-v-2a04c4de] {\n    margin-bottom: 0;\n}\n.row.test[data-v-2a04c4de] {\n    align-items: baseline;\n}\n.footer-title[data-v-2a04c4de] {\n    padding-bottom: 1.5rem;\n    margin-left: 10px;\n}\n.app-links[data-v-2a04c4de] {\n    padding-top: 0rem;\n}\n}", ""]);
 
 // exports
 

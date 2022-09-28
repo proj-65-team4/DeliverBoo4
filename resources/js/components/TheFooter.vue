@@ -29,7 +29,7 @@
                     </div>         
                     <div class="col">
                         <div class="footer-title">Porta DeliveBoo con te</div>
-                        <div class="">
+                        <div class="app-links">
                             <a href="#"><img src="/img/app-store.png" alt="" class=""></a>
                             <a href="#"><img src="/img/play-store.png" alt="" class="mt-sm-0 mt-md-4"></a>
                         </div>
@@ -136,7 +136,7 @@
         font-weight: bold;
         display: inline-block;
         color: #FFCA3A;
-        margin: 0 0.5rem;
+        padding-bottom: 1rem;
     }
     .link-list {
         list-style-type: none;
@@ -152,12 +152,23 @@
                     text-decoration: underline;
                 }
         }
-        li {
-            margin: 1rem 0;
-        }
     }
 
-    @media only screen and (max-width: 568px){
+    .link-list li{
+        height: 50px;
+    }
+
+    .app-links{
+        padding-top: 1rem;
+    }
+
+
+@media only screen and (max-width: 768px){
+    .link-list li{
+        height: 60px;
+    }
+}    
+@media only screen and (max-width: 568px){
         a p{
             text-indent: 0px;
         }
@@ -182,6 +193,11 @@
 
         .footer-title{
             padding-bottom: 1.5rem;
+            margin-left: 10px;
         }
+
+        .app-links{
+        padding-top: 0rem;
     }
+}
 </style>
