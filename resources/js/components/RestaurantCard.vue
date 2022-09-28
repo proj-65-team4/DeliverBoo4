@@ -2,7 +2,7 @@
     <div>
         <div class="row py-2">
             <div class="col">
-                <router-link :to="{name: 'restaurant.products', params:{'restaurant_id': restaurant.user_id}}">
+                <router-link :to="{name: 'restaurant.products', params:{'restaurant_slug': restaurant.slug}}">
                     <div class="row p-3 border rounded shadow">
                         <div class="col-3">
                             <div class="w-100">

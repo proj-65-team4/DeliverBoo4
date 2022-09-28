@@ -118,7 +118,6 @@ export default {
       formData.append("customer_telephone", this.telephone); */
       // formData.append(document.getElementById('credit-card-number'));
       // formData.append(document.getElementById('expiration'));
-      debugger;
       Axios.post("/api/ordina", {
         customer_name: this.customer_name,
         customer_surname: this.customer_surname,
@@ -147,12 +146,7 @@ export default {
   },
   mounted() {
     this.carts();
-  },
-};
-const button = document.getElementById("sub");
-const form = document.querySelector("form");
-
-braintree.dropin.create(
+    braintree.dropin.create(
   {
     authorization: "sandbox_rzbhrwvw_jvtyvgv4fdj4br5y",
     selector: "#dropin-container",
@@ -163,6 +157,12 @@ braintree.dropin.create(
     });
   }
 );
+  },
+};
+const button = document.getElementById("sub");
+const form = document.querySelector("form");
+
+
 </script>
 
 <style lang="scss" scoped>
