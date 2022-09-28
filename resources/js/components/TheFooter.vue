@@ -6,19 +6,25 @@
                     <div class="col">
                         <div class="footer-title pb-3">Scopri DeliveBoo</div>
                         <ul class="link-list">
-                            <li v-for="link in scopriLinks" :key="link.link"> <a :href="link.href">{{ link.link }}</a> </li>
+                            <li v-for="link in scopriLinks" :key="link.link"> 
+                                <a :href="link.href">{{ link.link }}</a> 
+                            </li>
                         </ul>
                     </div>     
                     <div class="col">
                         <div class="footer-title pb-3">Servizio Clienti</div>
                         <ul class="link-list">
-                            <li v-for="link in clientiLinks" :key="link.link"> <a :href="link.href">{{ link.link }}</a> </li>
+                            <li v-for="link in clientiLinks" :key="link.link">
+                                <a :href="link.href">{{ link.link }}</a> 
+                            </li>
                         </ul>
                     </div>
-                    <div class="col ">
+                    <div class="col">
                         <div class="footer-title pb-3">Note legali</div>
                         <ul class="link-list">
-                            <li v-for="link in legalLinks" :key="link.link"> <a :href="link.href">{{ link.link }}</a> </li>
+                            <li v-for="link in legalLinks" :key="link.link"> 
+                                <a :href="link.href">{{ link.link }}</a>
+                            </li>
                         </ul>
                     </div>         
                     <div class="col">
@@ -149,5 +155,11 @@
         li {
             margin: 1rem 0;
         }
+    }
+
+    @media only screen and (max-width: 460px){
+        /* .link-list a{
+            font-size: 13px;
+        } */
     }
 </style>

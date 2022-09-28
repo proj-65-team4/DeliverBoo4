@@ -6,7 +6,7 @@
                     <div>
                         <div>Made with <i class="fa-solid fa-heart"></i> + <img class="brain-ico" src="https://img.icons8.com/external-glyph-icons-maxicons/85/000000/external-brain-medical-glyph-glyph-icons-maxicons.png"/> by Team 4</div>
                         <div class="d-flex gap-2 align-items-center team-names">
-                            <div>© 2022</div>
+                            <div class="flex-shrink-0 year">© 2022</div>
                             <a href="https://github.com/felicetto13">Felice</a>
                             <a href="https://github.com/Michael-Bombini">Michael</a>
                             <a href="https://github.com/erica201193">Erica</a>
@@ -113,6 +113,14 @@
     @media only screen and (max-width: 460px){
         #deliveboo{
         width: 100px;
+        }
+
+        .team-names a{
+            font-size: 13px;
+        }
+
+        .year{
+            font-size: 13px;
         }
     }
 </style>
