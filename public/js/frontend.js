@@ -6099,7 +6099,7 @@ var staticRenderFns = [function () {
       src: "https://img.icons8.com/external-glyph-icons-maxicons/85/000000/external-brain-medical-glyph-glyph-icons-maxicons.png"
     }
   }), _vm._v(" by Team 4")]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex gap-2 align-items-center team-names flex-shrink-0"
+    staticClass: "d-flex align-items-center team-names flex-shrink-0"
   }, [_c("div", {
     staticClass: "flex-shrink-0 year"
   }, [_vm._v("© 2022")]), _vm._v(" "), _c("a", {
@@ -6180,11 +6180,11 @@ var render = function render() {
   }, [_c("div", {
     staticClass: "container"
   }, [_c("div", {
-    staticClass: "row pt-5 pb-4"
+    staticClass: "row test pt-5 pb-4"
   }, [_c("div", {
     staticClass: "col"
   }, [_c("div", {
-    staticClass: "footer-title pb-3"
+    staticClass: "footer-title"
   }, [_vm._v("Scopri DeliveBoo")]), _vm._v(" "), _c("ul", {
     staticClass: "link-list"
   }, _vm._l(_vm.scopriLinks, function (link) {
@@ -6194,11 +6194,11 @@ var render = function render() {
       attrs: {
         href: link.href
       }
-    }, [_vm._v(_vm._s(link.link))])]);
+    }, [_c("p", [_vm._v(_vm._s(link.link))])])]);
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "col"
   }, [_c("div", {
-    staticClass: "footer-title pb-3"
+    staticClass: "footer-title"
   }, [_vm._v("Servizio Clienti")]), _vm._v(" "), _c("ul", {
     staticClass: "link-list"
   }, _vm._l(_vm.clientiLinks, function (link) {
@@ -6208,11 +6208,11 @@ var render = function render() {
       attrs: {
         href: link.href
       }
-    }, [_vm._v(_vm._s(link.link))])]);
+    }, [_c("p", [_vm._v(_vm._s(link.link))])])]);
   }), 0)]), _vm._v(" "), _c("div", {
     staticClass: "col"
   }, [_c("div", {
-    staticClass: "footer-title pb-3"
+    staticClass: "footer-title"
   }, [_vm._v("Note legali")]), _vm._v(" "), _c("ul", {
     staticClass: "link-list"
   }, _vm._l(_vm.legalLinks, function (link) {
@@ -6222,7 +6222,7 @@ var render = function render() {
       attrs: {
         href: link.href
       }
-    }, [_vm._v(_vm._s(link.link))])]);
+    }, [_c("p", [_vm._v(_vm._s(link.link))])])]);
   }), 0)]), _vm._v(" "), _vm._m(0)])])])]);
 };
 
@@ -6233,7 +6233,7 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "col"
   }, [_c("div", {
-    staticClass: "footer-title pb-3"
+    staticClass: "footer-title"
   }, [_vm._v("Porta DeliveBoo con te")]), _vm._v(" "), _c("div", {}, [_c("a", {
     attrs: {
       href: "#"
@@ -6455,16 +6455,14 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("ul", {
-    staticClass: "list-unstyled mb-0"
-  }, [_c("li", [_c("a", {
+  return _c("a", {
     staticClass: "login",
     attrs: {
       href: "/login"
     }
   }, [_c("i", {
     staticClass: "fa-solid fa-right-to-bracket"
-  }), _vm._v(" Accedi")])])]);
+  }), _vm._v(" Accedi\n                ")]);
 }];
 render._withStripped = true;
 
@@ -12396,7 +12394,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "#deliveboo[data-v-fe5c207c] {\n  width: 120px;\n  filter: brightness(0) invert(1);\n}\n.social-icon[data-v-fe5c207c] {\n  transition: 0.3s ease-in-out;\n}\n.facebook-icon[data-v-fe5c207c]:hover {\n  color: #1877F2;\n}\n.insta-icon[data-v-fe5c207c]:hover {\n  color: #E4405F;\n}\n.twitter-icon[data-v-fe5c207c]:hover {\n  color: #1DA1F2;\n}\n.copyright-bg[data-v-fe5c207c] {\n  background: #0b0b0b;\n  width: 100%;\n}\n.copyright-container[data-v-fe5c207c] {\n  border-top: 1px solid #3da5d9;\n}\n.copyright-bar[data-v-fe5c207c] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  color: white;\n}\n.copyright-bar a[data-v-fe5c207c] {\n  text-decoration: none;\n  color: white;\n}\n.copyright-bar li[data-v-fe5c207c] {\n  display: inline-block;\n}\n.brain-ico[data-v-fe5c207c] {\n  width: 20px;\n  filter: brightness(0) invert(1);\n}\n.team-names a[data-v-fe5c207c] {\n  color: #4ecdf0;\n  transition: all 0.3s ease;\n}\n.team-names a[data-v-fe5c207c]:hover {\n  transform: scale(1.1);\n  transition: all 0.3s ease;\n  color: #22a7fa;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-fe5c207c] {\n    width: 100px;\n}\n.team-names a[data-v-fe5c207c] {\n    font-size: 13px;\n}\n.year[data-v-fe5c207c] {\n    font-size: 13px;\n}\n}", ""]);
+exports.push([module.i, "#deliveboo[data-v-fe5c207c] {\n  width: 120px;\n  filter: brightness(0) invert(1);\n}\n.social-icon[data-v-fe5c207c] {\n  transition: 0.3s ease-in-out;\n}\n.facebook-icon[data-v-fe5c207c]:hover {\n  color: #1877F2;\n}\n.insta-icon[data-v-fe5c207c]:hover {\n  color: #E4405F;\n}\n.twitter-icon[data-v-fe5c207c]:hover {\n  color: #1DA1F2;\n}\n.copyright-bg[data-v-fe5c207c] {\n  background: #0b0b0b;\n  width: 100%;\n}\n.copyright-container[data-v-fe5c207c] {\n  border-top: 1px solid #3da5d9;\n}\n.copyright-bar[data-v-fe5c207c] {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  color: white;\n}\n.copyright-bar a[data-v-fe5c207c] {\n  text-decoration: none;\n  color: white;\n}\n.copyright-bar li[data-v-fe5c207c] {\n  display: inline-block;\n}\n.brain-ico[data-v-fe5c207c] {\n  width: 20px;\n  filter: brightness(0) invert(1);\n}\n.team-names[data-v-fe5c207c] {\n  gap: 10px;\n}\n.team-names a[data-v-fe5c207c] {\n  color: #4ecdf0;\n  transition: all 0.3s ease;\n}\n.team-names a[data-v-fe5c207c]:hover {\n  transform: scale(1.1);\n  transition: all 0.3s ease;\n  color: #22a7fa;\n}\n@media only screen and (max-width: 568px) {\n#deliveboo[data-v-fe5c207c] {\n    width: 100px;\n}\n.team-names[data-v-fe5c207c] {\n    gap: 3px;\n}\n.team-names a[data-v-fe5c207c] {\n    font-size: 13px;\n}\n.year[data-v-fe5c207c] {\n    font-size: 13px;\n}\n}", ""]);
 
 // exports
 
@@ -12415,7 +12413,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "img[data-v-2a04c4de] {\n  max-width: 200px;\n}\n.bg-footer[data-v-2a04c4de] {\n  background-color: #0b0b0b;\n}\n.footer-title[data-v-2a04c4de] {\n  font-weight: bold;\n  display: inline-block;\n  color: #FFCA3A;\n  margin: 0 0.5rem;\n}\n.link-list[data-v-2a04c4de] {\n  list-style-type: none;\n  margin-bottom: 0;\n  font-size: 0.9rem;\n  margin: 0;\n  padding: 0;\n}\n.link-list a[data-v-2a04c4de] {\n  color: white;\n  text-decoration: none;\n  padding: 0.5rem;\n}\n.link-list a[data-v-2a04c4de]:hover {\n  text-decoration: underline;\n}\n.link-list li[data-v-2a04c4de] {\n  margin: 1rem 0;\n}\n@media only screen and (max-width: 460px) {\n  /* .link-list a{\n      font-size: 13px;\n  } */\n}", ""]);
+exports.push([module.i, "img[data-v-2a04c4de] {\n  max-width: 200px;\n}\n.bg-footer[data-v-2a04c4de] {\n  background-color: #0b0b0b;\n}\n.footer-title[data-v-2a04c4de] {\n  font-weight: bold;\n  display: inline-block;\n  color: #FFCA3A;\n  margin: 0 0.5rem;\n}\n.link-list[data-v-2a04c4de] {\n  list-style-type: none;\n  margin-bottom: 0;\n  font-size: 0.9rem;\n  margin: 0;\n  padding: 0;\n}\n.link-list a[data-v-2a04c4de] {\n  color: white;\n  text-decoration: none;\n  padding: 0.5rem;\n}\n.link-list a[data-v-2a04c4de]:hover {\n  text-decoration: underline;\n}\n.link-list li[data-v-2a04c4de] {\n  margin: 1rem 0;\n}\n@media only screen and (max-width: 568px) {\na p[data-v-2a04c4de] {\n    text-indent: 0px;\n}\n.link-list li[data-v-2a04c4de] {\n    margin: 0;\n    height: 63px;\n    padding-left: 10px;\n}\n.link-list a[data-v-2a04c4de] {\n    padding: 0;\n}\np[data-v-2a04c4de] {\n    margin-bottom: 0;\n}\n.row.test[data-v-2a04c4de] {\n    align-items: baseline;\n}\n.footer-title[data-v-2a04c4de] {\n    padding-bottom: 1.5rem;\n}\n}", ""]);
 
 // exports
 
@@ -12453,7 +12451,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bgcolor[data-v-eca07cf4],\n.scrolled[data-v-eca07cf4] {\n  background: #ffab00;\n}\n#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n\n/* .cart {\n    display: none;\n}\n.counter-cart {\n    position: absolute;\n    width: 10px;\n    aspect-ratio: 1;\n    padding: 0.15rem;\n    border-radius: 50%;\n    background-color: red;\n} */\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 200px;\n  width: 100%;\n  transition: background 0.8s ease;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.7rem 0.9rem;\n  margin-right: 1rem;\n  background: #3da5d9;\n}\n.login[data-v-eca07cf4]:hover {\n  background: #3db7d9;\n}\n.login i[data-v-eca07cf4] {\n  font-size: 1rem;\n}\n.fixed-cart[data-v-eca07cf4] {\n  position: fixed;\n  bottom: 0;\n  margin: 20px;\n  width: 60px;\n  height: 60px;\n  right: 0;\n  border-radius: 50px;\n  background-color: rgb(40, 191, 214);\n}\n.fixed-cart[data-v-eca07cf4]:hover, .fixed-cart[data-v-eca07cf4]:active, .fixed-cart[data-v-eca07cf4]:focus {\n  background-color: rgb(40, 191, 214);\n  border: 0;\n}\n.fixed-cart i[data-v-eca07cf4] {\n  font-size: 1.7rem;\n  color: white;\n}\n@media only screen and (max-width: 460px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.3rem 0.5rem;\n}\n.login i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n}", ""]);
+exports.push([module.i, ".bgcolor[data-v-eca07cf4],\n.scrolled[data-v-eca07cf4] {\n  background: #ffab00;\n}\n#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n\n/* .cart {\n    display: none;\n}\n.counter-cart {\n    position: absolute;\n    width: 10px;\n    aspect-ratio: 1;\n    padding: 0.15rem;\n    border-radius: 50%;\n    background-color: red;\n} */\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 200px;\n  width: 100%;\n  transition: background 0.8s ease;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.7rem 0.9rem;\n  margin-right: 1rem;\n  background: #3da5d9;\n}\n.login[data-v-eca07cf4]:hover {\n  background: #3db7d9;\n}\n.login i[data-v-eca07cf4] {\n  font-size: 1rem;\n}\n.fixed-cart[data-v-eca07cf4] {\n  position: fixed;\n  bottom: 0;\n  margin: 20px;\n  width: 60px;\n  height: 60px;\n  right: 0;\n  border-radius: 50px;\n  background-color: rgb(40, 191, 214);\n}\n.fixed-cart[data-v-eca07cf4]:hover, .fixed-cart[data-v-eca07cf4]:active, .fixed-cart[data-v-eca07cf4]:focus {\n  background-color: rgb(40, 191, 214);\n  border: 0;\n}\n.fixed-cart i[data-v-eca07cf4] {\n  font-size: 1.7rem;\n  color: white;\n}\n@media only screen and (max-width: 568px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.4rem 0.5rem;\n    margin-right: 0;\n}\n.login i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n}", ""]);
 
 // exports
 

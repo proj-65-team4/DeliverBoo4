@@ -5,7 +5,7 @@
                 <div class="copyright-bar py-3">
                     <div>
                         <div>Made with <i class="fa-solid fa-heart"></i> + <img class="brain-ico" src="https://img.icons8.com/external-glyph-icons-maxicons/85/000000/external-brain-medical-glyph-glyph-icons-maxicons.png"/> by Team 4</div>
-                        <div class="d-flex gap-2 align-items-center team-names flex-shrink-0">
+                        <div class="d-flex align-items-center team-names flex-shrink-0">
                             <div class="flex-shrink-0 year">© 2022</div>
                             <a href="https://github.com/felicetto13">Felice</a>
                             <a href="https://github.com/Michael-Bombini">Michael</a>
@@ -97,6 +97,7 @@
     }
 
 .team-names {
+    gap: 10px;
     a {
         color: #4ecdf0;
         transition: all 0.3s ease;
@@ -110,17 +111,19 @@
 
 }
 
-    @media only screen and (max-width: 460px){
+    @media only screen and (max-width: 568px){
         #deliveboo{
         width: 100px;
         }
-
+        .team-names{
+            gap: 3px;
+        }
         .team-names a{
             font-size: 13px;
         }
-
         .year{
             font-size: 13px;
         }
+
     }
 </style>
