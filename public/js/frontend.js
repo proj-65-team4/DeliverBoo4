@@ -6852,9 +6852,9 @@ var render = function render() {
     }, _vm._l(_vm.filteredProducts, function (product, index) {
       return _c("div", {
         key: product.id,
-        staticClass: "col-4"
+        staticClass: "col-12 my-col col-md-4 col-lg-4"
       }, [_c("button", {
-        staticClass: "btn w-100",
+        staticClass: "btn my-btn w-100",
         attrs: {
           type: "button",
           "data-bs-toggle": "modal",
@@ -6871,7 +6871,7 @@ var render = function render() {
         staticClass: "under-image"
       }, [_c("div", {
         staticClass: "title-price"
-      }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("\n                                                    € " + _vm._s(product.price) + "\n                                                ")])])])])]), _vm._v(" "), _c("div", {
+      }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("€ " + _vm._s(product.price))])])])])]), _vm._v(" "), _c("div", {
         staticClass: "modal fade",
         attrs: {
           id: "exampleModal-" + product.id,
@@ -12509,7 +12509,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  font-weight: 700;\n  display: flex;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  justify-content: space-between;\n  padding: 0 0.5rem;\n  margin-top: 1rem;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card img[data-v-96ac86ec] {\n  width: 180px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.product-card h6[data-v-96ac86ec] {\n  display: none;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  position: relative;\n  width: 100%;\n}\n.under-image h5[data-v-96ac86ec] {\n  flex-shrink: 0;\n}\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n.card-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n@media only screen and (max-width: 460px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.product-card h6[data-v-96ac86ec] {\n    display: inline-block;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 180px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n}", ""]);
+exports.push([module.i, ".product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card img[data-v-96ac86ec] {\n  width: 180px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  width: 100%;\n}\n\n/* .under-image h5 {\n    flex-shrink: 0;\n} */\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n.card-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.my-btn[data-v-96ac86ec]:hover {\n  color: var(--bs-btn-hover-color);\n  background-color: var(--bs-btn-hover-bg);\n  border-color: white;\n}\n@media only screen and (max-width: 1200px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n}\n}\n@media only screen and (max-width: 768px) {\n.product-card[data-v-96ac86ec] {\n    width: 80%;\n    margin: 0 58px;\n}\n}\n@media only screen and (max-width: 468px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n    margin-left: 0;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 50px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n}", ""]);
 
 // exports
 
@@ -30372,7 +30372,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
