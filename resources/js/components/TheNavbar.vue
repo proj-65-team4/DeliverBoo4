@@ -236,7 +236,6 @@ export default {
 
     .login {
         padding: 0.3rem 0.5rem;
-        margin-right: 2rem;
     }
 
     .login i {
