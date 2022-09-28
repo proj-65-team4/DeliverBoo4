@@ -85,7 +85,8 @@
 
         <div id="dropin-container"></div>
         <button id="sub" class="button button--small button--green">
-          <router-link :to="{ name: 'ThankYou' }"> Purchase </router-link>
+          <!-- <router-link :to="{ name: 'ThankYou' }"> Purchase </router-link> -->
+          invia
         </button>
       </form>
     </div>
@@ -117,14 +118,13 @@ export default {
       formData.append("customer_telephone", this.telephone); */
       // formData.append(document.getElementById('credit-card-number'));
       // formData.append(document.getElementById('expiration'));
-      debugger;
       Axios.post("/api/ordina", {
         customer_name: this.customer_name,
         customer_surname: this.customer_surname,
         customer_email: this.customer_email,
         delivery_address: this.delivery_address,
         customer_telephone: this.customer_telephone,
-        payload: this.payments,
+        cart: this.cart
       }).then((resp) => {
         console.log(resp.data);
       });
@@ -146,12 +146,7 @@ export default {
   },
   mounted() {
     this.carts();
-  },
-};
-const button = document.getElementById("sub");
-const form = document.querySelector("form");
-
-braintree.dropin.create(
+    braintree.dropin.create(
   {
     authorization: "sandbox_rzbhrwvw_jvtyvgv4fdj4br5y",
     selector: "#dropin-container",
@@ -162,6 +157,12 @@ braintree.dropin.create(
     });
   }
 );
+  },
+};
+const button = document.getElementById("sub");
+const form = document.querySelector("form");
+
+
 </script>
 
 <style lang="scss" scoped>

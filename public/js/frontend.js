@@ -5562,14 +5562,13 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("customer_telephone", this.telephone); */
       // formData.append(document.getElementById('credit-card-number'));
       // formData.append(document.getElementById('expiration'));
-      debugger;
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/ordina", {
         customer_name: this.customer_name,
         customer_surname: this.customer_surname,
         customer_email: this.customer_email,
         delivery_address: this.delivery_address,
         customer_telephone: this.customer_telephone,
-        payload: this.payments
+        cart: this.cart
       }).then(function (resp) {
         console.log(resp.data);
       });
@@ -5594,18 +5593,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.carts();
+    braintree.dropin.create({
+      authorization: "sandbox_rzbhrwvw_jvtyvgv4fdj4br5y",
+      selector: "#dropin-container"
+    }, function (err, instance) {
+      button.addEventListener("click", function () {
+        instance.requestPaymentMethod(function (err, payload) {});
+      });
+    });
   }
 });
 var button = document.getElementById("sub");
 var form = document.querySelector("form");
-braintree.dropin.create({
-  authorization: "sandbox_rzbhrwvw_jvtyvgv4fdj4br5y",
-  selector: "#dropin-container"
-}, function (err, instance) {
-  button.addEventListener("click", function () {
-    instance.requestPaymentMethod(function (err, payload) {});
-  });
-});
 
 /***/ }),
 
@@ -6673,13 +6672,7 @@ var render = function render() {
     attrs: {
       id: "sub"
     }
-  }, [_c("router-link", {
-    attrs: {
-      to: {
-        name: "ThankYou"
-      }
-    }
-  }, [_vm._v(" Purchase ")])], 1)])])]);
+  }, [_vm._v("\n        invia\n      ")])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -30379,7 +30372,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
