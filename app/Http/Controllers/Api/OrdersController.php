@@ -20,9 +20,14 @@ class OrdersController extends Controller
         $cart = $request->cart;
        /*  "subtotal","date_order","date_delivery" */
         $order= new Order();
+        
+        $order->subtotal = 0;
+        
+        foreach($cart as $item){
+            $order->subtotal +=  floatval($item['quantity']) * $item['price'];
+        }
 
         $order->fill($data);
-        $order->subtotal = 20;
         $order->date_order = Carbon::now();
         $order->date_delivery = Carbon::now();
         $order->save();
