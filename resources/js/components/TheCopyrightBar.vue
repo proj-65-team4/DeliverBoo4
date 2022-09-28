@@ -1,11 +1,11 @@
 <template>
     <div>
         <div class="copyright-bg">
-            <div class="container">
-                <div class="copyright-bar py-2">
+            <div class="container copyright-container">
+                <div class="copyright-bar py-3">
                     <div>
                         <div>Made with <i class="fa-solid fa-heart"></i> + <img class="brain-ico" src="https://img.icons8.com/external-glyph-icons-maxicons/85/000000/external-brain-medical-glyph-glyph-icons-maxicons.png"/> by Team 4</div>
-                        <div class="d-flex gap-2 align-items-center">
+                        <div class="d-flex gap-2 align-items-center team-names">
                             <div>© 2022</div>
                             <a href="https://github.com/felicetto13">Felice</a>
                             <a href="https://github.com/Michael-Bombini">Michael</a>
@@ -63,9 +63,15 @@
 
     
     .copyright-bg {
-        background: rgb(40, 191, 214);
+        background: #0b0b0b;
         width: 100%;
+
+
     }
+.copyright-container {
+    border-top: 1px solid #3da5d9;
+}
+
     .copyright-bar{ 
         display: flex;
         justify-content: space-between;
@@ -80,6 +86,8 @@
         & li{
             display: inline-block;
         }
+        
+
     }
 
     .brain-ico {
@@ -88,7 +96,19 @@
 
     }
 
+.team-names {
+    a {
+        color: #4ecdf0;
+        transition: all 0.3s ease;
+    
+    &:hover {
+        transform: scale(1.1);
+        transition: all 0.3s ease;
+        color: #22a7fa;
+    }
+    }
 
+}
 
     @media only screen and (max-width: 460px){
         #deliveboo{
