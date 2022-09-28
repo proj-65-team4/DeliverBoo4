@@ -62,7 +62,7 @@
                                     </button>
                                     </router-link>
                             </div>
-                        </ul>
+                        
                     </template>
                 </div>
             </div>

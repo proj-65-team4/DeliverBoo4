@@ -22,14 +22,14 @@
                 </div>
             </div>
 
-            <div class="row py-4" v-for="restaurant_data in restaurant">
+            <div class="row py-4" v-for="restaurant_data in restaurant" :key="restaurant_data.id">
                 <div class="col-3">
                     <img :src="'/storage/'+ restaurant_data.image" alt="" class="w-100 rounded card-img" v-if="restaurant_data.image" />
                     <img src="https://cwdaust.com.au/wpress/wp-content/uploads/2015/04/placeholder-restaurant.png" alt="" class="card-img rounded" v-else>
                 </div>
                 <div class="col">
                     <h1 class="fw-bold">{{restaurant_data.restaurant_name}}</h1>
-                    <span v-for="category in categories">{{ category.name }} </span>
+                    <span v-for="category in categories" :key="category.id">{{ category.name }} </span>
                     <h5>{{restaurant_data.address}}</h5>
                     <h5>{{restaurant_data.city}}</h5>
                 </div>
