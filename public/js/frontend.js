@@ -5727,7 +5727,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this2 = this;
 
       return this.products.filter(function (el) {
-        return el.product_course_id == _this2.id ? el : '';
+        return el.product_course_id == _this2.id ? el : "";
       });
     }
   },
@@ -5740,7 +5740,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
-    removeCart: function removeCart(index) {
+    removeCart: function removeCart(product) {
       var _this3 = this;
 
       var item = this.cart.find(function (product) {
@@ -5758,18 +5758,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       }
     },
-    addCart: function addCart(index) {
-      var _this4 = this;
-
+    addCart: function addCart(prodotto) {
       var item = this.cart.find(function (product) {
-        return product.id === _this4.products[index].id;
+        return product.id === prodotto.id;
       });
 
       if (item === undefined) {
         if (this.cart.find(function (product) {
-          return product.user_id == _this4.products[index].user_id;
+          return product.user_id == prodotto.user_id;
         }) || localStorage.cart === undefined || JSON.parse(localStorage.cart).length === 0) {
-          this.cart.push(_objectSpread(_objectSpread({}, this.products[index]), {}, {
+          this.cart.push(_objectSpread(_objectSpread({}, prodotto), {}, {
             quantity: 1
           }));
         } else {
@@ -5953,12 +5951,14 @@ var render = function render() {
   })])]), _vm._v(" "), _c("div", {
     staticClass: "col"
   }, [_c("h5", {
-    staticClass: "fw-bold"
+    staticClass: "fw-bold text-capitalize"
   }, [_vm._v(_vm._s(_vm.restaurant.restaurant_name))]), _vm._v(" "), _c("div", {
     staticClass: "row"
   }, [_c("div", {
     staticClass: "col"
-  }, [_c("h6", [_vm._v(_vm._s(_vm.restaurant.address))]), _vm._v(" "), _c("h6", [_vm._v(" " + _vm._s(_vm.restaurant.city))])]), _vm._v(" "), _c("div", {
+  }, [_c("h6", {
+    staticClass: "text-capitalize"
+  }, [_vm._v(_vm._s(_vm.restaurant.address))]), _vm._v(" "), _c("h6", [_vm._v(" " + _vm._s(_vm.restaurant.city))])]), _vm._v(" "), _c("div", {
     staticClass: "col text-muted"
   }, [_c("div", [_c("i", {
     staticClass: "fa-solid fa-location-dot"
@@ -6099,7 +6099,7 @@ var staticRenderFns = [function () {
       src: "https://img.icons8.com/external-glyph-icons-maxicons/85/000000/external-brain-medical-glyph-glyph-icons-maxicons.png"
     }
   }), _vm._v(" by Team 4")]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex gap-2 align-items-center team-names"
+    staticClass: "d-flex gap-2 align-items-center team-names flex-shrink-0"
   }, [_c("div", {
     staticClass: "flex-shrink-0 year"
   }, [_vm._v("© 2022")]), _vm._v(" "), _c("a", {
@@ -6790,6 +6790,7 @@ var render = function render() {
     staticClass: "container"
   }, [_vm._m(0), _vm._v(" "), _vm._l(_vm.restaurant, function (restaurant_data) {
     return _c("div", {
+      key: restaurant_data.id,
       staticClass: "row py-4"
     }, [_c("div", {
       staticClass: "col-3"
@@ -6807,11 +6808,17 @@ var render = function render() {
       }
     })]), _vm._v(" "), _c("div", {
       staticClass: "col"
-    }, [_c("h1", {
+    }, [_vm._v("\n<<<<<<< HEAD\n                    "), _c("h1", {
+      staticClass: "fw-bold"
+    }, [_vm._v("\n                        " + _vm._s(restaurant_data.restaurant_name) + "\n                    ")]), _vm._v(" "), _vm._l(_vm.categories, function (category) {
+      return _c("span", [_vm._v(_vm._s(category.name) + "\n                    ")]);
+    }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.address))]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.city))]), _vm._v("\n=======\n                    "), _c("h1", {
       staticClass: "fw-bold"
     }, [_vm._v(_vm._s(restaurant_data.restaurant_name))]), _vm._v(" "), _vm._l(_vm.categories, function (category) {
-      return _c("span", [_vm._v(_vm._s(category.name) + " ")]);
-    }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.address))]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.city))])], 2), _vm._v(" "), _vm._m(1, true)]);
+      return _c("span", {
+        key: category.id
+      }, [_vm._v(_vm._s(category.name) + " ")]);
+    }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.address))]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.city))]), _vm._v("\n>>>>>>> 52a8b3a8169e49965b6bfe7e22ba88c16933d1db\n                ")], 2), _vm._v(" "), _vm._m(1, true)]);
   }), _vm._v(" "), _c("div", {
     staticClass: "accordion accordion-flush",
     attrs: {
@@ -6841,7 +6848,7 @@ var render = function render() {
         }
       }
     }, [_c("span", {
-      staticClass: "fw-bold"
+      staticClass: "fw-bold text-capitalize"
     }, [_vm._v(_vm._s(course.name))])])]), _vm._v(" "), _c("div", {
       staticClass: "accordion-collapse collapse",
       attrs: {
@@ -6856,7 +6863,14 @@ var render = function render() {
     }, _vm._l(_vm.filteredProducts, function (product, index) {
       return _c("div", {
         key: product.id,
-        staticClass: "col-sm-12 col-md-4"
+        staticClass: "col-4"
+      }, [_c("button", {
+        staticClass: "btn w-100",
+        attrs: {
+          type: "button",
+          "data-bs-toggle": "modal",
+          "data-bs-target": "#exampleModal-" + product.id
+        }
       }, [_c("div", {
         staticClass: "product-card"
       }, [_c("img", {
@@ -6868,31 +6882,67 @@ var render = function render() {
         staticClass: "under-image"
       }, [_c("div", {
         staticClass: "title-price"
-      }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("€ " + _vm._s(product.price))])]), _vm._v(" "), _c("h6", {
-        staticClass: "px-3"
-      }, [_vm._v(_vm._s(product.description))]), _vm._v(" "), _c("div", {
-        staticClass: "cart-btn"
-      }, [_vm._m(2, true), _vm._v(" "), _c("div", [_vm._v("quantità")]), _vm._v(" "), _c("div", {
-        staticClass: "d-flex flex-column"
+      }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("\n                                                        € " + _vm._s(product.price) + "\n                                                    ")])])])])]), _vm._v(" "), _c("div", {
+        staticClass: "modal fade",
+        attrs: {
+          id: "exampleModal-" + product.id,
+          tabindex: "-1",
+          "aria-labelledby": "exampleModalLabel",
+          "aria-hidden": "true"
+        }
+      }, [_c("div", {
+        staticClass: "modal-dialog modal-dialog-centered modal-dialog-scrollable"
+      }, [_c("div", {
+        staticClass: "modal-content"
       }, [_c("button", {
-        staticClass: "btn",
+        staticClass: "btn-close",
+        attrs: {
+          type: "button",
+          "data-bs-dismiss": "modal",
+          "aria-label": "Close"
+        }
+      }), _vm._v(" "), _c("div", {
+        staticClass: "modal-body"
+      }, [_c("img", {
+        staticClass: "w-100",
+        attrs: {
+          src: product.image,
+          alt: ""
+        }
+      }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("\n                                                        € " + _vm._s(product.price) + "\n                                                    ")]), _vm._v(" "), _c("h5", [_vm._v("\n                                                        " + _vm._s(product.description) + "\n                                                    ")]), _vm._v(" "), _c("div", {
+        staticClass: "d-flex justify-content-evenly"
+      }, [_c("button", {
+        staticClass: "btn btn-primary",
         on: {
           click: function click($event) {
-            return _vm.addCart(index);
+            return _vm.addCart(product);
           }
         }
       }, [_c("i", {
-        staticClass: "fa-solid fa-chevron-up"
-      })]), _vm._v(" "), _c("button", {
-        staticClass: "btn",
+        staticClass: "fa-solid fa-plus"
+      })]), _vm._v(" "), _c("div", [_vm._v("quantità")]), _vm._v(" "), _c("button", {
+        staticClass: "btn btn-primary",
         on: {
           click: function click($event) {
-            return _vm.removeCart(index);
+            return _vm.removeCart(product);
           }
         }
       }, [_c("i", {
-        staticClass: "fa-solid fa-chevron-down"
-      })])])])])])]);
+        staticClass: "fa-solid fa-minus"
+      })])]), _vm._v(" "), _c("div", {
+        staticClass: "border-bottom border-dark py-2"
+      }, _vm._l(_vm.cart, function (item) {
+        return _c("div", {
+          key: item.id,
+          staticClass: "row row-cols-3"
+        }, [_c("div", {
+          staticClass: "col"
+        }, [_vm._v("\n                                                                " + _vm._s(item.name) + "\n                                                            ")]), _vm._v(" "), _c("div", {
+          staticClass: "col text-center"
+        }, [_vm._v("\n                                                                " + _vm._s(item.quantity) + "\n                                                            ")]), _vm._v(" "), _c("div", {
+          staticClass: "col text-center"
+        }, [_vm._v("\n                                                                €\n                                                                " + _vm._s((item.quantity * parseFloat(item.price)).toFixed(2)) + "\n                                                            ")])]);
+      }), 0)]), _vm._v(" "), _vm._m(2, true)])])])]);
     }), 0)])])]);
   }), 0)], 2)]);
 };
@@ -6914,14 +6964,20 @@ var staticRenderFns = [function () {
     staticClass: "col-3"
   }, [_c("div", [_c("i", {
     staticClass: "fa-solid fa-truck"
-  }), _vm._v(" Consegna tra 20 - 35 min\n                ")])]);
+  }), _vm._v(" Consegna tra 20 - 35\n                        min\n                    ")])]);
 }, function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("span", [_vm._v("Aggiungi al carrello")]), _vm._v(" "), _c("i", {
-    staticClass: "fa-solid fa-hand-point-right"
-  })]);
+  return _c("div", {
+    staticClass: "modal-footer"
+  }, [_c("button", {
+    staticClass: "btn",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal"
+    }
+  }, [_vm._v("\n                                                        Aggiungi\n                                                    ")])]);
 }];
 render._withStripped = true;
 

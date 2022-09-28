@@ -5,7 +5,7 @@
                 <div class="copyright-bar py-3">
                     <div>
                         <div>Made with <i class="fa-solid fa-heart"></i> + <img class="brain-ico" src="https://img.icons8.com/external-glyph-icons-maxicons/85/000000/external-brain-medical-glyph-glyph-icons-maxicons.png"/> by Team 4</div>
-                        <div class="d-flex gap-2 align-items-center team-names">
+                        <div class="d-flex gap-2 align-items-center team-names flex-shrink-0">
                             <div class="flex-shrink-0 year">© 2022</div>
                             <a href="https://github.com/felicetto13">Felice</a>
                             <a href="https://github.com/Michael-Bombini">Michael</a>
