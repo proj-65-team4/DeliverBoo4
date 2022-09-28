@@ -166,7 +166,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 200px;
+    padding: 0.8rem 170px;
     width: 100%;
     transition: background 0.8s ease;
 
@@ -221,6 +221,25 @@ export default {
     }
 }
 
+
+@media only screen and (max-width: 1368px) {
+    .my-navbar{
+        padding: 0.6rem 100px;
+    }
+}
+
+@media only screen and (max-width: 1138px) {
+    .my-navbar{
+        padding: 0.6rem 50px;
+    }
+}
+
+@media only screen and (max-width: 968px) {
+    .my-navbar{
+        padding: 0.6rem 0.7rem;
+    }
+}
+
 @media only screen and (max-width: 568px) {
     #deliveboo {
         width: 130px;
@@ -242,9 +261,5 @@ export default {
     .login i {
         font-size: 0.8rem;
     }
-}
-
-@media only screen and (max-width: 768px) {
-    
 }
 </style>
