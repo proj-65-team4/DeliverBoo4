@@ -6732,12 +6732,47 @@ var render = function render() {
   return _c("div", [_c("div", {
     staticClass: "restaurant-bg"
   }, [_c("div", {
-    staticClass: "container custom-padding"
+    staticClass: "custom-padding"
   }, [_c("TheCarousel", {
+    staticClass: "d-none d-md-block",
     attrs: {
       categorie: _vm.categories
     }
-  })], 1)]), _vm._v(" "), _c("div", {
+  })], 1), _vm._v(" "), _c("div", {
+    staticClass: "d-block d-md-none d-responsive"
+  }, [_c("carousel", {
+    attrs: {
+      paginationSize: 10,
+      perPage: 2,
+      paginationColor: "#272727",
+      paginationActiveColor: "#dc623d",
+      paginationPosition: "bottom"
+    }
+  }, _vm._l(_vm.categories, function (category) {
+    return _c("slide", {
+      key: category.id
+    }, [_c("router-link", {
+      attrs: {
+        to: {
+          name: "restaurants.index",
+          params: {
+            id: category.id
+          }
+        }
+      }
+    }, [_c("div", {
+      staticClass: "category-item"
+    }, [_c("div", {
+      staticClass: "overlay"
+    }, [_c("div", {
+      staticClass: "content"
+    }, [_c("h2", [_vm._v(_vm._s(category.name))])])]), _vm._v(" "), _c("img", {
+      attrs: {
+        src: category.image,
+        alt: ""
+      }
+    })])])], 1);
+  }), 1)], 1)]), _vm._v(" "), _c("div", {
     staticClass: "container my-5"
   }, [_vm._l(_vm.categories, function (category) {
     return [category.id == _vm.currentCat ? _c("div", {
@@ -12522,7 +12557,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".custom-padding {\n  padding-top: 80px;\n}\n.restaurant-bg {\n  background-color: #FFCA3A;\n}\n.restaurant-jumbo {\n  height: 20vh;\n  width: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center;\n}", ""]);
+exports.push([module.i, ".custom-padding {\n  padding-top: 80px;\n}\n.restaurant-bg {\n  background-color: #FFCA3A;\n}\n.restaurant-jumbo {\n  height: 20vh;\n  width: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center;\n}\n.row {\n  max-width: 100%;\n}\n.d-responsive .category-item {\n  position: relative;\n}\n.d-responsive img {\n  width: 100%;\n  aspect-ratio: 16/9;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  background-position: center;\n}\n.d-responsive .overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.d-responsive h2 {\n  font-weight: bolder;\n}\n.d-responsive .content {\n  padding: 1.4rem;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: space-around;\n  color: #fff;\n}\n.d-responsive p {\n  flex-grow: 1;\n}", ""]);
 
 // exports
 

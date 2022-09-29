@@ -17,22 +17,20 @@
             >
                 <slide v-for="category in categories" :key="category.id">
                     <router-link
-                                    :to="{
-                                        name: 'restaurants.index',
-                                        params: { id: category.id },
-                                    }"
-                                    >
-                    <div class="category-item">
-                        <div class="overlay">
-                            <div class="content">
-                                <h2>{{ category.name }}</h2>
-                              
+                        :to="{
+                            name: 'restaurants.index',
+                            params: { id: category.id },
+                        }"
+                    >
+                        <div class="category-item">
+                            <div class="overlay">
+                                <div class="content">
+                                    <h2>{{ category.name }}</h2>
+                                </div>
                             </div>
+                            <img :src="category.image" alt="" />
                         </div>
-                        <img :src="category.image" alt="" />
-
-                    </div>
-                </router-link>
+                    </router-link>
                 </slide>
             </carousel>
         </div>
@@ -110,8 +108,6 @@ img {
     background-position: center;
 }
 
-
-
 .category-item {
     position: relative;
 }
@@ -148,6 +144,4 @@ h2 {
 p {
     flex-grow: 1;
 }
-
-
 </style>
