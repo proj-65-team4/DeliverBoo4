@@ -8,6 +8,7 @@
                 data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasScrolling"
                 aria-controls="offcanvasScrolling"
+                v-if="this.$route.name !== 'Checkout' && this.$route.name !== 'ThankYou'"
                 @click="carts()"
             >
                 <i class="fa-solid fa-cart-shopping"></i>
@@ -104,7 +105,7 @@ export default {
         return {
             cart: [],
             length: 0,
-            bool: false
+            bool: false,
         };
     },
     methods: {

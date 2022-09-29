@@ -16,15 +16,7 @@
                 </div>
             </div> -->
             <!-- :key="restaurant_data.id" -->
-            <div class="row">
-                <div class="col"></div>
-            </div>
-
-            <div
-                class="row py-4"
-                v-for="restaurant_data in restaurant"
-                :key="restaurant_data.id"
-            >
+            <div class="row py-4 my-4 text-capitalize" v-for="restaurant_data in restaurant" :key="restaurant_data.id">
                 <div class="col-3">
                     <img
                         :src="'/storage/' + restaurant_data.image"
@@ -32,35 +24,42 @@
                         class="w-100 rounded card-img"
                         v-if="restaurant_data.image"
                     />
-                    <img
-                        src="https://cwdaust.com.au/wpress/wp-content/uploads/2015/04/placeholder-restaurant.png"
-                        alt=""
-                        class="card-img rounded"
-                        v-else
-                    />
+                    <img v-else src="https://cwdaust.com.au/wpress/wp-content/uploads/2015/04/placeholder-restaurant.png" alt="" class="card-img rounded"/>
                 </div>
                 <div class="col">
-                    <h1 class="fw-bold">
-                        {{ restaurant_data.restaurant_name }}
-                    </h1>
-                    <span v-for="category in categories"
-                        >{{ category.name }}
-                    </span>
-                    <h5>{{ restaurant_data.address }}</h5>
-                    <h5>{{ restaurant_data.city }}</h5>
-                </div>
-                <div class="col-3">
-                    <div>
-                        <i class="fa-solid fa-truck"></i> Consegna tra 20 - 35
-                        min
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="fw-bold">
+                                {{ restaurant_data.restaurant_name }}
+                            </h1>
+                        </div>
+                            <div class="col">
+                                <span v-for="category in categories">
+                                    <div class="d-inline me-3 fw-bold">
+                                        <router-link :to="{ path: '/restaurants/' + category.id }"> {{ category.name }} </router-link>
+                                    </div>
+                                </span>
+                            </div>
+                            <div class="col">
+                                <div class="mb-2">
+                                    <i class="fa-solid fa-location-dot icon-color"></i>
+                                    <h6 class="my-3 d-inline icon-color ">{{ restaurant_data.address }}, {{ restaurant_data.city }}</h6>
+                                </div>
+                                <div>
+                                    <i class="fa-solid fa-truck icon-color"></i>
+                                    <h6 class="my-3 d-inline icon-color ">Consegna tra 20 - 35 min</h6>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
-
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div class="accordion-item" v-for="course in courses"
-                    :key="course.id">
-                    <!-- HEADER ACCORDION -->
+            <div class="accordion accordion-flush" id="accordionFlushExample" v-if="!products.length == 0">
+                <div
+                    class="accordion-item"
+                    v-for="course in courses"
+                    :key="course.id"
+                >
+                    <!-- HEADER ACCORDION --> 
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button
                             class="accordion-button collapsed"
@@ -122,6 +121,10 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div v-else class="text-center mb-5">
+                <i class="fa-solid fa-face-grin-beam-sweat fa-xl"></i>
+                <h5 class="d-inline">Ops! Ancora non ci sono prodotti inseriti, riprova tra qualche giorno!</h5>
             </div>
         </div>
     </div>
@@ -228,6 +231,18 @@ export default {
     .my-cont{
         padding: 100px 0;
     }
+    a {
+        text-decoration: none;
+        color: black;
+        padding: 0.5rem 0;
+        transition: all 0.15s ease-out;
+        &:hover {
+            color: rgb(40, 191, 214);
+        }
+    }
+.icon-color {
+    color: rgb(40, 191, 214);
+}
 .modal-btn {
     border: none;
     &:hover {
@@ -328,6 +343,12 @@ export default {
     padding: 1rem;
     border-radius: 30px;
     height: 600px;
+}
+
+.category-btn {
+    color: #eee;
+    padding: 15px 25px;
+    text-decoration: none;
 }
 
 .my-btn:hover {

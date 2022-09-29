@@ -46,7 +46,7 @@ class ProductController extends Controller
         ->join('category_restaurant' , 'category_restaurant.category_id' , '=' , 'categories.id')
         ->join('restaurants' , 'category_restaurant.restaurant_id' , '=' , 'restaurants.id')
         ->where('restaurants.slug' , '=' ,$slug)
-        ->select('categories.name')
+        ->select('categories.id', 'categories.name')
         ->get();
 
         return response()->json(["products"=>$products, "courses"=>$c, "restaurant"=>$restaurant, "categories"=>$categories]);
