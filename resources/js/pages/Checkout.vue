@@ -85,7 +85,7 @@
 
         <div id="dropin-container"></div>
         <button id="sub" class="button button--small button--green">
-          <!-- <router-link :to="{ name: 'ThankYou' }"> Purchase </router-link> -->
+          <router-link :to="{ name: 'ThankYou' }"> Purchase </router-link> -->
           invia
         </button>
       </form>
