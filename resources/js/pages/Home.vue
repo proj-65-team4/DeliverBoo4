@@ -6,27 +6,35 @@
             class="d-none d-md-block"
             :categorie="categories"
         ></TheCarousel>
-        <div class="d-block d-md-none container-fluid">
-            <div class="row">
-                <div
-                    class="col-3"
-                    v-for="category in categories"
-                    :key="category.id"
-                >
+        <div class="d-block d-md-none">
+            <carousel
+                class=""
+                :paginationSize="10"
+                :perPage="2"
+                paginationColor="#272727"
+                paginationActiveColor="#dc623d"
+                paginationPosition="bottom"
+            >
+                <slide v-for="category in categories" :key="category.id">
                     <router-link
-                        :to="{
-                            name: 'restaurants.index',
-                            params: { id: category.id },
-                        }"
-                    >
-                        <div class="bg-white px-2 py-1">
-                            <i :class="{'fa-solid fa-pizza-slice' : category.name === 'Pizza'}"></i>
-                            <span class="ms-2">{{category.name}}</span>
+                                    :to="{
+                                        name: 'restaurants.index',
+                                        params: { id: category.id },
+                                    }"
+                                    >
+                    <div class="category-item">
+                        <div class="overlay">
+                            <div class="content">
+                                <h2>{{ category.name }}</h2>
+                              
+                            </div>
                         </div>
+                        <img :src="category.image" alt="" />
 
-                    </router-link>
-                </div>
-            </div>
+                    </div>
+                </router-link>
+                </slide>
+            </carousel>
         </div>
     </div>
 </template>
@@ -99,19 +107,46 @@ img {
     aspect-ratio: 16/9;
     object-fit: cover;
     object-position: center;
-    background-position:  center;
+    background-position: center;
 }
 
-a {
-    text-decoration: none;
-    color: #000;
-    transition: color 0.3s ease;
 
-    &:hover {
-        color: rgb(5, 35, 60);
-        transition: color 0.3s ease;
-        
-    }
+
+.category-item {
+    position: relative;
+}
+img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    object-position: center;
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+h2 {
+    font-weight: bolder;
+}
+
+.content {
+    padding: 1.4rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    color: #fff;
+}
+
+p {
+    flex-grow: 1;
 }
 
 

@@ -7035,13 +7035,18 @@ var render = function render() {
       categorie: _vm.categories
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "d-block d-md-none container-fluid"
-  }, [_c("div", {
-    staticClass: "row"
+    staticClass: "d-block d-md-none"
+  }, [_c("carousel", {
+    attrs: {
+      paginationSize: 10,
+      perPage: 2,
+      paginationColor: "#272727",
+      paginationActiveColor: "#dc623d",
+      paginationPosition: "bottom"
+    }
   }, _vm._l(_vm.categories, function (category) {
-    return _c("div", {
-      key: category.id,
-      staticClass: "col-3"
+    return _c("slide", {
+      key: category.id
     }, [_c("router-link", {
       attrs: {
         to: {
@@ -7052,15 +7057,18 @@ var render = function render() {
         }
       }
     }, [_c("div", {
-      staticClass: "bg-white px-2 py-1"
-    }, [_c("i", {
-      "class": {
-        "fa-solid fa-pizza-slice": category.name === "Pizza"
+      staticClass: "category-item"
+    }, [_c("div", {
+      staticClass: "overlay"
+    }, [_c("div", {
+      staticClass: "content"
+    }, [_c("h2", [_vm._v(_vm._s(category.name))])])]), _vm._v(" "), _c("img", {
+      attrs: {
+        src: category.image,
+        alt: ""
       }
-    }), _vm._v(" "), _c("span", {
-      staticClass: "ms-2"
-    }, [_vm._v(_vm._s(category.name))])])])], 1);
-  }), 0)])], 1);
+    })])])], 1);
+  }), 1)], 1)], 1);
 };
 
 var staticRenderFns = [];
@@ -12571,7 +12579,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bg-category[data-v-bb7a9770] {\n  background: #ffca3a;\n  padding-bottom: 3rem;\n}\n.bg-category h1[data-v-bb7a9770] {\n  font-weight: bolder;\n  font-size: 4.5rem;\n  text-align: center;\n  max-width: 15ch;\n  text-align: center;\n  color: rgb(30, 29, 29);\n  margin: 0 auto;\n}\n@media only screen and (max-width: 460px) {\n.bg-category h1[data-v-bb7a9770] {\n    font-size: 2.7rem;\n}\n}\n.row[data-v-bb7a9770] {\n  max-width: 100%;\n}\nimg[data-v-bb7a9770] {\n  width: 100%;\n  aspect-ratio: 16/9;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  background-position: center;\n}\na[data-v-bb7a9770] {\n  text-decoration: none;\n  color: #000;\n  transition: color 0.3s ease;\n}\na[data-v-bb7a9770]:hover {\n  color: rgb(5, 35, 60);\n  transition: color 0.3s ease;\n}", ""]);
+exports.push([module.i, ".bg-category[data-v-bb7a9770] {\n  background: #ffca3a;\n  padding-bottom: 3rem;\n}\n.bg-category h1[data-v-bb7a9770] {\n  font-weight: bolder;\n  font-size: 4.5rem;\n  text-align: center;\n  max-width: 15ch;\n  text-align: center;\n  color: rgb(30, 29, 29);\n  margin: 0 auto;\n}\n@media only screen and (max-width: 460px) {\n.bg-category h1[data-v-bb7a9770] {\n    font-size: 2.7rem;\n}\n}\n.row[data-v-bb7a9770] {\n  max-width: 100%;\n}\nimg[data-v-bb7a9770] {\n  width: 100%;\n  aspect-ratio: 16/9;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  background-position: center;\n}\n.category-item[data-v-bb7a9770] {\n  position: relative;\n}\nimg[data-v-bb7a9770] {\n  width: 100%;\n  aspect-ratio: 16/9;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  background-position: center;\n}\n.overlay[data-v-bb7a9770] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\nh2[data-v-bb7a9770] {\n  font-weight: bolder;\n}\n.content[data-v-bb7a9770] {\n  padding: 1.4rem;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: space-around;\n  color: #fff;\n}\np[data-v-bb7a9770] {\n  flex-grow: 1;\n}", ""]);
 
 // exports
 
