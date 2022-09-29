@@ -16,8 +16,12 @@
             <div class="col text-center">{{ item.description }}</div>
             <div class="col text-center">{{ item.quantity }}</div>
             <div class="col text-center">
-              {{ (item.quantity * parseFloat(item.price)).toFixed(2) }}
+              {{ (item.quantity * parseFloat(item.price)).toFixed(2) }} €
             </div>
+          </div>
+          <div class="text-center fw-bold">
+            Prezzo totale {{totalPrice}} €
+            
           </div>
         </div>
       </div>
@@ -110,6 +114,7 @@ export default {
       cart: [],
       bool: false,
       call: false,
+      totalPrice : 0,
     };
   },
   methods: {
@@ -170,22 +175,26 @@ braintree.dropin.create(
   },
   mounted() {
     this.carts();
-    braintree.dropin.create(
-  {
-    authorization: "sandbox_g42y39zw_348pk9cgf3bgyw2b",
-    selector: "#dropin-container",
+    const button = document.getElementById("sub");
+    braintree.dropin.create({
+  authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
+  selector: '#dropin-container'
+}, function (err, instance) {
+  button.addEventListener('click', function () {
+    instance.requestPaymentMethod(function (err, payload) {
+      // Submit payload.nonce to your server
+    });
+  })
+});
+
+   this.cart.forEach((item) => {
+      this.totalPrice += item.quantity * item.price ;
+  })
+  this.totalPrice.toFixed(2);
+
   },
-  function (err, instance) {
-      const form = document.getElementById('form');
-    form.addEventListener("submit", function () {
-      instance.requestPaymentMethod(function (err, payload) {
-          if(payload){
-             
-          }
-      })
-    })
-  });
-  },
+
+
 };
 </script>
 
