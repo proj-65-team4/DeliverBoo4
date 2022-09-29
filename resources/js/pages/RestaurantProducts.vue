@@ -80,7 +80,7 @@
                             <div class="row mt-4 mb-5">
                                 <div
                                     class="col-12 my-col col-md-4 col-lg-4"
-                                    v-for="(product, index) in filteredProducts"
+                                    v-for="(product) in filteredProducts"
                                     :key="product.id">
 
                                     <!-- Card prodotto -->
@@ -93,7 +93,7 @@
                                         "
                                     >
                                         <div class="product-card">
-                                            <img :src="product.image" alt="" />
+                                            <img :src="product.image ? product.image : '/img/food-placeholder.jpeg' " alt="" />
                                             <div class="under-image">
                                                 <div class="title-price">
                                                     <h5>{{ product.name }}</h5>
@@ -126,9 +126,9 @@
                                                 <!-- Modal-body -->
                                                 <div class="modal-body">
                                                     <img
-                                                        :src="product.image"
+                                                       :src="product.image ? product.image : '/img/food-placeholder.jpeg' "
                                                         alt=""
-                                                        class="w-100"
+                                                        class="w-50"
                                                     />
                                                     <h5>{{ product.name }}</h5>
                                                     <h5>

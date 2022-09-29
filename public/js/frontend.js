@@ -5514,7 +5514,7 @@ window.addEventListener("scroll", function () {
 
   /* computed: {
       carts() {
-            setInterval(() => {
+           setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -6849,7 +6849,7 @@ var render = function render() {
       staticClass: "accordion-body"
     }, [_c("div", {
       staticClass: "row mt-4 mb-5"
-    }, _vm._l(_vm.filteredProducts, function (product, index) {
+    }, _vm._l(_vm.filteredProducts, function (product) {
       return _c("div", {
         key: product.id,
         staticClass: "col-12 my-col col-md-4 col-lg-4"
@@ -6864,7 +6864,7 @@ var render = function render() {
         staticClass: "product-card"
       }, [_c("img", {
         attrs: {
-          src: product.image,
+          src: product.image ? product.image : "/img/food-placeholder.jpeg",
           alt: ""
         }
       }), _vm._v(" "), _c("div", {
@@ -6893,9 +6893,9 @@ var render = function render() {
       }), _vm._v(" "), _c("div", {
         staticClass: "modal-body"
       }, [_c("img", {
-        staticClass: "w-100",
+        staticClass: "w-50",
         attrs: {
-          src: product.image,
+          src: product.image ? product.image : "/img/food-placeholder.jpeg",
           alt: ""
         }
       }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("\n                                                    € " + _vm._s(product.price) + "\n                                                ")]), _vm._v(" "), _c("h5", [_vm._v("\n                                                    " + _vm._s(product.description) + "\n                                                ")]), _vm._v(" "), _c("div", {
@@ -30372,7 +30372,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
