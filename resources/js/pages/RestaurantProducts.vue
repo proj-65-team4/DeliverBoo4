@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container my-cont">
             <!-- PROVA CARRELLO IN PAGINA! -->
             <!-- <div v-if="cart.length === 0">Il tuo carrello è vuoto</div>
             <div class="row flex-column" v-else>
@@ -20,7 +20,11 @@
                 <div class="col"></div>
             </div>
 
-            <div class="row py-4" v-for="restaurant_data in restaurant" :key="restaurant_data.id">
+            <div
+                class="row py-4"
+                v-for="restaurant_data in restaurant"
+                :key="restaurant_data.id"
+            >
                 <div class="col-3">
                     <img
                         :src="'/storage/' + restaurant_data.image"
@@ -52,13 +56,11 @@
                     </div>
                 </div>
             </div>
+
             <div class="accordion accordion-flush" id="accordionFlushExample">
-                <div
-                    class="accordion-item"
-                    v-for="course in courses"
-                    :key="course.id"
-                >
-                    <!-- HEADER ACCORDION --> 
+                <div class="accordion-item" v-for="course in courses"
+                    :key="course.id">
+                    <!-- HEADER ACCORDION -->
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button
                             class="accordion-button collapsed"
@@ -68,92 +70,53 @@
                             aria-expanded="false"
                             aria-controls="flush-collapseOne"
                             @click="changeID(course.id)">
-
-                            <span class="fw-bold text-capitalize">{{
-                                course.name
-                            }}</span>
+                            <span class="fw-bold text-capitalize">{{course.name}}</span>
                         </button>
                     </h2>
 
-                    <!-- BODY ACCORDION --> 
-                    <div
-                        :id="'flush-collapseOne-' + course.id"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingOne"
-                        data-bs-parent="#accordionFlushExample">
-
+                    <!-- BODY ACCORDION -->
+                    <div :id="'flush-collapseOne-' + course.id" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <div class="row mt-4 mb-5">
-                                <div
-                                    class="col-12 my-col col-md-4 col-lg-4"
-                                    v-for="(product) in filteredProducts"
-                                    :key="product.id">
-
+                                <div class="col-12 my-col col-md-4 col-lg-4" v-for="product in filteredProducts" :key="product.id">
                                     <!-- Card prodotto -->
-                                    <button type="button" class="btn my-btn modal-btn">
-                                        <div class="product-card">
-                                            <img :src="product.image ? product.image : '/img/food-placeholder.jpeg' " alt="" />
-                                            <div class="under-image">
-                                                <div class="title-price">
-                                                    <h5>{{ product.name }}</h5>
-                                                    <span>{{ product.description }}</span>
-                                                    <h5>
-                                                        € {{ product.price }}
-                                                    </h5>
-                                                </div>
-                                                <!-- Buttons per aumentare/diminuire quantità -->
-                                                <div class="row row-cols-3 justify-content-evenly my-2">
-                                                    <button @click="removeCart(product)" class="btn btn-primary">
-                                                        <i class="fa-solid fa-minus"></i>
-                                                    </button>
-                                                    
-                                                    <!-- <div v-for="item in cart" :key="item.id" class="">
-                                                        <div class="col text-center">{{ item.quantity}}</div>
-                                                    </div> -->
-
-                                                    <button @click="addCart(product)" class="btn btn-primary">
-                                                        <i class="fa-solid fa-plus"></i>
-                                                    </button>
-                                                </div>
-                                                
+                                    <div class="product-card">
+                                        <img :src="product.image ? product.image : '/img/food-placeholder.jpeg'" alt=""/>
+                                        <div class="under-image">
+                                            <div class="title-price">
+                                                <h5>{{ product.name }}</h5>
+                                        
+                                                <h5>€ {{ product.price }}</h5>
                                             </div>
-                                        </div>
-                                    </button>
 
-                                    <!-- @click="openModal(product)" -->
-                                    <!-- Modal -->
-                                    <div v-if="open" class="my-modal" :id="'myModal' + modalProduct.id" >
-                                            <div class="my-modal-content">
-                                                <!-- Close button -->
-                                                <button type="button" class="btn-close" @click="open = false"></button>
-                                                
-                                                <!-- Modal-body -->
-                                                <div class="">
-                                                    <img :src="modalProduct.image" alt="" class="w-50 rounded"/>
-                                                    <h4 class="fw-bold m-0 py-4">{{ modalProduct.name }}</h4>
-                                                    <h5>{{ modalProduct.description }}</h5>
-                                                    <h5>€ {{ modalProduct.price }}</h5>
-                                                    
-                                                    <!-- DATI Carrello -->
-                                                    <div class="border-bottom border-dark py-2">
-                                                        
-                                                        <div v-for="item in cart" :key="item.id" class="row row-cols-3">
-                                                        <div class="col">{{ item.name }}</div>
-                                                        <div class="col text-center">{{ item.quantity }}</div>
-                                                        <div class="col text-center">€ {{
-                                                            (
-                                                                item.quantity * parseFloat(item.price)
-                                                            ).toFixed(2)
-                                                        }}</div>
+                                            <!-- Buttons per aumentare/diminuire quantità -->
+                                            <div class="cart-btn">
+                                                <button
+                                                    @click="removeCart(product)"
+                                                    class="">
+                                                    <i class="fa-solid fa-minus"></i>
+                                                </button>
+
+                                                <button
+                                                    @click="addCart(product)"
+                                                    class="">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </button>
+
+                                                <div class="d-flex flex-column quantity">
+                                                    <div v-for="item in cart" :key="item.id" class="m-0 p-0">
+                                                        <div v-if="product.id == item.id">
+                                                            <div class="m-0 p-0">{{item.quantity}}</div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                </div>
-                                                <!-- Modal-footer -->
-                                                <div class="">
-                                                    <button type="button" class="btn btn-primary">Aggiungi</button>
-                                                </div>
+                                                
                                             </div>
+
+                                        </div>
                                     </div>
+                                    <!-- @click="openModal(product)" -->
+                                    <!-- Modal -->
                                 </div>
                             </div>
                         </div>
@@ -177,8 +140,8 @@ export default {
             categories: [],
             total: 0,
             id: null,
-            open: false,
-            modalProduct: [],
+            /* open: false,
+            modalProduct: [], */
         };
     },
     computed: {
@@ -207,20 +170,18 @@ export default {
         },
     },
     methods: {
-        removeCart(product) {
-            console.log(product);
-            const item = this.cart.find(
-                (product) => product.id === product.id
-            );
+        removeCart(prodotto) {
+            console.log(prodotto);
+            const item = this.cart.find((product) => product.id === prodotto.id);
+            console.log(item);
             if (item !== undefined && item.quantity !== 0) {
                 item.quantity--;
-                this.count--
+                this.count--;
                 if (item.quantity === 0) {
                     const eliminaIndice = this.cart.findIndex(
-                        (product) => product.id === product.id
+                        (product) => product.id === prodotto.id
                     );
                     this.cart.splice(eliminaIndice, 1);
-                    console.log(product);
                 }
             }
         },
@@ -250,9 +211,9 @@ export default {
             this.id = id;
         },
         openModal(prod) {
-            this.open = true
-            this.modalProduct = prod
-        }
+            this.open = true;
+            this.modalProduct = prod;
+        },
     },
     mounted() {
         if (localStorage.cart) {
@@ -264,7 +225,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+    .my-cont{
+        padding: 100px 0;
+    }
 .modal-btn {
     border: none;
     &:hover {
@@ -274,19 +237,32 @@ export default {
 .cart-btn {
     background-color: #3dd9bc;
     width: 100%;
+    height: 70px;
     font-weight: 700;
     display: flex;
+    justify-content: space-around;
     position: absolute;
     bottom: 0;
     align-items: center;
-    justify-content: space-between;
-    padding: 0 0.5rem;
-    margin-top: 1rem;
     color: #fff;
     & i {
         color: #fff;
     }
+
+    & button {
+        background-color: #3dd9bc;
+        border: unset;
+        flex-shrink: 0;
+    }
+
+    & .quantity{
+        width: 20px;
+        height: 20px;
+        border: 1px solid #fff;
+        text-align: center;
+    }
 }
+
 .product-card {
     width: 100%;
     display: flex;
@@ -301,13 +277,12 @@ export default {
 }
 
 .product-card img {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     object-position: center;
     flex-shrink: 0;
 }
-
 
 .title-price {
     padding: 12px 12px 0px 12px;
@@ -315,6 +290,7 @@ export default {
 
 .under-image {
     width: 100%;
+    position: relative;
 }
 
 /* .under-image h5 {
@@ -358,7 +334,6 @@ export default {
     color: var(--bs-btn-hover-color);
     background-color: var(--bs-btn-hover-bg);
     border-color: white;
-
 }
 
 @media only screen and (max-width: 1200px) {
@@ -375,7 +350,7 @@ export default {
 }
 
 @media only screen and (max-width: 768px) {
-    .product-card{
+    .product-card {
         width: 80%;
         margin: 0 calc((476px - 360px) / 2);
     }

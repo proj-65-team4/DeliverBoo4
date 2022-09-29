@@ -5593,18 +5593,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.carts();
+    var button = document.getElementById("sub");
     braintree.dropin.create({
-      authorization: "sandbox_rzbhrwvw_jvtyvgv4fdj4br5y",
-      selector: "#dropin-container"
+      authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
+      selector: '#dropin-container'
     }, function (err, instance) {
-      button.addEventListener("click", function () {
-        instance.requestPaymentMethod(function (err, payload) {});
+      button.addEventListener('click', function () {
+        instance.requestPaymentMethod(function (err, payload) {// Submit payload.nonce to your server
+        });
       });
     });
   }
 });
-var button = document.getElementById("sub");
-var form = document.querySelector("form");
 
 /***/ }),
 
@@ -5708,6 +5708,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       categories: [],
       total: 0,
       id: null
+      /* open: false,
+      modalProduct: [], */
+
     };
   },
   computed: {
@@ -5715,7 +5718,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/" + this.$route.params.restaurant_slug + "/products").then(function (resp) {
-        console.log(resp.data);
         _this.products = resp.data.products;
         _this.courses = resp.data.courses;
         _this.restaurant = resp.data.restaurant;
@@ -5739,19 +5741,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
-    removeCart: function removeCart(product) {
-      var _this3 = this;
-
+    removeCart: function removeCart(prodotto) {
+      console.log(prodotto);
       var item = this.cart.find(function (product) {
-        return product.id === _this3.products[index].id;
+        return product.id === prodotto.id;
       });
+      console.log(item);
 
       if (item !== undefined && item.quantity !== 0) {
         item.quantity--;
+        this.count--;
 
         if (item.quantity === 0) {
           var eliminaIndice = this.cart.findIndex(function (product) {
-            return product.id === _this3.products[index].id;
+            return product.id === prodotto.id;
           });
           this.cart.splice(eliminaIndice, 1);
         }
@@ -5776,6 +5779,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     },
     changeID: function changeID(id) {
       this.id = id;
+    },
+    openModal: function openModal(prod) {
+      this.open = true;
+      this.modalProduct = prod;
     }
   },
   mounted: function mounted() {
@@ -6787,7 +6794,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", [_c("div", {
-    staticClass: "container"
+    staticClass: "container my-cont"
   }, [_vm._m(0), _vm._v(" "), _vm._l(_vm.restaurant, function (restaurant_data) {
     return _c("div", {
       key: restaurant_data.id,
@@ -6810,10 +6817,8 @@ var render = function render() {
       staticClass: "col"
     }, [_c("h1", {
       staticClass: "fw-bold"
-    }, [_vm._v(_vm._s(restaurant_data.restaurant_name))]), _vm._v(" "), _vm._l(_vm.categories, function (category) {
-      return _c("span", {
-        key: category.id
-      }, [_vm._v(_vm._s(category.name) + " ")]);
+    }, [_vm._v("\n                    " + _vm._s(restaurant_data.restaurant_name) + "\n                ")]), _vm._v(" "), _vm._l(_vm.categories, function (category) {
+      return _c("span", [_vm._v(_vm._s(category.name) + "\n                ")]);
     }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.address))]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(restaurant_data.city))])], 2), _vm._v(" "), _vm._m(1, true)]);
   }), _vm._v(" "), _c("div", {
     staticClass: "accordion accordion-flush",
@@ -6860,13 +6865,6 @@ var render = function render() {
       return _c("div", {
         key: product.id,
         staticClass: "col-12 my-col col-md-4 col-lg-4"
-      }, [_c("button", {
-        staticClass: "btn my-btn w-100",
-        attrs: {
-          type: "button",
-          "data-bs-toggle": "modal",
-          "data-bs-target": "#exampleModal-" + product.id
-        }
       }, [_c("div", {
         staticClass: "product-card"
       }, [_c("img", {
@@ -6878,46 +6876,9 @@ var render = function render() {
         staticClass: "under-image"
       }, [_c("div", {
         staticClass: "title-price"
-      }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("€ " + _vm._s(product.price))])])])])]), _vm._v(" "), _c("div", {
-        staticClass: "modal fade",
-        attrs: {
-          id: "exampleModal-" + product.id,
-          tabindex: "-1",
-          "aria-labelledby": "exampleModalLabel",
-          "aria-hidden": "true"
-        }
-      }, [_c("div", {
-        staticClass: "modal-dialog modal-dialog-centered modal-dialog-scrollable"
-      }, [_c("div", {
-        staticClass: "modal-content"
+      }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("€ " + _vm._s(product.price))])]), _vm._v(" "), _c("div", {
+        staticClass: "cart-btn"
       }, [_c("button", {
-        staticClass: "btn-close",
-        attrs: {
-          type: "button",
-          "data-bs-dismiss": "modal",
-          "aria-label": "Close"
-        }
-      }), _vm._v(" "), _c("div", {
-        staticClass: "modal-body"
-      }, [_c("img", {
-        staticClass: "w-50",
-        attrs: {
-          src: product.image ? product.image : "/img/food-placeholder.jpeg",
-          alt: ""
-        }
-      }), _vm._v(" "), _c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", [_vm._v("\n                                                    € " + _vm._s(product.price) + "\n                                                ")]), _vm._v(" "), _c("h5", [_vm._v("\n                                                    " + _vm._s(product.description) + "\n                                                ")]), _vm._v(" "), _c("div", {
-        staticClass: "d-flex justify-content-evenly"
-      }, [_c("button", {
-        staticClass: "btn btn-primary",
-        on: {
-          click: function click($event) {
-            return _vm.addCart(product);
-          }
-        }
-      }, [_c("i", {
-        staticClass: "fa-solid fa-plus"
-      })]), _vm._v(" "), _c("div", [_vm._v("quantità")]), _vm._v(" "), _c("button", {
-        staticClass: "btn btn-primary",
         on: {
           click: function click($event) {
             return _vm.removeCart(product);
@@ -6925,20 +6886,24 @@ var render = function render() {
         }
       }, [_c("i", {
         staticClass: "fa-solid fa-minus"
-      })])]), _vm._v(" "), _c("div", {
-        staticClass: "border-bottom border-dark py-2"
+      })]), _vm._v(" "), _c("button", {
+        on: {
+          click: function click($event) {
+            return _vm.addCart(product);
+          }
+        }
+      }, [_c("i", {
+        staticClass: "fa-solid fa-plus"
+      })]), _vm._v(" "), _c("div", {
+        staticClass: "d-flex flex-column quantity"
       }, _vm._l(_vm.cart, function (item) {
         return _c("div", {
           key: item.id,
-          staticClass: "row row-cols-3"
-        }, [_c("div", {
-          staticClass: "col"
-        }, [_vm._v("\n                                                            " + _vm._s(item.name) + "\n                                                        ")]), _vm._v(" "), _c("div", {
-          staticClass: "col text-center"
-        }, [_vm._v("\n                                                            " + _vm._s(item.quantity) + "\n                                                        ")]), _vm._v(" "), _c("div", {
-          staticClass: "col text-center"
-        }, [_vm._v("\n                                                            €\n                                                            " + _vm._s((item.quantity * parseFloat(item.price)).toFixed(2)) + "\n                                                        ")])]);
-      }), 0)]), _vm._v(" "), _vm._m(2, true)])])])]);
+          staticClass: "m-0 p-0"
+        }, [product.id == item.id ? _c("div", [_c("div", {
+          staticClass: "m-0 p-0"
+        }, [_vm._v(_vm._s(item.quantity))])]) : _vm._e()]);
+      }), 0)])])])]);
     }), 0)])])]);
   }), 0)], 2)]);
 };
@@ -6961,19 +6926,6 @@ var staticRenderFns = [function () {
   }, [_c("div", [_c("i", {
     staticClass: "fa-solid fa-truck"
   }), _vm._v(" Consegna tra 20 - 35\n                    min\n                ")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "modal-footer"
-  }, [_c("button", {
-    staticClass: "btn",
-    attrs: {
-      type: "button",
-      "data-bs-dismiss": "modal"
-    }
-  }, [_vm._v("\n                                                    Aggiungi\n                                                ")])]);
 }];
 render._withStripped = true;
 
@@ -12519,7 +12471,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card img[data-v-96ac86ec] {\n  width: 180px;\n  height: 180px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  width: 100%;\n}\n\n/* .under-image h5 {\n    flex-shrink: 0;\n} */\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n.card-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.my-btn[data-v-96ac86ec]:hover {\n  color: var(--bs-btn-hover-color);\n  background-color: var(--bs-btn-hover-bg);\n  border-color: white;\n}\n@media only screen and (max-width: 1200px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n}\n}\n@media only screen and (max-width: 768px) {\n.product-card[data-v-96ac86ec] {\n    width: 80%;\n    margin: 0 58px;\n}\n}\n@media only screen and (max-width: 468px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n    margin-left: 0;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 50px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n}", ""]);
+exports.push([module.i, ".my-cont[data-v-96ac86ec] {\n  padding: 100px 0;\n}\n.modal-btn[data-v-96ac86ec] {\n  border: none;\n}\n.modal-btn[data-v-96ac86ec]:hover {\n  border: none;\n}\n.cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  height: 70px;\n  font-weight: 700;\n  display: flex;\n  justify-content: space-around;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n}\n.cart-btn button[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  border: unset;\n  flex-shrink: 0;\n}\n.cart-btn .quantity[data-v-96ac86ec] {\n  width: 20px;\n  height: 20px;\n  border: 1px solid #fff;\n  text-align: center;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card[data-v-96ac86ec]:hover {\n  box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;\n}\n.product-card img[data-v-96ac86ec] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  width: 100%;\n  position: relative;\n}\n\n/* .under-image h5 {\n    flex-shrink: 0;\n} */\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n.card-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.my-modal[data-v-96ac86ec] {\n  position: fixed;\n  z-index: 999;\n  top: 10%;\n  left: 45%;\n  width: 600px;\n  margin-left: -150px;\n  background-color: white;\n  padding: 1rem;\n  border-radius: 30px;\n  height: 600px;\n}\n.my-btn[data-v-96ac86ec]:hover {\n  color: var(--bs-btn-hover-color);\n  background-color: var(--bs-btn-hover-bg);\n  border-color: white;\n}\n@media only screen and (max-width: 1200px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n}\n}\n@media only screen and (max-width: 768px) {\n.product-card[data-v-96ac86ec] {\n    width: 80%;\n    margin: 0 58px;\n}\n}\n@media only screen and (max-width: 468px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n    margin-left: 0;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 50px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n}", ""]);
 
 // exports
 
