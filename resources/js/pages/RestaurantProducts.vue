@@ -96,12 +96,6 @@
                                                     <i class="fa-solid fa-minus"></i>
                                                 </button>
 
-                                                <button
-                                                    @click="addCart(product)"
-                                                    class="">
-                                                    <i class="fa-solid fa-plus"></i>
-                                                </button>
-
                                                 <div class="d-flex flex-column quantity">
                                                     <div v-for="item in cart" :key="item.id" class="m-0 p-0">
                                                         <div v-if="product.id == item.id">
@@ -109,6 +103,12 @@
                                                         </div>
                                                     </div>
                                                 </div>
+
+                                                <button
+                                                    @click="addCart(product)"
+                                                    class="">
+                                                    <i class="fa-solid fa-plus"></i>
+                                                </button>
                                                 
                                             </div>
 
@@ -273,7 +273,7 @@ export default {
     & .quantity{
         width: 20px;
         height: 20px;
-        border: 1px solid #fff;
+        /* border: 1px solid #fff; */
         text-align: center;
     }
 }
