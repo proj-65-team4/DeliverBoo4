@@ -16,8 +16,12 @@
             <div class="col text-center">{{ item.description }}</div>
             <div class="col text-center">{{ item.quantity }}</div>
             <div class="col text-center">
-              {{ (item.quantity * parseFloat(item.price)).toFixed(2) }}
+              {{ (item.quantity * parseFloat(item.price)).toFixed(2) }} €
             </div>
+          </div>
+          <div class="text-center fw-bold">
+            Prezzo totale {{totalPrice}} €
+            
           </div>
         </div>
       </div>
@@ -106,6 +110,7 @@ export default {
       customer_telephone: "",
       cart: [],
       bool: false,
+      totalPrice : 0,
     };
   },
   methods: {
@@ -157,7 +162,15 @@ export default {
     });
   })
 });
+
+   this.cart.forEach((item) => {
+      this.totalPrice += item.quantity * item.price ;
+  })
+  this.totalPrice.toFixed(2);
+
   },
+
+
 };
 
 

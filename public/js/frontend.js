@@ -5549,7 +5549,8 @@ __webpack_require__.r(__webpack_exports__);
       delivery_address: "",
       customer_telephone: "",
       cart: [],
-      bool: false
+      bool: false,
+      totalPrice: 0
     };
   },
   methods: {
@@ -5592,6 +5593,8 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.carts();
     var button = document.getElementById("sub");
     braintree.dropin.create({
@@ -5603,6 +5606,10 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     });
+    this.cart.forEach(function (item) {
+      _this.totalPrice += item.quantity * item.price;
+    });
+    this.totalPrice.toFixed(2);
   }
 });
 
@@ -6512,8 +6519,10 @@ var render = function render() {
       staticClass: "col text-center"
     }, [_vm._v(_vm._s(item.quantity))]), _vm._v(" "), _c("div", {
       staticClass: "col text-center"
-    }, [_vm._v("\n            " + _vm._s((item.quantity * parseFloat(item.price)).toFixed(2)) + "\n          ")])]);
-  })], 2)]), _vm._v(" "), _c("form", {
+    }, [_vm._v("\n            " + _vm._s((item.quantity * parseFloat(item.price)).toFixed(2)) + " €\n          ")])]);
+  }), _vm._v(" "), _c("div", {
+    staticClass: "text-center fw-bold"
+  }, [_vm._v("\n          Prezzo totale " + _vm._s(_vm.totalPrice) + " €\n          \n        ")])], 2)]), _vm._v(" "), _c("form", {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
