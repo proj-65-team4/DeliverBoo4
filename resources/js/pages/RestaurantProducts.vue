@@ -36,7 +36,6 @@
                     />
                 </div>
                 <div class="col">
-<<<<<<< HEAD
                     <h1 class="fw-bold">
                         {{ restaurant_data.restaurant_name }}
                     </h1>
@@ -45,12 +44,6 @@
                     </span>
                     <h5>{{ restaurant_data.address }}</h5>
                     <h5>{{ restaurant_data.city }}</h5>
-=======
-                    <h1 class="fw-bold">{{restaurant_data.restaurant_name}}</h1>
-                    <span v-for="category in categories" :key="category.id">{{ category.name }} </span>
-                    <h5>{{restaurant_data.address}}</h5>
-                    <h5>{{restaurant_data.city}}</h5>
->>>>>>> 52a8b3a8169e49965b6bfe7e22ba88c16933d1db
                 </div>
                 <div class="col-3">
                     <div>
@@ -65,6 +58,7 @@
                     v-for="course in courses"
                     :key="course.id"
                 >
+                    <!-- HEADER ACCORDION --> 
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button
                             class="accordion-button collapsed"
@@ -81,6 +75,7 @@
                         </button>
                     </h2>
 
+                    <!-- BODY ACCORDION --> 
                     <div
                         :id="'flush-collapseOne-' + course.id"
                         class="accordion-collapse collapse"
@@ -89,146 +84,71 @@
                     >
                         <div class="accordion-body">
                             <div class="row mt-4 mb-5">
-                                <div
-                                    class="col-4"
-                                    v-for="(product, index) in filteredProducts"
-                                    :key="product.id"
-                                >
+                                <div class="col-4" v-for="product in filteredProducts" :key="product.id">
                                     <!-- Card prodotto -->
-                                    <button
-                                        type="button"
-                                        class="btn w-100"
-                                        data-bs-toggle="modal"
-                                        :data-bs-target="
-                                            '#exampleModal-' + product.id
-                                        "
-                                    >
+                                    <button type="button" class="btn modal-btn">
                                         <div class="product-card">
                                             <img :src="product.image" alt="" />
                                             <div class="under-image">
                                                 <div class="title-price">
                                                     <h5>{{ product.name }}</h5>
+                                                    <span>{{ product.description }}</span>
                                                     <h5>
                                                         € {{ product.price }}
                                                     </h5>
                                                 </div>
+                                                <!-- Buttons per aumentare/diminuire quantità -->
+                                                <div class="row row-cols-3 justify-content-evenly my-2">
+                                                    <button @click="removeCart(product)" class="btn btn-primary">
+                                                        <i class="fa-solid fa-minus"></i>
+                                                    </button>
+                                                    
+                                                    <!-- <div v-for="item in cart" :key="item.id" class="">
+                                                        <div class="col text-center">{{ item.quantity}}</div>
+                                                    </div> -->
+
+                                                    <button @click="addCart(product)" class="btn btn-primary">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </button>
 
+                                    <!-- @click="openModal(product)" -->
                                     <!-- Modal -->
-                                    <div
-                                        class="modal fade"
-                                        :id="'exampleModal-' + product.id"
-                                        tabindex="-1"
-                                        aria-labelledby="exampleModalLabel"
-                                        aria-hidden="true"
-                                    >
-                                        <div
-                                            class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                        >
-                                            <div class="modal-content">
+                                    <div v-if="open" class="my-modal" :id="'myModal' + modalProduct.id" >
+                                            <div class="my-modal-content">
                                                 <!-- Close button -->
-                                                <button
-                                                    type="button"
-                                                    class="btn-close"
-                                                    data-bs-dismiss="modal"
-                                                    aria-label="Close"
-                                                ></button>
-
+                                                <button type="button" class="btn-close" @click="open = false"></button>
+                                                
                                                 <!-- Modal-body -->
-                                                <div class="modal-body">
-                                                    <img
-                                                        :src="product.image"
-                                                        alt=""
-                                                        class="w-100"
-                                                    />
-                                                    <h5>{{ product.name }}</h5>
-                                                    <h5>
-                                                        € {{ product.price }}
-                                                    </h5>
-                                                    <h5>
-                                                        {{
-                                                            product.description
-                                                        }}
-                                                    </h5>
-
-                                                    <!-- Buttons per aumentare/diminuire quantità -->
-                                                    <div
-                                                        class="d-flex justify-content-evenly"
-                                                    >
-                                                        <button
-                                                            @click="
-                                                                addCart(product)
-                                                            "
-                                                            class="btn btn-primary"
-                                                        >
-                                                            <i
-                                                                class="fa-solid fa-plus"
-                                                            ></i>
-                                                        </button>
-                                                        <div>quantità</div>
-                                                        <button
-                                                            @click="
-                                                                removeCart(
-                                                                    product
-                                                                )
-                                                            "
-                                                            class="btn btn-primary"
-                                                        >
-                                                            <i
-                                                                class="fa-solid fa-minus"
-                                                            ></i>
-                                                        </button>
+                                                <div class="">
+                                                    <img :src="modalProduct.image" alt="" class="w-50 rounded"/>
+                                                    <h4 class="fw-bold m-0 py-4">{{ modalProduct.name }}</h4>
+                                                    <h5>{{ modalProduct.description }}</h5>
+                                                    <h5>€ {{ modalProduct.price }}</h5>
+                                                    
+                                                    <!-- DATI Carrello -->
+                                                    <div class="border-bottom border-dark py-2">
+                                                        
+                                                        <div v-for="item in cart" :key="item.id" class="row row-cols-3">
+                                                        <div class="col">{{ item.name }}</div>
+                                                        <div class="col text-center">{{ item.quantity }}</div>
+                                                        <div class="col text-center">€ {{
+                                                            (
+                                                                item.quantity * parseFloat(item.price)
+                                                            ).toFixed(2)
+                                                        }}</div>
                                                     </div>
-                                                    <!-- 
-                                                <!-- Carrello ?? -->
-                                                    <div
-                                                        class="border-bottom border-dark py-2"
-                                                    >
-                                                        <div
-                                                            v-for="item in cart"
-                                                            :key="item.id"
-                                                            class="row row-cols-3"
-                                                        >
-                                                            <div class="col">
-                                                                {{ item.name }}
-                                                            </div>
-                                                            <div
-                                                                class="col text-center"
-                                                            >
-                                                                {{
-                                                                    item.quantity
-                                                                }}
-                                                            </div>
-                                                            <div
-                                                                class="col text-center"
-                                                            >
-                                                                €
-                                                                {{
-                                                                    (
-                                                                        item.quantity *
-                                                                        parseFloat(
-                                                                            item.price
-                                                                        )
-                                                                    ).toFixed(2)
-                                                                }}
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                </div>
                                                 </div>
                                                 <!-- Modal-footer -->
-                                                <div class="modal-footer">
-                                                    <button
-                                                        type="button"
-                                                        class="btn"
-                                                        data-bs-dismiss="modal"
-                                                    >
-                                                        Aggiungi
-                                                    </button>
+                                                <div class="">
+                                                    <button type="button" class="btn btn-primary">Aggiungi</button>
                                                 </div>
                                             </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -253,6 +173,8 @@ export default {
             categories: [],
             total: 0,
             id: null,
+            open: false,
+            modalProduct: [],
         };
     },
     computed: {
@@ -260,7 +182,6 @@ export default {
             axios
                 .get("/api/" + this.$route.params.restaurant_id + "/products")
                 .then((resp) => {
-                    console.log(resp.data);
                     this.products = resp.data.products;
                     this.courses = resp.data.courses;
                     this.restaurant = resp.data.restaurant;
@@ -283,16 +204,19 @@ export default {
     },
     methods: {
         removeCart(product) {
+            console.log(product);
             const item = this.cart.find(
-                (product) => product.id === this.products[index].id
+                (product) => product.id === product.id
             );
             if (item !== undefined && item.quantity !== 0) {
                 item.quantity--;
+                this.count--
                 if (item.quantity === 0) {
                     const eliminaIndice = this.cart.findIndex(
-                        (product) => product.id === this.products[index].id
+                        (product) => product.id === product.id
                     );
                     this.cart.splice(eliminaIndice, 1);
+                    console.log(product);
                 }
             }
         },
@@ -321,6 +245,10 @@ export default {
         changeID(id) {
             this.id = id;
         },
+        openModal(prod) {
+            this.open = true
+            this.modalProduct = prod
+        }
     },
     mounted() {
         if (localStorage.cart) {
@@ -332,6 +260,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.modal-btn {
+    border: none;
+    &:hover {
+        border: none;
+    }
+}
 .cart-btn {
     background-color: #3dd9bc;
     width: 100%;
@@ -355,6 +290,10 @@ export default {
     flex-direction: row;
     border-radius: 5px;
     box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;
+    }
 }
 
 .product-card img {
@@ -400,6 +339,19 @@ export default {
     max-width: 100%;
     max-height: 150px;
     object-fit: cover;
+}
+
+.my-modal {
+    position: fixed;
+    z-index: 999;
+    top: 10%;
+    left: 45%;
+    width: 600px;
+    margin-left: -150px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 30px;
+    height: 600px;
 }
 
 @media only screen and (max-width: 460px) {
