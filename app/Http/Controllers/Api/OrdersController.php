@@ -21,7 +21,7 @@ class OrdersController extends Controller
         return response()->json($orders);
     }
     public function store(Request $request){
-     
+    
         $data = $request->all();
 
         $cart = $request->cart;
