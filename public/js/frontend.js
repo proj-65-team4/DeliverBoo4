@@ -7053,7 +7053,7 @@ var render = function render() {
       }
     }, [_c("div", {
       staticClass: "bg-white px-2 py-1"
-    }, [_vm._v("fa-solid fa-spaghetti-monster-flying\n                        "), _c("i", {
+    }, [_c("i", {
       "class": {
         "fa-solid fa-pizza-slice": category.name === "Pizza"
       }

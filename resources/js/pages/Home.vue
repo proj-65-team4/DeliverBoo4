@@ -19,7 +19,7 @@
                             params: { id: category.id },
                         }"
                     >
-                        <div class="bg-white px-2 py-1">fa-solid fa-spaghetti-monster-flying
+                        <div class="bg-white px-2 py-1">
                             <i :class="{'fa-solid fa-pizza-slice' : category.name === 'Pizza'}"></i>
                             <span class="ms-2">{{category.name}}</span>
                         </div>
