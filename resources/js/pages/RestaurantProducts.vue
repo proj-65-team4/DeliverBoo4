@@ -57,8 +57,8 @@
                 <div
                     class="accordion-item"
                     v-for="course in courses"
-                    :key="course.id"
-                >
+                    :key="course.id">
+
                     <!-- HEADER ACCORDION --> 
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button
@@ -99,7 +99,7 @@
                                                 <div class="d-flex flex-column quantity">
                                                     <div v-for="item in cart" :key="item.id" class="m-0 p-0">
                                                         <div v-if="product.id == item.id">
-                                                            <div class="m-0 p-0">{{item.quantity}}</div>
+                                                            <div class="m-0 p-0 number">{{item.quantity}}</div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -114,8 +114,7 @@
 
                                         </div>
                                     </div>
-                                    <!-- @click="openModal(product)" -->
-                                    <!-- Modal -->
+                                    
                                 </div>
                             </div>
                         </div>
@@ -143,8 +142,6 @@ export default {
             categories: [],
             total: 0,
             id: null,
-            /* open: false,
-            modalProduct: [], */
         };
     },
     computed: {
@@ -262,6 +259,7 @@ export default {
     color: #fff;
     & i {
         color: #fff;
+        font-size: 24px;
     }
 
     & button {
@@ -276,6 +274,10 @@ export default {
         /* border: 1px solid #fff; */
         text-align: center;
     }
+}
+
+.number{
+    font-size: 18px;
 }
 
 .product-card {
