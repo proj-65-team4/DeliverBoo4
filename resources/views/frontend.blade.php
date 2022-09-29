@@ -16,6 +16,9 @@
 
 <body>
     <div id="app">
+        @if (session("message"))
+            <div class="alert alert-success">{{ session("message")}}</div>
+        @endif
     </div>
 </body>
 </html>

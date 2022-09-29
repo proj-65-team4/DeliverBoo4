@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <form @submit.prevent="send">
+      <form  id="form" @submit.prevent="send">
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -85,8 +85,8 @@
 
         <div id="dropin-container"></div>
         <button id="sub" class="button button--small button--green">
-          <router-link :to="{ name: 'ThankYou' }"> Purchase </router-link> -->
-          invia
+          <!-- <router-link :to="{ name: 'ThankYou' }"> Purchase </router-link> -->
+          --> Conferma
         </button>
       </form>
     </div>
@@ -95,6 +95,9 @@
 
 <script>
 import Axios from "axios";
+
+const call = false;
+
 
 export default {
   data() {
@@ -106,28 +109,49 @@ export default {
       customer_telephone: "",
       cart: [],
       bool: false,
+      call: false,
     };
   },
   methods: {
+    changeCall() {
+      this.call = true;
+    },
     send() {
-      /* let formData = new FormData();
-      formData.append("customer_name", this.name);
-      formData.append("customer_surname", this.surname);
-      formData.append("customer_email", this.email);
-      formData.append("delivery_address", this.address);
-      formData.append("customer_telephone", this.telephone); */
-      // formData.append(document.getElementById('credit-card-number'));
-      // formData.append(document.getElementById('expiration'));
-      Axios.post("/api/ordina", {
-        customer_name: this.customer_name,
+
+        
+braintree.dropin.create(
+  {
+    authorization: "sandbox_g42y39zw_348pk9cgf3bgyw2b",
+    selector: "#dropin-container",
+  },
+  function (err, instance) {
+      const form = document.getElementById('form');
+    form.addEventListener("submit", function () {
+      instance.requestPaymentMethod(function (err, payload) {
+          if(payload){
+              Axios.post("/api/ordina", {
+                customer_name: this.customer_name,
         customer_surname: this.customer_surname,
         customer_email: this.customer_email,
         delivery_address: this.delivery_address,
         customer_telephone: this.customer_telephone,
-        cart: this.cart
+        cart: this.cart,
       }).then((resp) => {
-        console.log(resp.data);
+          this.$router.push({ name: "ThankYou" });
       });
+          }
+      })
+    })
+  });
+  
+
+            
+           
+
+      
+
+           
+          
     },
     carts() {
       /* setInterval(() => {
@@ -146,22 +170,23 @@ export default {
   },
   mounted() {
     this.carts();
-    const button = document.getElementById("sub");
-    braintree.dropin.create({
-  authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
-  selector: '#dropin-container'
-}, function (err, instance) {
-  button.addEventListener('click', function () {
-    instance.requestPaymentMethod(function (err, payload) {
-      // Submit payload.nonce to your server
-    });
-  })
-});
+    braintree.dropin.create(
+  {
+    authorization: "sandbox_g42y39zw_348pk9cgf3bgyw2b",
+    selector: "#dropin-container",
+  },
+  function (err, instance) {
+      const form = document.getElementById('form');
+    form.addEventListener("submit", function () {
+      instance.requestPaymentMethod(function (err, payload) {
+          if(payload){
+             
+          }
+      })
+    })
+  });
   },
 };
-
-
-
 </script>
 
 <style lang="scss" scoped>
