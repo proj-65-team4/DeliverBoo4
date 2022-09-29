@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     protected $fillable = ['name', 'description', 'price','product_course_id', 'visible', 'available' , 'image'];
-
+    protected $guarded = ['id'];
     public function orders () 
     {
         return $this->belongsToMany("App\Order");

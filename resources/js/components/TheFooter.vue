@@ -2,28 +2,34 @@
     <div>
         <div class="bg-footer">
             <div class="container">
-                <div class="row pt-5 pb-4">
+                <div class="row test pt-5 pb-4">
                     <div class="col">
-                        <div class="footer-title pb-3">Scopri DeliveBoo</div>
+                        <div class="footer-title">Scopri DeliveBoo</div>
                         <ul class="link-list">
-                            <li v-for="link in scopriLinks" :key="link.link"> <a :href="link.href">{{ link.link }}</a> </li>
+                            <li v-for="link in scopriLinks" :key="link.link"> 
+                                <a :href="link.href"><p>{{ link.link }}</p></a> 
+                            </li>
                         </ul>
                     </div>     
                     <div class="col">
-                        <div class="footer-title pb-3">Servizio Clienti</div>
+                        <div class="footer-title">Servizio Clienti</div>
                         <ul class="link-list">
-                            <li v-for="link in clientiLinks" :key="link.link"> <a :href="link.href">{{ link.link }}</a> </li>
+                            <li v-for="link in clientiLinks" :key="link.link">
+                                <a :href="link.href"><p>{{ link.link }}</p></a> 
+                            </li>
                         </ul>
                     </div>
-                    <div class="col ">
-                        <div class="footer-title pb-3">Note legali</div>
+                    <div class="col">
+                        <div class="footer-title">Note legali</div>
                         <ul class="link-list">
-                            <li v-for="link in legalLinks" :key="link.link"> <a :href="link.href">{{ link.link }}</a> </li>
+                            <li v-for="link in legalLinks" :key="link.link"> 
+                                <a :href="link.href"><p>{{ link.link }}</p></a>
+                            </li>
                         </ul>
                     </div>         
                     <div class="col">
-                        <div class="footer-title pb-3">Porta DeliveBoo con te</div>
-                        <div class="">
+                        <div class="footer-title">Porta DeliveBoo con te</div>
+                        <div class="app-links">
                             <a href="#"><img src="/img/app-store.png" alt="" class=""></a>
                             <a href="#"><img src="/img/play-store.png" alt="" class="mt-sm-0 mt-md-4"></a>
                         </div>
@@ -130,7 +136,7 @@
         font-weight: bold;
         display: inline-block;
         color: #FFCA3A;
-        margin: 0 0.5rem;
+        padding-bottom: 1rem;
     }
     .link-list {
         list-style-type: none;
@@ -146,8 +152,52 @@
                     text-decoration: underline;
                 }
         }
-        li {
-            margin: 1rem 0;
-        }
     }
+
+    .link-list li{
+        height: 50px;
+    }
+
+    .app-links{
+        padding-top: 1rem;
+    }
+
+
+@media only screen and (max-width: 768px){
+    .link-list li{
+        height: 60px;
+    }
+}    
+@media only screen and (max-width: 568px){
+        a p{
+            text-indent: 0px;
+        }
+
+        .link-list li{
+            margin: 0;
+            height: 63px;
+            padding-left: 10px;
+        }
+
+        .link-list a{
+            padding: 0;
+        }
+
+        p{
+            margin-bottom: 0;
+        }
+
+        .row.test{
+            align-items: baseline;
+        }
+
+        .footer-title{
+            padding-bottom: 1.5rem;
+            margin-left: 10px;
+        }
+
+        .app-links{
+        padding-top: 0rem;
+    }
+}
 </style>

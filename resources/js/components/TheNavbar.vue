@@ -73,13 +73,13 @@
                 </router-link>
             </div>
 
-            <ul class="list-unstyled mb-0">
-                <li>
+            <!-- <ul class="list-unstyled mb-0">
+                <li> -->
                     <a class="login" href="/login">
-                        <i class="fa-solid fa-right-to-bracket"></i> Accedi</a
-                    >
-                </li>
-            </ul>
+                        <i class="fa-solid fa-right-to-bracket"></i> Accedi
+                    </a>
+                <!-- </li>
+            </ul> -->
         </nav>
     </div>
 </template>
@@ -166,7 +166,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.8rem 200px;
+    padding: 0.8rem 170px;
     width: 100%;
     transition: background 0.8s ease;
 
@@ -221,7 +221,26 @@ export default {
     }
 }
 
-@media only screen and (max-width: 460px) {
+
+@media only screen and (max-width: 1368px) {
+    .my-navbar{
+        padding: 0.6rem 100px;
+    }
+}
+
+@media only screen and (max-width: 1138px) {
+    .my-navbar{
+        padding: 0.6rem 50px;
+    }
+}
+
+@media only screen and (max-width: 968px) {
+    .my-navbar{
+        padding: 0.6rem 0.7rem;
+    }
+}
+
+@media only screen and (max-width: 568px) {
     #deliveboo {
         width: 130px;
     }
@@ -235,8 +254,8 @@ export default {
     }
 
     .login {
-        padding: 0.3rem 0.5rem;
-        margin-right: 2rem;
+        padding: 0.4rem 0.5rem;
+        margin-right: 0;
     }
 
     .login i {

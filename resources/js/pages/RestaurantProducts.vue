@@ -67,8 +67,8 @@
                             :data-bs-target="'#flush-collapseOne-' + course.id"
                             aria-expanded="false"
                             aria-controls="flush-collapseOne"
-                            @click="changeID(course.id)"
-                        >
+                            @click="changeID(course.id)">
+
                             <span class="fw-bold text-capitalize">{{
                                 course.name
                             }}</span>
@@ -80,15 +80,19 @@
                         :id="'flush-collapseOne-' + course.id"
                         class="accordion-collapse collapse"
                         aria-labelledby="flush-headingOne"
-                        data-bs-parent="#accordionFlushExample"
-                    >
+                        data-bs-parent="#accordionFlushExample">
+
                         <div class="accordion-body">
                             <div class="row mt-4 mb-5">
-                                <div class="col-4" v-for="product in filteredProducts" :key="product.id">
+                                <div
+                                    class="col-12 my-col col-md-4 col-lg-4"
+                                    v-for="(product) in filteredProducts"
+                                    :key="product.id">
+
                                     <!-- Card prodotto -->
-                                    <button type="button" class="btn modal-btn">
+                                    <button type="button" class="btn my-btn modal-btn">
                                         <div class="product-card">
-                                            <img :src="product.image" alt="" />
+                                            <img :src="product.image ? product.image : '/img/food-placeholder.jpeg' " alt="" />
                                             <div class="under-image">
                                                 <div class="title-price">
                                                     <h5>{{ product.name }}</h5>
@@ -180,7 +184,7 @@ export default {
     computed: {
         fetchData() {
             axios
-                .get("/api/" + this.$route.params.restaurant_id + "/products")
+                .get("/api/" + this.$route.params.restaurant_slug + "/products")
                 .then((resp) => {
                     this.products = resp.data.products;
                     this.courses = resp.data.courses;
@@ -304,22 +308,18 @@ export default {
     flex-shrink: 0;
 }
 
-.product-card h6 {
-    display: none;
-}
 
 .title-price {
     padding: 12px 12px 0px 12px;
 }
 
 .under-image {
-    position: relative;
     width: 100%;
 }
 
-.under-image h5 {
+/* .under-image h5 {
     flex-shrink: 0;
-}
+} */
 
 .accordion-button:focus {
     z-index: 3;
@@ -354,25 +354,49 @@ export default {
     height: 600px;
 }
 
-@media only screen and (max-width: 460px) {
+.my-btn:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: var(--bs-btn-hover-bg);
+    border-color: white;
+
+}
+
+@media only screen and (max-width: 1200px) {
     .product-card {
         width: 100%;
         margin-bottom: 2rem;
         display: flex;
         flex-direction: column;
     }
+
+    .product-card img {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .product-card{
+        width: 80%;
+        margin: 0 calc((476px - 360px) / 2);
+    }
+}
+
+@media only screen and (max-width: 468px) {
+    .product-card {
+        width: 100%;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+    }
     .product-card img {
         width: 100%;
         height: 210px;
     }
 
-    .product-card h6 {
-        display: inline-block;
-    }
-
     .under-image {
         position: relative;
-        height: 180px;
+        height: 50px;
     }
 
     .title-price {
