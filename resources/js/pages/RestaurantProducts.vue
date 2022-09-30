@@ -253,14 +253,7 @@ export default {
       deep: true,
     },
   },
-  methods: {
-    filteredProducts(id) {
-      console.log(id);
-
-      return this.products.filter((el) => {
-        return el.product_course_id == id ? el : "";
-      });
-    },
+ 
     methods: {
         filteredProducts(id) {
             console.log(id)
@@ -275,20 +268,20 @@ export default {
             const item = this.cart.find((product) => product.id === prodotto.id);
             console.log(item);
             if (item !== undefined && item.quantity !== 0) {
-        item.quantity--;
-        this.count--;
-        this.removedProduct = true;
-      setTimeout(() => {
+                item.quantity--;
+                this.count--;
+                setTimeout(() => {
         this.removedProduct = false;
       }, 1500);
-        if (item.quantity === 0) {
-          const eliminaIndice = this.cart.findIndex(
-            (product) => product.id === prodotto.id
-          );
-          this.cart.splice(eliminaIndice, 1);
-        }
-      }
+                if (item.quantity === 0) {
+                    const eliminaIndice = this.cart.findIndex(
+                        (product) => product.id === prodotto.id
+                    );
+                    this.cart.splice(eliminaIndice, 1);
+                }
+            }
         },
+        
         addCart(prodotto) {
             const item = this.cart.find(
                 (product) => product.id === prodotto.id
@@ -332,36 +325,8 @@ export default {
         }
 
     },
-    addCart(prodotto) {
-      const item = this.cart.find((product) => product.id === prodotto.id);
-
-      if (item === undefined) {
-        if (
-          this.cart.find((product) => product.user_id == prodotto.user_id) ||
-          localStorage.cart === undefined ||
-          JSON.parse(localStorage.cart).length === 0
-        ) {
-          this.cart.push({
-            ...prodotto,
-            quantity: 1,
-          });
-        } else {
-          alert("Aggiunta non valida");
-        }
-      } else item.quantity++;
-      this.addedProduct = true;
-      setTimeout(() => {
-        this.addedProduct = false;
-      }, 1500);
-    },
-    changeID(id) {
-      this.id = id;
-    },
-    openModal(prod) {
-      this.open = true;
-      this.modalProduct = prod;
-    },
-  },
+   
+  
   mounted() {
     if (localStorage.cart) {
       this.cart = JSON.parse(localStorage.cart);
