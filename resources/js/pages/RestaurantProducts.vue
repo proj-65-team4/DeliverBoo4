@@ -126,6 +126,23 @@
                 <h5 class="d-inline">Ops! Ancora non ci sono prodotti inseriti, riprova tra qualche giorno!</h5>
             </div>
         </div>
+
+
+        <!-- The Modal -->
+<div id="myModal" class="myModal">
+
+<!-- Modal content -->
+<div class="modal-content">
+  <span class="close">&times;</span>
+  <p>Hai già dei prodotti nel carrello di un altro ristorante, se vuoi ordinare svuota il carrello</p>
+  <button @click="emptyCart()" class="btn btn-danger">Svuota carrello <i class="fa-solid fa-trash"></i></button>
+
+</div>
+
+</div>
+
+
+
     </div>
 </template>
 
@@ -203,7 +220,12 @@ export default {
                         quantity: 1,
                     });
                 } else {
-                    alert("Aggiunta non valida");
+                    const modalAlert = document.getElementById("myModal");
+                    modalAlert.style.display = "block";
+                    const span = document.getElementsByClassName("close")[0];
+                    span.addEventListener('click' , function(){
+                        modalAlert.style.display = "none";
+                    });
                 }
             } else item.quantity++;
         },
@@ -214,6 +236,14 @@ export default {
             this.open = true;
             this.modalProduct = prod;
         },
+
+        emptyCart(){
+            window.localStorage.clear()
+            const modalAlert = document.getElementById("myModal");
+            modalAlert.style.display = "none";
+            location.reload();
+        }
+
     },
     mounted() {
         if (localStorage.cart) {
@@ -403,5 +433,47 @@ export default {
         align-items: center;
         padding: 12px 12px 0px 12px;
     }
+}
+
+
+
+.myModal {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  text-align: center;
+
+
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 400px; 
+}
+
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 }
 </style>
