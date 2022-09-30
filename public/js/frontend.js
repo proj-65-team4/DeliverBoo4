@@ -5671,7 +5671,7 @@ __webpack_require__.r(__webpack_exports__);
       document.getElementById("jumbotron").style.height = "";
 
       if (x.matches) {
-        console.log(window.matchMedia("(max-width: 460px)").matches);
+        console.log(window.matchMedia("(max-width: 468px)").matches);
         document.getElementById("jumbotron").style.minHeight = "250px";
       } else {
         document.getElementById("jumbotron").style.minHeight = "350px";
@@ -5895,7 +5895,7 @@ __webpack_require__.r(__webpack_exports__);
       document.getElementById("jumbotron").style.height = "";
 
       if (x.matches) {
-        console.log(window.matchMedia("(max-width: 460px)").matches);
+        console.log(window.matchMedia("(max-width: 468px)").matches);
         document.getElementById("jumbotron").style.minHeight = "250px";
       } else {
         document.getElementById("jumbotron").style.minHeight = "700px";
@@ -5911,7 +5911,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     this.fetchData();
-    var x = window.matchMedia("(max-width:460px)");
+    var x = window.matchMedia("(max-width:468px)");
     this.media(x); // Call listener function at run time
 
     x.addListener(this.media); // Attach listener function on state changes
@@ -6034,6 +6034,9 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", [_c("carousel", {
+    staticStyle: {
+      "padding-bottom": "2.5rem"
+    },
     attrs: {
       paginationSize: 20,
       perPage: 3,
@@ -6800,6 +6803,9 @@ var render = function render() {
   })], 1), _vm._v(" "), _c("div", {
     staticClass: "d-block d-md-none d-responsive"
   }, [_c("carousel", {
+    staticStyle: {
+      "padding-bottom": "2.5rem"
+    },
     attrs: {
       paginationSize: 10,
       perPage: 2,
@@ -12573,7 +12579,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".jumbotron[data-v-0c300183] {\n  position: relative;\n  height: 700px;\n}\n.bg-jumbo[data-v-0c300183] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.bg-jumbo img[data-v-0c300183] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: 50% 80%;\n     object-position: 50% 80%;\n}\n@media only screen and (max-width: 460px) {\n.jumbotron[data-v-0c300183] {\n    height: 250px;\n}\n}", ""]);
+exports.push([module.i, ".jumbotron[data-v-0c300183] {\n  position: relative;\n  height: 700px;\n}\n.bg-jumbo[data-v-0c300183] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.bg-jumbo img[data-v-0c300183] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: 50% 80%;\n     object-position: 50% 80%;\n}\n@media only screen and (max-width: 468px) {\n.jumbotron[data-v-0c300183] {\n    height: 250px;\n}\n}", ""]);
 
 // exports
 
@@ -12687,7 +12693,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bg-category[data-v-bb7a9770] {\n  background: #ffca3a;\n  padding-bottom: 3rem;\n}\n.bg-category h1[data-v-bb7a9770] {\n  font-weight: bolder;\n  font-size: 4.5rem;\n  text-align: center;\n  max-width: 15ch;\n  text-align: center;\n  color: rgb(30, 29, 29);\n  margin: 0 auto;\n}\n@media only screen and (max-width: 460px) {\n.bg-category h1[data-v-bb7a9770] {\n    font-size: 2.7rem;\n}\n}\n.row[data-v-bb7a9770] {\n  max-width: 100%;\n}\nimg[data-v-bb7a9770] {\n  width: 100%;\n  aspect-ratio: 16/9;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  background-position: center;\n}\n.category-item[data-v-bb7a9770] {\n  position: relative;\n}\nimg[data-v-bb7a9770] {\n  width: 100%;\n  aspect-ratio: 16/9;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  background-position: center;\n}\n.overlay[data-v-bb7a9770] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\nh2[data-v-bb7a9770] {\n  font-weight: bolder;\n}\n.content[data-v-bb7a9770] {\n  padding: 1.4rem;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: space-around;\n  color: #fff;\n}\np[data-v-bb7a9770] {\n  flex-grow: 1;\n}", ""]);
+exports.push([module.i, ".bg-category[data-v-bb7a9770] {\n  background: #ffca3a;\n  padding-bottom: 3rem;\n}\n.bg-category h1[data-v-bb7a9770] {\n  font-weight: bolder;\n  font-size: 4.5rem;\n  text-align: center;\n  max-width: 15ch;\n  text-align: center;\n  color: rgb(30, 29, 29);\n  margin: 0 auto;\n}\n@media only screen and (max-width: 468px) {\n.bg-category h1[data-v-bb7a9770] {\n    font-size: 2.7rem;\n}\n}\n.row[data-v-bb7a9770] {\n  max-width: 100%;\n}\nimg[data-v-bb7a9770] {\n  width: 100%;\n  aspect-ratio: 16/9;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  background-position: center;\n}\n.category-item[data-v-bb7a9770] {\n  position: relative;\n}\nimg[data-v-bb7a9770] {\n  width: 100%;\n  aspect-ratio: 16/9;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  background-position: center;\n}\n.overlay[data-v-bb7a9770] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\nh2[data-v-bb7a9770] {\n  font-weight: bolder;\n}\n.content[data-v-bb7a9770] {\n  padding: 1.4rem;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: space-around;\n  color: #fff;\n}\np[data-v-bb7a9770] {\n  flex-grow: 1;\n}", ""]);
 
 // exports
 

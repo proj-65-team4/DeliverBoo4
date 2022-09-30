@@ -7,7 +7,7 @@
             </div>
             
             <div class="d-block d-md-none d-responsive">
-            <carousel
+            <carousel style="padding-bottom: 2.5rem;"
                 class=""
                 :paginationSize="10"
                 :perPage="2"
@@ -86,7 +86,7 @@ export default {
         media(x) {
             document.getElementById("jumbotron").style.height = "";
             if (x.matches) {
-                console.log(window.matchMedia("(max-width: 460px)").matches);
+                console.log(window.matchMedia("(max-width: 468px)").matches);
                 document.getElementById("jumbotron").style.minHeight = "250px";
             } else {
                 document.getElementById("jumbotron").style.minHeight = "350px";
