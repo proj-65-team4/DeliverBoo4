@@ -40,8 +40,8 @@
 
         </div>
         <div class="container my-5">
-            <template v-for="category in categories">
-                <div v-if="category.id == currentCat" class="text-center">
+            <template v-for="category in categories" >
+                <div v-if="category.id == currentCat" :key="category.id" class="text-center">
                     <h5 class="">I migliori ristoranti della categoria</h5>
                     <h3 class="fw-bold pb-3">{{ category.name }}</h3>
                 </div>

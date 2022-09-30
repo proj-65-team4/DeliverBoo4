@@ -34,7 +34,7 @@
                             </h1>
                         </div>
                             <div class="col">
-                                <span v-for="category in categories">
+                                <span v-for="category in categories" :key="category.id">
                                     <div class="d-inline me-3 fw-bold">
                                         <router-link :to="{ path: '/restaurants/' + category.id }"> {{ category.name }} </router-link>
                                     </div>
@@ -53,6 +53,19 @@
                     </div>
                 </div>
             </div>
+
+            <template v-if="!loaded">
+                <div class="row py-2">
+                    <div class="col">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <template v-else>
+
+            
             <div class="accordion accordion-flush" id="accordionFlushExample" v-if="!products.length == 0">
                 <div
                     class="accordion-item"
@@ -62,11 +75,11 @@
                     <!-- HEADER ACCORDION --> 
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button
-                            class="accordion-button collapsed"
+                            class="accordion-button"
                             type="button"
                             data-bs-toggle="collapse"
                             :data-bs-target="'#flush-collapseOne-' + course.id"
-                            aria-expanded="false"
+                            aria-expanded="true"
                             aria-controls="flush-collapseOne"
                             @click="changeID(course.id)">
                             <span class="fw-bold text-capitalize">{{course.name}}</span>
@@ -74,10 +87,10 @@
                     </h2>
 
                     <!-- BODY ACCORDION -->
-                    <div :id="'flush-collapseOne-' + course.id" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div :id="'flush-collapseOne-' + course.id" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                         <div class="accordion-body">
                             <div class="row mt-4 mb-5">
-                                <div class="col-12 my-col col-md-4 col-lg-4" v-for="product in filteredProducts" :key="product.id">
+                                <div class="col-12 my-col col-md-4 col-lg-4" v-for="product in filteredProducts(course.id)" :key="product.id">
                                     <!-- Card prodotto -->
                                     <div class="product-card">
                                         <img :src="product.image ? product.image : '/img/food-placeholder.jpeg'" alt=""/>
@@ -125,6 +138,7 @@
                 <i class="fa-solid fa-face-grin-beam-sweat fa-xl"></i>
                 <h5 class="d-inline">Ops! Ancora non ci sono prodotti inseriti, riprova tra qualche giorno!</h5>
             </div>
+            </template>
         </div>
     </div>
 </template>
@@ -141,7 +155,7 @@ export default {
             restaurant: [],
             categories: [],
             total: 0,
-            id: null,
+            loaded: false
         };
     },
     computed: {
@@ -153,13 +167,12 @@ export default {
                     this.courses = resp.data.courses;
                     this.restaurant = resp.data.restaurant;
                     this.categories = resp.data.categories;
+                    setTimeout(() => {
+                this.loaded=true
+            }, 2000);
                 });
         },
-        filteredProducts() {
-            return this.products.filter((el) => {
-                return el.product_course_id == this.id ? el : "";
-            });
-        },
+        
     },
     watch: {
         cart: {
@@ -170,6 +183,14 @@ export default {
         },
     },
     methods: {
+        filteredProducts(id) {
+            console.log(id)
+            
+            return this.products.filter((el) => {
+                return el.product_course_id == id ? el : "";
+            });
+            
+        },
         removeCart(prodotto) {
             console.log(prodotto);
             const item = this.cart.find((product) => product.id === prodotto.id);
@@ -220,6 +241,7 @@ export default {
             this.cart = JSON.parse(localStorage.cart);
         }
         this.fetchData();
+
     },
 };
 </script>
