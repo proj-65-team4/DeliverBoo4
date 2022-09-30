@@ -29,8 +29,9 @@ class RestaurantController extends Controller
     }else{
         $restaurants = Restaurant::all();
     }
-    
+        
         $categories = Category::all();
+        
         return response()->json(["restaurants"=>$restaurants,"categories"=>$categories]);
 
 

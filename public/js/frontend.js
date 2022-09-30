@@ -5267,8 +5267,10 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     restaurant: Object
   },
-  data: {
-    distance: null
+  data: function data() {
+    return {
+      distance: null
+    };
   },
   methods: {
     randomDistance: function randomDistance() {
@@ -5539,6 +5541,12 @@ window.addEventListener("scroll", function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 var call = false;
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -5556,12 +5564,76 @@ var call = false;
       totalPrice: 0
     };
   },
+  computed: {
+    total: function total() {
+      var _this = this;
+
+      this.cart.forEach(function (item) {
+        _this.totalPrice += item.quantity * item.price;
+      });
+      return this.totalPrice.toFixed(2);
+    }
+  },
+  watch: {
+    cart: {
+      handler: function handler(product) {
+        localStorage.cart = JSON.stringify(product);
+      },
+      deep: true
+    }
+  },
   methods: {
     changeCall: function changeCall() {
       this.call = true;
     },
+    removeCart: function removeCart(prodotto) {
+      var _this2 = this;
+
+      console.log(prodotto);
+      var item = this.cart.find(function (product) {
+        return product.id === prodotto.id;
+      });
+      console.log(item);
+
+      if (item !== undefined && item.quantity !== 0) {
+        item.quantity--;
+        this.count--;
+        setTimeout(function () {
+          _this2.removedProduct = false;
+        }, 1500);
+
+        if (item.quantity === 0) {
+          var eliminaIndice = this.cart.findIndex(function (product) {
+            return product.id === prodotto.id;
+          });
+          this.cart.splice(eliminaIndice, 1);
+        }
+      }
+    },
+    addCart: function addCart(prodotto) {
+      var item = this.cart.find(function (product) {
+        return product.id === prodotto.id;
+      });
+
+      if (item === undefined) {
+        if (this.cart.find(function (product) {
+          return product.user_id == prodotto.user_id;
+        }) || localStorage.cart === undefined || JSON.parse(localStorage.cart).length === 0) {
+          this.cart.push(_objectSpread(_objectSpread({}, prodotto), {}, {
+            quantity: 1
+          }));
+        } else {
+          var modalAlert = document.getElementById("myModal");
+          modalAlert.style.display = "block";
+          var span = document.getElementsByClassName("close")[0];
+          span.addEventListener('click', function () {
+            modalAlert.style.display = "none";
+          });
+        }
+      } else item.quantity++;
+    },
     send: function send() {
-      var _this = this;
+      var _this3 = this;
 
       setTimeout(function () {
         var payload = document.querySelector('#my-nonce-input');
@@ -5569,17 +5641,17 @@ var call = false;
         if (payload) {
           debugger;
           axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/ordina", {
-            customer_name: _this.customer_name,
-            customer_surname: _this.customer_surname,
-            customer_email: _this.customer_email,
-            delivery_address: _this.delivery_address,
-            customer_telephone: _this.customer_telephone,
-            cart: _this.cart
+            customer_name: _this3.customer_name,
+            customer_surname: _this3.customer_surname,
+            customer_email: _this3.customer_email,
+            delivery_address: _this3.delivery_address,
+            customer_telephone: _this3.customer_telephone,
+            cart: _this3.cart
           }).then(function (resp) {
             debugger;
             localStorage.clear();
 
-            _this.$router.push({
+            _this3.$router.push({
               name: "ThankYou"
             });
           });
@@ -5605,8 +5677,6 @@ var call = false;
     }
   },
   mounted: function mounted() {
-    var _this2 = this;
-
     this.carts();
     var button = document.getElementById("sub");
     braintree.dropin.create({
@@ -5627,10 +5697,7 @@ var call = false;
         });
       });
     });
-    this.cart.forEach(function (item) {
-      _this2.totalPrice += item.quantity * item.price;
-    });
-    this.totalPrice.toFixed(2);
+    this.total();
   }
 });
 
@@ -5782,6 +5849,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (item !== undefined && item.quantity !== 0) {
         item.quantity--;
         this.count--;
+        this.removedProduct = true;
         setTimeout(function () {
           _this2.removedProduct = false;
         }, 1500);
@@ -5795,6 +5863,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     },
     addCart: function addCart(prodotto) {
+      var _this3 = this;
+
       var item = this.cart.find(function (product) {
         return product.id === prodotto.id;
       });
@@ -5815,6 +5885,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           });
         }
       } else item.quantity++;
+
+      this.addedProduct = true;
+      setTimeout(function () {
+        _this3.addedProduct = false;
+      }, 1500);
     },
     changeID: function changeID(id) {
       this.id = id;
@@ -6556,8 +6631,22 @@ var render = function render() {
     }, [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("div", {
       staticClass: "col text-center"
     }, [_vm._v(_vm._s(item.description))]), _vm._v(" "), _c("div", {
-      staticClass: "col text-center"
-    }, [_vm._v(_vm._s(item.quantity))]), _vm._v(" "), _c("div", {
+      staticClass: "col text-center d-flex gap-3 justify-content-center align-items-center"
+    }, [_c("button", {
+      staticClass: "btn btn-danger",
+      on: {
+        click: function click($event) {
+          return _vm.removeCart(item);
+        }
+      }
+    }, [_vm._v("-")]), _vm._v("\n              " + _vm._s(item.quantity) + "\n              "), _c("button", {
+      staticClass: "btn btn-success",
+      on: {
+        click: function click($event) {
+          return _vm.addCart(item);
+        }
+      }
+    }, [_vm._v("+")])]), _vm._v(" "), _c("div", {
       staticClass: "col text-center"
     }, [_vm._v("\n            " + _vm._s((item.quantity * parseFloat(item.price)).toFixed(2)) + " €\n          ")])]);
   }), _vm._v(" "), _c("div", {
