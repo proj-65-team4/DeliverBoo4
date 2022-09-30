@@ -5540,6 +5540,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
+var call = false;
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -5548,31 +5549,42 @@ __webpack_require__.r(__webpack_exports__);
       customer_email: "",
       delivery_address: "",
       customer_telephone: "",
+      payload: "",
       cart: [],
       bool: false,
+      call: false,
       totalPrice: 0
     };
   },
   methods: {
+    changeCall: function changeCall() {
+      this.call = true;
+    },
     send: function send() {
-      /* let formData = new FormData();
-      formData.append("customer_name", this.name);
-      formData.append("customer_surname", this.surname);
-      formData.append("customer_email", this.email);
-      formData.append("delivery_address", this.address);
-      formData.append("customer_telephone", this.telephone); */
-      // formData.append(document.getElementById('credit-card-number'));
-      // formData.append(document.getElementById('expiration'));
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/ordina", {
-        customer_name: this.customer_name,
-        customer_surname: this.customer_surname,
-        customer_email: this.customer_email,
-        delivery_address: this.delivery_address,
-        customer_telephone: this.customer_telephone,
-        cart: this.cart
-      }).then(function (resp) {
-        console.log(resp.data);
-      });
+      var _this = this;
+
+      setTimeout(function () {
+        var payload = document.querySelector('#my-nonce-input');
+
+        if (payload) {
+          debugger;
+          axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/ordina", {
+            customer_name: _this.customer_name,
+            customer_surname: _this.customer_surname,
+            customer_email: _this.customer_email,
+            delivery_address: _this.delivery_address,
+            customer_telephone: _this.customer_telephone,
+            cart: _this.cart
+          }).then(function (resp) {
+            debugger;
+            localStorage.clear();
+
+            _this.$router.push({
+              name: "ThankYou"
+            });
+          });
+        }
+      }, 2000);
     },
     carts: function carts() {
       /* setInterval(() => {
@@ -5593,7 +5605,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     this.carts();
     var button = document.getElementById("sub");
@@ -5601,13 +5613,22 @@ __webpack_require__.r(__webpack_exports__);
       authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
       selector: '#dropin-container'
     }, function (err, instance) {
-      button.addEventListener('click', function () {
-        instance.requestPaymentMethod(function (err, payload) {// Submit payload.nonce to your server
+      var form = document.querySelector('#my-form');
+      var hiddenNonceInput = document.querySelector('#my-nonce-input');
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        instance.requestPaymentMethod(function (err, payload) {
+          if (err) {
+            // handle error
+            return;
+          }
+
+          hiddenNonceInput.value = payload.nonce;
         });
       });
     });
     this.cart.forEach(function (item) {
-      _this.totalPrice += item.quantity * item.price;
+      _this2.totalPrice += item.quantity * item.price;
     });
     this.totalPrice.toFixed(2);
   }
@@ -5714,7 +5735,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       restaurant: [],
       categories: [],
       total: 0,
-      id: null
+      loaded: false
     };
   },
   computed: {
@@ -5726,13 +5747,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this.courses = resp.data.courses;
         _this.restaurant = resp.data.restaurant;
         _this.categories = resp.data.categories;
-      });
-    },
-    filteredProducts: function filteredProducts() {
-      var _this2 = this;
-
-      return this.products.filter(function (el) {
-        return el.product_course_id == _this2.id ? el : "";
+        setTimeout(function () {
+          _this.loaded = true;
+        }, 2000);
       });
     }
   },
@@ -5745,6 +5762,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   },
   methods: {
+    filteredProducts: function filteredProducts(id) {
+      console.log(id);
+      return this.products.filter(function (el) {
+        return el.product_course_id == id ? el : "";
+      });
+    },
     removeCart: function removeCart(prodotto) {
       console.log(prodotto);
       var item = this.cart.find(function (product) {
@@ -6521,6 +6544,9 @@ var render = function render() {
   }), _vm._v(" "), _c("div", {
     staticClass: "text-center fw-bold"
   }, [_vm._v("\n          Prezzo totale " + _vm._s(_vm.totalPrice) + " €\n          \n        ")])], 2)]), _vm._v(" "), _c("form", {
+    attrs: {
+      id: "my-form"
+    },
     on: {
       submit: function submit($event) {
         $event.preventDefault();
@@ -6557,7 +6583,28 @@ var render = function render() {
     attrs: {
       "for": "customer_name"
     }
-  }, [_vm._v("Inserisci nome")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Inserisci nome")])]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.payload,
+      expression: "payload"
+    }],
+    attrs: {
+      type: "hidden",
+      name: "my-nonce-input",
+      id: "my-nonce-input"
+    },
+    domProps: {
+      value: _vm.payload
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.payload = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("div", {
     staticClass: "form-floating mb-3"
   }, [_c("input", {
     directives: [{
@@ -6686,13 +6733,7 @@ var render = function render() {
     attrs: {
       id: "sub"
     }
-  }, [_c("router-link", {
-    attrs: {
-      to: {
-        name: "ThankYou"
-      }
-    }
-  }, [_vm._v(" Purchase ")]), _vm._v(" -->\n        invia\n      ")], 1)])])]);
+  }, [_vm._v("\n        --> Conferma\n      ")])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -6783,6 +6824,7 @@ var render = function render() {
     staticClass: "container my-5"
   }, [_vm._l(_vm.categories, function (category) {
     return [category.id == _vm.currentCat ? _c("div", {
+      key: category.id,
       staticClass: "text-center"
     }, [_c("h5", {}, [_vm._v("I migliori ristoranti della categoria")]), _vm._v(" "), _c("h3", {
       staticClass: "fw-bold pb-3"
@@ -6865,7 +6907,9 @@ var render = function render() {
     }, [_vm._v("\n                            " + _vm._s(restaurant_data.restaurant_name) + "\n                        ")])]), _vm._v(" "), _c("div", {
       staticClass: "col"
     }, _vm._l(_vm.categories, function (category) {
-      return _c("span", [_c("div", {
+      return _c("span", {
+        key: category.id
+      }, [_c("div", {
         staticClass: "d-inline me-3 fw-bold"
       }, [_c("router-link", {
         attrs: {
@@ -6883,7 +6927,7 @@ var render = function render() {
     }), _vm._v(" "), _c("h6", {
       staticClass: "my-3 d-inline icon-color"
     }, [_vm._v(_vm._s(restaurant_data.address) + ", " + _vm._s(restaurant_data.city))])]), _vm._v(" "), _vm._m(0, true)])])])]);
-  }), _vm._v(" "), !_vm.products.length == 0 ? _c("div", {
+  }), _vm._v(" "), !_vm.loaded ? [_vm._m(1)] : [!_vm.products.length == 0 ? _c("div", {
     staticClass: "accordion accordion-flush",
     attrs: {
       id: "accordionFlushExample"
@@ -6898,12 +6942,12 @@ var render = function render() {
         id: "flush-headingOne"
       }
     }, [_c("button", {
-      staticClass: "accordion-button collapsed",
+      staticClass: "accordion-button",
       attrs: {
         type: "button",
         "data-bs-toggle": "collapse",
         "data-bs-target": "#flush-collapseOne-" + course.id,
-        "aria-expanded": "false",
+        "aria-expanded": "true",
         "aria-controls": "flush-collapseOne"
       },
       on: {
@@ -6914,7 +6958,7 @@ var render = function render() {
     }, [_c("span", {
       staticClass: "fw-bold text-capitalize"
     }, [_vm._v(_vm._s(course.name))])])]), _vm._v(" "), _c("div", {
-      staticClass: "accordion-collapse collapse",
+      staticClass: "accordion-collapse collapse show",
       attrs: {
         id: "flush-collapseOne-" + course.id,
         "aria-labelledby": "flush-headingOne",
@@ -6924,7 +6968,7 @@ var render = function render() {
       staticClass: "accordion-body"
     }, [_c("div", {
       staticClass: "row mt-4 mb-5"
-    }, _vm._l(_vm.filteredProducts, function (product) {
+    }, _vm._l(_vm.filteredProducts(course.id), function (product) {
       return _c("div", {
         key: product.id,
         staticClass: "col-12 my-col col-md-4 col-lg-4"
@@ -6974,7 +7018,7 @@ var render = function render() {
     staticClass: "fa-solid fa-face-grin-beam-sweat fa-xl"
   }), _vm._v(" "), _c("h5", {
     staticClass: "d-inline"
-  }, [_vm._v("Ops! Ancora non ci sono prodotti inseriti, riprova tra qualche giorno!")])])], 2)]);
+  }, [_vm._v("Ops! Ancora non ci sono prodotti inseriti, riprova tra qualche giorno!")])])]], 2)]);
 };
 
 var staticRenderFns = [function () {
@@ -6986,6 +7030,22 @@ var staticRenderFns = [function () {
   }), _vm._v(" "), _c("h6", {
     staticClass: "my-3 d-inline icon-color"
   }, [_vm._v("Consegna tra 20 - 35 min")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "row py-2"
+  }, [_c("div", {
+    staticClass: "col"
+  }, [_c("div", {
+    staticClass: "spinner-border",
+    attrs: {
+      role: "status"
+    }
+  }, [_c("span", {
+    staticClass: "visually-hidden"
+  }, [_vm._v("Loading...")])])])]);
 }];
 render._withStripped = true;
 
