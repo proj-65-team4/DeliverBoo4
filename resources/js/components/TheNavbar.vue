@@ -10,7 +10,7 @@
                 aria-controls="offcanvasScrolling"
                 v-if="this.$route.name !== 'Checkout' && this.$route.name !== 'ThankYou'"
                 @click="carts()"
-            >
+            ><!--  -->
                 <i class="fa-solid fa-cart-shopping"></i>
             </button>
 

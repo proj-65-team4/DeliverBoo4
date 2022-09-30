@@ -14,7 +14,11 @@
           <div class="row py-2" v-for="item in cart" :key="item.id">
             <div class="col text-center">{{ item.name }}</div>
             <div class="col text-center">{{ item.description }}</div>
-            <div class="col text-center">{{ item.quantity }}</div>
+            <div class="col text-center d-flex gap-3 justify-content-center align-items-center">
+                <button class="btn btn-danger" @click="removeCart(item)">-</button>
+                {{ item.quantity }}
+                <button class="btn btn-success" @click="addCart(item)">+</button>
+                </div>
             <div class="col text-center">
               {{ (item.quantity * parseFloat(item.price)).toFixed(2) }} €
             </div>
@@ -119,10 +123,75 @@ export default {
       totalPrice : 0,
     };
   },
+  computed:{
+      total(){
+          this.cart.forEach((item) => {
+      this.totalPrice += item.quantity * item.price ;
+  })
+  return this.totalPrice.toFixed(2);
+      }
+  },
+
+  watch: {
+    cart: {
+      handler(product) {
+        localStorage.cart = JSON.stringify(product);
+      },
+      deep: true,
+    },
+  },
+
+  
   methods: {
     changeCall() {
       this.call = true;
     },
+    removeCart(prodotto) {
+            console.log(prodotto);
+            const item = this.cart.find((product) => product.id === prodotto.id);
+            console.log(item);
+            if (item !== undefined && item.quantity !== 0) {
+                item.quantity--;
+                this.count--;
+                setTimeout(() => {
+        this.removedProduct = false;
+      }, 1500);
+                if (item.quantity === 0) {
+                    const eliminaIndice = this.cart.findIndex(
+                        (product) => product.id === prodotto.id
+                    );
+                    this.cart.splice(eliminaIndice, 1);
+                }
+            }
+        },
+        
+        addCart(prodotto) {
+            const item = this.cart.find(
+                (product) => product.id === prodotto.id
+            );
+
+            if (item === undefined) {
+                if (
+                    this.cart.find(
+                        (product) => product.user_id == prodotto.user_id
+                    ) ||
+                    localStorage.cart === undefined ||
+                    JSON.parse(localStorage.cart).length === 0
+                ) {
+                    this.cart.push({
+                        ...prodotto,
+                        quantity: 1,
+                    });
+                } else {
+                    const modalAlert = document.getElementById("myModal");
+                    modalAlert.style.display = "block";
+                    const span = document.getElementsByClassName("close")[0];
+                    span.addEventListener('click' , function(){
+                        modalAlert.style.display = "none";
+                    });
+                }
+            } else item.quantity++;
+        },
     send() {
 
     
@@ -146,13 +215,6 @@ setTimeout(() => {
           }
           }, 2000);
   
-
-            
-           
-
-      
-
-           
           
     },
     carts() {
@@ -195,10 +257,7 @@ form.addEventListener('submit', function (event) {
   });
 });
 
-   this.cart.forEach((item) => {
-      this.totalPrice += item.quantity * item.price ;
-  })
-  this.totalPrice.toFixed(2);
+   this.total();
 
   },
 
