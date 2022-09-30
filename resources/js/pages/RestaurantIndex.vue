@@ -26,7 +26,6 @@
                         <div class="overlay">
                             <div class="content">
                                 <h2>{{ category.name }}</h2>
-                              
                             </div>
                         </div>
                         <img :src="category.image" alt="" />
