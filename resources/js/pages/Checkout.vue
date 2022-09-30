@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <form @submit.prevent="send">
+      <form  id="my-form" @submit.prevent="send">
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -38,6 +38,7 @@
           />
           <label for="customer_name">Inserisci nome</label>
         </div>
+        <input type="hidden" name="my-nonce-input" id="my-nonce-input" v-model="payload">
         <div class="form-floating mb-3">
           <input
             type="text"
@@ -89,8 +90,8 @@
 
         <div id="dropin-container"></div>
         <button id="sub" class="button button--small button--green">
-          <router-link :to="{ name: 'ThankYou' }"> Purchase </router-link> -->
-          invia
+          <!-- <router-link :to="{ name: 'ThankYou' }"> Purchase </router-link> -->
+          --> Conferma
         </button>
       </form>
     </div>
@@ -100,6 +101,9 @@
 <script>
 import Axios from "axios";
 
+const call = false;
+
+
 export default {
   data() {
     return {
@@ -108,31 +112,48 @@ export default {
       customer_email: "",
       delivery_address: "",
       customer_telephone: "",
+      payload: "",
       cart: [],
       bool: false,
+      call: false,
       totalPrice : 0,
     };
   },
   methods: {
+    changeCall() {
+      this.call = true;
+    },
     send() {
-      /* let formData = new FormData();
-      formData.append("customer_name", this.name);
-      formData.append("customer_surname", this.surname);
-      formData.append("customer_email", this.email);
-      formData.append("delivery_address", this.address);
-      formData.append("customer_telephone", this.telephone); */
-      // formData.append(document.getElementById('credit-card-number'));
-      // formData.append(document.getElementById('expiration'));
-      Axios.post("/api/ordina", {
-        customer_name: this.customer_name,
+
+    
+setTimeout(() => {
+    
+    const payload = document.querySelector('#my-nonce-input');
+    if(payload){
+        debugger
+              Axios.post("/api/ordina", {
+                  customer_name: this.customer_name,
         customer_surname: this.customer_surname,
         customer_email: this.customer_email,
         delivery_address: this.delivery_address,
         customer_telephone: this.customer_telephone,
-        cart: this.cart
+        cart: this.cart,
       }).then((resp) => {
-        console.log(resp.data);
+          debugger
+          localStorage.clear();
+          this.$router.push({ name: "ThankYou" });
       });
+          }
+          }, 2000);
+  
+
+            
+           
+
+      
+
+           
+          
     },
     carts() {
       /* setInterval(() => {
@@ -156,11 +177,22 @@ export default {
   authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
   selector: '#dropin-container'
 }, function (err, instance) {
-  button.addEventListener('click', function () {
-    instance.requestPaymentMethod(function (err, payload) {
-      // Submit payload.nonce to your server
-    });
-  })
+  var form = document.querySelector('#my-form');
+var hiddenNonceInput = document.querySelector('#my-nonce-input');
+
+form.addEventListener('submit', function (event) {
+ event.preventDefault();
+
+ instance.requestPaymentMethod(function (err, payload) {
+   if (err) {
+     // handle error
+     return;
+   }
+   hiddenNonceInput.value = payload.nonce;
+  
+ });
+
+  });
 });
 
    this.cart.forEach((item) => {
@@ -172,9 +204,6 @@ export default {
 
 
 };
-
-
-
 </script>
 
 <style lang="scss" scoped>
