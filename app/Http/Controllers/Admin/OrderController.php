@@ -58,18 +58,17 @@ class OrderController extends Controller
         foreach($orders as $order){
             $total += $order->subtotal;
         }
-
-        $data = [];
+        // $data = [];
      
-         foreach($orders as $row) {
+        //  foreach($orders as $row) {
              
-            $data['label'][] = date('m/Y', strtotime($row->date_order));
-            $data['data'][] = $total;
-          }
+        //     $data['label'][] = date('m/Y', strtotime($row->date_order));
+        //     $data['data'][] = $total;
+        //   }
      
-        $data['chart_data'] = json_encode($data);
+        // $data['chart_data'] = json_encode($data);
 
-        return view("admin.orders.statistic", compact("data"));
+        return view("admin.orders.statistic", compact("orders" , "total") );
     }
     
     /**
