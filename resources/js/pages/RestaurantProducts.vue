@@ -130,6 +130,7 @@
 </template>
 
 <script>
+    
 import axios from "axios";
 
 export default {
@@ -213,13 +214,14 @@ export default {
         openModal(prod) {
             this.open = true;
             this.modalProduct = prod;
-        },
+        },    
     },
     mounted() {
         if (localStorage.cart) {
             this.cart = JSON.parse(localStorage.cart);
         }
         this.fetchData();
+        
     },
 };
 </script>
@@ -334,7 +336,7 @@ export default {
     object-fit: cover;
 }
 
-.my-modal {
+/* .my-modal {
     position: fixed;
     z-index: 999;
     top: 10%;
@@ -345,7 +347,7 @@ export default {
     padding: 1rem;
     border-radius: 30px;
     height: 600px;
-}
+} */
 
 .category-btn {
     color: #eee;
@@ -370,22 +372,30 @@ export default {
     .product-card img {
         width: 100%;
     }
+
+    .under-image{
+        height: 150px;
+    }
+
+    .cart-btn{
+        height: 60px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
     .product-card {
         width: 80%;
         margin: 0 calc((476px - 360px) / 2);
+        margin-bottom: 2rem;
     }
 }
 
 @media only screen and (max-width: 468px) {
     .product-card {
-        width: 100%;
+        width: 90%;
         margin-bottom: 2rem;
         display: flex;
         flex-direction: column;
-        margin-left: 0;
     }
     .product-card img {
         width: 100%;
@@ -394,7 +404,7 @@ export default {
 
     .under-image {
         position: relative;
-        height: 50px;
+        height: 130px;
     }
 
     .title-price {
@@ -402,6 +412,10 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding: 12px 12px 0px 12px;
+    }
+
+    .cart-btn{
+        height: 60px;
     }
 }
 </style>
