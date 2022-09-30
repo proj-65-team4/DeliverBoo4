@@ -25,7 +25,7 @@
                         <div class="fw-bold">Prezzo: <span class="fw-normal">€ {{ $product->price }} </span></div>
                         <div class="fw-bold">Portata: <span class="fw-normal">{{ $product->product_course_id ? $product->product_course->name : 'non inserita' }} </span></div>
                         <div class="fw-bold">Categoria: <span class="fw-normal">{{ count($product->product_categories) !== 0 ? $product->product_categories->implode('name', ',') : 'non inserita' }}</span></div>
-                        <div class="fw-bold">Visibile: <i class="fa-solid {{ $product->available === 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }}"></i></div>
+                        <div class="fw-bold">Visibile: <i class="fa-solid {{ $product->visible === 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }}"></i></div>
                         <div class="fw-bold">Disponibile: <i class="fa-solid {{ $product->available === 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }}"></i></div>
                     </div>
 

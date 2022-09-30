@@ -16,6 +16,15 @@
                 </div>
             </div> -->
       <!-- :key="restaurant_data.id" -->
+          <router-link :to="{name:'home'}">
+            <button type="button" class="btn login">
+              <i class="fa-solid fa-house"></i>
+            </button>
+          </router-link>
+          <button type="button" class="btn login" @click="goBack()">
+            <i class="fa-solid fa-arrow-left"></i>
+            <span class="fw-bold">Tutti i ristoranti</span>
+          </button>
       <div
         class="row py-4 my-4 text-capitalize"
         v-for="restaurant_data in restaurant"
@@ -147,6 +156,21 @@
                           <h5>{{ product.name }}</h5>
 
                           <h5>€ {{ product.price }}</h5>
+<!-- 
+                          <div class="fw-bold">Visibile: 
+                            <i class="fa-solid" :class="{ product.visible === 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }"></i>
+                          </div> -->
+
+                            <div v-if="product.available === 1">
+                              <i class="fa-solid fa-circle-check text-success"></i>
+                              <span class="text-muted">Disponibile</span>
+                            </div>
+                            <div v-else>
+                              <i class="fa-solid fa-circle-xmark text-danger"></i>
+                              <span class="text-muted">Non disponibile</span>
+                            </div>
+
+                          
                         </div>
 
                         <!-- Buttons per aumentare/diminuire quantità -->
@@ -325,6 +349,9 @@ export default {
       modalAlert.style.display = "none";
       location.reload();
     },
+    goBack() {
+      this.$router.go(-1);
+    }
   },
 
   mounted() {
@@ -339,6 +366,24 @@ export default {
 <style lang="scss" scoped>
 .my-cont {
   padding: 100px 0;
+}
+
+.login {
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  text-align: center;
+  padding: 0.7rem 0.9rem;
+  margin-right: 1rem;
+  background: #3da5d9;
+  &:hover{
+      background: #3db7d9;
+      color: black;
+  }
+
+  & i {
+      font-size: 1rem;
+  }
 }
 a {
   text-decoration: none;
