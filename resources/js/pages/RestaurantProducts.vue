@@ -154,7 +154,7 @@
                         <div class="title-price">
                           <h5>{{ product.name }}</h5>
 
-                          <h5>€ {{ product.price }}</h5>
+                          <h5 id="price">€ {{ product.price }}</h5>
 
                         </div>
 
@@ -594,7 +594,7 @@ a {
 
   .under-image {
     position: relative;
-    height: 130px;
+    height: 150px;
   }
 
   .title-price {
