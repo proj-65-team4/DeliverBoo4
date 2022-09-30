@@ -37,8 +37,15 @@ class OrderController extends Controller
     }
 
     public function statistic() {
+        $id = Auth::user()->id;
+        $orders = $orders =  DB::table('orders')
+        ->join('order_product' , 'orders.id' , '=' , 'order_product.order_id')
+        ->join('products' , 'order_product.product_id' , '=' , 'products.id')
+        ->join('users' , 'products.user_id' , '=' , 'users.id')
+        ->where('users.id' , '=' , $id)
+        ->select('orders.*')
+        ->get();
 
-        $orders = Order::all();
         $total = 0;
         foreach($orders as $order){
             $total += $order->subtotal;
