@@ -1,7 +1,7 @@
 <template>
     <div>
         <TheNavbar class="fixed-top"></TheNavbar>
-        <div class="jumbotron" id="jumbotron">
+        <div class="jumbotron" :class="[this.$route.name === 'home' ? 'home-jumbo' : 'pages-jumbo']">
             <div class="bg-jumbo"><img src="/img/food2-jumbo.png" alt=""></div>
         </div>
     </div>
@@ -19,7 +19,12 @@ import TheNavbar from './TheNavbar.vue';
 <style lang="scss" scoped>
     .jumbotron{
         position:relative;
-        height: 700px;
+    }
+    .home-jumbo {
+        min-height: 700px;
+    }
+    .pages-jumbo {
+        min-height: 300px;
     }
     .bg-jumbo{
         position: absolute;
