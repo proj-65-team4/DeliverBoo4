@@ -36,7 +36,7 @@ import TheNavbar from './TheNavbar.vue';
     }
 
 
-@media only screen and (max-width: 460px){
+@media only screen and (max-width: 468px){
     .jumbotron{
         height: 250px;
     }

@@ -191,11 +191,29 @@
           </h5>
         </div>
       </template>
+
+
+        <!-- The Modal -->
+<div id="myModal" class="myModal">
+
+<!-- Modal content -->
+<div class="modal-content">
+  <span class="close">&times;</span>
+  <p>Hai già dei prodotti nel carrello di un altro ristorante, se vuoi ordinare svuota il carrello</p>
+  <button @click="emptyCart()" class="btn btn-danger">Svuota carrello <i class="fa-solid fa-trash"></i></button>
+
+</div>
+
+</div>
+
+
+
     </div>
   </div>
 </template>
 
 <script>
+    
 import axios from "axios";
 
 export default {
@@ -243,11 +261,20 @@ export default {
         return el.product_course_id == id ? el : "";
       });
     },
-    removeCart(prodotto) {
-      console.log(prodotto);
-      const item = this.cart.find((product) => product.id === prodotto.id);
-      console.log(item);
-      if (item !== undefined && item.quantity !== 0) {
+    methods: {
+        filteredProducts(id) {
+            console.log(id)
+            
+            return this.products.filter((el) => {
+                return el.product_course_id == id ? el : "";
+            });
+            
+        },
+        removeCart(prodotto) {
+            console.log(prodotto);
+            const item = this.cart.find((product) => product.id === prodotto.id);
+            console.log(item);
+            if (item !== undefined && item.quantity !== 0) {
         item.quantity--;
         this.count--;
         this.removedProduct = true;
@@ -261,7 +288,49 @@ export default {
           this.cart.splice(eliminaIndice, 1);
         }
       }
-      
+        },
+        addCart(prodotto) {
+            const item = this.cart.find(
+                (product) => product.id === prodotto.id
+            );
+
+            if (item === undefined) {
+                if (
+                    this.cart.find(
+                        (product) => product.user_id == prodotto.user_id
+                    ) ||
+                    localStorage.cart === undefined ||
+                    JSON.parse(localStorage.cart).length === 0
+                ) {
+                    this.cart.push({
+                        ...prodotto,
+                        quantity: 1,
+                    });
+                } else {
+                    const modalAlert = document.getElementById("myModal");
+                    modalAlert.style.display = "block";
+                    const span = document.getElementsByClassName("close")[0];
+                    span.addEventListener('click' , function(){
+                        modalAlert.style.display = "none";
+                    });
+                }
+            } else item.quantity++;
+        },
+        changeID(id) {
+            this.id = id;
+        },
+        openModal(prod) {
+            this.open = true;
+            this.modalProduct = prod;
+        },
+
+        emptyCart(){
+            window.localStorage.clear()
+            const modalAlert = document.getElementById("myModal");
+            modalAlert.style.display = "none";
+            location.reload();
+        }
+
     },
     addCart(prodotto) {
       const item = this.cart.find((product) => product.id === prodotto.id);
@@ -473,41 +542,96 @@ a {
     flex-direction: column;
   }
 
-  .product-card img {
-    width: 100%;
-  }
+    .product-card img {
+        width: 100%;
+    }
+
+    .under-image{
+        height: 150px;
+    }
+
+    .cart-btn{
+        height: 60px;
+    }
 }
 
 @media only screen and (max-width: 768px) {
-  .product-card {
-    width: 80%;
-    margin: 0 calc((476px - 360px) / 2);
-  }
+    .product-card {
+        width: 80%;
+        margin: 0 calc((476px - 360px) / 2);
+        margin-bottom: 2rem;
+    }
 }
 
 @media only screen and (max-width: 468px) {
-  .product-card {
-    width: 100%;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    margin-left: 0;
-  }
-  .product-card img {
-    width: 100%;
-    height: 210px;
-  }
+    .product-card {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+    }
+    .product-card img {
+        width: 100%;
+        height: 210px;
+    }
 
-  .under-image {
-    position: relative;
-    height: 50px;
-  }
+    .under-image {
+        position: relative;
+        height: 130px;
+    }
 
-  .title-price {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 12px 0px 12px;
-  }
+    .title-price {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 12px 0px 12px;
+    }
+
+    #price{
+        flex-shrink: 0;
+    }
+}
+
+
+
+.myModal {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  text-align: center;
+
+
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 400px; 
+}
+
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 }
 </style>

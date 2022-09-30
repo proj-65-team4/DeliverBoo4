@@ -11,7 +11,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <p>Il totale per gli ordini è: <strong>{{ $total }}</strong></p>
+            <p>Il totale guadagnato per gli ordini è: <strong>{{ $total }} €</strong></p>
         </div>
     </div>
 

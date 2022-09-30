@@ -51,7 +51,7 @@ export default {
         media(x) {
             document.getElementById("jumbotron").style.height = "";
             if (x.matches) {
-                console.log(window.matchMedia("(max-width: 460px)").matches);
+                console.log(window.matchMedia("(max-width: 468px)").matches);
                 document.getElementById("jumbotron").style.minHeight = "250px";
             } else {
                 document.getElementById("jumbotron").style.minHeight = "700px";
@@ -66,7 +66,7 @@ export default {
     mounted() {
         this.fetchData();
 
-        let x = window.matchMedia("(max-width:460px)");
+        let x = window.matchMedia("(max-width:468px)");
         this.media(x); // Call listener function at run time
         x.addListener(this.media); // Attach listener function on state changes
     },
@@ -90,7 +90,7 @@ export default {
     }
 }
 
-@media only screen and (max-width: 460px) {
+@media only screen and (max-width: 468px) {
     .bg-category h1 {
         font-size: 2.7rem;
     }

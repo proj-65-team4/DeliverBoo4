@@ -1,7 +1,7 @@
 
 <template>
     <div>
-        <carousel class="" :paginationSize=20 :perPage=3 paginationColor="#272727" paginationActiveColor="#dc623d" paginationPosition="bottom" >
+        <carousel style="padding-bottom: 2.5rem;" class="" :paginationSize=20 :perPage=3 paginationColor="#272727" paginationActiveColor="#dc623d" paginationPosition="bottom" >
         
             <slide v-for=" category in categorie" :key="category.id">
                 <TheCategory  :category="category"/>
