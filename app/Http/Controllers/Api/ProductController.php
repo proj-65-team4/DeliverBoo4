@@ -25,7 +25,7 @@ class ProductController extends Controller
             $id = $rest["user_id"];
         }
         
-        $products = Product::where("user_id", $id)->get();
+        $products = Product::where("user_id", $id)->where("visible", 1)->get();
 
         $products->load("product_course:id,name");
         
