@@ -98,7 +98,7 @@
                                             <div class="title-price">
                                                 <h5>{{ product.name }}</h5>
                                         
-                                                <h5>€ {{ product.price }}</h5>
+                                                <h5 id="price">€ {{ product.price }}</h5>
                                             </div>
 
                                             <!-- Buttons per aumentare/diminuire quantità -->
@@ -387,7 +387,7 @@ export default {
     object-fit: cover;
 }
 
-/* .my-modal {
+.my-modal {
     position: fixed;
     z-index: 999;
     top: 10%;
@@ -398,7 +398,7 @@ export default {
     padding: 1rem;
     border-radius: 30px;
     height: 600px;
-} */
+}
 
 .category-btn {
     color: #eee;
@@ -444,6 +444,7 @@ export default {
 @media only screen and (max-width: 468px) {
     .product-card {
         width: 90%;
+        margin: 0 auto;
         margin-bottom: 2rem;
         display: flex;
         flex-direction: column;
@@ -463,6 +464,10 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding: 12px 12px 0px 12px;
+    }
+
+    #price{
+        flex-shrink: 0;
     }
 }
 
