@@ -10,6 +10,7 @@
                         </div>
                         <div class="col">
                             <h4 class="fw-bold text-capitalize">{{ restaurant.restaurant_name }}</h4>
+
                             <div class="row">
                                 <div class="col-md-6 location">
                                     <h6 class="text-capitalize">{{ restaurant.address}}</h6>
@@ -34,8 +35,10 @@ export default {
     props: {
         restaurant: Object,
     },
-    data: {
-        distance: null,
+    data() {
+        return{
+            distance: null,
+        }
     },
     methods: {
         randomDistance() {

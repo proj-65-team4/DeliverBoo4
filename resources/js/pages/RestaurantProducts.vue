@@ -139,8 +139,7 @@
                   <div
                     class="col-12 my-col col-md-4 col-lg-4"
                     v-for="product in filteredProducts(course.id)"
-                    :key="product.id"
-                  >
+                    :key="product.id">
                     <!-- Card prodotto -->
                     <div class="product-card">
                       <img
@@ -155,13 +154,12 @@
                         <div class="title-price">
                           <h5>{{ product.name }}</h5>
 
-                          <h5>€ {{ product.price }}</h5>
-<!-- 
-                          <div class="fw-bold">Visibile: 
-                            <i class="fa-solid" :class="{ product.visible === 1 ? 'fa-circle-check text-success' : 'fa-circle-xmark text-danger' }"></i>
-                          </div> -->
+                          <h5 id="price">€ {{ product.price }}</h5>
 
-                            <div v-if="product.available === 1">
+                        </div>
+
+                        <div class="disp">
+                          <div v-if="product.available === 1">
                               <i class="fa-solid fa-circle-check text-success"></i>
                               <span class="text-muted">Disponibile</span>
                             </div>
@@ -169,9 +167,8 @@
                               <i class="fa-solid fa-circle-xmark text-danger"></i>
                               <span class="text-muted">Non disponibile</span>
                             </div>
-
-                          
                         </div>
+                            
 
                         <!-- Buttons per aumentare/diminuire quantità -->
                         <div class="cart-btn">
@@ -197,9 +194,13 @@
                             <i class="fa-solid fa-plus"></i>
                           </button>
                         </div>
+
                       </div>
+
                     </div>
+
                   </div>
+
                 </div>
               </div>
             </div>
@@ -364,6 +365,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .disp{
+    padding-left: 0.8rem;
+  }
 .my-cont {
   padding: 100px 0;
 }
@@ -559,7 +563,7 @@ a {
   }
 
   .under-image {
-    height: 150px;
+    height: 165px;
   }
 
   .cart-btn {
@@ -590,7 +594,7 @@ a {
 
   .under-image {
     position: relative;
-    height: 130px;
+    height: 150px;
   }
 
   .title-price {
@@ -598,6 +602,9 @@ a {
     justify-content: space-between;
     align-items: center;
     padding: 12px 12px 0px 12px;
+    & h5 {
+      margin-bottom: 0;
+    }
   }
 
   #price {
