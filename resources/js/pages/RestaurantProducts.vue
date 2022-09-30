@@ -270,6 +270,7 @@ export default {
             if (item !== undefined && item.quantity !== 0) {
                 item.quantity--;
                 this.count--;
+                this.removedProduct=true
                 setTimeout(() => {
         this.removedProduct = false;
       }, 1500);
@@ -308,6 +309,10 @@ export default {
                     });
                 }
             } else item.quantity++;
+            this.addedProduct=true
+            setTimeout(() => {
+        this.addedProduct = false;
+      }, 1500);
         },
         changeID(id) {
             this.id = id;
