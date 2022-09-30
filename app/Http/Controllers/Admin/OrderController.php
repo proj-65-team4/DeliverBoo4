@@ -37,6 +37,12 @@ class OrderController extends Controller
     }
 
     public function statistic() {
+
+        //mesa/anno totale vendite
+
+
+        
+        
         $id = Auth::user()->id;
         $orders = $orders =  DB::table('orders')
         ->join('order_product' , 'orders.id' , '=' , 'order_product.order_id')
@@ -47,12 +53,23 @@ class OrderController extends Controller
         ->distinct()
         ->get();
 
+        
         $total = 0;
         foreach($orders as $order){
             $total += $order->subtotal;
         }
 
-        return view("admin.orders.statistic", compact("total", "orders"));
+        $data = [];
+     
+         foreach($orders as $row) {
+             
+            $data['label'][] = date('m/Y', strtotime($row->date_order));
+            $data['data'][] = $total;
+          }
+     
+        $data['chart_data'] = json_encode($data);
+
+        return view("admin.orders.statistic", compact("data"));
     }
     
     /**
