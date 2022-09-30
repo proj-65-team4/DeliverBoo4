@@ -5516,7 +5516,7 @@ window.addEventListener("scroll", function () {
 
   /* computed: {
       carts() {
-           setInterval(() => {
+            setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -5852,7 +5852,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         this.removedProduct = true;
         setTimeout(function () {
           _this2.removedProduct = false;
-        }, 1500);
+        }, 1000);
 
         if (item.quantity === 0) {
           var eliminaIndice = this.cart.findIndex(function (product) {
@@ -5876,7 +5876,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           this.addedProduct = true;
           setTimeout(function () {
             _this3.addedProduct = false;
-          }, 1500);
+          }, 1000);
           this.cart.push(_objectSpread(_objectSpread({}, prodotto), {}, {
             quantity: 1
           }));
@@ -5888,12 +5888,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             modalAlert.style.display = "none";
           });
         }
-      } else item.quantity++;
-
-      this.addedProduct = true;
-      setTimeout(function () {
-        _this3.addedProduct = false;
-      }, 1500);
+      } else {
+        item.quantity++;
+        this.addedProduct = true;
+        setTimeout(function () {
+          _this3.addedProduct = false;
+        }, 1000);
+      }
     },
     changeID: function changeID(id) {
       this.id = id;
@@ -12799,7 +12800,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".my-cont[data-v-96ac86ec] {\n  padding: 100px 0;\n}\n.login[data-v-96ac86ec] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.7rem 0.9rem;\n  margin-right: 1rem;\n  background: #3da5d9;\n}\n.login[data-v-96ac86ec]:hover {\n  background: #3db7d9;\n  color: black;\n}\n.login i[data-v-96ac86ec] {\n  font-size: 1rem;\n}\na[data-v-96ac86ec] {\n  text-decoration: none;\n  color: black;\n  padding: 0.5rem 0;\n  transition: all 0.15s ease-out;\n}\na[data-v-96ac86ec]:hover {\n  color: rgb(40, 191, 214);\n}\n.icon-color[data-v-96ac86ec] {\n  color: rgb(40, 191, 214);\n}\n.modal-btn[data-v-96ac86ec] {\n  border: none;\n}\n.modal-btn[data-v-96ac86ec]:hover {\n  border: none;\n}\n.cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  height: 70px;\n  font-weight: 700;\n  display: flex;\n  justify-content: space-around;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n  font-size: 24px;\n}\n.cart-btn button[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  border: unset;\n  flex-shrink: 0;\n}\n.cart-btn .quantity[data-v-96ac86ec] {\n  width: 20px;\n  height: 20px;\n  /* border: 1px solid #fff; */\n  text-align: center;\n}\n.number[data-v-96ac86ec] {\n  font-size: 18px;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card[data-v-96ac86ec]:hover {\n  box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;\n}\n.product-card img[data-v-96ac86ec] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  width: 100%;\n  position: relative;\n}\n\n/* .under-image h5 {\n    flex-shrink: 0;\n} */\n.added-product[data-v-96ac86ec] {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background-color: #ffab00;\n  padding: 2rem;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid white;\n  border-radius: 20px;\n  z-index: 1;\n}\n.removed-product[data-v-96ac86ec] {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background-color: #ffab00;\n  padding: 2rem;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid white;\n  border-radius: 20px;\n  z-index: 1;\n}\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n.card-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.my-modal[data-v-96ac86ec] {\n  position: fixed;\n  z-index: 999;\n  top: 10%;\n  left: 45%;\n  width: 600px;\n  margin-left: -150px;\n  background-color: white;\n  padding: 1rem;\n  border-radius: 30px;\n  height: 600px;\n}\n.category-btn[data-v-96ac86ec] {\n  color: #eee;\n  padding: 15px 25px;\n  text-decoration: none;\n}\n.my-btn[data-v-96ac86ec]:hover {\n  color: var(--bs-btn-hover-color);\n  background-color: var(--bs-btn-hover-bg);\n  border-color: white;\n}\n@media only screen and (max-width: 1200px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n}\n.under-image[data-v-96ac86ec] {\n    height: 150px;\n}\n.cart-btn[data-v-96ac86ec] {\n    height: 60px;\n}\n}\n@media only screen and (max-width: 768px) {\n.product-card[data-v-96ac86ec] {\n    width: 80%;\n    margin: 0 58px;\n    margin-bottom: 2rem;\n}\n}\n@media only screen and (max-width: 468px) {\n.product-card[data-v-96ac86ec] {\n    width: 90%;\n    margin: 0 auto;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 130px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n#price[data-v-96ac86ec] {\n    flex-shrink: 0;\n}\n}\n.myModal[data-v-96ac86ec] {\n  display: none;\n  position: fixed;\n  z-index: 1;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: auto;\n  background-color: rgb(0, 0, 0);\n  background-color: rgba(0, 0, 0, 0.4);\n  text-align: center;\n}\n.myModal .modal-content[data-v-96ac86ec] {\n  background-color: #fefefe;\n  margin: 15% auto;\n  padding: 20px;\n  border: 1px solid #888;\n  width: 400px;\n}\n.myModal .close[data-v-96ac86ec] {\n  color: #aaa;\n  float: right;\n  font-size: 28px;\n  font-weight: bold;\n}\n.myModal .close[data-v-96ac86ec]:hover,\n.myModal .close[data-v-96ac86ec]:focus {\n  color: black;\n  text-decoration: none;\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".my-cont[data-v-96ac86ec] {\n  padding: 100px 0;\n}\n.login[data-v-96ac86ec] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.7rem 0.9rem;\n  margin-right: 1rem;\n  background: #3da5d9;\n}\n.login[data-v-96ac86ec]:hover {\n  background: #3db7d9;\n  color: black;\n}\n.login i[data-v-96ac86ec] {\n  font-size: 1rem;\n}\na[data-v-96ac86ec] {\n  text-decoration: none;\n  color: black;\n  padding: 0.5rem 0;\n  transition: all 0.15s ease-out;\n}\na[data-v-96ac86ec]:hover {\n  color: rgb(40, 191, 214);\n}\n.icon-color[data-v-96ac86ec] {\n  color: rgb(40, 191, 214);\n}\n.modal-btn[data-v-96ac86ec] {\n  border: none;\n}\n.modal-btn[data-v-96ac86ec]:hover {\n  border: none;\n}\n.cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  height: 70px;\n  font-weight: 700;\n  display: flex;\n  justify-content: space-around;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n  font-size: 24px;\n}\n.cart-btn button[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  border: unset;\n  flex-shrink: 0;\n}\n.cart-btn .quantity[data-v-96ac86ec] {\n  width: 20px;\n  height: 20px;\n  /* border: 1px solid #fff; */\n  text-align: center;\n}\n.number[data-v-96ac86ec] {\n  font-size: 18px;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card[data-v-96ac86ec]:hover {\n  box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;\n}\n.product-card img[data-v-96ac86ec] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  width: 100%;\n  position: relative;\n}\n\n/* .under-image h5 {\n    flex-shrink: 0;\n} */\n.added-product[data-v-96ac86ec] {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background-color: #ffab00;\n  padding: 2rem;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid white;\n  border-radius: 20px;\n  z-index: 1;\n  transition: all 0.4s ease-in;\n}\n.removed-product[data-v-96ac86ec] {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background-color: #ffab00;\n  padding: 2rem;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid white;\n  border-radius: 20px;\n  z-index: 1;\n  transition: all 0.4s ease-in;\n}\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n.card-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.my-modal[data-v-96ac86ec] {\n  position: fixed;\n  z-index: 999;\n  top: 10%;\n  left: 45%;\n  width: 600px;\n  margin-left: -150px;\n  background-color: white;\n  padding: 1rem;\n  border-radius: 30px;\n  height: 600px;\n}\n.category-btn[data-v-96ac86ec] {\n  color: #eee;\n  padding: 15px 25px;\n  text-decoration: none;\n}\n.my-btn[data-v-96ac86ec]:hover {\n  color: var(--bs-btn-hover-color);\n  background-color: var(--bs-btn-hover-bg);\n  border-color: white;\n}\n@media only screen and (max-width: 1200px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n}\n.under-image[data-v-96ac86ec] {\n    height: 150px;\n}\n.cart-btn[data-v-96ac86ec] {\n    height: 60px;\n}\n}\n@media only screen and (max-width: 768px) {\n.product-card[data-v-96ac86ec] {\n    width: 80%;\n    margin: 0 58px;\n    margin-bottom: 2rem;\n}\n}\n@media only screen and (max-width: 468px) {\n.product-card[data-v-96ac86ec] {\n    width: 90%;\n    margin: 0 auto;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 130px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n#price[data-v-96ac86ec] {\n    flex-shrink: 0;\n}\n}\n.myModal[data-v-96ac86ec] {\n  display: none;\n  position: fixed;\n  z-index: 1;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: auto;\n  background-color: rgb(0, 0, 0);\n  background-color: rgba(0, 0, 0, 0.4);\n  text-align: center;\n}\n.myModal .modal-content[data-v-96ac86ec] {\n  background-color: #fefefe;\n  margin: 15% auto;\n  padding: 20px;\n  border: 1px solid #888;\n  width: 400px;\n}\n.myModal .close[data-v-96ac86ec] {\n  color: #aaa;\n  float: right;\n  font-size: 28px;\n  font-weight: bold;\n}\n.myModal .close[data-v-96ac86ec]:hover,\n.myModal .close[data-v-96ac86ec]:focus {\n  color: black;\n  text-decoration: none;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -30729,7 +30730,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
