@@ -291,7 +291,7 @@ export default {
         this.removedProduct = true;
         setTimeout(() => {
           this.removedProduct = false;
-        }, 1500);
+        }, 1000);
         if (item.quantity === 0) {
           const eliminaIndice = this.cart.findIndex(
             (product) => product.id === prodotto.id
@@ -313,7 +313,7 @@ export default {
           this.addedProduct = true;
           setTimeout(() => {
             this.addedProduct = false;
-          }, 1500);
+          }, 1000);
           this.cart.push({
             ...prodotto,
             quantity: 1,
@@ -326,7 +326,14 @@ export default {
             modalAlert.style.display = "none";
           });
         }
-      } else item.quantity++;
+      } else{
+          item.quantity++;
+           this.addedProduct = true;
+          setTimeout(() => {
+            this.addedProduct = false;
+          }, 1000);
+          } 
+          
     },
     changeID(id) {
       this.id = id;
@@ -477,6 +484,7 @@ a {
   border: 1px solid white;
   border-radius: 20px;
   z-index: 1;
+  transition: all .4s ease-in;
 }
 .removed-product {
   position: fixed;
@@ -491,6 +499,7 @@ a {
   border: 1px solid white;
   border-radius: 20px;
   z-index: 1;
+  transition: all .4s ease-in;
 }
 .accordion-button:focus {
   z-index: 3;
