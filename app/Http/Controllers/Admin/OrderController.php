@@ -30,9 +30,9 @@ class OrderController extends Controller
         ->join('users' , 'products.user_id' , '=' , 'users.id')
         ->where('users.id' , '=' , $id)
         ->select('orders.*')
+        ->distinct()
         ->get();
 
-        
         return view("admin.orders.index", compact("orders"));
     }
 
@@ -44,6 +44,7 @@ class OrderController extends Controller
         ->join('users' , 'products.user_id' , '=' , 'users.id')
         ->where('users.id' , '=' , $id)
         ->select('orders.*')
+        ->distinct()
         ->get();
 
         $total = 0;
