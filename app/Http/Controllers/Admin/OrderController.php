@@ -25,15 +25,13 @@ class OrderController extends Controller
         // where users.id = 5;
 
         $orders =  DB::table('orders')
-            ->join('order_product', 'orders.id', '=', 'order_product.order_id')
-            ->join('products', 'order_product.product_id', '=', 'products.id')
-            ->join('users', 'products.user_id', '=', 'users.id')
-            ->where('users.id', '=', $id)
-            ->select('orders.*')
-            ->distinct()
-            ->get();
-
-
+        ->join('order_product' , 'orders.id' , '=' , 'order_product.order_id')
+        ->join('products' , 'order_product.product_id' , '=' , 'products.id')
+        ->join('users' , 'products.user_id' , '=' , 'users.id')
+        ->where('users.id' , '=' , $id)
+        ->select('orders.*')
+        ->distinct()
+        ->paginate(20);
 
         return view("admin.orders.index", compact("orders"));
     }

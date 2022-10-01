@@ -27,15 +27,14 @@ class MenuController extends Controller
     $queryValue = null;
 
     if(key_exists("product_course", $query)){
-      $products = Product::orderBy("name", "asc")->where('user_id', $user->id)->where('product_course_id', $query['product_course'])->get();
+      $products = Product::orderBy("name", "asc")->where('user_id', $user->id)->where('product_course_id', $query['product_course'])->paginate(8);
       $queryValue = $query['product_course'];
 
     } else {
-      $products = Product::orderBy("name", "asc")->where('user_id', $user->id)->get();
+      $products = Product::orderBy("name", "asc")->where('user_id', $user->id)->paginate(8);
     }
 
     $courses = ProductCourse::all();
-
     
 
     /* dd($queryValue); */

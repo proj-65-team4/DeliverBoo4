@@ -3,7 +3,9 @@
         <div class="overlay"> 
             <div class="content">
                 <h2>{{category.name}}</h2>
-                <p class="d-md-none d-lg-block">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, repellat!</p>
+
+                <p class="d-md-none d-lg-block">Voglia di cucina <strong>{{category.name}}</strong>? Questa è la categoria che fa per te. Scopri i migliori ristoranti e ordina subito i piatti che ami!</p>
+                
                 <router-link :to="{name:'restaurants.index', params:{id: category.id}}" >Trova i ristoranti <i class="fa-solid fa-utensils mx-2"></i> </router-link></div>
                 
             </div>
@@ -24,7 +26,7 @@
         data(){
             return{
             }
-        }
+        },
     }
 </script>
 
@@ -73,6 +75,7 @@ a {
     color: inherit;
     text-decoration: none;
     transition: transform 0.4s ease;
+    border-radius: 4px;
  
 &:hover {
     color: inherit;
