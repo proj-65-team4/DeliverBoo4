@@ -32,6 +32,7 @@ class OrderController extends Controller
         ->select('orders.*')
         ->distinct()
         ->paginate(20);
+        
 
         return view("admin.orders.index", compact("orders"));
     }
@@ -45,19 +46,20 @@ class OrderController extends Controller
 
 
         $id = Auth::user()->id;
-        /* $orders = $orders =  DB::table('orders')
+      $orders = DB::table('orders')
         ->join('order_product' , 'orders.id' , '=' , 'order_product.order_id')
         ->join('products' , 'order_product.product_id' , '=' , 'products.id')
         ->join('users' , 'products.user_id' , '=' , 'users.id')
         ->where('users.id' , '=' , $id)
-        ->select('COUNT(*)')
+        ->select('orders.*')
         ->distinct()
         ->get();
+        
         
         $total = 0;
         foreach($orders as $order){
             $total += $order->subtotal;
-        } */
+        } 
         // $data = [];
 
         //  foreach($orders as $row) {
@@ -86,10 +88,10 @@ class OrderController extends Controller
         dd($num_order); */
 
 
-        $num_orders  = Order::groupBy(DB::raw('DATE(orders.date_order)'))->join('order_product','orders.id','=','order_product.order_id')->join('products','order_product.product_id','=','products.id')->where('products.user_id','=',5)->get([DB::raw('COUNT(*) as count'), DB::raw('DATE(orders.date_order) as date')]);
+        $num_orders  = Order::groupBy(DB::raw('DATE(orders.date_order)'))->join('order_product','orders.id','=','order_product.order_id')->join('products','order_product.product_id','=','products.id')->distinct()->where('products.user_id','=',5)->get([DB::raw('COUNT(*) as count'), DB::raw('DATE(orders.date_order) as date')]);
         
         
-        return view("admin.orders.statistic", compact(/* "orders", "total",  */"num_orders"));
+        return view("admin.orders.statistic", compact( "orders", "total", "num_orders"));
     }
 
     /**
