@@ -25,10 +25,19 @@ public function index()
     ->join('users' , 'products.user_id' , '=' , 'users.id')
     ->where('users.id' , '=' , $id)
     ->select('orders.*')
-    ->get();
+    ->paginate(10);
+
+    $totalOrders = DB::table('orders')
+    ->join('order_product' , 'orders.id' , '=' , 'order_product.order_id')
+    ->join('products' , 'order_product.product_id' , '=' , 'products.id')
+    ->join('users' , 'products.user_id' , '=' , 'users.id')
+    ->where('users.id' , '=' , $id)
+    ->select('orders.*')
+    ->count();
+
 
     /* dd($products); */
 
-    return view("admin.index", compact("totalProducts", "dataProducts","orders"));
+    return view("admin.index", compact("totalProducts","totalOrders","dataProducts","orders"));
 }
 }

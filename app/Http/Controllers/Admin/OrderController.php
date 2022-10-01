@@ -31,7 +31,7 @@ class OrderController extends Controller
         ->where('users.id' , '=' , $id)
         ->select('orders.*')
         ->distinct()
-        ->get();
+        ->paginate(20);
 
         return view("admin.orders.index", compact("orders"));
     }
