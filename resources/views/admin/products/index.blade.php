@@ -227,8 +227,21 @@
             cursor: pointer;
         }
 
-        @media only screen and (max-width: 468px){
-            
+        @media only screen and (max-width: 540px){
+            .my-button{
+                width: 1.8rem;
+                height: 1.8rem;;
+                font-size: 0.7rem;
+            }
+
+            .my-button:after {
+            content: '';
+            }
+
+            .my-button:hover {
+            padding-right: 0;
+            padding-left: 0;
+        }
         }
     </style>
 @endsection
