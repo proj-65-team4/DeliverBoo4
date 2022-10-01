@@ -1,6 +1,34 @@
 <template>
     <div class="bg-category">
         <h1 class="py-5">Le categorie che amate</h1>
+        <div class="container">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Filtro avanzato
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="row row-cols-6">
+                                <template v-for="category in categories">
+                                    <div class="form-check py-2 ms-3">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        <label class="form-check-label ps-2" for="flexCheckDefault">
+                                            {{ category.name }}
+                                        </label>
+                                    </div>
+                                </template>
+                            </div>
+                            <div class="w-100 d-flex justify-content-center pt-4">
+                                <button class="btn btn-primary">CERCA</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <TheCarousel
             class="d-none d-md-block"

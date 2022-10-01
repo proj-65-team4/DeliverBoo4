@@ -16,11 +16,6 @@
                 </div>
             </div> -->
       <!-- :key="restaurant_data.id" -->
-          <router-link :to="{name:'home'}">
-            <button type="button" class="btn login">
-              <i class="fa-solid fa-house"></i>
-            </button>
-          </router-link>
           <button type="button" class="btn login" @click="goBack()">
             <i class="fa-solid fa-arrow-left"></i>
             <span class="fw-bold">Tutti i ristoranti</span>
@@ -369,7 +364,7 @@ export default {
     padding-left: 0.8rem;
   }
 .my-cont {
-  padding: 100px 0;
+  padding: 80px 0;
 }
 
 .login {
@@ -380,9 +375,11 @@ export default {
   padding: 0.7rem 0.9rem;
   margin-right: 1rem;
   background: #3da5d9;
+  font-weight: bold;
+  font-size: 18px;
   &:hover{
       background: #3db7d9;
-      color: black;
+      color: #fff;
   }
 
   & i {

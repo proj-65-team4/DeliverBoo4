@@ -23,9 +23,12 @@
                 aria-labelledby="offcanvasScrollingLabel"
             >
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
-                        Carrello
-                    </h5>
+                    <i class="fa-solid fa-cart-shopping fa-lg icon-color"></i>
+                    <div>
+                        <h5 class="offcanvas-title d-inline fw-bold" id="offcanvasScrollingLabel">
+                            Carrello
+                        </h5>
+                    </div>
                     <button
                         type="button"
                         class="btn-close"
@@ -76,9 +79,17 @@
 
             <!-- <ul class="list-unstyled mb-0">
                 <li> -->
-                    <a class="login" href="/login">
-                        <i class="fa-solid fa-right-to-bracket"></i> Accedi
-                    </a>
+                    <div class="d-flex align-items-center gap-3">
+                        <template v-if="this.$route.name !== 'home'">
+                            <router-link :to="{name:'home'}">
+                                <button type="button" class="btn login"><i class="fa-solid fa-house fa-lg"></i></button>
+                            </router-link>
+                        </template>
+    
+                        <a class="login" href="/login">
+                            <i class="fa-solid fa-right-to-bracket"></i> Accedi
+                        </a>
+                    </div>
                 <!-- </li>
             </ul> -->
         </nav>
@@ -141,7 +152,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.bgcolor,
+.icon-color{
+    color: #3db7d9;
+}
 .scrolled {
     background: #ffab00;
 }
@@ -189,8 +202,8 @@ export default {
     color: #fff;
     text-align: center;
     padding: 0.7rem 0.9rem;
-    margin-right: 1rem;
     background: #3da5d9;
+    height: 50px;
     &:hover{
         background: #3db7d9;
     }
@@ -203,16 +216,16 @@ export default {
 .fixed-cart {
     position: fixed;
     bottom: 0;
-    margin: 20px;
+    margin: 80px 70px;
     width: 60px;
     height: 60px;
     right: 0;
     border-radius: 50px;
-    background-color: rgb(40, 191, 214);
+    background-color: #3db7d9;
 
     &:hover , &:active , &:focus {
-        background-color: rgb(40, 191, 214);
-        border: 0;
+        background-color: #dc623d;
+        border: 1px transparent;
     }
     
 
