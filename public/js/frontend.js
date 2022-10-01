@@ -5524,7 +5524,7 @@ window.addEventListener("scroll", function () {
 
   /* computed: {
       carts() {
-           setInterval(() => {
+            setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -6579,19 +6579,14 @@ var render = function render() {
       src: "/img/deliveboo-logo.svg",
       alt: ""
     }
-  })])], 1), _vm._v(" "), _c("div", {
-    staticClass: "d-flex align-items-center gap-3"
-  }, [this.$route.name !== "home" ? [_c("router-link", {
+  })])], 1), _vm._v(" "), _c("div", {}, [this.$route.name !== "home" ? [_c("router-link", {
     attrs: {
       to: {
         name: "home"
       }
     }
-  }, [_c("button", {
-    staticClass: "btn login",
-    attrs: {
-      type: "button"
-    }
+  }, [_c("a", {
+    staticClass: "login house"
   }, [_c("i", {
     staticClass: "fa-solid fa-house fa-lg"
   })])])] : _vm._e(), _vm._v(" "), _vm._m(2)], 2)])]);
@@ -6642,7 +6637,7 @@ var staticRenderFns = [function () {
     }
   }, [_c("i", {
     staticClass: "fa-solid fa-right-to-bracket"
-  }), _vm._v(" Accedi\n                    ")]);
+  }), _vm._v(" Accedi\n            ")]);
 }];
 render._withStripped = true;
 
@@ -12842,7 +12837,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".icon-color[data-v-eca07cf4] {\n  color: #3db7d9;\n}\n.scrolled[data-v-eca07cf4] {\n  background: #ffab00;\n}\n#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n\n/* .cart {\n    display: none;\n}\n.counter-cart {\n    position: absolute;\n    width: 10px;\n    aspect-ratio: 1;\n    padding: 0.15rem;\n    border-radius: 50%;\n    background-color: red;\n} */\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 170px;\n  width: 100%;\n  transition: background 0.8s ease;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.7rem 0.9rem;\n  background: #3da5d9;\n  height: 50px;\n}\n.login[data-v-eca07cf4]:hover {\n  background: #3db7d9;\n}\n.login i[data-v-eca07cf4] {\n  font-size: 1rem;\n}\n.fixed-cart[data-v-eca07cf4] {\n  position: fixed;\n  bottom: 0;\n  margin: 80px 70px;\n  width: 60px;\n  height: 60px;\n  right: 0;\n  border-radius: 50px;\n  background-color: #3db7d9;\n}\n.fixed-cart[data-v-eca07cf4]:hover, .fixed-cart[data-v-eca07cf4]:active, .fixed-cart[data-v-eca07cf4]:focus {\n  background-color: #dc623d;\n  border: 1px transparent;\n}\n.fixed-cart i[data-v-eca07cf4] {\n  font-size: 1.7rem;\n  color: white;\n}\n@media only screen and (max-width: 1368px) {\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 100px;\n}\n}\n@media only screen and (max-width: 1138px) {\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 50px;\n}\n}\n@media only screen and (max-width: 968px) {\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n}\n@media only screen and (max-width: 568px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.4rem 0.5rem;\n    margin-right: 0;\n}\n.login i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n}", ""]);
+exports.push([module.i, ".icon-color[data-v-eca07cf4] {\n  color: #3db7d9;\n}\n.scrolled[data-v-eca07cf4] {\n  background: #ffab00;\n}\n#deliveboo[data-v-eca07cf4] {\n  width: 175px;\n}\n\n/* .cart {\n    display: none;\n}\n.counter-cart {\n    position: absolute;\n    width: 10px;\n    aspect-ratio: 1;\n    padding: 0.15rem;\n    border-radius: 50%;\n    background-color: red;\n} */\n.house[data-v-eca07cf4] {\n  margin-right: 0.5rem;\n}\n.my-navbar[data-v-eca07cf4] {\n  background: rgba(0, 0, 0, 0.2);\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 0.8rem 170px;\n  width: 100%;\n  transition: background 0.8s ease;\n}\n.my-navbar a[data-v-eca07cf4] {\n  text-decoration: none;\n  color: white;\n  font-weight: bold;\n  font-size: 18px;\n}\n.my-navbar li[data-v-eca07cf4] {\n  display: inline-block;\n}\n.login[data-v-eca07cf4] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.7rem 0.9rem;\n  background: #3da5d9;\n  height: 50px;\n}\n.login[data-v-eca07cf4]:hover {\n  background: #3db7d9;\n}\n.login i[data-v-eca07cf4] {\n  font-size: 1rem;\n}\n.fixed-cart[data-v-eca07cf4] {\n  position: fixed;\n  bottom: 0;\n  margin: 80px 70px;\n  width: 60px;\n  height: 60px;\n  right: 0;\n  border-radius: 50px;\n  background-color: #3db7d9;\n}\n.fixed-cart[data-v-eca07cf4]:hover, .fixed-cart[data-v-eca07cf4]:active, .fixed-cart[data-v-eca07cf4]:focus {\n  background-color: #dc623d;\n  border: 1px transparent;\n}\n.fixed-cart i[data-v-eca07cf4] {\n  font-size: 1.7rem;\n  color: white;\n}\n@media only screen and (max-width: 1368px) {\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 100px;\n}\n}\n@media only screen and (max-width: 1138px) {\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 50px;\n}\n}\n@media only screen and (max-width: 968px) {\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n}\n@media only screen and (max-width: 568px) {\n#deliveboo[data-v-eca07cf4] {\n    width: 130px;\n}\n.my-navbar[data-v-eca07cf4] {\n    padding: 0.6rem 0.7rem;\n}\n.my-navbar a[data-v-eca07cf4] {\n    font-size: 15px;\n}\n.login[data-v-eca07cf4] {\n    padding: 0.4rem 0.5rem;\n    margin-right: 0;\n}\n.login i[data-v-eca07cf4] {\n    font-size: 0.8rem;\n}\n}", ""]);
 
 // exports
 
@@ -30829,7 +30824,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })

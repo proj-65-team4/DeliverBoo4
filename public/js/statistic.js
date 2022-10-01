@@ -13742,11 +13742,7 @@ new Chart(
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/chart/statistic.js */"./resources/js/chart/statistic.js");
-=======
 module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\chart\statistic.js */"./resources/js/chart/statistic.js");
->>>>>>> b6ab48a5ee7b70de924cc10c7d9ed202fcf675be
 
 
 /***/ })
