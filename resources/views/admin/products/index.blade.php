@@ -168,6 +168,12 @@
                 </a>
             </div>
         @endif
+
+        <div class="pt-5 d-flex justify-content-center">
+            <div>
+                {{ $products->links() }}
+            </div>
+        </div>
     </div>
 
     <style>
@@ -219,6 +225,10 @@
 
         .food-image {
             cursor: pointer;
+        }
+
+        @media only screen and (max-width: 468px){
+            
         }
     </style>
 @endsection

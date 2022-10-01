@@ -183,5 +183,11 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="pt-5 d-flex justify-content-center">
+            <div>
+                {{ $orders->links() }}
+            </div>
+        </div>
     </div>
 @endsection

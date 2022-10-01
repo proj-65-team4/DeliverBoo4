@@ -405,17 +405,11 @@ td {
   }
 
   .recent-grid {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
   }
 
   .search-wrapper {
     display: none;
-  }
-}
-
-@media only screen and (max-width: 868px) {
-  .recent-grid {
-    grid-template-columns: 100%;
   }
 }
 
