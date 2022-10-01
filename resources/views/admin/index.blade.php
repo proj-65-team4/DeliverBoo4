@@ -40,7 +40,7 @@
     <div class="card-single">
         <div>
             {{-- INSERIRE NUMERO TOTALE DEGLI ORDINI --}}
-            <h1>{{ count($orders) }}</h1>
+            <h1>{{ $totalOrders }}</h1>
             <span>Ordini</span>
         </div>
 
