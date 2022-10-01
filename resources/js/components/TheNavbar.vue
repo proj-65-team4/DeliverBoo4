@@ -77,21 +77,18 @@
                 </router-link>
             </div>
 
-            <!-- <ul class="list-unstyled mb-0">
-                <li> -->
-                    <div class="d-flex align-items-center gap-3">
-                        <template v-if="this.$route.name !== 'home'">
-                            <router-link :to="{name:'home'}">
-                                <button type="button" class="btn login"><i class="fa-solid fa-house fa-lg"></i></button>
-                            </router-link>
-                        </template>
+            <div class="">
+                <template v-if="this.$route.name !== 'home'">
+                    <router-link :to="{name:'home'}">
+                        <a class="login house"><i class="fa-solid fa-house fa-lg"></i></a>
+                    </router-link>
+                </template>
     
-                        <a class="login" href="/login">
-                            <i class="fa-solid fa-right-to-bracket"></i> Accedi
-                        </a>
-                    </div>
-                <!-- </li>
-            </ul> -->
+                <a class="login" href="/login">
+                    <i class="fa-solid fa-right-to-bracket"></i> Accedi
+                </a>
+            </div>
+
         </nav>
     </div>
 </template>
@@ -174,6 +171,10 @@ export default {
     border-radius: 50%;
     background-color: red;
 } */
+
+.house{
+    margin-right: 0.5rem;
+}
 
 .my-navbar {
     background: rgba(0, 0, 0, 0.2);
