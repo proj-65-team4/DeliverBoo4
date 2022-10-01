@@ -56,6 +56,38 @@
 {{-- DATI DA RIPORTARE NAME VISIBLE E AVAILABLE --}}
 <div class="recent-grid">
 
+    <div class="orders">
+        <div class="card">
+            <div class="card-header">
+                <h3>Ordini Recenti</h3>
+
+                <a href="{{route('admin.orders.index')}}" class="btn">Vedi tutti <span class="las la-arrow-right"></span></a>
+            </div>
+
+            <div class="card-body">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>Data ordine <i class="fa-regular fa-calendar-days"></i></td>
+                            <td>Nome <i class="fa-regular fa-calendar-days"></i></td>
+                            <td>Subtotale <i class="fa-regular fa-credit-card"></i></td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach ($orders as $order)
+                        <tr>
+                            <td>{{ $order->date_order ? date("d-m-Y h:m", strtotime($order->date_order)) : 'Nessun ordine effettuato' }}</td>
+                            <td>{{ $order->customer_name}}</td>
+                            <td>€ {{ $order->subtotal ? $order->subtotal : '' }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
     <div class="products">
         <div class="card">
             <div class="card-header">
@@ -70,8 +102,8 @@
                         <thead>
                             <tr>
                                 <td>Nome</td>
-                                <td>Disponibilità</td>
-                                <td>Visibile</td>
+                                <td id="disp">Disponibilità</td>
+                                {{-- <td>Visibile</td> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -79,8 +111,8 @@
                             @foreach ($dataProducts as $product)
                             <tr>
                                 <td>{{$product->name}}</td>
-                                <td><span class="status {{$product->available == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->available ? 'Disponibile' : 'Non Disponibile'}}</span></td>
-                                <td><span class="status {{$product->visible == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->visible ? 'Visibile' : 'Non Visibile'}}</span></td>
+                                <td id="disp"><span class="status {{$product->available == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->available ? 'Disponibile' : 'Non Disponibile'}}</span></td>
+                                {{-- <td><span class="status {{$product->visible == 0 ? 'status-false' : 'status-true'}}"></span><span class="text-status">{{$product->visible ? 'Visibile' : 'Non Visibile'}}</span></td> --}}
                             </tr>
                             @endforeach
                         </tbody>
@@ -91,8 +123,7 @@
     </div>
 
     {{-- TABELLA ORDINI --}}
-    {{-- DATI DA VISUALIZZARE DATE_ORDER E SUBTOTAL --}}
-    <div class="orders">
+    {{-- <div class="orders">
         <div class="card">
             <div class="card-header">
                 <h3>Ordini Recenti</h3>
@@ -110,7 +141,6 @@
                     </thead>
 
                     <tbody>
-                        {{-- CICLARE PER VISUALIZZARE I DATI DELLA TABELLA ORDINI --}}
                         @foreach ($orders as $order)
                         <tr>
                             <td>{{ $order->date_order ? $order->date_order : 'Nessun ordine effettuato' }}</td>
@@ -121,7 +151,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 </div>
 @endif

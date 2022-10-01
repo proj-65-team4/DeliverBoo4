@@ -27,8 +27,12 @@ public function index()
     ->select('orders.*')
     ->get();
 
+    /* $totalOrders = Order::where('user_id', $user->id)->count(); */
+
+    $orders = Order::paginate(10);
+
     /* dd($products); */
 
-    return view("admin.index", compact("totalProducts", "dataProducts","orders"));
+    return view("admin.index", compact("totalProducts","dataProducts","orders"));
 }
 }

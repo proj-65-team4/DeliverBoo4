@@ -100,11 +100,11 @@
             display: none;
         }
 
-        #name{
+        #date{
             display: none;
         }
 
-        #tel{
+        #time{
             display: none;
         }
 
@@ -129,10 +129,14 @@
             background: var(--main-color);
             border-radius: 10px;
             font-size: .8rem;
-            padding: .5rem 0.2rem;
+            padding: .5rem 0.3rem;
         }
 
-        .order-details #show-details-button a:hover{
+        #show-details-button a{
+            text-decoration: none;
+        }
+
+        .order-details #show-details-button:hover{
         background: #347dd5;
         color: white;
         }
@@ -172,7 +176,7 @@
                         <td id="tel">{{$order->customer_telephone}}</td>
                         <td id="total">{{$order->subtotal}} €</td>
                         <td id="show-details-button">
-                            <a href="{{route('admin.orders.show',$order->id)}}" class="btn text-light" role="button">Dettagli{{--  <span class="text-light las la-arrow-right"></span> --}}</a>
+                            <a href="{{route('admin.orders.show',$order->id)}}" class="my-btn text-light" role="button">Dettagli{{--  <span class="text-light las la-arrow-right"></span> --}}</a>
                         </td>
                     </tr>
                     @endforeach
