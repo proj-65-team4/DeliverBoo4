@@ -5516,7 +5516,7 @@ window.addEventListener("scroll", function () {
 
   /* computed: {
       carts() {
-            setInterval(() => {
+           setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -6416,7 +6416,10 @@ var render = function render() {
 
   return _c("div", [_c("TheNavbar", {
     staticClass: "fixed-top"
-  }), _vm._v(" "), _vm._m(0)], 1);
+  }), _vm._v(" "), _c("div", {
+    staticClass: "jumbotron",
+    "class": [this.$route.name === "home" ? "home-jumbo" : "pages-jumbo"]
+  }, [_vm._m(0)])], 1);
 };
 
 var staticRenderFns = [function () {
@@ -6424,18 +6427,13 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "jumbotron",
-    attrs: {
-      id: "jumbotron"
-    }
-  }, [_c("div", {
     staticClass: "bg-jumbo"
   }, [_c("img", {
     attrs: {
       src: "/img/food2-jumbo.png",
       alt: ""
     }
-  })])]);
+  })]);
 }];
 render._withStripped = true;
 
@@ -12731,7 +12729,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".jumbotron[data-v-0c300183] {\n  position: relative;\n  height: 700px;\n}\n.bg-jumbo[data-v-0c300183] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.bg-jumbo img[data-v-0c300183] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: 50% 80%;\n     object-position: 50% 80%;\n}\n@media only screen and (max-width: 468px) {\n.jumbotron[data-v-0c300183] {\n    height: 250px;\n}\n}", ""]);
+exports.push([module.i, ".jumbotron[data-v-0c300183] {\n  position: relative;\n}\n.home-jumbo[data-v-0c300183] {\n  min-height: 700px;\n}\n.pages-jumbo[data-v-0c300183] {\n  min-height: 300px;\n}\n.bg-jumbo[data-v-0c300183] {\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n}\n.bg-jumbo img[data-v-0c300183] {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: 50% 80%;\n     object-position: 50% 80%;\n}\n@media only screen and (max-width: 468px) {\n.jumbotron[data-v-0c300183] {\n    height: 250px;\n}\n}", ""]);
 
 // exports
 
@@ -12788,7 +12786,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".custom-padding {\n  padding-top: 80px;\n}\n.restaurant-bg {\n  background-color: #FFCA3A;\n}\n.restaurant-jumbo {\n  height: 20vh;\n  width: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center;\n}\n.row {\n  max-width: 100%;\n}\n.d-responsive .category-item {\n  position: relative;\n}\n.d-responsive img {\n  width: 100%;\n  aspect-ratio: 16/9;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  background-position: center;\n}\n.d-responsive .overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.d-responsive h2 {\n  font-weight: bolder;\n}\n.d-responsive .content {\n  padding: 1.4rem;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: space-around;\n  color: #fff;\n}\n.d-responsive p {\n  flex-grow: 1;\n}", ""]);
+exports.push([module.i, ".custom-padding {\n  padding-top: 50px;\n}\n.restaurant-bg {\n  background-color: #FFCA3A;\n}\n.restaurant-jumbo {\n  height: 20vh;\n  width: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  -o-object-position: center;\n     object-position: center;\n}\n.row {\n  max-width: 100%;\n}\n.d-responsive .category-item {\n  position: relative;\n}\n.d-responsive img {\n  width: 100%;\n  aspect-ratio: 16/9;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  background-position: center;\n}\n.d-responsive .overlay {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.4);\n}\n.d-responsive h2 {\n  font-weight: bolder;\n}\n.d-responsive .content {\n  padding: 1.4rem;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: space-around;\n  color: #fff;\n}\n.d-responsive p {\n  flex-grow: 1;\n}", ""]);
 
 // exports
 
@@ -30737,7 +30735,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
