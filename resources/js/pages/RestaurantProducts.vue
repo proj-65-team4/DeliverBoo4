@@ -145,11 +145,11 @@
                           <h5 id="price">€ {{ product.price }}</h5>
                           
                           <!-- Icone Categoria Prodotto -->
-                          <div class="">
+                          <!-- <div class="">
                             <span v-for="cat in product.product_categories" :key="cat.id"  href="#" data-bs-toggle="tooltip" data-bs-placement="top" :title="cat.name" data-bs-delay="0" class="category-icon">
                               <img :src=" cat.icon" alt="">
                             </span>
-                          </div>
+                          </div> -->
 
                         </div>
                         <!-- Disponibilità -->
@@ -475,8 +475,8 @@ a {
 }
 
 .product-card img {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
   object-position: center;
   flex-shrink: 0;
