@@ -30,6 +30,7 @@ class OrderController extends Controller
         ->join('users' , 'products.user_id' , '=' , 'users.id')
         ->where('users.id' , '=' , $id)
         ->select('orders.*')
+        ->orderBy('date_order', 'DESC')
         ->distinct()
         ->paginate(20);
         

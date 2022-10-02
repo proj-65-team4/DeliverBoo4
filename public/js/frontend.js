@@ -5524,7 +5524,7 @@ window.addEventListener("scroll", function () {
 
   /* computed: {
       carts() {
-           setInterval(() => {
+            setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -5648,8 +5648,10 @@ var call = false;
       setTimeout(function () {
         _this3.order_processing = false;
         var payload = document.querySelector("#my-nonce-input");
+        debugger;
+        console.log(payload);
 
-        if (payload) {
+        if (payload.value !== "") {
           _this3.order_processing = true;
           axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/ordina", {
             customer_name: _this3.customer_name,
@@ -5699,7 +5701,7 @@ var call = false;
         event.preventDefault();
         instance.requestPaymentMethod(function (err, payload) {
           if (err) {
-            hiddenNonceInput.value = false;
+            hiddenNonceInput.value = '';
             return;
           }
 
@@ -6842,7 +6844,8 @@ var render = function render() {
       name: "customer_telephone",
       id: "customer_telephone",
       required: "",
-      placeholder: "Inserisci numero telefono"
+      placeholder: "Inserisci numero telefono",
+      pattern: "[0-9]{10}"
     },
     domProps: {
       value: _vm.customer_telephone
@@ -6857,7 +6860,7 @@ var render = function render() {
     attrs: {
       "for": "customer_telephone"
     }
-  }, [_vm._v("Inserisci contatto telefonico")])]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Inserisci contatto telefonico (max 10 cifre)")])]), _vm._v(" "), _c("div", {
     staticClass: "form-floating mb-3"
   }, [_c("input", {
     directives: [{
@@ -7412,14 +7415,7 @@ var render = function render() {
         alt: ""
       }
     })])])], 1);
-  }), 1)], 1), _vm._v(" "), _c("span", {
-    attrs: {
-      href: "#",
-      "data-bs-toggle": "tooltip",
-      "data-bs-placement": "top",
-      title: _vm.cat.name
-    }
-  }, [_vm._v(_vm._s(_vm.cat.name))])], 1);
+  }), 1)], 1)], 1);
 };
 
 var staticRenderFns = [];
@@ -30822,7 +30818,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
