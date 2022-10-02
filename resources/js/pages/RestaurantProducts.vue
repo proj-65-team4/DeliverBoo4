@@ -132,7 +132,7 @@
               <div class="accordion-body">
                 <div class="row mt-4 mb-5">
                   <div
-                    class="col-12 my-col col-md-4 col-lg-4"
+                    class="col-12 my-col col-md-6 col-lg-6"
                     v-for="product in filteredProducts(course.id)"
                     :key="product.id">
                     <!-- Card prodotto -->
@@ -141,11 +141,11 @@
                       <div class="under-image">
                         <div class="title-price">
                           <h5>{{ product.name }}</h5>
-
+                          <h6>{{product.description}}</h6>
                           <h5 id="price">€ {{ product.price }}</h5>
                           
                           <!-- Icone Categoria Prodotto -->
-                          <div class="">
+                          <div class="pb-2">
                             <span v-for="cat in product.product_categories" :key="cat.id"  href="#" data-bs-toggle="tooltip" data-bs-placement="top" :title="cat.name" data-bs-delay="0" class="category-icon">
                               <img :src=" cat.icon" alt="">
                             </span>
@@ -451,8 +451,8 @@ a {
 }
 
 .product-card img {
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   object-fit: cover;
   object-position: center;
   flex-shrink: 0;
@@ -466,10 +466,6 @@ a {
   width: 100%;
   position: relative;
 }
-
-/* .under-image h5 {
-    flex-shrink: 0;
-} */
 
 .added-product {
   position: fixed;
@@ -561,7 +557,7 @@ a {
   }
 
   .under-image {
-    height: 165px;
+    height: 245px;
   }
 
   .cart-btn {
@@ -635,17 +631,18 @@ a {
 
   .under-image {
     position: relative;
-    height: 150px;
+    height: 250px;
   }
 
   .title-price {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     padding: 12px 12px 0px 12px;
-    & h5 {
+    /* & h5 {
       margin-bottom: 0;
-    }
+    } */
   }
 
   #price {
