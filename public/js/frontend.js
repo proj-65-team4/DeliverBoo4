@@ -7349,8 +7349,15 @@ var staticRenderFns = [function () {
   return _c("div", [_c("div", {
     staticClass: "container my-cont"
   }, [_c("h2", {
+    staticClass: "mb-5 text-center"
+  }, [_vm._v("\n            Grazie abbiamo ricevuto Il tuo ordine e verrà presto processato!\n        ")]), _vm._v(" "), _c("div", {
     staticClass: "text-center"
-  }, [_vm._v("Grazie abbiamo ricevuto Il tuo ordine e verrà presto processato!")])])]);
+  }, [_c("a", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      href: "/"
+    }
+  }, [_vm._v("Torna alla home")])])])]);
 }];
 render._withStripped = true;
 
