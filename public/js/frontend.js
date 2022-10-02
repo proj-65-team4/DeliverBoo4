@@ -7320,43 +7320,7 @@ var render = function render() {
     staticClass: "bg-category"
   }, [_c("h1", {
     staticClass: "py-5"
-  }, [_vm._v("Le categorie che amate")]), _vm._v(" "), _c("div", {
-    staticClass: "container"
-  }, [_c("div", {
-    staticClass: "accordion accordion-flush",
-    attrs: {
-      id: "accordionFlushExample"
-    }
-  }, [_c("div", {
-    staticClass: "accordion-item"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "accordion-collapse collapse",
-    attrs: {
-      id: "flush-collapseOne",
-      "aria-labelledby": "flush-headingOne",
-      "data-bs-parent": "#accordionFlushExample"
-    }
-  }, [_c("div", {
-    staticClass: "accordion-body"
-  }, [_c("div", {
-    staticClass: "row row-cols-6"
-  }, [_vm._l(_vm.categories, function (category) {
-    return [_c("div", {
-      staticClass: "form-check py-2 ms-3"
-    }, [_c("input", {
-      staticClass: "form-check-input",
-      attrs: {
-        type: "checkbox",
-        value: "",
-        id: "flexCheckDefault"
-      }
-    }), _vm._v(" "), _c("label", {
-      staticClass: "form-check-label ps-2",
-      attrs: {
-        "for": "flexCheckDefault"
-      }
-    }, [_vm._v("\n                                        " + _vm._s(category.name) + "\n                                    ")])])];
-  })], 2), _vm._v(" "), _vm._m(1)])])])])]), _vm._v(" "), _c("TheCarousel", {
+  }, [_vm._v("Le categorie che amate")]), _vm._v(" "), _c("TheCarousel", {
     staticClass: "d-none d-md-block",
     attrs: {
       categorie: _vm.categories
@@ -7398,35 +7362,7 @@ var render = function render() {
   }), 1)], 1)], 1);
 };
 
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("h2", {
-    staticClass: "accordion-header",
-    attrs: {
-      id: "flush-headingOne"
-    }
-  }, [_c("button", {
-    staticClass: "accordion-button collapsed fw-bold",
-    attrs: {
-      type: "button",
-      "data-bs-toggle": "collapse",
-      "data-bs-target": "#flush-collapseOne",
-      "aria-expanded": "false",
-      "aria-controls": "flush-collapseOne"
-    }
-  }, [_vm._v("\n                        Filtro avanzato\n                    ")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "w-100 d-flex justify-content-center pt-4"
-  }, [_c("button", {
-    staticClass: "btn btn-primary"
-  }, [_vm._v("CERCA")])]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
