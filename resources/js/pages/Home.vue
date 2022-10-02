@@ -62,6 +62,7 @@
                 </slide>
             </carousel>
         </div>
+        <span href="#" data-bs-toggle="tooltip" data-bs-placement="top" :title="cat.name">{{ cat.name }}</span>
     </div>
 </template>
 

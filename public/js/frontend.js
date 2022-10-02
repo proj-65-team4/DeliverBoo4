@@ -5524,7 +5524,7 @@ window.addEventListener("scroll", function () {
 
   /* computed: {
       carts() {
-            setInterval(() => {
+           setInterval(() => {
               JSON.parse(localStorage.cart.quantity)
               console.log(JSON.parse(localStorage.cart).length)
           }, 2000);
@@ -5569,7 +5569,8 @@ var call = false;
       cart: [],
       bool: false,
       call: false,
-      totalPrice: 0
+      totalPrice: 0,
+      order_processing: false
     };
   },
   computed: {
@@ -5645,10 +5646,11 @@ var call = false;
       var _this3 = this;
 
       setTimeout(function () {
+        _this3.order_processing = false;
         var payload = document.querySelector("#my-nonce-input");
 
         if (payload) {
-          debugger;
+          _this3.order_processing = true;
           axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/ordina", {
             customer_name: _this3.customer_name,
             customer_surname: _this3.customer_surname,
@@ -5657,7 +5659,6 @@ var call = false;
             customer_telephone: _this3.customer_telephone,
             cart: _this3.cart
           }).then(function (resp) {
-            debugger;
             localStorage.clear();
 
             _this3.$router.push({
@@ -5669,8 +5670,8 @@ var call = false;
     },
     carts: function carts() {
       /* setInterval(() => {
-          console.log(JSON.parse(localStorage.cart).length)
-      }, 2000); */
+                console.log(JSON.parse(localStorage.cart).length)
+            }, 2000); */
       if (localStorage.cart != undefined && localStorage.cart.length > 0) {
         this.bool = true;
       } else {
@@ -5679,7 +5680,7 @@ var call = false;
       /*  this.length = JSON.parse(localStorage.cart).length; */
 
       /* console.log(this.cart.length);
-      console.log("push"); */
+            console.log("push"); */
 
 
       this.cart = JSON.parse(localStorage.getItem("cart"));
@@ -5698,7 +5699,7 @@ var call = false;
         event.preventDefault();
         instance.requestPaymentMethod(function (err, payload) {
           if (err) {
-            // handle error
+            hiddenNonceInput.value = false;
             return;
           }
 
@@ -5963,6 +5964,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
+    location.reload();
     this.getOrder();
   }
 });
@@ -6659,15 +6661,17 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("div", {
+  return _c("div", {
+    staticClass: "position-relative"
+  }, [_vm.order_processing ? [_vm._m(0)] : _vm._e(), _vm._v(" "), _c("div", {
     staticClass: "container py-5"
   }, [_c("h2", {
     staticClass: "mb-5 text-uppercase text-decoration-underline"
-  }, [_vm._v("\n            Checkout\n        ")]), _vm._v(" "), _c("div", {
+  }, [_vm._v("Checkout")]), _vm._v(" "), _c("div", {
     staticClass: "p-2 border mb-3 rounded"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
+  }, [_vm._m(1), _vm._v(" "), _c("div", {
     staticClass: "py-4 d-block"
-  }, [_vm._m(1), _vm._v(" "), _vm._l(_vm.cart, function (item) {
+  }, [_vm._m(2), _vm._v(" "), _vm._l(_vm.cart, function (item) {
     return _c("div", {
       key: item.id,
       staticClass: "row py-2"
@@ -6675,7 +6679,7 @@ var render = function render() {
       staticClass: "col text-center"
     }, [_vm._v(_vm._s(item.name))]), _vm._v(" "), _c("div", {
       staticClass: "col text-center"
-    }, [_vm._v("\n                        " + _vm._s(item.description) + "\n                    ")]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n            " + _vm._s(item.description) + "\n          ")]), _vm._v(" "), _c("div", {
       staticClass: "col text-center d-flex gap-3 justify-content-center align-items-center"
     }, [_c("button", {
       staticClass: "btn btn-danger",
@@ -6684,19 +6688,21 @@ var render = function render() {
           return _vm.removeCart(item);
         }
       }
-    }, [_vm._v("\n                            -\n                        ")]), _vm._v("\n                        " + _vm._s(item.quantity) + "\n                        "), _c("button", {
+    }, [_vm._v("\n              -\n            ")]), _vm._v("\n            " + _vm._s(item.quantity) + "\n            "), _c("button", {
       staticClass: "btn btn-success",
       on: {
         click: function click($event) {
           return _vm.addCart(item);
         }
       }
-    }, [_vm._v("\n                            +\n                        ")])]), _vm._v(" "), _c("div", {
+    }, [_vm._v("+")])]), _vm._v(" "), _c("div", {
       staticClass: "col text-center"
-    }, [_vm._v("\n                        " + _vm._s((item.quantity * parseFloat(item.price)).toFixed(2)) + "\n                        €\n                    ")])]);
+    }, [_vm._v("\n            " + _vm._s((item.quantity * parseFloat(item.price)).toFixed(2)) + "\n            €\n          ")])]);
   }), _vm._v(" "), _c("div", {
     staticClass: "text-center fw-bold"
-  }, [_vm._v("\n                    Prezzo totale " + _vm._s(_vm.total) + " €\n                ")])], 2)]), _vm._v(" "), _c("form", {
+  }, [_vm._v("Prezzo totale " + _vm._s(_vm.total) + " €")])], 2)]), _vm._v(" "), _c("div", {
+    staticClass: "p-2 border mb-3 rounded"
+  }, [_vm._m(3), _vm._v(" "), _c("form", {
     attrs: {
       id: "my-form"
     },
@@ -6886,10 +6892,26 @@ var render = function render() {
     attrs: {
       id: "sub"
     }
-  }, [_vm._v("\n                --> Conferma\n            ")])])])]);
+  }, [_vm._v("\n          --> Conferma\n        ")])])])])], 2);
 };
 
 var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "order_processing"
+  }, [_c("div", {
+    staticClass: "d-flex flex-column gap-3 flex-grow-1 justify-content-center align-items-center"
+  }, [_c("div", {
+    staticClass: "spinner-grow text-success",
+    attrs: {
+      role: "status"
+    }
+  }, [_c("span", {
+    staticClass: "visually-hidden"
+  }, [_vm._v("Loading...")])]), _vm._v(" "), _c("span", [_vm._v("Stiamo processando l'ordine")])])]);
+}, function () {
   var _vm = this,
       _c = _vm._self._c;
 
@@ -6909,6 +6931,13 @@ var staticRenderFns = [function () {
   }, [_c("strong", [_vm._v("Quantità")])]), _vm._v(" "), _c("div", {
     staticClass: "col text-center"
   }, [_c("strong", [_vm._v("Subtotal")])])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("h4", {
+    staticClass: "py-4"
+  }, [_c("strong", [_vm._v(" Completa i dati")])]);
 }];
 render._withStripped = true;
 
@@ -7179,9 +7208,12 @@ var render = function render() {
         staticClass: "fa-solid fa-circle-xmark text-danger"
       }), _vm._v(" "), _c("span", {
         staticClass: "text-muted"
-      }, [_vm._v("Non disponibile")])])]), _vm._v(" "), _c("div", {
+      }, [_vm._v("Non disponibile")])])]), _vm._v(" "), (product.available ? "disabled" : "") ? _c("div", {
         staticClass: "cart-btn"
       }, [_c("button", {
+        attrs: {
+          "aria-disabled": "true"
+        },
         on: {
           click: function click($event) {
             return _vm.removeCart(product);
@@ -7206,7 +7238,7 @@ var render = function render() {
         }
       }, [_c("i", {
         staticClass: "fa-solid fa-plus"
-      })])])])])]);
+      })])]) : _vm._e()])])]);
     }), 0)])])]);
   }), 0) : _c("div", {
     staticClass: "text-center mb-5"
@@ -7393,7 +7425,14 @@ var render = function render() {
         alt: ""
       }
     })])])], 1);
-  }), 1)], 1)], 1);
+  }), 1)], 1), _vm._v(" "), _c("span", {
+    attrs: {
+      href: "#",
+      "data-bs-toggle": "tooltip",
+      "data-bs-placement": "top",
+      title: "Tooltip on top"
+    }
+  }, [_vm._v("Hover over me")])], 1);
 };
 
 var staticRenderFns = [function () {
@@ -12856,7 +12895,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".button[data-v-19797662] {\n  cursor: pointer;\n  font-weight: 500;\n  left: 3px;\n  line-height: inherit;\n  position: relative;\n  text-decoration: none;\n  text-align: center;\n  border-style: solid;\n  border-width: 1px;\n  border-radius: 3px;\n  display: inline-block;\n}\n.button--small[data-v-19797662] {\n  padding: 10px 20px;\n  font-size: 0.875rem;\n}\n.button--green[data-v-19797662] {\n  outline: none;\n  background-color: #64d18a;\n  border-color: #64d18a;\n  color: white;\n  transition: all 200ms ease;\n}\n.button--green[data-v-19797662]:hover {\n  background-color: #8bdda8;\n  color: white;\n}\nul li[data-v-19797662] {\n  flex-grow: 1;\n  text-align: center;\n}", ""]);
+exports.push([module.i, ".button[data-v-19797662] {\n  cursor: pointer;\n  font-weight: 500;\n  left: 3px;\n  line-height: inherit;\n  position: relative;\n  text-decoration: none;\n  text-align: center;\n  border-style: solid;\n  border-width: 1px;\n  border-radius: 3px;\n  display: inline-block;\n}\n.button--small[data-v-19797662] {\n  padding: 10px 20px;\n  font-size: 0.875rem;\n}\n.button--green[data-v-19797662] {\n  outline: none;\n  background-color: #64d18a;\n  border-color: #64d18a;\n  color: white;\n  transition: all 200ms ease;\n}\n.button--green[data-v-19797662]:hover {\n  background-color: #8bdda8;\n  color: white;\n}\nul li[data-v-19797662] {\n  flex-grow: 1;\n  text-align: center;\n}\n.order_processing[data-v-19797662] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  display: flex;\n  z-index: 9999;\n  background-color: white;\n  opacity: 80%;\n}", ""]);
 
 // exports
 
@@ -30824,7 +30863,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })

@@ -26,6 +26,7 @@ export default {
             })
             return this.orders;
         }
+
     },
     mounted(){
         this.getOrder();
