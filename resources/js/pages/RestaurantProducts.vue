@@ -165,8 +165,8 @@
                         </div>
                             
                         <!-- Buttons per aumentare/diminuire quantità -->
-                        <div class="cart-btn">
-                          <button @click="removeCart(product)" class="">
+                        <div class="cart-btn" v-if="product.available ? 'disabled' : ''">
+                          <button  @click="removeCart(product)" class="" aria-disabled="true">
                             <i class="fa-solid fa-minus"></i>
                           </button>
 

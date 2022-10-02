@@ -30,6 +30,7 @@ class OrderController extends Controller
         ->join('users' , 'products.user_id' , '=' , 'users.id')
         ->where('users.id' , '=' , $id)
         ->select('orders.*')
+        ->orderBy('date_order', 'DESC')
         ->distinct()
         ->paginate(20);
         
@@ -88,7 +89,7 @@ class OrderController extends Controller
         dd($num_order); */
 
 
-        $num_orders  = Order::groupBy(DB::raw('DATE(orders.date_order)'))->join('order_product','orders.id','=','order_product.order_id')->join('products','order_product.product_id','=','products.id')->distinct()->where('products.user_id','=',5)->get([DB::raw('COUNT(*) as count'), DB::raw('DATE(orders.date_order) as date')]);
+        $num_orders  = Order::groupBy(DB::raw('DATE(orders.date_order)'))->join('order_product','orders.id','=','order_product.order_id')->join('products','order_product.product_id','=','products.id')->distinct()->where('products.user_id','=',$id)->get([DB::raw('COUNT(*) as count'), DB::raw('DATE(orders.date_order) as date')]);
         
         
         return view("admin.orders.statistic", compact( "orders", "total", "num_orders"));
