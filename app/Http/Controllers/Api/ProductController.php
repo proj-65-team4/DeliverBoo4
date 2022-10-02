@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Product;
+use App\ProductCategory;
 use App\ProductCourse;
 use App\Restaurant;
 use Illuminate\Http\Request;
@@ -28,6 +29,8 @@ class ProductController extends Controller
         $products = Product::where("user_id", $id)->where("visible", 1)->get();
 
         $products->load("product_course:id,name");
+
+        // $products->load("product_categories:id,name,icon");
         
         $courses = ProductCourse::all();
         $c = [];
@@ -41,6 +44,18 @@ class ProductController extends Controller
         }
         $c = array_unique($c);
 
+        // $productCategory = ProductCategory::all();
+        // $p = [];
+
+        // foreach ($products as $product) {
+        //     foreach ($productCategory as $cat) {
+        //         if($cat->id == $product->product_category_id){
+        //             $p[] = $cat; 
+        //         }
+        //     }
+        // }
+        // $p = array_unique($p);
+
 
         $categories = DB::table('categories')
         ->join('category_restaurant' , 'category_restaurant.category_id' , '=' , 'categories.id')
@@ -49,7 +64,14 @@ class ProductController extends Controller
         ->select('categories.id', 'categories.name')
         ->get();
 
-        return response()->json(["products"=>$products, "courses"=>$c, "restaurant"=>$restaurant, "categories"=>$categories]);
+        $productCategory = DB::table('products')
+        ->join('product_product_category' , 'product_product_category.product_id' , '=' , 'products.id')
+        ->join('product_categories' , 'product_product_category.product_category_id' , '=' , 'product_categories.id')
+        ->where('products.id' , '=' , $products)
+        ->select('product_categories.name', 'product_categories.icon')
+        ->get();
+
+        return response()->json(["products"=>$products, "courses"=>$c, "restaurant"=>$restaurant, "categories"=>$categories, "productCategory"=>$productCategory]);
     }
 
     /**

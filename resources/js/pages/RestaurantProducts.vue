@@ -75,15 +75,15 @@
 
       <!-- banner added product -->
 
-      <div v-if="addedProduct" class="d-flex added-product border-success">
-        <i class="fa-regular fa-circle-check text-success fs-1"></i>
-        <span class="text-white fs-2 text-center">Prodotto aggiunto</span>
+      <div v-if="addedProduct" class="d-flex added-product">
+        <i class="fa-regular fa-circle-check fs-1 text-white"></i>
+        <span class="text-white fs-2 text-center mt-2">Prodotto aggiunto</span>
       </div>
 
       <!-- banner removed product -->
-      <div v-if="removedProduct" class="d-flex removed-product border-danger">
-        <i class="fa-solid fa-ban fs-1 text-danger"></i>
-        <span class="text-white fs-2 text-center">Prodotto eliminato</span>
+      <div v-if="removedProduct" class="d-flex removed-product">
+        <i class="fa-solid fa-ban fs-1 text-white"></i>
+        <span class="text-white fs-2 text-center mt-2">Prodotto eliminato</span>
       </div>
 
       <!-- loaded products -->
@@ -150,6 +150,9 @@
                           <h5>{{ product.name }}</h5>
 
                           <h5 id="price">€ {{ product.price }}</h5>
+                          <div v-for="cat in productCategories" :key="cat.id">
+                            {{cat.name}}
+                          </div>
 
                         </div>
 
@@ -179,7 +182,7 @@
                             >
                               <div v-if="product.id == item.id">
                                 <div class="m-0 p-0 number">
-                                  <span>{{ item.quantity }}</span>
+                                  <span class="fs-4">{{ item.quantity }}</span>
                                 </div>
                               </div>
                             </div>
@@ -239,6 +242,7 @@ export default {
       cart: [],
       restaurant: [],
       categories: [],
+      productCategory: [],
       total: 0,
       loaded: false,
       addedProduct: false,
@@ -254,9 +258,11 @@ export default {
           this.courses = resp.data.courses;
           this.restaurant = resp.data.restaurant;
           this.categories = resp.data.categories;
+          this.productCategory = resp.data.productCategory;
           setTimeout(() => {
             this.loaded = true;
           }, 2000);
+          console.log(resp.data);
         });
     },
   },
@@ -428,7 +434,6 @@ a {
 
   & .quantity {
     width: 20px;
-    height: 20px;
     /* border: 1px solid #fff; */
     text-align: center;
   }
@@ -477,30 +482,32 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ffab00;
+  background-color: #00a676;
   padding: 2rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid white;
+  border: 1px solid transparent;
   border-radius: 20px;
   z-index: 1;
   transition: all .4s ease-in;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .removed-product {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #ffab00;
+  background-color: #EE6C4D;
   padding: 2rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid white;
+  border: 1px solid transparent;
   border-radius: 20px;
   z-index: 1;
   transition: all .4s ease-in;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .accordion-button:focus {
   z-index: 3;

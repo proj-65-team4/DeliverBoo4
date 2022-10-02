@@ -1,9 +1,6 @@
 <template>
     <div>
         <div class="container py-5">
-            <h2 class="mb-5 text-uppercase text-decoration-underline">
-                Checkout
-            </h2>
             <div class="p-2 border mb-3 rounded">
                 <h4><strong> Riepilogo ordine</strong></h4>
                 <div class="py-4 d-block">
