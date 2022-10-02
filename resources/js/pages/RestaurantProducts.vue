@@ -137,28 +137,22 @@
                     :key="product.id">
                     <!-- Card prodotto -->
                     <div class="product-card">
-                      <img
-                        :src="
-                          product.image
-                            ? product.image
-                            : '/img/food-placeholder.jpeg'
-                        "
-                        alt=""
-                      />
+                      <img :src="product.image ? product.image : '/img/food-placeholder.jpeg'" alt="" />
                       <div class="under-image">
                         <div class="title-price">
                           <h5>{{ product.name }}</h5>
 
                           <h5 id="price">€ {{ product.price }}</h5>
                           
+                          <!-- Icone Categoria Prodotto -->
                           <div class="">
-                            <span v-for="cat in product.product_categories" :key="cat.id"  href="#" data-bs-toggle="tooltip" data-bs-placement="top" :title="cat.name" data-bs-delay="0">
-                              <img :src=" cat.icon" alt="" class="img-fluid w-25 h-25">
+                            <span v-for="cat in product.product_categories" :key="cat.id"  href="#" data-bs-toggle="tooltip" data-bs-placement="top" :title="cat.name" data-bs-delay="0" class="category-icon">
+                              <img :src=" cat.icon" alt="">
                             </span>
                           </div>
 
                         </div>
-
+                        <!-- Disponibilità -->
                         <div class="disp">
                           <div v-if="product.available === 1">
                               <i class="fa-solid fa-circle-check text-success"></i>
@@ -170,7 +164,6 @@
                             </div>
                         </div>
                             
-
                         <!-- Buttons per aumentare/diminuire quantità -->
                         <div class="cart-btn">
                           <button @click="removeCart(product)" class="">
@@ -195,11 +188,9 @@
                             <i class="fa-solid fa-plus"></i>
                           </button>
                         </div>
-
                       </div>
-
                     </div>
-
+                    <!-- Fine Card -->
                   </div>
 
                 </div>
@@ -577,7 +568,7 @@ a {
     height: 60px;
   }
 }
-
+// CATEGORY ICON -----------
 .icon-tooltip{
   position: relative;
   .tooltip {
@@ -590,6 +581,16 @@ a {
   }
   &:hover .tooltip {
     display: block;
+  }
+}
+
+.category-icon {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  & img {
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 

@@ -29,7 +29,7 @@
         <div>
             {{-- INSERIRE NUMERO TOTALE PRODOTTI --}}
             <h1>{{$totalProducts}}</h1>
-            <span>Prodotti</span>
+            <span>Totale Prodotti</span>
         </div>
 
         <div>
@@ -41,7 +41,7 @@
         <div>
             {{-- INSERIRE NUMERO TOTALE DEGLI ORDINI --}}
             <h1>{{ count($totalOrders) }}</h1>
-            <span>Ordini</span>
+            <span>Totale Ordini</span>
         </div>
 
         <div>
