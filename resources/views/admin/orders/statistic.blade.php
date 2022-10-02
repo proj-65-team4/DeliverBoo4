@@ -7,17 +7,17 @@
 @section('content')
     <div class="row">
         <div class="col">
-            <p>Gli ordini totali sono: <strong></strong></p>
+            <p>Gli ordini totali sono: <strong>{{count($orders)}}</strong></p>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <p>Il totale guadagnato per gli ordini è: <strong> €</strong></p>
+            <p>Il totale guadagnato per gli ordini è: <strong>{{$total}} €</strong></p>
         </div>
     </div>
 
 
-    <canvas id="myChart" width="200" height="200"></canvas>
+    <canvas id="myChart" width="800" height="300"></canvas>
 
     
 @endsection
@@ -46,7 +46,7 @@
        const data = {
         labels: labels,
         datasets: [{
-            label: 'My First dataset',
+            label: 'Numero di ordini per giorno',
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
             data: tot_ordini ,
