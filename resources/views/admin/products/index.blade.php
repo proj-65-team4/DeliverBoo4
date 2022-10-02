@@ -11,7 +11,7 @@
                 <a href="{{ route('admin.products.index') }}"><i class="fa-solid fa-arrow-left fa-lg"></i></a>
                 <h1 class="fw-bold m-0">Prodotti</h1>
 
-                <a class="add-btn" href="{{ route('admin.products.create') }}">Aggiungi prodotto</a>
+                <a class="add-btn" href="{{ route('admin.products.create') }}">Aggiungi</a>
             </div>
 
             <div class="">
@@ -230,17 +230,17 @@
         }
 
         .add-btn{
-            background: var(--main-color);
+            background: #c0d9ff;
             border-radius: 10px;
-            color: #fff;
+            color: black;
             font-size: 0.8rem;
             padding: 0.5rem 0.5rem;
             text-decoration: none;
         }
 
         .add-btn:hover{
-            background: #347dd5;
-            color: white;
+            background: #cfe2ff;
+            color: black;
         }
 
         @media only screen and (max-width: 540px){
@@ -258,6 +258,14 @@
             padding-right: 0;
             padding-left: 0;
         }
+        }
+
+        @media only screen and (max-width: 550px){
+            .add-btn{
+                font-size: 13px;
+                text-align: center;
+                padding: 0.2rem 0.3rem;
+            }
         }
     </style>
 @endsection
