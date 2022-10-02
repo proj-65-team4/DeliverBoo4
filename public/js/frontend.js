@@ -6100,7 +6100,9 @@ var render = function render() {
     staticClass: "col-md-6 location"
   }, [_c("h6", {
     staticClass: "text-capitalize"
-  }, [_vm._v(_vm._s(_vm.restaurant.address))]), _vm._v(" "), _c("h6", [_vm._v(" " + _vm._s(_vm.restaurant.city))]), _vm._v(" "), _c("div", {}, [_vm.score >= 3.5 && _vm.score < 4 ? _c("div", {
+  }, [_vm._v(_vm._s(_vm.restaurant.address))]), _vm._v(" "), _c("h6", [_vm._v(" " + _vm._s(_vm.restaurant.city))]), _vm._v(" "), _c("div", {
+    staticClass: "vote"
+  }, [_vm.score >= 3.5 && _vm.score < 4 ? _c("div", {
     staticClass: "good"
   }, [_c("i", {
     staticClass: "fa-solid fa-star"
@@ -12742,7 +12744,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "a[data-v-272b0098] {\n  text-decoration: none;\n  color: black;\n  transition: all 0.2s ease-in-out;\n}\na[data-v-272b0098]:hover {\n  color: black;\n}\n.custom-card[data-v-272b0098] {\n  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;\n  transition: 0.15s all ease-in-out;\n}\n.card-img[data-v-272b0098] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n.location[data-v-272b0098] {\n  flex-shrink: 0;\n}\nh4[data-v-272b0098] {\n  margin-bottom: 0.8rem;\n}\n.good[data-v-272b0098] {\n  color: #356952;\n}\n.verygood[data-v-272b0098] {\n  color: #4F772D;\n}\n.excellent[data-v-272b0098] {\n  color: #007E8A;\n}\n@media only screen and (max-width: 768px) {\n.random[data-v-272b0098] {\n    font-size: 14px;\n}\n}\n@media only screen and (max-width: 768px) {\n.card-img[data-v-272b0098] {\n    padding-bottom: 1rem;\n}\n}", ""]);
+exports.push([module.i, "a[data-v-272b0098] {\n  text-decoration: none;\n  color: black;\n  transition: all 0.2s ease-in-out;\n}\na[data-v-272b0098]:hover {\n  color: black;\n}\n.custom-card[data-v-272b0098] {\n  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;\n  transition: 0.15s all ease-in-out;\n}\n.card-img[data-v-272b0098] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n}\n.location[data-v-272b0098] {\n  flex-shrink: 0;\n}\nh4[data-v-272b0098] {\n  margin-bottom: 0.8rem;\n}\n.good[data-v-272b0098] {\n  color: #356952;\n}\n.verygood[data-v-272b0098] {\n  color: #4F772D;\n}\n.excellent[data-v-272b0098] {\n  color: #007E8A;\n}\n@media only screen and (max-width: 768px) {\n.random[data-v-272b0098] {\n    font-size: 14px;\n}\n.vote[data-v-272b0098] {\n    margin-bottom: 0.5rem;\n}\n}\n@media only screen and (max-width: 768px) {\n.card-img[data-v-272b0098] {\n    padding-bottom: 1rem;\n}\n}", ""]);
 
 // exports
 
@@ -30824,7 +30826,7 @@ var routes = [{
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
+module.exports = __webpack_require__(/*! D:\Boolean\ProgettoFinale\DeliverBoo4\DeliverBoo4\resources\js\frontend.js */"./resources/js/frontend.js");
 
 
 /***/ })
