@@ -13742,11 +13742,7 @@ new Chart(
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! /Users/felicelaterza/boolean/DeliverBoo4/resources/js/chart/statistic.js */"./resources/js/chart/statistic.js");
-=======
-module.exports = __webpack_require__(/*! /Users/ericamancini/Boolean/DeliverBoo4/resources/js/chart/statistic.js */"./resources/js/chart/statistic.js");
->>>>>>> c63e91fe038950b0002774878d23c925188031b8
+module.exports = __webpack_require__(/*! C:\Users\utente\Desktop\Boolean\DeliverBoo4\resources\js\chart\statistic.js */"./resources/js/chart/statistic.js");
 
 
 /***/ })
