@@ -23,7 +23,7 @@ class OrderController extends Controller
         // join products on order_product.product_id = products.id 
         // join users on products.user_id = users.id 
         // where users.id = 5;
-        
+
         $orders =  DB::table('orders')
         ->join('order_product' , 'orders.id' , '=' , 'order_product.order_id')
         ->join('products' , 'order_product.product_id' , '=' , 'products.id')
@@ -32,19 +32,21 @@ class OrderController extends Controller
         ->select('orders.*')
         ->distinct()
         ->paginate(20);
+        
 
         return view("admin.orders.index", compact("orders"));
     }
 
-    public function statistic() {
+    public function statistic()
+    {
 
         //mesa/anno totale vendite
 
 
-        
-        
+
+
         $id = Auth::user()->id;
-        $orders = $orders =  DB::table('orders')
+      $orders = DB::table('orders')
         ->join('order_product' , 'orders.id' , '=' , 'order_product.order_id')
         ->join('products' , 'order_product.product_id' , '=' , 'products.id')
         ->join('users' , 'products.user_id' , '=' , 'users.id')
@@ -52,31 +54,52 @@ class OrderController extends Controller
         ->select('orders.*')
         ->distinct()
         ->get();
-
+        
         
         $total = 0;
         foreach($orders as $order){
             $total += $order->subtotal;
-        }
+        } 
         // $data = [];
-     
+
         //  foreach($orders as $row) {
-             
+
         //     $data['label'][] = date('m/Y', strtotime($row->date_order));
         //     $data['data'][] = $total;
         //   }
-     
-        // $data['chart_data'] = json_encode($data);
 
-        return view("admin.orders.statistic", compact("orders" , "total") );
+        // $data['chart_data'] = json_encode($data);
+        /* 
+        SELECT COUNT(*) as 'totale_ordini' , orders.date_order  
+        FROM order_product 
+        join products on order_product.product_id = products.id  v
+        join orders on orders.id = order_product.order_id 
+        where products.user_id = 5 
+        GROUP by DATE(orders.date_order)
+        */
+
+       /*  $num_order = DB::table('order_product')
+        ->join('products','order_product.product_id','=','products.id')
+        ->join('orders','orders.id','=','order_product.order_id')
+        ->where('products.user_id','=',$id)
+        ->select('COUNT(*) as Totale_ordini','orders.date_order as Data')
+        ->groupBy('DATE(orders.date_order)');
+
+        dd($num_order); */
+
+
+        $num_orders  = Order::groupBy(DB::raw('DATE(orders.date_order)'))->join('order_product','orders.id','=','order_product.order_id')->join('products','order_product.product_id','=','products.id')->distinct()->where('products.user_id','=',5)->get([DB::raw('COUNT(*) as count'), DB::raw('DATE(orders.date_order) as date')]);
+        
+        
+        return view("admin.orders.statistic", compact( "orders", "total", "num_orders"));
     }
-    
+
     /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function show($id)
     {
         $orders = Order::findOrFail($id);

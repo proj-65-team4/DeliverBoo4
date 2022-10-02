@@ -22,7 +22,7 @@
                                         <span v-if="score >= 4.5" class="excellent">Eccellente</span>
                                     </div> -->
 
-                                    <div class="">
+                                    <div class="vote">
                                         <div v-if="score >= 3.5 && score < 4" class="good">
                                             <i class="fa-solid fa-star"></i><span class="ps-1">{{ score }}</span>
                                             <span>Buono</span>
@@ -135,6 +135,10 @@ h4{
 @media only screen and (max-width: 768px){
     .random{
         font-size: 14px;
+    }
+
+    .vote{
+        margin-bottom: 0.5rem;
     }
 }
 

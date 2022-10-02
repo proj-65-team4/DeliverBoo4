@@ -1,37 +1,39 @@
-// import Chart from 'chart.js/auto';
+ import Chart from 'chart.js/auto';
+/* 
+ const orders = {!! json_encode($num_orders->toArray()) !!};
+    
+    
+ const tot_ordini = [];
+ const labels = [];
+ orders.forEach(element => {
+     console.log(element);
+     labels.push(element.date)
+     tot_ordini.push(element.count);
+ });
+ 
+ console.log(labels);
+ console.log(tot_ordini);
 
-const labels = [
-    'Gennaio',
-    'Febbraio',
-    'Marzo',
-    'Aprile',
-    'Maggio',
-    'Giugno',
-    'Luglio',
-    'Agosto',
-    'Settembre',
-    'Ottobre',
-    'Novembre',
-    'Dicembre',
-];
+
 
 const data = {
-    labels: labels,
-    datasets: [{
-        label: 'My First dataset',
-        backgroundColor: 'rgb(255, 99, 132)',
-        borderColor: 'rgb(255, 99, 132)',
-        data: [0, 10, 5, 2, 20, 30, 45],
-    }]
+ labels: labels,
+ datasets: [{
+     label: 'My First dataset',
+     backgroundColor: 'rgb(255, 99, 132)',
+     borderColor: 'rgb(255, 99, 132)',
+     data: tot_ordini ,
+ }]
 };
 
 const config = {
-    type: 'line',
-    data: data,
-    options: {}
+ type: 'line',
+ data: data,
+ options: {}
 };
 
+
 new Chart(
-    document.getElementById('myChart'),
-    config
-);
+ document.getElementById('myChart'),
+ config
+); */

@@ -124,7 +124,7 @@ export default {
 <style lang="scss">
 
     .custom-padding {
-        padding-top: 50px;
+        padding-top: 90px;
     }
     .restaurant-bg {
         background-color: #FFCA3A;

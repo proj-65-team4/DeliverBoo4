@@ -25,7 +25,7 @@
         v-for="restaurant_data in restaurant"
         :key="restaurant_data.id"
       >
-        <div class="col-3">
+        <div class="col-sm-12 col-md-3">
           <img
             :src="'/storage/' + restaurant_data.image"
             alt=""
@@ -41,12 +41,12 @@
         </div>
         <div class="col">
           <div class="row">
-            <div class="col-12">
+            <div class="col-12 rest-name">
               <h1 class="fw-bold">
                 {{ restaurant_data.restaurant_name }}
               </h1>
             </div>
-            <div class="col">
+            <div class="col-sm-12 col-md-6 cat-name">
               <span v-for="category in categories" :key="category.id">
                 <div class="d-inline me-3 fw-bold">
                   <router-link :to="{ path: '/restaurants/' + category.id }">
@@ -55,7 +55,7 @@
                 </div>
               </span>
             </div>
-            <div class="col">
+            <div class="col-sm-12 col-md-6 rest-address">
               <div class="mb-2">
                 <i class="fa-solid fa-location-dot icon-color"></i>
                 <h6 class="my-3 d-inline icon-color">
@@ -580,6 +580,24 @@ a {
     width: 80%;
     margin: 0 calc((476px - 360px) / 2);
     margin-bottom: 2rem;
+  }
+
+  .cat-name{
+    margin-bottom: 0.8rem;
+    margin-left: 0.8rem;
+  }
+
+  .rest-name{
+    margin-left: .8rem;
+  }
+
+  .rest-address{
+    margin-left: .8rem;
+  }
+
+  .card-img{
+    margin-left: 0.7rem;
+    margin-bottom: 1rem;
   }
 }
 
