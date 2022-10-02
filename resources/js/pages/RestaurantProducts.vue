@@ -132,7 +132,7 @@
               <div class="accordion-body">
                 <div class="row mt-4 mb-5">
                   <div
-                    class="col-12 my-col col-md-6 col-lg-6"
+                    class="col-12 my-col col-md-4 col-lg-4"
                     v-for="product in filteredProducts(course.id)"
                     :key="product.id">
                     <!-- Card prodotto -->
@@ -141,11 +141,11 @@
                       <div class="under-image">
                         <div class="title-price">
                           <h5>{{ product.name }}</h5>
-                          <h6>{{product.description}}</h6>
+
                           <h5 id="price">€ {{ product.price }}</h5>
                           
                           <!-- Icone Categoria Prodotto -->
-                          <div class="pb-2">
+                          <div class="">
                             <span v-for="cat in product.product_categories" :key="cat.id"  href="#" data-bs-toggle="tooltip" data-bs-placement="top" :title="cat.name" data-bs-delay="0" class="category-icon">
                               <img :src=" cat.icon" alt="">
                             </span>
@@ -163,6 +163,8 @@
                               <span class="text-muted">Non disponibile</span>
                             </div>
                         </div>
+
+                        <button type="button" class="btn btn-primary modal-btn" @click="openModal(product)">MORE INFO</button>
                             
                         <!-- Buttons per aumentare/diminuire quantità -->
                         <div class="cart-btn" v-if="product.available ? 'disabled' : ''">
@@ -191,6 +193,26 @@
                       </div>
                     </div>
                     <!-- Fine Card -->
+
+                      <!-- Modale PRODOTTO -->
+                      <div v-if="open" class="my-modal" :id="'myModal' + modalProduct.id" >
+                        <div class="my-modal-content">
+                            <!-- Close button -->
+                            <button type="button" class="btn-close" @click="open = false"></button>
+                                          
+                            <!-- Modal-body -->
+                            <div class="">
+                                <img :src="modalProduct.image" alt="" class="w-100 rounded"/>
+                                <h4 class="m-0 py-4">{{ modalProduct.name }}</h4>
+                                <h5>{{ modalProduct.description }}</h5>
+                                <h5>€ {{ modalProduct.price }}</h5>
+                                <div v-for="cat in modalProduct.product_categories" :key="cat.id">
+                                  <img :src="cat.icon" alt="">
+                                  <span>{{ cat.name }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                   </div>
 
                 </div>
@@ -241,6 +263,8 @@ export default {
       loaded: false,
       addedProduct: false,
       removedProduct: false,
+      open: false,
+      modalProduct: [],
     };
   },
   computed: {
@@ -451,8 +475,8 @@ a {
 }
 
 .product-card img {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
   object-position: center;
   flex-shrink: 0;
@@ -466,6 +490,10 @@ a {
   width: 100%;
   position: relative;
 }
+
+/* .under-image h5 {
+    flex-shrink: 0;
+} */
 
 .added-product {
   position: fixed;
@@ -557,7 +585,7 @@ a {
   }
 
   .under-image {
-    height: 245px;
+    height: 165px;
   }
 
   .cart-btn {
@@ -631,18 +659,17 @@ a {
 
   .under-image {
     position: relative;
-    height: 250px;
+    height: 150px;
   }
 
   .title-price {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
     padding: 12px 12px 0px 12px;
-    /* & h5 {
+    & h5 {
       margin-bottom: 0;
-    } */
+    }
   }
 
   #price {
