@@ -110,9 +110,10 @@
               required
               placeholder="Inserisci numero telefono"
               v-model="customer_telephone"
+              pattern="[0-9]{10}"
             />
             <label for="customer_telephone"
-              >Inserisci contatto telefonico</label
+              >Inserisci contatto telefonico (max 10 cifre)</label
             >
           </div>
           <div class="form-floating mb-3">
@@ -231,7 +232,10 @@ export default {
       setTimeout(() => {
         this.order_processing = false;
         const payload = document.querySelector("#my-nonce-input");
-        if (payload) {
+        debugger
+        console.log(payload)
+        
+        if (payload.value !== "") {
           this.order_processing = true;
           Axios.post("/api/ordina", {
             customer_name: this.customer_name,
@@ -279,7 +283,7 @@ export default {
 
           instance.requestPaymentMethod(function (err, payload) {
             if (err) {
-              hiddenNonceInput.value = false;
+              hiddenNonceInput.value = '';
               return;
             }
             hiddenNonceInput.value = payload.nonce;
