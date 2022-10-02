@@ -28,7 +28,7 @@ class ProductController extends Controller
         
         $products = Product::where("user_id", $id)->where("visible", 1)->get();
 
-        $products->load("product_course:id,name");
+        $products->load("product_course:id,name", "product_categories:id,name,icon");
 
         // $products->load("product_categories:id,name,icon");
         
@@ -67,7 +67,7 @@ class ProductController extends Controller
         $productCategory = DB::table('products')
         ->join('product_product_category' , 'product_product_category.product_id' , '=' , 'products.id')
         ->join('product_categories' , 'product_product_category.product_category_id' , '=' , 'product_categories.id')
-        ->where('products.id' , '=' , $products)
+        ->where('products.id' , '=' , 70)
         ->select('product_categories.name', 'product_categories.icon')
         ->get();
 

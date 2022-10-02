@@ -150,8 +150,11 @@
                           <h5>{{ product.name }}</h5>
 
                           <h5 id="price">€ {{ product.price }}</h5>
-                          <div v-for="cat in productCategories" :key="cat.id">
-                            {{cat.name}}
+                          
+                          <div class="">
+                            <span v-for="cat in product.product_categories" :key="cat.id"  href="#" data-bs-toggle="tooltip" data-bs-placement="top" :title="cat.name" data-bs-delay="0">
+                              <img :src=" cat.icon" alt="" class="img-fluid w-25 h-25">
+                            </span>
                           </div>
 
                         </div>
@@ -572,6 +575,21 @@ a {
 
   .cart-btn {
     height: 60px;
+  }
+}
+
+.icon-tooltip{
+  position: relative;
+  .tooltip {
+    width: 100%;
+    position: absolute;
+    height: 10px;
+    top: -10px;
+    left: 0;
+    display: none;
+  }
+  &:hover .tooltip {
+    display: block;
   }
 }
 
