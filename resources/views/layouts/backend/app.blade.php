@@ -114,7 +114,7 @@
                             <a href="{{ route('admin.products.create') }}"
                                 class="{{ Request::route()->getName() === 'admin.products.create' ? 'active' : '' }}"><span
                                     class="las la-plus"></span>
-                                    <span>Add Products</span></a>
+                                    <span>Aggiungi prodotti</span></a>
                         </div>
 
 
