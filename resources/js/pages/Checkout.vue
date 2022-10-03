@@ -11,9 +11,8 @@
       </div>
     </template>
     <div class="container py-5">
-      <h2 class="mb-5 text-uppercase text-decoration-underline">Checkout</h2>
       <div class="p-2 border mb-3 rounded">
-        <h4><strong> Riepilogo ordine</strong></h4>
+        <h4 class="text-center pt-4 pb-2"><strong> Riepilogo ordine</strong></h4>
         <div class="py-4 d-block">
           <div class="row py-2 border-1 border-bottom">
             <div class="col text-center"><strong>Nome</strong></div>
@@ -24,10 +23,10 @@
               <strong>Quantità</strong>
             </div>
             <div class="col text-center">
-              <strong>Subtotal</strong>
+              <strong>Subtotale</strong>
             </div>
           </div>
-          <div class="row py-2" v-for="item in cart" :key="item.id">
+          <div class="row py-2 mt-3" v-for="item in cart" :key="item.id">
             <div class="col text-center">{{ item.name }}</div>
             <div class="col text-center">
               {{ item.description }}
@@ -43,17 +42,18 @@
               "
             >
               <button class="btn btn-danger" @click="removeCart(item)">
-                -
+                <i class="fa-solid fa-minus"></i>
               </button>
               {{ item.quantity }}
-              <button class="btn btn-success" @click="addCart(item)">+</button>
+              <button class="btn btn-success" @click="addCart(item)"><i class="fa-solid fa-plus"></i></button>
             </div>
             <div class="col text-center">
-              {{ (item.quantity * parseFloat(item.price)).toFixed(2) }}
-              €
+              € {{ (item.quantity * parseFloat(item.price)).toFixed(2) }}
             </div>
           </div>
-          <div class="text-center fw-bold">Prezzo totale {{ total }} €</div>
+          <div class="total-price">
+            <div class="text-center fw-bold">Totale € {{ total }}</div>
+          </div>
         </div>
       </div>
       <div class="p-2 border mb-3 rounded">
@@ -346,6 +346,16 @@ ul {
     z-index: 9999;
     background-color: white;
     opacity: 80%;
+}
 
+.total-price {
+  background-color: #00A396;
+  color: #fff;
+  padding: 1rem 3rem;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
 }
 </style>

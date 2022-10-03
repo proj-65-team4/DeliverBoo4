@@ -196,27 +196,29 @@
                     <!-- Fine Card -->
 
                       <!-- Modale PRODOTTO -->
-                        <div v-if="open" class="my-modal" :id="'myModal' + modalProduct.id" >
+
+                        <div v-if="open" class="product-modal" :id="'myModal' + modalProduct.id" >
                           <div class="my-modal-content">
-                                          
+
                             <!-- Modal-body -->
-                            <div class="position-relative">
-                              <button type="button" class="position-absolute top-0 end-0 my-close-btn" @click="open = false">
-                                <i class="fa-solid fa-xmark"></i>
-                              </button>
+                              <div class="position-fixed h-100">
+                                <button type="button" class="my-close-btn" @click="open = false">
+                                  <i class="fa-solid fa-xmark"></i>
+                                </button>
+                              </div>
 
                               <div class="modal-img">
                                 <img :src="modalProduct.image" alt="" />
                               </div>
                               <div class="px-5 py-4">
-                                <h4 class="m-0 fw-bold">{{ modalProduct.name }}</h4>
-                                <h6 class="py-2">{{ modalProduct.description }}</h6>
+                                <h3 class="m-0 fw-bold py-2">{{ modalProduct.name }}</h3>
+                                <h5 class="pb-4 m-0">{{ modalProduct.description }}</h5>
+                                <h5 class="pb-4 m-0">€ {{ modalProduct.price }}</h5>
                                 <div v-for="cat in modalProduct.product_categories" :key="cat.id">
                                   <img :src="cat.icon" alt="" class="cat-icon">
-                                  <span class="text-capitalize cat-text fs-6">{{ cat.name }}</span>
+                                  <span class="text-capitalize cat-text fs-5">{{ cat.name }}</span>
                                 </div>
                               </div>
-                            </div>
                           </div>
                         </div>
                   </div>
@@ -555,30 +557,36 @@ a {
   background: #3dd9bc;
   height: 40px;
   width: 40px;
+  position: absolute;
+  left: 520px;
+  top: 10px;
   &:hover{
     color: #1a5f53;
   }
-
   & i {
       font-size: 1rem;
   }
 }
-.my-modal {
-  width: 600px;
-  height: 500px;
-  z-index: 999;
+.product-modal {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -250px;/* Negative half of height. */
-  margin-left: -300px;/* Negative half of width. */
-  background-color: #fff;
-  overflow: auto;
-  box-shadow: rgba(17, 17, 26, 0.01) 0px 1px 1px, rgba(17, 17, 26, 0.01) 0px 1px 4px, rgba(17, 17, 26, 0.01) 0px 6px 6px;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1);
 
 }
 
 .my-modal-content{
+  max-width: 600px;
+  max-height: 500px;
+  background-color: #fff;
+  overflow: auto;
+  box-shadow: rgba(17, 17, 26, 0.01) 0px 1px 1px, rgba(17, 17, 26, 0.01) 0px 1px 4px, rgba(17, 17, 26, 0.01) 0px 6px 6px;
 }
 .modal-btn {
   border: none;
