@@ -195,23 +195,33 @@
                     <!-- Fine Card -->
 
                       <!-- Modale PRODOTTO -->
-                      <div v-if="open" class="my-modal" :id="'myModal' + modalProduct.id" >
+                      <div v-if="open" class="overlay-modal">
+
+                      
+                      <div  class="my-modal" :id="'myModal' + modalProduct.id" >
                         <div class="my-modal-content">
                             <!-- Close button -->
                             <button type="button" class="btn-close" @click="open = false"></button>
                                           
                             <!-- Modal-body -->
                             <div class="">
-                                <img :src="modalProduct.image" alt="" class="w-100 rounded"/>
-                                <h4 class="m-0 py-4">{{ modalProduct.name }}</h4>
+                                <img :src="product.image ? product.image : '/img/food-placeholder.jpeg'" alt="" class="my-modal-image"/>
+                                <h4 class="m-0 py-4 fw-bold">{{ modalProduct.name }}</h4>
+                                <span><strong>Descrizione</strong></span>
                                 <h5>{{ modalProduct.description }}</h5>
+                                <span><strong>Prezzo</strong></span>
                                 <h5>€ {{ modalProduct.price }}</h5>
-                                <div v-for="cat in modalProduct.product_categories" :key="cat.id">
-                                  <img :src="cat.icon" alt="">
-                                  <span>{{ cat.name }}</span>
+                                <p v-if="modalProduct.product_categories.length>0"><strong>Categorie</strong></p>
+                                <div class="d-flex gap-3 py-2">
+                                    
+                                    <div v-for="cat in modalProduct.product_categories" :key="cat.id" >
+                                  <img :src="cat.icon" alt="" class="icon-product-categories" data-bs-toggle="tooltip" data-bs-placement="top" :title="cat.name">
+                                  <!-- <span>{{ cat.name }}</span> -->
+                                </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                   </div>
 
@@ -550,7 +560,7 @@ a {
 .my-modal {
   position: fixed;
   z-index: 999;
-  top: 10%;
+  top: 15%;
   left: 45%;
   width: 600px;
   margin-left: -150px;
@@ -558,6 +568,7 @@ a {
   padding: 1rem;
   border-radius: 30px;
   height: 600px;
+  border: 1px solid gray;
 }
 
 .category-btn {
@@ -711,5 +722,28 @@ a {
     text-decoration: none;
     cursor: pointer;
   }
+}
+
+.icon-product-categories {
+    width: 30px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+.my-modal-image {
+    width: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.overlay-modal {
+    position: fixed;
+top: 0;
+right: 0;
+z-index: 9;
+left: 0;
+bottom: 0;
+background-color: rgba(255,255,255,.15);
+opacity: 1;
+height: 100%;
 }
 </style>
