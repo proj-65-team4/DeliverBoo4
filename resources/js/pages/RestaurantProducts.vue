@@ -208,6 +208,7 @@
                               <div class="modal-img">
                                 <img :src="modalProduct.image" alt="" />
                               </div>
+                              
                               <div class="px-5 py-4">
                                 <h4 class="m-0 fw-bold">{{ modalProduct.name }}</h4>
                                 <h6 class="py-2">{{ modalProduct.description }}</h6>
