@@ -677,7 +677,7 @@ justify-content: center;
   }
 
   .under-image {
-    height: 165px;
+    height: 225px;
   }
 
   .cart-btn {
