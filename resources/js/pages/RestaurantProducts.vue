@@ -630,6 +630,27 @@ a {
   }
 }
 
+@media only screen and (max-width: 1200px) {
+  .product-card {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card img {
+    width: 100%;
+  }
+
+  .under-image {
+    height: 225px;
+  }
+
+  .cart-btn {
+    height: 60px;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .product-card {
     width: 80%;
