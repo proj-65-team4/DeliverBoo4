@@ -136,25 +136,24 @@
                     v-for="product in filteredProducts(course.id)"
                     :key="product.id">
                     <!-- Card prodotto -->
-                    <div class="product-card position-relative">
-                      <button type="button" class="btn modal-btn" @click="openModal(product)">
-                        <img :src="product.image ? product.image : '/img/food-placeholder.jpeg'" alt="" />
-                      </button>
+                    <div class="product-card">
+                      <img :src="product.image ? product.image : '/img/food-placeholder.jpeg'" alt="" />
                       <div class="under-image">
                         <div class="title-price">
-                          <h5 class="fw-bold">{{ product.name }}</h5>
+                          <h5>{{ product.name }}</h5>
 
                           <h5 id="price">€ {{ product.price }}</h5>
                           
                           <!-- Icone Categoria Prodotto -->
-                            <div>
-                              <span class="category-icon me-2" v-for="cat in product.product_categories" :key="cat.id"  href="#" data-bs-toggle="tooltip" data-bs-placement="top" :title="cat.name" data-bs-delay="0">
-                                <img :src=" cat.icon" alt="" class="cat-icon">
-                              </span>
-                            </div>
+                          <!-- <div class="">
+                            <span v-for="cat in product.product_categories" :key="cat.id"  href="#" data-bs-toggle="tooltip" data-bs-placement="top" :title="cat.name" data-bs-delay="0" class="category-icon">
+                              <img :src=" cat.icon" alt="">
+                            </span>
+                          </div> -->
 
-                          <!-- Disponibilità -->
-                          <div class="mt-2">
+                        </div>
+                        <!-- Disponibilità -->
+                        <div class="disp">
                           <div v-if="product.available === 1">
                               <i class="fa-solid fa-circle-check text-success"></i>
                               <span class="text-muted">Disponibile</span>
@@ -163,9 +162,9 @@
                               <i class="fa-solid fa-circle-xmark text-danger"></i>
                               <span class="text-muted">Non disponibile</span>
                             </div>
-                          </div>
-
                         </div>
+
+                        <button type="button" class="btn btn-primary modal-btn" @click="openModal(product)">MORE INFO</button>
                             
                         <!-- Buttons per aumentare/diminuire quantità -->
                         <div class="cart-btn" v-if="product.available ? 'disabled' : ''">
@@ -196,8 +195,13 @@
                     <!-- Fine Card -->
 
                       <!-- Modale PRODOTTO -->
-                        <div v-if="open" class="my-modal" :id="'myModal' + modalProduct.id" >
-                          <div class="my-modal-content">
+                      <div v-if="open" class="overlay-modal">
+
+                      
+                      <div  class="my-modal" :id="'myModal' + modalProduct.id" >
+                        <div class="my-modal-content">
+                            <!-- Close button -->
+                            <button type="button" class="btn-close" @click="open = false"></button>
                                           
                             <!-- Modal-body -->
                             <div class="position-relative">
@@ -216,10 +220,10 @@
                                   <img :src="cat.icon" alt="" class="cat-icon">
                                   <span class="text-capitalize cat-text fs-6">{{ cat.name }}</span>
                                 </div>
-                              </div>
                             </div>
-                          </div>
                         </div>
+                    </div>
+                    </div>
                   </div>
 
                 </div>
@@ -391,6 +395,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .disp{
+    padding-left: 0.8rem;
+  }
 .my-cont {
   padding: 80px 0;
 }
@@ -425,6 +432,12 @@ a {
 }
 .icon-color {
   color: rgb(40, 191, 214);
+}
+.modal-btn {
+  border: none;
+  &:hover {
+    border: none;
+  }
 }
 .cart-btn {
   background-color: #3dd9bc;
@@ -473,8 +486,8 @@ a {
 }
 
 .product-card img {
-  width: 200px;
-  height: 230px;
+  width: 220px;
+  height: 220px;
   object-fit: cover;
   object-position: center;
   flex-shrink: 0;
@@ -545,87 +558,19 @@ a {
   object-fit: cover;
 }
 
-// MODALE INFO PRODOTTO
-
-.my-close-btn {
-  border-radius: 80%;
-  border: none;
-  color: #fff;
-  text-align: center;
-  margin: 1rem;
-  background: #3dd9bc;
-  height: 40px;
-  width: 40px;
-  &:hover{
-    color: #1a5f53;
-  }
-
-  & i {
-      font-size: 1rem;
-  }
-}
 .my-modal {
-  width: 600px;
-  height: 500px;
-  z-index: 999;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -250px;/* Negative half of height. */
-  margin-left: -300px;/* Negative half of width. */
-  background-color: #fff;
-  overflow: auto;
-  box-shadow: rgba(17, 17, 26, 0.01) 0px 1px 1px, rgba(17, 17, 26, 0.01) 0px 1px 4px, rgba(17, 17, 26, 0.01) 0px 6px 6px;
-
+  z-index: 999;
+  top: 15%;
+  left: 45%;
+  width: 600px;
+  margin-left: -150px;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 30px;
+  height: 600px;
+  border: 1px solid gray;
 }
-.modal-btn {
-  border: none;
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  text-align: left;
-  &:hover {
-    border: none;
-  }
-}
-
-.modal-img {
-max-width: 100%;
-max-height: 350px;
-overflow: hidden;
-display: flex;
-align-items: center;
-justify-content: center;
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-}
-
-.cat-icon {
-  height: 18px;
-  width: 18px;
-  object-fit: cover;
-  object-position: center;
-  filter: saturate(500%) contrast(80%) brightness(500%) 
-      invert(80%) sepia(50%) hue-rotate(500deg);
-}
-
-.cat-text {
-  filter: saturate(500%) contrast(80%) brightness(500%) 
-  invert(80%) sepia(50%) hue-rotate(500deg);
-}
-
-//.my-modal {
-  //position: fixed;
-  //z-index: 999;
-  //top: 10%;
-  //left: 45%;
-  //width: 600px;
-  //height: 600px;
-  //margin-left: -150px;
-  //background-color: white;
-//}
 
 .category-btn {
   color: #eee;
@@ -639,6 +584,26 @@ justify-content: center;
   border-color: white;
 }
 
+@media only screen and (max-width: 1200px) {
+  .product-card {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-card img {
+    width: 100%;
+  }
+
+  .under-image {
+    height: 165px;
+  }
+
+  .cart-btn {
+    height: 60px;
+  }
+}
 // CATEGORY ICON -----------
 .icon-tooltip{
   position: relative;
@@ -662,27 +627,6 @@ justify-content: center;
   & img {
     max-width: 100%;
     max-height: 100%;
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-  .product-card {
-    width: 100%;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .product-card img {
-    width: 100%;
-  }
-
-  .under-image {
-    height: 165px;
-  }
-
-  .cart-btn {
-    height: 60px;
   }
 }
 
@@ -779,5 +723,28 @@ justify-content: center;
     text-decoration: none;
     cursor: pointer;
   }
+}
+
+.icon-product-categories {
+    width: 30px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+.my-modal-image {
+    width: 50%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.overlay-modal {
+    position: fixed;
+top: 0;
+right: 0;
+z-index: 9;
+left: 0;
+bottom: 0;
+background-color: rgba(255,255,255,.15);
+opacity: 1;
+height: 100%;
 }
 </style>
