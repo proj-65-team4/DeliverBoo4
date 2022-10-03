@@ -577,9 +577,6 @@ a {
   box-shadow: rgba(17, 17, 26, 0.01) 0px 1px 1px, rgba(17, 17, 26, 0.01) 0px 1px 4px, rgba(17, 17, 26, 0.01) 0px 6px 6px;
 
 }
-
-.my-modal-content{
-}
 .modal-btn {
   border: none;
   width: 100%;
