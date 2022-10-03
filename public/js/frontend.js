@@ -7193,49 +7193,9 @@ var render = function render() {
         key: product.id,
         staticClass: "col-12 my-col col-md-4 col-lg-4"
       }, [_c("div", {
-        staticClass: "product-card"
-      }, [_c("img", {
-        attrs: {
-          src: product.image ? product.image : "/img/food-placeholder.jpeg",
-          alt: ""
-        }
-      }), _vm._v(" "), _c("div", {
-        staticClass: "under-image"
-      }, [_c("div", {
-        staticClass: "title-price"
-      }, [_c("h5", [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", {
-        attrs: {
-          id: "price"
-        }
-      }, [_vm._v("€ " + _vm._s(product.price))]), _vm._v(" "), _c("div", {}, _vm._l(product.product_categories, function (cat) {
-        return _c("span", {
-          key: cat.id,
-          staticClass: "category-icon",
-          attrs: {
-            href: "#",
-            "data-bs-toggle": "tooltip",
-            "data-bs-placement": "top",
-            title: cat.name,
-            "data-bs-delay": "0"
-          }
-        }, [_c("img", {
-          attrs: {
-            src: cat.icon,
-            alt: ""
-          }
-        })]);
-      }), 0)]), _vm._v(" "), _c("div", {
-        staticClass: "disp"
-      }, [product.available === 1 ? _c("div", [_c("i", {
-        staticClass: "fa-solid fa-circle-check text-success"
-      }), _vm._v(" "), _c("span", {
-        staticClass: "text-muted"
-      }, [_vm._v("Disponibile")])]) : _c("div", [_c("i", {
-        staticClass: "fa-solid fa-circle-xmark text-danger"
-      }), _vm._v(" "), _c("span", {
-        staticClass: "text-muted"
-      }, [_vm._v("Non disponibile")])])]), _vm._v(" "), _c("button", {
-        staticClass: "btn btn-primary modal-btn",
+        staticClass: "product-card position-relative"
+      }, [_c("button", {
+        staticClass: "btn modal-btn",
         attrs: {
           type: "button"
         },
@@ -7244,7 +7204,50 @@ var render = function render() {
             return _vm.openModal(product);
           }
         }
-      }, [_vm._v("MORE INFO")]), _vm._v(" "), (product.available ? "disabled" : "") ? _c("div", {
+      }, [_c("img", {
+        attrs: {
+          src: product.image ? product.image : "/img/food-placeholder.jpeg",
+          alt: ""
+        }
+      })]), _vm._v(" "), _c("div", {
+        staticClass: "under-image"
+      }, [_c("div", {
+        staticClass: "title-price"
+      }, [_c("h5", {
+        staticClass: "fw-bold"
+      }, [_vm._v(_vm._s(product.name))]), _vm._v(" "), _c("h5", {
+        attrs: {
+          id: "price"
+        }
+      }, [_vm._v("€ " + _vm._s(product.price))]), _vm._v(" "), _c("div", _vm._l(product.product_categories, function (cat) {
+        return _c("span", {
+          key: cat.id,
+          staticClass: "category-icon me-2",
+          attrs: {
+            href: "#",
+            "data-bs-toggle": "tooltip",
+            "data-bs-placement": "top",
+            title: cat.name,
+            "data-bs-delay": "0"
+          }
+        }, [_c("img", {
+          staticClass: "cat-icon",
+          attrs: {
+            src: cat.icon,
+            alt: ""
+          }
+        })]);
+      }), 0), _vm._v(" "), _c("div", {
+        staticClass: "mt-2"
+      }, [product.available === 1 ? _c("div", [_c("i", {
+        staticClass: "fa-solid fa-circle-check text-success"
+      }), _vm._v(" "), _c("span", {
+        staticClass: "text-muted"
+      }, [_vm._v("Disponibile")])]) : _c("div", [_c("i", {
+        staticClass: "fa-solid fa-circle-xmark text-danger"
+      }), _vm._v(" "), _c("span", {
+        staticClass: "text-muted"
+      }, [_vm._v("Non disponibile")])])])]), _vm._v(" "), (product.available ? "disabled" : "") ? _c("div", {
         staticClass: "cart-btn"
       }, [_c("button", {
         attrs: {
@@ -7283,8 +7286,10 @@ var render = function render() {
         }
       }, [_c("div", {
         staticClass: "my-modal-content"
+      }, [_c("div", {
+        staticClass: "position-relative"
       }, [_c("button", {
-        staticClass: "btn-close",
+        staticClass: "position-absolute top-0 end-0 my-close-btn",
         attrs: {
           type: "button"
         },
@@ -7293,24 +7298,34 @@ var render = function render() {
             _vm.open = false;
           }
         }
-      }), _vm._v(" "), _c("div", {}, [_c("img", {
-        staticClass: "w-100 rounded",
+      }, [_c("i", {
+        staticClass: "fa-solid fa-xmark"
+      })]), _vm._v(" "), _c("div", {
+        staticClass: "modal-img"
+      }, [_c("img", {
         attrs: {
           src: _vm.modalProduct.image,
           alt: ""
         }
-      }), _vm._v(" "), _c("h4", {
-        staticClass: "m-0 py-4"
-      }, [_vm._v(_vm._s(_vm.modalProduct.name))]), _vm._v(" "), _c("h5", [_vm._v(_vm._s(_vm.modalProduct.description))]), _vm._v(" "), _c("h5", [_vm._v("€ " + _vm._s(_vm.modalProduct.price))]), _vm._v(" "), _vm._l(_vm.modalProduct.product_categories, function (cat) {
+      })]), _vm._v(" "), _c("div", {
+        staticClass: "px-5 py-4"
+      }, [_c("h4", {
+        staticClass: "m-0 fw-bold"
+      }, [_vm._v(_vm._s(_vm.modalProduct.name))]), _vm._v(" "), _c("h6", {
+        staticClass: "py-2"
+      }, [_vm._v(_vm._s(_vm.modalProduct.description))]), _vm._v(" "), _vm._l(_vm.modalProduct.product_categories, function (cat) {
         return _c("div", {
           key: cat.id
         }, [_c("img", {
+          staticClass: "cat-icon",
           attrs: {
             src: cat.icon,
             alt: ""
           }
-        }), _vm._v(" "), _c("span", [_vm._v(_vm._s(cat.name))])]);
-      })], 2)])]) : _vm._e()]);
+        }), _vm._v(" "), _c("span", {
+          staticClass: "text-capitalize cat-text fs-6"
+        }, [_vm._v(_vm._s(cat.name))])]);
+      })], 2)])])]) : _vm._e()]);
     }), 0)])])]);
   }), 0) : _c("div", {
     staticClass: "text-center mb-5"
@@ -12941,7 +12956,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".disp[data-v-96ac86ec] {\n  padding-left: 0.8rem;\n}\n.my-cont[data-v-96ac86ec] {\n  padding: 80px 0;\n}\n.login[data-v-96ac86ec] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.7rem 0.9rem;\n  margin-right: 1rem;\n  background: #3da5d9;\n  font-weight: bold;\n  font-size: 18px;\n}\n.login[data-v-96ac86ec]:hover {\n  background: #3db7d9;\n  color: #fff;\n}\n.login i[data-v-96ac86ec] {\n  font-size: 1rem;\n}\na[data-v-96ac86ec] {\n  text-decoration: none;\n  color: black;\n  padding: 0.5rem 0;\n  transition: all 0.15s ease-out;\n}\na[data-v-96ac86ec]:hover {\n  color: rgb(40, 191, 214);\n}\n.icon-color[data-v-96ac86ec] {\n  color: rgb(40, 191, 214);\n}\n.modal-btn[data-v-96ac86ec] {\n  border: none;\n}\n.modal-btn[data-v-96ac86ec]:hover {\n  border: none;\n}\n.cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  height: 70px;\n  font-weight: 700;\n  display: flex;\n  justify-content: space-around;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n  font-size: 24px;\n}\n.cart-btn button[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  border: unset;\n  flex-shrink: 0;\n}\n.cart-btn .quantity[data-v-96ac86ec] {\n  width: 20px;\n  /* border: 1px solid #fff; */\n  text-align: center;\n}\n.number[data-v-96ac86ec] {\n  font-size: 18px;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card[data-v-96ac86ec]:hover {\n  box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;\n}\n.product-card img[data-v-96ac86ec] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  width: 100%;\n  position: relative;\n}\n\n/* .under-image h5 {\n    flex-shrink: 0;\n} */\n.added-product[data-v-96ac86ec] {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background-color: #00a676;\n  padding: 2rem;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid transparent;\n  border-radius: 20px;\n  z-index: 1;\n  transition: all 0.4s ease-in;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;\n}\n.removed-product[data-v-96ac86ec] {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background-color: #EE6C4D;\n  padding: 2rem;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid transparent;\n  border-radius: 20px;\n  z-index: 1;\n  transition: all 0.4s ease-in;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;\n}\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n.card-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.my-modal[data-v-96ac86ec] {\n  position: fixed;\n  z-index: 999;\n  top: 10%;\n  left: 45%;\n  width: 600px;\n  margin-left: -150px;\n  background-color: white;\n  padding: 1rem;\n  border-radius: 30px;\n  height: 600px;\n}\n.category-btn[data-v-96ac86ec] {\n  color: #eee;\n  padding: 15px 25px;\n  text-decoration: none;\n}\n.my-btn[data-v-96ac86ec]:hover {\n  color: var(--bs-btn-hover-color);\n  background-color: var(--bs-btn-hover-bg);\n  border-color: white;\n}\n@media only screen and (max-width: 1200px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n}\n.under-image[data-v-96ac86ec] {\n    height: 165px;\n}\n.cart-btn[data-v-96ac86ec] {\n    height: 60px;\n}\n}\n.icon-tooltip[data-v-96ac86ec] {\n  position: relative;\n}\n.icon-tooltip .tooltip[data-v-96ac86ec] {\n  width: 100%;\n  position: absolute;\n  height: 10px;\n  top: -10px;\n  left: 0;\n  display: none;\n}\n.icon-tooltip:hover .tooltip[data-v-96ac86ec] {\n  display: block;\n}\n.category-icon[data-v-96ac86ec] {\n  display: inline-block;\n  width: 25px;\n  height: 25px;\n}\n.category-icon img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 100%;\n}\n@media only screen and (max-width: 768px) {\n.product-card[data-v-96ac86ec] {\n    width: 80%;\n    margin: 0 58px;\n    margin-bottom: 2rem;\n}\n.cat-name[data-v-96ac86ec] {\n    margin-bottom: 0.8rem;\n    margin-left: 0.8rem;\n}\n.rest-name[data-v-96ac86ec] {\n    margin-left: 0.8rem;\n}\n.rest-address[data-v-96ac86ec] {\n    margin-left: 0.8rem;\n}\n.card-img[data-v-96ac86ec] {\n    margin-left: 0.7rem;\n    margin-bottom: 1rem;\n}\n}\n@media only screen and (max-width: 468px) {\n.product-card[data-v-96ac86ec] {\n    width: 90%;\n    margin: 0 auto;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 150px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n.title-price h5[data-v-96ac86ec] {\n    margin-bottom: 0;\n}\n#price[data-v-96ac86ec] {\n    flex-shrink: 0;\n}\n}\n.myModal[data-v-96ac86ec] {\n  display: none;\n  position: fixed;\n  z-index: 1;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: auto;\n  background-color: rgb(0, 0, 0);\n  background-color: rgba(0, 0, 0, 0.4);\n  text-align: center;\n}\n.myModal .modal-content[data-v-96ac86ec] {\n  background-color: #fefefe;\n  margin: 15% auto;\n  padding: 20px;\n  border: 1px solid #888;\n  width: 400px;\n}\n.myModal .close[data-v-96ac86ec] {\n  color: #aaa;\n  float: right;\n  font-size: 28px;\n  font-weight: bold;\n}\n.myModal .close[data-v-96ac86ec]:hover,\n.myModal .close[data-v-96ac86ec]:focus {\n  color: black;\n  text-decoration: none;\n  cursor: pointer;\n}", ""]);
+exports.push([module.i, ".my-cont[data-v-96ac86ec] {\n  padding: 80px 0;\n}\n.login[data-v-96ac86ec] {\n  border-radius: 4px;\n  border: none;\n  color: #fff;\n  text-align: center;\n  padding: 0.7rem 0.9rem;\n  margin-right: 1rem;\n  background: #3da5d9;\n  font-weight: bold;\n  font-size: 18px;\n}\n.login[data-v-96ac86ec]:hover {\n  background: #3db7d9;\n  color: #fff;\n}\n.login i[data-v-96ac86ec] {\n  font-size: 1rem;\n}\na[data-v-96ac86ec] {\n  text-decoration: none;\n  color: black;\n  padding: 0.5rem 0;\n  transition: all 0.15s ease-out;\n}\na[data-v-96ac86ec]:hover {\n  color: rgb(40, 191, 214);\n}\n.icon-color[data-v-96ac86ec] {\n  color: rgb(40, 191, 214);\n}\n.cart-btn[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  width: 100%;\n  height: 70px;\n  font-weight: 700;\n  display: flex;\n  justify-content: space-around;\n  position: absolute;\n  bottom: 0;\n  align-items: center;\n  color: #fff;\n}\n.cart-btn i[data-v-96ac86ec] {\n  color: #fff;\n  font-size: 24px;\n}\n.cart-btn button[data-v-96ac86ec] {\n  background-color: #3dd9bc;\n  border: unset;\n  flex-shrink: 0;\n}\n.cart-btn .quantity[data-v-96ac86ec] {\n  width: 20px;\n  /* border: 1px solid #fff; */\n  text-align: center;\n}\n.number[data-v-96ac86ec] {\n  font-size: 18px;\n}\n.product-card[data-v-96ac86ec] {\n  width: 100%;\n  display: flex;\n  margin-bottom: 2rem;\n  flex-direction: row;\n  border-radius: 5px;\n  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);\n}\n.product-card[data-v-96ac86ec]:hover {\n  box-shadow: rgba(0, 0, 0, 0.4) 0px 5px 15px;\n}\n.product-card img[data-v-96ac86ec] {\n  width: 200px;\n  height: 230px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  flex-shrink: 0;\n}\n.title-price[data-v-96ac86ec] {\n  padding: 12px 12px 0px 12px;\n}\n.under-image[data-v-96ac86ec] {\n  width: 100%;\n  position: relative;\n}\n\n/* .under-image h5 {\n    flex-shrink: 0;\n} */\n.added-product[data-v-96ac86ec] {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background-color: #00a676;\n  padding: 2rem;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid transparent;\n  border-radius: 20px;\n  z-index: 1;\n  transition: all 0.4s ease-in;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;\n}\n.removed-product[data-v-96ac86ec] {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background-color: #EE6C4D;\n  padding: 2rem;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  border: 1px solid transparent;\n  border-radius: 20px;\n  z-index: 1;\n  transition: all 0.4s ease-in;\n  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;\n}\n.accordion-button[data-v-96ac86ec]:focus {\n  z-index: 3;\n  border-color: #fff;\n  outline: 0;\n  box-shadow: none;\n}\n.accordion-button[data-v-96ac86ec]:not(.collapsed) {\n  color: black;\n  background-color: #fff;\n  box-shadow: inset 0 calc(var(--bs-accordion-border-width) * -1) 0 var(--bs-accordion-border-color);\n}\n.card-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 150px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.my-close-btn[data-v-96ac86ec] {\n  border-radius: 80%;\n  border: none;\n  color: #fff;\n  text-align: center;\n  margin: 1rem;\n  background: #3dd9bc;\n  height: 40px;\n  width: 40px;\n}\n.my-close-btn[data-v-96ac86ec]:hover {\n  color: #1a5f53;\n}\n.my-close-btn i[data-v-96ac86ec] {\n  font-size: 1rem;\n}\n.my-modal[data-v-96ac86ec] {\n  width: 600px;\n  height: 500px;\n  z-index: 999;\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  margin-top: -250px; /* Negative half of height. */\n  margin-left: -300px; /* Negative half of width. */\n  background-color: #fff;\n  overflow: auto;\n  box-shadow: rgba(17, 17, 26, 0.01) 0px 1px 1px, rgba(17, 17, 26, 0.01) 0px 1px 4px, rgba(17, 17, 26, 0.01) 0px 6px 6px;\n}\n.modal-btn[data-v-96ac86ec] {\n  border: none;\n  width: 100%;\n  height: 100%;\n  padding: 0;\n  text-align: left;\n}\n.modal-btn[data-v-96ac86ec]:hover {\n  border: none;\n}\n.modal-img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 350px;\n  overflow: hidden;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.modal-img img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 100%;\n}\n.cat-icon[data-v-96ac86ec] {\n  height: 18px;\n  width: 18px;\n  -o-object-fit: cover;\n     object-fit: cover;\n  -o-object-position: center;\n     object-position: center;\n  filter: saturate(500%) contrast(80%) brightness(500%) invert(80%) sepia(50%) hue-rotate(500deg);\n}\n.cat-text[data-v-96ac86ec] {\n  filter: saturate(500%) contrast(80%) brightness(500%) invert(80%) sepia(50%) hue-rotate(500deg);\n}\n.category-btn[data-v-96ac86ec] {\n  color: #eee;\n  padding: 15px 25px;\n  text-decoration: none;\n}\n.my-btn[data-v-96ac86ec]:hover {\n  color: var(--bs-btn-hover-color);\n  background-color: var(--bs-btn-hover-bg);\n  border-color: white;\n}\n.icon-tooltip[data-v-96ac86ec] {\n  position: relative;\n}\n.icon-tooltip .tooltip[data-v-96ac86ec] {\n  width: 100%;\n  position: absolute;\n  height: 10px;\n  top: -10px;\n  left: 0;\n  display: none;\n}\n.icon-tooltip:hover .tooltip[data-v-96ac86ec] {\n  display: block;\n}\n.category-icon[data-v-96ac86ec] {\n  display: inline-block;\n  width: 25px;\n  height: 25px;\n}\n.category-icon img[data-v-96ac86ec] {\n  max-width: 100%;\n  max-height: 100%;\n}\n@media only screen and (max-width: 1200px) {\n.product-card[data-v-96ac86ec] {\n    width: 100%;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n}\n.under-image[data-v-96ac86ec] {\n    height: 165px;\n}\n.cart-btn[data-v-96ac86ec] {\n    height: 60px;\n}\n}\n@media only screen and (max-width: 768px) {\n.product-card[data-v-96ac86ec] {\n    width: 80%;\n    margin: 0 58px;\n    margin-bottom: 2rem;\n}\n.cat-name[data-v-96ac86ec] {\n    margin-bottom: 0.8rem;\n    margin-left: 0.8rem;\n}\n.rest-name[data-v-96ac86ec] {\n    margin-left: 0.8rem;\n}\n.rest-address[data-v-96ac86ec] {\n    margin-left: 0.8rem;\n}\n.card-img[data-v-96ac86ec] {\n    margin-left: 0.7rem;\n    margin-bottom: 1rem;\n}\n}\n@media only screen and (max-width: 468px) {\n.product-card[data-v-96ac86ec] {\n    width: 90%;\n    margin: 0 auto;\n    margin-bottom: 2rem;\n    display: flex;\n    flex-direction: column;\n}\n.product-card img[data-v-96ac86ec] {\n    width: 100%;\n    height: 210px;\n}\n.under-image[data-v-96ac86ec] {\n    position: relative;\n    height: 150px;\n}\n.title-price[data-v-96ac86ec] {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n    padding: 12px 12px 0px 12px;\n}\n.title-price h5[data-v-96ac86ec] {\n    margin-bottom: 0;\n}\n#price[data-v-96ac86ec] {\n    flex-shrink: 0;\n}\n}\n.myModal[data-v-96ac86ec] {\n  display: none;\n  position: fixed;\n  z-index: 1;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  overflow: auto;\n  background-color: rgb(0, 0, 0);\n  background-color: rgba(0, 0, 0, 0.4);\n  text-align: center;\n}\n.myModal .modal-content[data-v-96ac86ec] {\n  background-color: #fefefe;\n  margin: 15% auto;\n  padding: 20px;\n  border: 1px solid #888;\n  width: 400px;\n}\n.myModal .close[data-v-96ac86ec] {\n  color: #aaa;\n  float: right;\n  font-size: 28px;\n  font-weight: bold;\n}\n.myModal .close[data-v-96ac86ec]:hover,\n.myModal .close[data-v-96ac86ec]:focus {\n  color: black;\n  text-decoration: none;\n  cursor: pointer;\n}", ""]);
 
 // exports
 
