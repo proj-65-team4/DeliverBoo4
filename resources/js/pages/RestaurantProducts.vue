@@ -208,7 +208,7 @@
                               </div>
 
                               <div class="modal-img">
-                                <img :src="modalProduct.image" alt="" />
+                                <img :src="modalProduct.image ? modalProduct.image : '/img/food-placeholder.jpeg'" alt="" />
                               </div>
                               <div class="px-5 py-4">
                                 <h3 class="m-0 fw-bold py-2">{{ modalProduct.name }}</h3>
